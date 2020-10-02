@@ -44,13 +44,20 @@ input:focus {outline:0;}
 }
 
 .button {
-    width: 100px;
     height: 50px;
     background-color: #38b052;
     color: white;
     font-size: 14px;
     text-transform: uppercase;
     border-width: 0px;
+}
+
+.button-login {
+    width: 100px;
+}
+
+.button-register {
+    width: 200px;
 }
 
 .caption {
