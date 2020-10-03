@@ -2,7 +2,7 @@
 <html lang="ru" class="full-height zero-margin">
 
 <head>
-    <title>Список чатов</title>
+    <title>Лента переписки</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="chat.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="chat-list full-width full-height">
-                    <div class="chat-item">
+                    <div class="chat-item chat-item-selected">
                         <div>
                             <span class="chat-item-photo" />
                         </div>
@@ -78,15 +78,50 @@
                 </div>
             </div>
             <div class="right-panel full-width full-height">
-                <div class="select-chat full-width full-height column-container">
-                    <span class="caption-font">Выберите чат</span>
+                <div class="messages-title full-width row-container">
+                    <div>
+                        <span class="chat-item-photo" />
+                    </div>
+                    <div class="chat-item-user">
+                        <span>Илья</span>
+                    </div>
                 </div>
-                <!-- <div class="edit-message full-width" style="display: flex; flex-direction: row;">
-                    <div class="full-width"></div>
+                <hr class="devider" />
+                <div class="messages full-width full-height column-container">
+                    <div class="message message-companion column-container body-font">
+                        <div class="message-text body-font">
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                                in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                                laborum</span>
+                        </div>
+                        <div class="message-time body-font">
+                            <span>14:15</span>
+                        </div>
+                    </div>
+                    <div class="message message-own column-container body-font">
+                        <div class="message-text">
+                            <span>Lorem ipsum dolor sit amet</span>
+                        </div>
+                        <div class="message-time">
+                            <span>15:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit-message full-width row-container">
+                    <div class="full-width">
+                        <input id="message" class="edit-message-field full-width full-height" type="text"
+                            placeholder="Ваше сообщение" />
+                    </div>
                     <div>
                         <input class="send-button" type="button" value="GO" />
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
