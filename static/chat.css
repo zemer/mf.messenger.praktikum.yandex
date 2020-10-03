@@ -96,6 +96,7 @@ input:focus {outline:0;}
     border-style: solid;
     border-color: #BDBDBD;
     padding-left: 10px;
+    padding-right: 10px;
     color: #4F4F4F;
     margin-bottom: 15px;
 }
@@ -208,8 +209,7 @@ hr.devider {
 }
 
 .edit-message {
-    background-color: navy;
-    min-height: 50px;
+    min-height: 53px;
 }
 
 .edit-message-field {
@@ -220,7 +220,6 @@ hr.devider {
     border-left: 0px;
     border-style: solid;
     border-color: #BDBDBD;
-    padding-left: 10px;
     color: #4F4F4F;
 }
 
@@ -230,10 +229,6 @@ hr.devider {
 
 .left-panel {
     width: 500px;
-}
-
-.messages {
-    
 }
 
 .message {
