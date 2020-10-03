@@ -231,6 +231,10 @@ hr.devider {
     width: 500px;
 }
 
+.messages {
+    justify-content: flex-end;
+}
+
 .message {
     border-radius: 20px;
     width: 300px;
