@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="chat.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="logForm.js"></script>
 </head>
 
 <body>
@@ -19,46 +20,48 @@
             <div>
                 <span class="user-profile-photo">Добавьте фото</span>
             </div>
-            <div class="column-container">
+            <form onsubmit="return logForm()">
                 <div class="column-container">
-                    <div class="field">
-                        <label for="first_name">Имя</label>
-                        <input id="first_name" class="field" type="text" value="" />
+                    <div class="column-container">
+                        <div class="field">
+                            <label for="first_name">Имя</label>
+                            <input id="first_name" class="field" type="text" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="second_name">Фамилия</label>
+                            <input id="second_name" class="field" type="text" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="display_name">Отображаемое имя</label>
+                            <input id="display_name" class="field" type="text" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="login">Логин</label>
+                            <input id="login" class="field" type="text" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="email">Почта</label>
+                            <input id="email" class="field" type="text" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="phone">Телефон</label>
+                            <input id="phone" class="field" type="text" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="oldPassword">Старый пароль</label>
+                            <input id="oldPassword" class="field" type="password" value="" />
+                        </div>
+                        <div class="field">
+                            <label for="newPassword">Новый пароль</label>
+                            <input id="newPassword" class="field" type="password" value="" />
+                        </div>
                     </div>
-                    <div class="field">
-                        <label for="second_name">Фамилия</label>
-                        <input id="second_name" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="display_name">Отображаемое имя</label>
-                        <input id="display_name" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="login">Логин</label>
-                        <input id="login" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="email">Почта</label>
-                        <input id="email" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="phone">Телефон</label>
-                        <input id="phone" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="oldPassword">Старый пароль</label>
-                        <input id="oldPassword" class="field" type="password" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="newPassword">Новый пароль</label>
-                        <input id="newPassword" class="field" type="password" value="" />
-                    </div>
-                </div>
 
-                <div class="column-container centered-container">
-                    <input class="button button-save" type="button" value="Сохранить" />
+                    <div class="column-container centered-container">
+                        <input class="button button-save" type="submit" value="Сохранить" />
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

@@ -3,7 +3,7 @@ body {
     font-weight: 400;
 }
 
-input[type=button] {
+input[type=button], [type=submit] {
     background-color: #38b052;
     color: white;
     font-size: 14px;

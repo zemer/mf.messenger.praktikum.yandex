@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="chat.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="logForm.js"></script>
 </head>
 
 <body>
-    <form>
+    <form name="login" onsubmit="return logForm()">
         <div class="container">
-
             <div class="title-bar title-font">#ЧАТ</div>
 
             <div class="centered-container">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="centered-container">
-                <input class="button button-login" type="button" value="Войти" />
+                <input class="button button-login" type="submit" value="Войти" />
             </div>
             <div class="centered-container">
                 <a class="caption" href="registration.html">Регистрация</a>

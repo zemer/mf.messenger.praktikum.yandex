@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="chat.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="logForm.js"></script>
 </head>
 
 <body class="full-height zero-margin">
@@ -113,15 +114,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="edit-message full-width row-container">
-                    <div class="full-width">
-                        <input id="message" class="edit-message-field full-width full-height" type="text"
-                            aria-multiline="true" placeholder="Ваше сообщение" />
+                <form onsubmit="return logForm()">
+                    <div class="edit-message full-width row-container">
+
+                        <div class="full-width">
+                            <input id="message" class="edit-message-field full-width full-height" type="text"
+                                aria-multiline="true" placeholder="Ваше сообщение" />
+                        </div>
+                        <div>
+
+                            <input class="send-button" type="submit" value="GO" />
+                        </div>
                     </div>
-                    <div>
-                        <input class="send-button" type="button" value="GO" />
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
