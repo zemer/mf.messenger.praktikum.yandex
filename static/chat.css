@@ -73,12 +73,12 @@ input:focus {outline:0;}
     margin-bottom: 15px;    
 }
 
-.white-title > a:link {
+.white-title > nav > a:link {
     color: white;
     text-decoration: none;
 }
 
-.white-title > a:visited {
+.white-title > nav > a:visited {
     color: white;
     text-decoration: none;
 }
