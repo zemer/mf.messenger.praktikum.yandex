@@ -5,3 +5,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9930d43a-52de-4076-a5db-328eb15c058b/deploy-status)](https://app.netlify.com/sites/naughty-wescoff-127c17/deploys)
 
 [Проектная работа. 1-й спринт](https://naughty-wescoff-127c17.netlify.app)
+
+## Установка
+
+1. Установка модулей: `npm install`
+2. Запуск приложения: `npm start`
