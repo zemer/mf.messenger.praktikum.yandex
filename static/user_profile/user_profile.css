@@ -1,0 +1,26 @@
+.button-save {
+    width: 100px;
+}
+
+.user-profile {
+    margin-top: 10px;
+}
+
+.user-profile-title {
+    height: 75px;
+    background-color: #38b052;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-profile-photo {
+    height: 250px;
+    width: 250px;
+    background-color:#BDBDBD;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

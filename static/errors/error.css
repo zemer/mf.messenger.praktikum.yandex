@@ -1,0 +1,21 @@
+.error-font {
+    font-size: 144px;
+}
+
+.error-description-font {
+    font-size: 24px;
+}
+
+.error-link-font {
+    font-size: 18px;
+}
+
+.error-link-font > a:link {
+    text-decoration: none;
+    color: #38b052;
+}
+
+.error-link-font > a:visited {
+    text-decoration: none;
+    color: #38b052;
+}
