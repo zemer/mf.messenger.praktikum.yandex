@@ -1,4 +1,4 @@
-import Button from "../components/button/index"
+import Button from "../components/button/index.js"
 
 var source = document.getElementById("entry-template")?.innerHTML;
 var template = Handlebars.compile(source);

@@ -1,10 +1,17 @@
 {
     "compilerOptions": {
-        "outDir": "dist",
-        "target": "es2016",
+        //"outDir": "static",
+        "target": "es6",
         "declaration": false,
-        "module": "commonjs",
+        //"module": "commonjs",
+        "moduleResolution": "node",
         "strictNullChecks": true,
         "sourceMap": true
     }
+    // "include": [
+    //     "**/*"
+    // ],
+    // "exclude": [
+    //     "static"
+    // ]
 }
