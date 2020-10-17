@@ -1,6 +1,8 @@
 export default class EventBus {
+    private listeners: Map<string, Array<Function>>;
+
     constructor() {
-        this.listeners = {};
+        this.listeners = new Map();
     }
 
     on(event, callback) {

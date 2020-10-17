@@ -1,15 +1,23 @@
-import EventBus from "./event-bus.js";
+import EventBus from "./event-bus";
+
+interface IMetaInfo {
+    tagName: string;
+    props: any;
+}
 
 // Нельзя создавать экземпляр данного класса
 class Block {
     static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
-        FLOW_RENDER: "flow:render"
+        FLOW_RENDER: "flow:render",
+        FLOW_CDU: "flow:component-did-update"
     };
 
-    _element = null;
-    _meta = null;
+    props: any;
+    _element: HTMLElement | null = null;
+    _meta: IMetaInfo | null = null;
+    eventBus: () => EventBus;
 
     /** JSDoc
      * @param {string} tagName
@@ -42,7 +50,7 @@ class Block {
     }
 
     _createResources() {
-        const { tagName } = this._meta;
+        const tagName = this._meta?.tagName;
         this._element = this._createDocumentElement(tagName);
     }
 
@@ -52,7 +60,7 @@ class Block {
     }
 
     _componentDidMount() {
-        this.componentDidMount();
+        this.componentDidMount(this.props);
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
@@ -100,11 +108,12 @@ class Block {
         // Используйте шаблонизатор из npm или напишите свой безопасный
         // Нужно компилировать не в строку (или делать это правильно),
         // либо сразу в превращать DOM-элементы и возвращать из compile DOM-ноду
-        this._element.innerHTML = block;
+        if (this._element)
+            this._element.innerHTML = block;
     }
 
     // Переопределяется пользователем. Необходимо вернуть разметку
-    render() { }
+    render(): string { return ''; }
 
     getContent() {
         return this.element;
@@ -138,17 +147,21 @@ class Block {
         });
     }
 
-    _createDocumentElement(tagName) {
+    _createDocumentElement(tagName): HTMLElement {
         // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
     }
 
     show() {
-        this.getContent().style.display = "block";
+        const element = this.getContent();
+        if (element)
+            element.style.display = "block";
     }
 
     hide() {
-        this.getContent().style.display = "none";
+        const element = this.getContent();
+        if (element)
+            element.style.display = "none";
     }
 }
 
