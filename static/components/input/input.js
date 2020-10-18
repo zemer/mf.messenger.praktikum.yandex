@@ -1,5 +1,5 @@
 import { template } from "./template.js";
-import Block from "../block.js";
+import Block from "../block/block.js";
 export default class Input extends Block {
     constructor(props) {
         if (props && !props.hasOwnProperty("type"))

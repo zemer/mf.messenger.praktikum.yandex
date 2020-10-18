@@ -1,5 +1,5 @@
 import { template } from "./template.js";
-import Block from "../block.js";
+import Block from "../block/block.js";
 export default class OwnMessage extends Block {
     constructor(props) {
         super("div", props);

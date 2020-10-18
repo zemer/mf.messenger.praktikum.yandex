@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Авторизация</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="login.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script type="module" src="./index.js"></script>
+    <script type="text/javascript" src="../../utils/logForm.js"></script>
+</head>
+
+<body>
+    <script id="entry-template" type="text/x-handlebars-template">
+        <main>
+            <form name="login" onsubmit="return logForm()">
+                <div class="container">
+                    <h1 class="title-bar title-font">#ЧАТ</h1>
+    
+                    <div class="centered-container">
+                        {{{login}}}
+                        {{{password}}}
+                    </div>
+
+                    <div class="centered-container">
+                        {{{button}}}
+                    </div>
+                    <div class="centered-container">
+                        <a class="caption" href="../registration/registration.html">Регистрация</a>
+                    </div>
+                </div>
+            </form>
+        </main>
+      </script>
+</body>
+
+</html>

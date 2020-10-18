@@ -1,5 +1,5 @@
 import { template } from "./template.js";
-import Block from "../block.js";
+import Block from "../block/block.js";
 import { } from "handlebars";
 
 export default class Button extends Block {
