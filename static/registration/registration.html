@@ -7,52 +7,38 @@
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="registration.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script type="module" src="./index.js"></script>
     <script type="text/javascript" src="../logForm.js"></script>
 </head>
 
 <body>
-    <main>
-        <form onsubmit="return logForm()">
-            <div class="container">
-
-                <h1 class="title-bar title-font">#ЧАТ</h1>
-
-                <div class="centered-container">
-                    <div class="field">
-                        <label for="first_name">Имя</label>
-                        <input id="first_name" class="field" type="text" value="" />
+    <script id="entry-template" type="text/x-handlebars-template">
+        <main>
+            <form onsubmit="return logForm()">
+                <div class="container">
+    
+                    <h1 class="title-bar title-font">#ЧАТ</h1>
+    
+                    <div class="centered-container">
+                        {{{firtName}}}
+                        {{{secondName}}}
+                        {{{login}}}
+                        {{{email}}}
+                        {{{phone}}}
+                        {{{password}}}
                     </div>
-                    <div class="field">
-                        <label for="second_name">Фамилия</label>
-                        <input id="second_name" class="field" type="text" value="" />
+    
+                    <div class="centered-container">
+                        {{{button}}}
                     </div>
-                    <div class="field">
-                        <label for="login">Логин</label>
-                        <input id="login" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="email">Почта</label>
-                        <input id="email" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="phone">Телефон</label>
-                        <input id="phone" class="field" type="text" value="" />
-                    </div>
-                    <div class="field">
-                        <label for="password">Пароль</label>
-                        <input id="password" class="field" type="password" value="" />
+                    <div class="centered-container">
+                        <a class="caption" href="../login/login.html">Войти</a>
                     </div>
                 </div>
-
-                <div class="centered-container">
-                    <input class="button button-register" type="submit" value="Зарегистрироваться" />
-                </div>
-                <div class="centered-container">
-                    <a class="caption" href="../login/login.html">Войти</a>
-                </div>
-            </div>
-        </form>
-    </main>
+            </form>
+        </main>
+    </script>
 </body>
 
 </html>
