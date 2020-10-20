@@ -1,16 +1,19 @@
 {
     "compilerOptions": {
-        //"outDir": "static",
+        "outDir": "./static/js/build",
         "target": "es6",
         "declaration": false,
-        //"module": "commonjs",
-        "moduleResolution": "node",
+        "module": "ES6",
         "strictNullChecks": true,
-        "sourceMap": true
-    }
-    // "include": [
-    //     "**/*"
-    // ],
+        "sourceMap": true,
+        "alwaysStrict": false,
+        "types": [
+            "handlebars"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
     // "exclude": [
     //     "static"
     // ]
