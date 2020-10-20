@@ -5,6 +5,7 @@ import ErrorHelper from "../ErrorHelper/ErrorHelper.js";
 
 export default class Input extends Block {
     errorHelper: ErrorHelper;
+    value: string | null;
 
     constructor(props) {
         if (props && !props.hasOwnProperty("type"))
@@ -16,6 +17,7 @@ export default class Input extends Block {
 
         this.handleFocus = this.handleFocus.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
+        this.handleInput = this.handleInput.bind(this);
     }
 
     componentDidMount(oldProps) {
@@ -41,20 +43,28 @@ export default class Input extends Block {
         if (this._element) {
             this._element.addEventListener('focus', this.handleFocus, true);
             this._element.addEventListener('blur', this.handleBlur, true);
+            this._element.addEventListener('input', this.handleInput);
         }
     }
 
-    handleFocus(ev: FocusEvent) {
-        const message = this.checkValidation(ev);
+    handleFocus() {
+        this.validate();
+    }
+
+    handleBlur() {
+        this.validate();
+    }
+
+    handleInput(ev: Event) {
+        this.value = (ev.target as HTMLInputElement)?.value;
+    }
+
+    validate() {
+        const message = this.checkValidation(this.value);
         this.errorHelper.showOnError(message);
     }
 
-    handleBlur(ev: FocusEvent) {
-        const message = this.checkValidation(ev);
-        this.errorHelper.showOnError(message);
-    }
-
-    checkValidation(ev: FocusEvent): string | null {
+    checkValidation(value: string | null): string | null {
         return null;
     }
 } 

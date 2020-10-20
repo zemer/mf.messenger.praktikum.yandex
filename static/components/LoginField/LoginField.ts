@@ -5,9 +5,7 @@ export default class LoginField extends Input {
         super(props);
     }
 
-    checkValidation(ev: FocusEvent): string | null {
-        const value = (ev.target as HTMLInputElement).value;
-
+    checkValidation(value: string | null): string | null {
         if (!value)
             return "Логин не может быть пустым";
 

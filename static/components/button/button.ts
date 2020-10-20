@@ -26,5 +26,6 @@ export default class Button extends Block {
 
     handleClick() {
         logForm();
+        this.props.handleClick();
     }
 } 

@@ -3,8 +3,7 @@ export default class PasswordField extends Input {
     constructor(props) {
         super(props);
     }
-    checkValidation(ev) {
-        const value = ev.target.value;
+    checkValidation(value) {
         if (!value)
             return "Пароль не может быть пустым";
         var nameRegex = /^[a-zA-Z\d]+$/;

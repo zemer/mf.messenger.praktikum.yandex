@@ -1,11 +1,16 @@
 export const template = `
 <main>
-    <form name="login" >
+    <form">
         <div class="container">
+
             <h1 class="title-bar title-font">#ЧАТ</h1>
 
             <div class="centered-container">
+                {{{firtName}}}
+                {{{secondName}}}
                 {{{login}}}
+                {{{email}}}
+                {{{phone}}}
                 {{{password}}}
             </div>
 
@@ -13,7 +18,7 @@ export const template = `
                 {{{button}}}
             </div>
             <div class="centered-container">
-                <a class="caption" href="../registration/registration.html">Регистрация</a>
+                <a class="caption" href="../login/login.html">Войти</a>
             </div>
         </div>
     </form>

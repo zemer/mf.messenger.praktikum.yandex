@@ -16,6 +16,10 @@ export default class Login extends Block {
         });
         var button = new Button({
             value: "Войти",
+            handleClick: () => {
+                login.validate();
+                password.validate();
+            }
         }, "button button-login");
         super("div", {
             login,

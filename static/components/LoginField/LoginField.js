@@ -3,8 +3,7 @@ export default class LoginField extends Input {
     constructor(props) {
         super(props);
     }
-    checkValidation(ev) {
-        const value = ev.target.value;
+    checkValidation(value) {
         if (!value)
             return "Логин не может быть пустым";
         var nameRegex = /^[a-zA-Z]+$/;
