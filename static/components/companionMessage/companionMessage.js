@@ -2,7 +2,7 @@ import { template } from "./template.js";
 import Block from "../block/block.js";
 export default class CompanionMessage extends Block {
     constructor(props) {
-        super("div", props);
+        super("div", props, "message message-companion column-container body-font");
     }
     render() {
         var compiled = Handlebars.compile(template);

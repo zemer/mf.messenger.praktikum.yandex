@@ -4,7 +4,7 @@ import { } from "handlebars";
 
 export default class OwnMessage extends Block {
     constructor(props) {
-        super("div", props);
+        super("div", props, "message message-own column-container body-font");
     }
 
     render() {

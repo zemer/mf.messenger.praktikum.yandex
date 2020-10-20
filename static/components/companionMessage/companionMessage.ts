@@ -4,7 +4,7 @@ import { } from "handlebars";
 
 export default class CompanionMessage extends Block {
     constructor(props) {
-        super("div", props);
+        super("div", props, "message message-companion column-container body-font");
     }
 
     render() {
