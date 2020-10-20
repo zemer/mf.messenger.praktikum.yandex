@@ -7,7 +7,7 @@ class Block {
      *
      * @returns {void}
      */
-    constructor(tagName = "div", props = {}) {
+    constructor(tagName = "div", props = {}, classes = null) {
         this._id = 'uniq' + (Math.random() * 1000000);
         this._element = null;
         this._meta = null;
@@ -20,6 +20,7 @@ class Block {
         const eventBus = new EventBus();
         this._meta = {
             tagName,
+            classes,
             props
         };
         this.props = this._makePropsProxy(props);
@@ -36,9 +37,11 @@ class Block {
         eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
     }
     _createResources() {
-        var _a;
+        var _a, _b;
         const tagName = (_a = this._meta) === null || _a === void 0 ? void 0 : _a.tagName;
         this._element = this._createDocumentElement(tagName);
+        if ((_b = this._meta) === null || _b === void 0 ? void 0 : _b.classes)
+            this._element.className = this._meta.classes;
         this._element.setAttribute('_key', this.getId());
     }
     init() {
@@ -74,6 +77,9 @@ class Block {
     }
     setElement(element) {
         this._element = element;
+        this.setEvents();
+    }
+    setEvents() {
     }
     _render() {
         const block = this.render();
@@ -147,8 +153,8 @@ Block._instances = [];
 Block.hydrate = function () {
     for (const i of this._instances) {
         const id = i.getId();
+        console.log(id);
         const elements = document.querySelectorAll(`[_key="${id}"]`);
-        console.log(id, elements);
         if (elements && elements.length == 1)
             i.setElement(elements[0]);
     }

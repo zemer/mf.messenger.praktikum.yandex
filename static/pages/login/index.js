@@ -1,4 +1,4 @@
-import Button from "../../components/button/index.js";
+import Block from "../../components/block/block.js";
 import Login from "./login.js";
 // var source = document.getElementById("entry-template")?.innerHTML;
 // var template = Handlebars.compile(source);
@@ -26,6 +26,6 @@ const temp = new Login();
 const content = temp.getContent();
 if (content) {
     document.body.appendChild(content);
-    Button.hydrate();
+    Block.hydrate();
 }
 //# sourceMappingURL=index.js.map

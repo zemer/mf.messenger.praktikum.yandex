@@ -5,26 +5,24 @@ export default class Input extends Block {
         if (props && !props.hasOwnProperty("type"))
             props.type = "text";
         super("div", props);
-        console.log(props);
     }
     componentDidMount(oldProps) {
-        var _a;
         super.componentDidMount(oldProps);
-        console.log(1, this.element);
-        (_a = this.element) === null || _a === void 0 ? void 0 : _a.addEventListener('click', this.props.click);
+        //if (this.element)
+        //    this.element.addEventListener('change', this.props.handleChange);
     }
     onFocus(ev) {
         console.log('onFocus', ev);
     }
     render() {
-        var _a;
-        const compiled = Handlebars.compile(template);
-        const result = compiled(this.props);
-        const element = this.element;
-        if (element) {
-            element.innerHTML = result;
+        var compiled = Handlebars.compile(template);
+        return compiled(this.props);
+    }
+    setEvents() {
+        if (this._element) {
+            this._element.addEventListener('focus', this.props.handleFocus, true);
+            this._element.addEventListener('blur', this.props.handleBlur, true);
         }
-        return (_a = element === null || element === void 0 ? void 0 : element.outerHTML) !== null && _a !== void 0 ? _a : "";
     }
 }
 //# sourceMappingURL=input.js.map

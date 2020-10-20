@@ -8,16 +8,13 @@ export default class Input extends Block {
             props.type = "text";
 
         super("div", props);
-
-        console.log(props);
     }
 
     componentDidMount(oldProps) {
         super.componentDidMount(oldProps);
 
-        console.log(1, this.element);
-
-        this.element?.addEventListener('click', this.props.click);
+        //if (this.element)
+        //    this.element.addEventListener('change', this.props.handleChange);
     }
 
     private onFocus(ev: FocusEvent) {
@@ -25,14 +22,14 @@ export default class Input extends Block {
     }
 
     render() {
-        const compiled = Handlebars.compile(template);
-        const result = compiled(this.props);
+        var compiled = Handlebars.compile(template);
+        return compiled(this.props);
+    }
 
-        const element = this.element;
-        if (element) {
-            element.innerHTML = result;
+    setEvents() {
+        if (this._element) {
+            this._element.addEventListener('focus', this.props.handleFocus, true)
+            this._element.addEventListener('blur', this.props.handleBlur, true)
         }
-
-        return element?.outerHTML ?? "";
     }
 } 

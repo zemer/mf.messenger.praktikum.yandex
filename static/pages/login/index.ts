@@ -1,3 +1,4 @@
+import Block from "../../components/block/block.js";
 import Button from "../../components/button/index.js"
 import Input from "../../components/input/input.js";
 import Login from "./login.js";
@@ -37,5 +38,5 @@ const content = temp.getContent();
 
 if (content) {
     document.body.appendChild(content);
-    Button.hydrate();
+    Block.hydrate();
 }

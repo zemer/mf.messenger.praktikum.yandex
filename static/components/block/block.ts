@@ -2,6 +2,7 @@ import EventBus from "../event-bus/event-bus.js";
 
 interface IMetaInfo {
     tagName: string;
+    classes: string | null,
     props: any;
 }
 
@@ -18,9 +19,8 @@ class Block {
     static hydrate = function () {
         for (const i of this._instances) {
             const id = i.getId();
+            console.log(id);
             const elements = document.querySelectorAll(`[_key="${id}"]`)
-
-            console.log(id, elements)
 
             if (elements && elements.length == 1)
                 i.setElement(elements[0]);
@@ -39,11 +39,12 @@ class Block {
      *
      * @returns {void}
      */
-    constructor(tagName = "div", props = {}) {
+    constructor(tagName = "div", props = {}, classes: string | null = null) {
         const eventBus = new EventBus();
 
         this._meta = {
             tagName,
+            classes,
             props
         };
 
@@ -67,6 +68,10 @@ class Block {
     _createResources() {
         const tagName = this._meta?.tagName;
         this._element = this._createDocumentElement(tagName);
+
+        if (this._meta?.classes)
+            this._element.className = this._meta.classes;
+
         this._element.setAttribute('_key', this.getId());
     }
 
@@ -120,6 +125,10 @@ class Block {
 
     setElement(element) {
         this._element = element;
+        this.setEvents();
+    }
+
+    setEvents() {
     }
 
     _render() {

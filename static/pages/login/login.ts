@@ -9,13 +9,15 @@ export default class Login extends Block {
         var login = new Input({
             id: "login",
             label: "Логин",
-            handleClick: () => { console.log("123") }
+            handleChange: () => { console.log("change") },
+            handleFocus: () => { console.log("focus") },
+            handleBlur: () => { console.log("blur") },
         });
 
         var button = new Button({
             value: "Войти",
-            class: "button button-login"
-        });
+            handleClick: () => { console.log("444") }
+        }, "button button-login");
 
         super("div", {
             login: login,
@@ -38,7 +40,7 @@ export default class Login extends Block {
     render() {
         const compile = Handlebars.compile(template);
         const block = compile({
-            login: this.props.login.getContent(),
+            login: this.props.login.renderToString(),
             button: this.props.button.renderToString()
         });
 
