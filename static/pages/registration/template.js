@@ -1,6 +1,6 @@
 export const template = `
 <main>
-    <form">
+    <form name="registration">
         <div class="container">
 
             <h1 class="title-bar title-font">#ЧАТ</h1>
