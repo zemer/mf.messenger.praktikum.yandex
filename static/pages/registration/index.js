@@ -1,5 +1,5 @@
 var _a;
-import Button from "../../components/button/index.js";
+import Button from "../../components/Button/index.js";
 import Input from "../../components/input/input.js";
 var source = (_a = document.getElementById("entry-template")) === null || _a === void 0 ? void 0 : _a.innerHTML;
 var template = Handlebars.compile(source);

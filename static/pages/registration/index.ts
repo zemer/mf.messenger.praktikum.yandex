@@ -1,4 +1,4 @@
-import Button from "../../components/button/index.js"
+import Button from "../../components/Button/index.js"
 import Input from "../../components/input/input.js";
 
 var source = document.getElementById("entry-template")?.innerHTML;

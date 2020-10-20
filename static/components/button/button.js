@@ -6,22 +6,19 @@ export default class Button extends Block {
         if (this.element) {
             this.element.setAttribute("type", "button");
         }
+        this.handleClick = this.handleClick.bind(this);
     }
     render() {
         var compiled = Handlebars.compile(template);
-        1 && setTimeout(() => {
-            var _a;
-            this.setProps({
-                value: 'v' + Math.random()
-            });
-            console.log((_a = this.element) === null || _a === void 0 ? void 0 : _a.onclick);
-        }, 5000);
         return compiled(this.props);
     }
     setEvents() {
         if (this._element) {
-            this._element.onclick = this.props.handleClick;
+            this._element.addEventListener('click', this.handleClick);
         }
     }
+    handleClick() {
+        logForm();
+    }
 }
-//# sourceMappingURL=button.js.map
+//# sourceMappingURL=Button.js.map

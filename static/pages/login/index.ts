@@ -1,5 +1,5 @@
 import Block from "../../components/block/block.js";
-import Button from "../../components/button/index.js"
+import Button from "../../components/Button/index.js"
 import Input from "../../components/input/input.js";
 import Login from "./login.js";
 

@@ -1,46 +1,39 @@
 import Block from "../../components/block/block.js";
-import Button from "../../components/button/button.js";
+import Button from "../../components/Button/Button.js";
 import { template } from "./template.js";
 import { } from "handlebars";
-import Input from "../../components/input/input.js";
+import LoginField from "../../components/LoginField/LoginField.js";
+import PasswordField from "../../components/PasswordField/PasswordField.js";
 
 export default class Login extends Block {
     constructor() {
-        var login = new Input({
+        var login = new LoginField({
             id: "login",
-            label: "Логин",
-            handleChange: () => { console.log("change") },
-            handleFocus: () => { console.log("focus") },
-            handleBlur: () => { console.log("blur") },
+            label: "Логин"
         });
+
+        var password = new PasswordField({
+            id: "password",
+            label: "Пароль",
+            type: "password"
+        })
 
         var button = new Button({
             value: "Войти",
-            handleClick: () => { console.log("444") }
         }, "button button-login");
 
         super("div", {
-            login: login,
-            button: button
+            login,
+            password,
+            button
         });
-
-        console.log(this.props);
-    }
-
-    componentDidMount() {
-        setTimeout(() => {
-            const login = this.props.login;
-            login.setProps({
-                ...login.props,
-                label: "Login 3"
-            });
-        }, 5000);
     }
 
     render() {
         const compile = Handlebars.compile(template);
         const block = compile({
             login: this.props.login.renderToString(),
+            password: this.props.password.renderToString(),
             button: this.props.button.renderToString()
         });
 

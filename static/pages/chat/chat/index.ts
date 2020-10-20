@@ -1,4 +1,4 @@
-import Button from "../../../components/button/button.js";
+import Button from "../../../components/Button/Button.js";
 import { items, messages } from "../data.js";
 
 const source = document.getElementById("entry-template")?.innerHTML;

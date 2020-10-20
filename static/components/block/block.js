@@ -72,6 +72,9 @@ class Block {
         }
         return false;
     }
+    getProps() {
+        return this.props;
+    }
     get element() {
         return this._element;
     }
@@ -153,11 +156,10 @@ Block._instances = [];
 Block.hydrate = function () {
     for (const i of this._instances) {
         const id = i.getId();
-        console.log(id);
         const elements = document.querySelectorAll(`[_key="${id}"]`);
         if (elements && elements.length == 1)
             i.setElement(elements[0]);
     }
 };
 export default Block;
-//# sourceMappingURL=block.js.map
+//# sourceMappingURL=Block.js.map

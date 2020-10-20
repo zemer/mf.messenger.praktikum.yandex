@@ -19,7 +19,6 @@ class Block {
     static hydrate = function () {
         for (const i of this._instances) {
             const id = i.getId();
-            console.log(id);
             const elements = document.querySelectorAll(`[_key="${id}"]`)
 
             if (elements && elements.length == 1)
@@ -109,6 +108,10 @@ class Block {
         }
 
         return false;
+    }
+
+    getProps() {
+        return this.props;
     }
 
     setProps = nextProps => {
