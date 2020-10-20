@@ -9,6 +9,14 @@ export default class Button extends Block {
 
     render() {
         var compiled = Handlebars.compile(template);
+
+        1 && setTimeout(() => {
+            console.log("timer!")
+            this.setProps({
+                value: 'v' + Math.random()
+            })
+        }, 1000);
+
         return compiled(this.props);
     }
 } 

@@ -14,6 +14,20 @@ class Block {
         FLOW_CDU: "flow:component-did-update"
     };
 
+    static _instances: Block[] = [];
+    static hydrate = function () {
+        for (const i of this._instances) {
+            const id = i.getId();
+            const elements = document.querySelectorAll(`[_key="${id}"]`)
+
+            console.log(id, elements)
+
+            if (elements && elements.length == 1)
+                i.setElement(elements[0]);
+        }
+    }
+
+    _id = 'uniq' + (Math.random() * 1000000);
     props: any;
     _element: HTMLElement | null = null;
     _meta: IMetaInfo | null = null;
@@ -40,6 +54,7 @@ class Block {
         this._registerEvents(eventBus);
         eventBus.emit(Block.EVENTS.INIT);
         //eventBus.emit(Block.EVENTS.FLOW_RENDER);
+        Block._instances.push(this);
     }
 
     _registerEvents(eventBus) {
@@ -52,6 +67,7 @@ class Block {
     _createResources() {
         const tagName = this._meta?.tagName;
         this._element = this._createDocumentElement(tagName);
+        this._element.setAttribute('_key', this.getId());
     }
 
     init() {
@@ -102,6 +118,10 @@ class Block {
         return this._element;
     }
 
+    setElement(element) {
+        this._element = element;
+    }
+
     _render() {
         const block = this.render();
         // Это небезопасный метод для упрощения логики
@@ -114,6 +134,21 @@ class Block {
 
     // Переопределяется пользователем. Необходимо вернуть разметку
     render(): string { return ''; }
+
+    renderToString() {
+        const wrapper = document.createElement(this._meta?.tagName ?? 'div');
+
+        if (this._element) {
+            this._element.innerHTML = this.render();
+            wrapper.appendChild(this._element);
+        }
+
+        return wrapper.innerHTML;
+    }
+
+    getId() {
+        return this._id;
+    }
 
     getContent() {
         return this.element;

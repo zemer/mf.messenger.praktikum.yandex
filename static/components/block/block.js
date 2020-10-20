@@ -8,6 +8,7 @@ class Block {
      * @returns {void}
      */
     constructor(tagName = "div", props = {}) {
+        this._id = 'uniq' + (Math.random() * 1000000);
         this._element = null;
         this._meta = null;
         this.setProps = nextProps => {
@@ -26,6 +27,7 @@ class Block {
         this._registerEvents(eventBus);
         eventBus.emit(Block.EVENTS.INIT);
         //eventBus.emit(Block.EVENTS.FLOW_RENDER);
+        Block._instances.push(this);
     }
     _registerEvents(eventBus) {
         eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
@@ -37,6 +39,7 @@ class Block {
         var _a;
         const tagName = (_a = this._meta) === null || _a === void 0 ? void 0 : _a.tagName;
         this._element = this._createDocumentElement(tagName);
+        this._element.setAttribute('_key', this.getId());
     }
     init() {
         this._createResources();
@@ -69,6 +72,9 @@ class Block {
     get element() {
         return this._element;
     }
+    setElement(element) {
+        this._element = element;
+    }
     _render() {
         const block = this.render();
         // Это небезопасный метод для упрощения логики
@@ -80,6 +86,18 @@ class Block {
     }
     // Переопределяется пользователем. Необходимо вернуть разметку
     render() { return ''; }
+    renderToString() {
+        var _a, _b;
+        const wrapper = document.createElement((_b = (_a = this._meta) === null || _a === void 0 ? void 0 : _a.tagName) !== null && _b !== void 0 ? _b : 'div');
+        if (this._element) {
+            this._element.innerHTML = this.render();
+            wrapper.appendChild(this._element);
+        }
+        return wrapper.innerHTML;
+    }
+    getId() {
+        return this._id;
+    }
     getContent() {
         return this.element;
     }
@@ -124,6 +142,16 @@ Block.EVENTS = {
     FLOW_CDM: "flow:component-did-mount",
     FLOW_RENDER: "flow:render",
     FLOW_CDU: "flow:component-did-update"
+};
+Block._instances = [];
+Block.hydrate = function () {
+    for (const i of this._instances) {
+        const id = i.getId();
+        const elements = document.querySelectorAll(`[_key="${id}"]`);
+        console.log(id, elements);
+        if (elements && elements.length == 1)
+            i.setElement(elements[0]);
+    }
 };
 export default Block;
 //# sourceMappingURL=block.js.map

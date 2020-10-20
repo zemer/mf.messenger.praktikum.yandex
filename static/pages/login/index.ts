@@ -1,31 +1,41 @@
 import Button from "../../components/button/index.js"
 import Input from "../../components/input/input.js";
+import Login from "./login.js";
 
-var source = document.getElementById("entry-template")?.innerHTML;
-var template = Handlebars.compile(source);
+// var source = document.getElementById("entry-template")?.innerHTML;
+// var template = Handlebars.compile(source);
 
-var login = new Input({
-    id: "login",
-    label: "Логин"
-});
+// var login = new Input({
+//     id: "login",
+//     label: "Логин",
+//     handleClick: () => { console.log("123") }
+// });
 
-var password = new Input({
-    id: "password",
-    label: "Пароль",
-    type: "password"
-});
+// var password = new Input({
+//     id: "password",
+//     label: "Пароль",
+//     type: "password"
+// });
 
-var button = new Button({
-    value: "Войти",
-    class: "button button-login"
-});
+// var button = new Button({
+//     value: "Войти",
+//     class: "button button-login"
+// });
 
-var context = {
-    login: login.render(),
-    password: password.render(),
-    button: button.render()
-};
+// var context = {
+//     login: login.render(),
+//     password: password.render(),
+//     button: button.render()
+// };
 
-var block = template(context);
+// var block = template(context);
 
-document.body.innerHTML = block;
+
+
+const temp = new Login();
+const content = temp.getContent();
+
+if (content) {
+    document.body.appendChild(content);
+    Button.hydrate();
+}
