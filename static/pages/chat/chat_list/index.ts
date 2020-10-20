@@ -1,12 +1,10 @@
-import { items } from "../data.js";
+import Block from "../../../components/block/block.js";
+import Chat from "./Chat.js";
 
-const source = document.getElementById("entry-template")?.innerHTML;
-const template = Handlebars.compile(source);
+const page = new Chat();
+const content = page.getContent();
 
-const context = {
-    items: items.map(i => i.render())
-};
-
-const block = template(context);
-
-document.body.innerHTML = block;
+if (content) {
+    document.body.appendChild(content);
+    Block.hydrate();
+}

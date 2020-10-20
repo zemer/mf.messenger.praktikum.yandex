@@ -1,10 +1,9 @@
-var _a;
-import { items } from "../data.js";
-const source = (_a = document.getElementById("entry-template")) === null || _a === void 0 ? void 0 : _a.innerHTML;
-const template = Handlebars.compile(source);
-const context = {
-    items: items.map(i => i.render())
-};
-const block = template(context);
-document.body.innerHTML = block;
+import Block from "../../../components/block/block.js";
+import Chat from "./Chat.js";
+const page = new Chat();
+const content = page.getContent();
+if (content) {
+    document.body.appendChild(content);
+    Block.hydrate();
+}
 //# sourceMappingURL=index.js.map
