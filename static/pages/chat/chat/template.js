@@ -1,26 +1,43 @@
 export const template = `
-<main>
-    <form name="registration">
-        <div class="container">
-
-            <h1 class="title-bar title-font">#ЧАТ</h1>
-
-            <div class="centered-container">
-                {{{firtName}}}
-                {{{secondName}}}
-                {{{login}}}
-                {{{email}}}
-                {{{phone}}}
-                {{{password}}}
-            </div>
-
-            <div class="centered-container">
-                {{{button}}}
-            </div>
-            <div class="centered-container">
-                <a class="caption" href="../login/login.html">Войти</a>
+<div class="container full-height">
+    <div class="main full-width full-height row-container">
+        <div class="left-panel full-height column-container">
+            <header class="chat-list-title full-width row-container">
+                <div>
+                    <h1 class="white-title">#ЧАТ</h1>
+                </div>
+                <div></div>
+                <div class="white-title">
+                    <nav>
+                        <a href="../../user_profile/user_profile.html">Профиль ></a>
+                    </nav>
+                </div>
+            </header>
+            <div class="chat-list full-width full-height">
+                {{#each items}}
+                    {{{this}}}
+                {{/each}}
             </div>
         </div>
-    </form>
-</main>
-`; 
+        <div class="right-panel full-width full-height">
+            <header class="messages-title full-width row-container">
+                <div>
+                    <span class="chat-item-photo" />
+                </div>
+                <div class="chat-item-user">
+                    <span>{{user}}</span>
+                </div>
+            </header>
+            <hr class="devider" />
+            <div class="messages full-width full-height column-container">
+                {{#each messages}}
+                    {{{this}}}
+                {{/each}}
+            </div>
+            <form onsubmit="return logForm()">
+                {{{sendMessage}}}
+            </form>
+        </div>
+    </div>
+</div>
+`;

@@ -3,6 +3,7 @@ import Block from "../block/block.js";
 export default class ErrorHelper extends Block {
     constructor(props) {
         super("div", props, "error-font error-helper");
+        this.hide();
     }
     render() {
         var compiled = Handlebars.compile(template);

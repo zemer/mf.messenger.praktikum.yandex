@@ -5,6 +5,8 @@ import { } from "handlebars";
 export default class ErrorHelper extends Block {
     constructor(props) {
         super("div", props, "error-font error-helper");
+
+        this.hide();
     }
 
     render() {

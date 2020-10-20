@@ -1,21 +1,10 @@
-import Button from "../../../components/Button/Button.js";
-import { items, messages } from "../data.js";
+import Block from "../../../components/block/block.js";
+import Chat from "./Chat.js";
 
-const source = document.getElementById("entry-template")?.innerHTML;
-const template = Handlebars.compile(source);
+const page = new Chat();
+const content = page.getContent();
 
-var button = new Button({
-    value: "GO",
-    class: "send-button"
-});
-
-const context = {
-    items: items.map(i => i.render()),
-    user: "Илья",
-    messages: messages.map(m => m.render()),
-    button: button.render()
-};
-
-const block = template(context);
-
-document.body.innerHTML = block;
+if (content) {
+    document.body.appendChild(content);
+    Block.hydrate();
+}
