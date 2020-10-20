@@ -1,6 +1,6 @@
 import Block from "../../../components/block/block.js";
-import Chat from "./Chat.js";
-const page = new Chat();
+import ChatList from "./ChatList.js";
+const page = new ChatList();
 const content = page.getContent();
 if (content) {
     document.body.appendChild(content);
