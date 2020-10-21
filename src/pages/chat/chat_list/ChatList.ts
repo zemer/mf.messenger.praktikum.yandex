@@ -1,4 +1,4 @@
-import Block from "../../../components/Block/Block.js";
+import Block from "../../../components/Block/index.js";
 import { template } from "./template.js";
 import { } from "handlebars";
 import { items } from "../data.js";

@@ -1,8 +1,8 @@
 import { template } from "./template.js";
-import Block from "../Block/Block.js";
+import Block from "../Block/index.js";
 import { } from "handlebars";
-import Button from "../Button/Button.js";
-import MessageInput from "../MessageInput/MessageInput.js";
+import Button from "../Button/index.js";
+import MessageInput from "../MessageInput/index.js";
 
 export default class SendMessage extends Block {
     constructor(props) {

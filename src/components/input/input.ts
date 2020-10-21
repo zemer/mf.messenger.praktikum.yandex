@@ -1,7 +1,7 @@
 import { template } from "./template.js";
 import Block from "../Block/Block.js";
 import { } from "handlebars";
-import ErrorHelper from "../ErrorHelper/ErrorHelper.js";
+import ErrorHelper from "../ErrorHelper/index.js";
 
 export default class Input extends Block {
     errorHelper: ErrorHelper;

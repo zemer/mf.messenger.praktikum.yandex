@@ -1,6 +1,6 @@
-import ChatItem from "../../components/chat-item/chat-item.js";
-import CompanionMessage from "../../components/companionMessage/companionMessage.js";
-import OwnMessage from "../../components/ownMessage/ownMessage.js";
+import ChatItem from "../../components/chat-item/index.js";
+import CompanionMessage from "../../components/companionMessage/index.js";
+import OwnMessage from "../../components/ownMessage/index.js";
 
 export const items = [
     new ChatItem({

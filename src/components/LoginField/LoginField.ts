@@ -1,4 +1,4 @@
-import Input from "../input/input.js";
+import Input from "../input/index.js";
 
 export default class LoginField extends Input {
     constructor(props) {

@@ -1,12 +1,12 @@
-import Block from "../../components/Block/Block.js";
-import Button from "../../components/Button/Button.js";
+import Block from "../../components/Block/index.js";
+import Button from "../../components/Button/index.js";
 import { template } from "./template.js";
 import { } from "handlebars";
-import LoginField from "../../components/LoginField/LoginField.js";
-import PasswordField from "../../components/PasswordField/PasswordField.js";
-import NotEmptyField from "../../components/NotEmptyField/NotEmptyField.js";
-import MailField from "../../components/MailField/MailField.js";
-import PhoneField from "../../components/PhoneField/PhoneField.js";
+import LoginField from "../../components/LoginField/index.js";
+import PasswordField from "../../components/PasswordField/index.js";
+import NotEmptyField from "../../components/NotEmptyField/index.js";
+import MailField from "../../components/MailField/index.js";
+import PhoneField from "../../components/PhoneField/index.js";
 
 export default class UserProfile extends Block {
     constructor() {

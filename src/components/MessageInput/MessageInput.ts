@@ -1,5 +1,5 @@
-import Block from "../Block/Block.js";
-import ErrorHelper from "../ErrorHelper/ErrorHelper.js";
+import Block from "../Block/index.js";
+import ErrorHelper from "../ErrorHelper/index.js";
 import { template } from "./template.js";
 
 export default class MessageInput extends Block {
