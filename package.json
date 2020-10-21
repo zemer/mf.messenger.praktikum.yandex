@@ -7,7 +7,7 @@
     "compileTS": "tsc --build",
     "compileSass": "sass src/stylesheets:static/stylesheets",
     "build": "npm run compileTS && npm run compileSass",
-    "start": "npm run compileTS && npm run compileSass && node server.js"
+    "start": "npm run build && node server.js"
   },
   "repository": {
     "type": "git",
