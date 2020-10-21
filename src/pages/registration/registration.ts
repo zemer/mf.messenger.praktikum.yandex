@@ -11,38 +11,38 @@ import { IRegistrationProps } from "./types.js";
 
 export default class Registration extends Block<IRegistrationProps> {
     constructor() {
-        var firtName = new NotEmptyField({
+        const firtName = new NotEmptyField({
             id: "first_name",
             label: "Имя"
         });
 
-        var secondName = new NotEmptyField({
+        const secondName = new NotEmptyField({
             id: "second_name",
             label: "Фамилия"
         });
 
-        var login = new LoginField({
+        const login = new LoginField({
             id: "login",
             label: "Логин"
         });
 
-        var email = new MailField({
+        const email = new MailField({
             id: "email",
             label: "Почта"
         });
 
-        var phone = new PhoneField({
+        const phone = new PhoneField({
             id: "phone",
             label: "Телефон"
         });
 
-        var password = new PasswordField({
+        const password = new PasswordField({
             id: "password",
             label: "Пароль",
             type: "password"
         });
 
-        var button = new Button({
+        const button = new Button({
             value: "Зарегистрироваться",
             handleClick: () => {
                 firtName.validate();

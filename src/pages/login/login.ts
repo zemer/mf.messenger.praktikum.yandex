@@ -8,18 +8,18 @@ import { ILoginProps } from "./types.js";
 
 export default class Login extends Block<ILoginProps> {
     constructor() {
-        var login = new LoginField({
+        const login = new LoginField({
             id: "login",
             label: "Логин"
         });
 
-        var password = new PasswordField({
+        const password = new PasswordField({
             id: "password",
             label: "Пароль",
             type: "password"
         })
 
-        var button = new Button({
+        const button = new Button({
             value: "Войти",
             handleClick: () => {
                 login.validate();

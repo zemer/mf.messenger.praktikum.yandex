@@ -10,7 +10,7 @@ export default class PhoneField extends Input<IPhoneFieldProps> {
         if (!value)
             return "Не указан телефон";
 
-        var nameRegex = /^[\+]?[0-9]{1}[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/;
+        const nameRegex = /^[\+]?[0-9]{1}[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/;
         if (value.match(nameRegex) == null) {
             return "Неверный формат";
         }

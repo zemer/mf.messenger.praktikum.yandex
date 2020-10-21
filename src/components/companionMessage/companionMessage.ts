@@ -9,7 +9,7 @@ export default class CompanionMessage extends Block<ICompanionMessageProps> {
     }
 
     render() {
-        var compiled = Handlebars.compile(template);
+        const compiled = Handlebars.compile(template);
         return compiled(this.props);
     }
 } 

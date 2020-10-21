@@ -11,7 +11,7 @@ export default class ErrorHelper extends Block<IErrorHelperProps> {
     }
 
     render() {
-        var compiled = Handlebars.compile(template);
+        const compiled = Handlebars.compile(template);
         return compiled(this.props);
     }
 

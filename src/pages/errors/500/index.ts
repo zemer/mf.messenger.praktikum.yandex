@@ -1,11 +1,13 @@
-var source = document.getElementById("entry-template")?.innerHTML;
-var template = Handlebars.compile(source);
+{
+    const source = document.getElementById("entry-template")?.innerHTML;
+    const template = Handlebars.compile(source);
 
-var context = {
-    title: "500",
-    description: "Ведутся работы",
-};
+    const context = {
+        title: "500",
+        description: "Ведутся работы",
+    };
 
-var block = template(context);
+    const block = template(context);
 
-document.body.innerHTML = block;
+    document.body.innerHTML = block;
+}

@@ -11,44 +11,44 @@ import { IUserProfileProps } from "./types.js";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     constructor() {
-        var firtName = new NotEmptyField({
+        const firtName = new NotEmptyField({
             id: "first_name",
             label: "Имя"
         });
 
-        var secondName = new NotEmptyField({
+        const secondName = new NotEmptyField({
             id: "second_name",
             label: "Фамилия"
         });
 
-        var login = new LoginField({
+        const login = new LoginField({
             id: "login",
             label: "Логин"
         });
 
-        var email = new MailField({
+        const email = new MailField({
             id: "email",
             label: "Почта"
         });
 
-        var phone = new PhoneField({
+        const phone = new PhoneField({
             id: "phone",
             label: "Телефон"
         });
 
-        var oldPassword = new PasswordField({
+        const oldPassword = new PasswordField({
             id: "oldPassword",
             label: "Старый пароль",
             type: "password"
         });
 
-        var newPassword = new PasswordField({
+        const newPassword = new PasswordField({
             id: "newPassword",
             label: "Новый пароль",
             type: "password"
         });
 
-        var button = new Button({
+        const button = new Button({
             value: "Сохранить",
             handleClick: () => {
                 firtName.validate();

@@ -10,7 +10,7 @@ export default class PasswordField extends Input<IPasswordFieldProps> {
         if (!value)
             return "Пароль не может быть пустым";
 
-        var nameRegex = /^[a-zA-Z\d]+$/;
+        const nameRegex = /^[a-zA-Z\d]+$/;
         if (value.match(nameRegex) == null) {
             return "Пароль может содержать латинские символы и цифры";
         }

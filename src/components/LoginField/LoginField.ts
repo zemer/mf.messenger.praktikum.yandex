@@ -10,7 +10,7 @@ export default class LoginField extends Input<ILoginFieldProps> {
         if (!value)
             return "Логин не может быть пустым";
 
-        var nameRegex = /^[a-zA-Z]+$/;
+        const nameRegex = /^[a-zA-Z]+$/;
         if (value.match(nameRegex) == null) {
             return "Логин может содержать только латинские символы";
         }
