@@ -1,0 +1,135 @@
+.chat-list {
+  background-color: #e5e5e5;
+  border-right: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.chat-list-title {
+  align-items: center;
+  justify-content: space-between;
+  background-color: #38b052;
+  height: 75px;
+}
+
+.chat-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  padding: 5px;
+}
+
+.chat-item:hover {
+  background-color: rgba(56, 176, 82, 0.21);
+}
+
+.chat-item-selected {
+  background-color: rgba(56, 176, 82, 0.5);
+}
+
+.chat-item-photo {
+  height: 60px;
+  width: 60px;
+  background-color: #bdbdbd;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.chat-item-user {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.chat-item-preview {
+  font-size: 14px;
+  color: #828282;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.chat-item-date {
+  font-size: 14px;
+  color: #4f4f4f;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.edit-message {
+  min-height: 53px;
+}
+
+.edit-message-field {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  border-width: 1px;
+  border-left: 0px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  color: #4f4f4f;
+}
+
+.left-panel {
+  width: 500px;
+}
+
+.messages {
+  justify-content: flex-end;
+}
+
+.message {
+  border-radius: 20px;
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.message-companion {
+  align-self: flex-start;
+  background-color: #f3f3f3;
+}
+
+.message-own {
+  align-self: flex-end;
+  background: rgba(56, 176, 82, 0.21);
+}
+
+.message-text {
+  align-self: flex-start;
+}
+
+.message-time {
+  align-self: flex-end;
+  margin-top: 5px;
+}
+
+.messages-title {
+  height: 75px;
+  align-items: center;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #c4c4c4;
+  box-sizing: border-box;
+}
+
+.select-chat {
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.send-button {
+  background-color: #38b052;
+  height: 100%;
+  width: 50px;
+}
+
+/*# sourceMappingURL=chat.css.map */
