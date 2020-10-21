@@ -1,5 +1,5 @@
 import { template } from "./template.js";
-import Block from "../Block/Block.js";
+import Block from "../Block/index.js";
 import { } from "handlebars";
 
 export default class ErrorHelper extends Block {

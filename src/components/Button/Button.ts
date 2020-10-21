@@ -1,5 +1,5 @@
 import { template } from "./template.js";
-import Block from "../Block/Block.js";
+import Block from "../Block/index.js";
 import { logForm } from "../../utils/logForm.js";
 import { } from "handlebars";
 

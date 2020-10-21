@@ -1,4 +1,4 @@
-import Input from "../input/index.js";
+import Input from "../Input/index.js";
 
 export default class MailField extends Input {
     constructor(props) {

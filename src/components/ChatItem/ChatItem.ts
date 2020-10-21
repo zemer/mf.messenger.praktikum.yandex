@@ -2,9 +2,9 @@ import { template } from "./template.js";
 import Block from "../Block/index.js";
 import { } from "handlebars";
 
-export default class OwnMessage extends Block {
+export default class ChatItem extends Block {
     constructor(props) {
-        super("div", props, "message message-own column-container body-font");
+        super("section", props);
     }
 
     render() {
