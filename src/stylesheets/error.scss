@@ -1,3 +1,5 @@
+@import "_colors";
+
 .error-font {
     font-size: 144px;
 }
@@ -10,12 +12,14 @@
     font-size: 18px;
 }
 
-.error-link-font > a:link {
-    text-decoration: none;
-    color: #38b052;
-}
+.error-link-font {
+    a:link {
+        text-decoration: none;
+        color: $primary-color;
+    }
 
-.error-link-font > a:visited {
-    text-decoration: none;
-    color: #38b052;
+    a:visited {
+        text-decoration: none;
+        color: $primary-color;
+    }
 }

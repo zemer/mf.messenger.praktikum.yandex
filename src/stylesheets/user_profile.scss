@@ -1,3 +1,5 @@
+@import "_colors";
+
 .button-save {
     width: 100px;
     margin-top: 15px;
@@ -9,7 +11,7 @@
 
 .user-profile-title {
     height: 75px;
-    background-color: #38b052;
+    background-color: $primary-color;
     align-items: center;
     justify-content: space-between;
 }
@@ -17,7 +19,7 @@
 .user-profile-photo {
     height: 250px;
     width: 250px;
-    background-color:#BDBDBD;
+    background-color: $border-color;
     border-radius: 50%;
     display: inline-block;
     margin: 25px;

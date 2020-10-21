@@ -1,6 +1,8 @@
+@import "_colors";
+
 .chat-list {
-    background-color: #E5E5E5;
-    border-right: 1px solid #C4C4C4;
+    background-color: #e5e5e5;
+    border-right: 1px solid #c4c4c4;
     box-sizing: border-box;
     overflow: auto;
 }
@@ -8,7 +10,7 @@
 .chat-list-title {
     align-items: center;
     justify-content: space-between;
-    background-color: #38b052;
+    background-color: $primary-color;
     height: 75px;
 }
 
@@ -31,7 +33,7 @@
 .chat-item-photo {
     height: 60px;
     width: 60px;
-    background-color:#BDBDBD;
+    background-color: $border-color;
     border-radius: 50%;
     display: inline-block;
     margin-left: 5px;
@@ -54,7 +56,7 @@
 
 .chat-item-date {
     font-size: 14px;
-    color: #4F4F4F;
+    color: #4f4f4f;
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -70,8 +72,8 @@
     border-width: 1px;
     border-left: 0px;
     border-style: solid;
-    border-color: #BDBDBD;
-    color: #4F4F4F;
+    border-color: $border-color;
+    color: #4f4f4f;
 }
 
 .left-panel {
@@ -91,7 +93,7 @@
 
 .message-companion {
     align-self: flex-start;
-    background-color: #F3F3F3;
+    background-color: #f3f3f3;
 }
 
 .message-own {
@@ -116,18 +118,18 @@
 .right-panel {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #C4C4C4;
+    border-right: 1px solid #c4c4c4;
     box-sizing: border-box;
 }
 
 .select-chat {
-    background-color:white;
+    background-color: white;
     justify-content: center;
     align-items: center;
 }
 
 .send-button {
-    background-color: #38b052;
+    background-color: $primary-color;
     height: 100%;
     width: 50px;
 }

@@ -1,14 +1,15 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #38b052;
-$error-color: darkred;
-$border-color: #BDBDBD;
+@import "_colors";
+
+$font-stack: Helvetica, sans-serif;
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
 }
 
-button:focus {outline:0;}
+button:focus {
+    outline: 0;
+}
 
 .button {
     height: 50px;
@@ -52,26 +53,31 @@ h1 {
     color: $error-color;
 }
 
-input:focus {outline:0;}
+input:focus {
+    outline: 0;
+}
 
 .title-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     color: $primary-color;
     margin-top: 15px;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
 }
 
-.white-title > nav > a:link {
-    color: white;
-    text-decoration: none;
-}
-
-.white-title > nav > a:visited {
-    color: white;
-    text-decoration: none;
+.white-title {
+    nav {
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+    }
 }
 
 .white-title {
@@ -84,29 +90,34 @@ input:focus {outline:0;}
     margin: 10px;
 }
 
-.field{
+.field {
     width: 200px;
     margin-top: 15px;
 }
 
-.field > input[type=text], input[type=password]{
-    width: 100%;
-    height: 50px;
-    font-size: 14px;
-    border-style: solid;
-    border-color: $border-color;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #4F4F4F;
+.field {
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        border-style: solid;
+        border-color: $border-color;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #4f4f4f;
+    }
 }
 
-.centered > a {
-    margin: 10px;
+.centered {
+    a {
+        margin: 10px;
+    }
 }
 
 .caption {
     font-size: 12px;
-    color: #4F4F4F;
+    color: #4f4f4f;
 }
 
 .centered-container {

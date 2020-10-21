@@ -91,3 +91,11 @@ static/js/build/utils/logForm.js
 static/js/build/utils/logForm.js.map
 static/js/build/utils/event-bus.js
 static/js/build/utils/event-bus.js.map
+static/stylesheets/chat.css
+static/stylesheets/chat.css.map
+static/stylesheets/error.css
+static/stylesheets/error.css.map
+static/stylesheets/main.css
+static/stylesheets/main.css.map
+static/stylesheets/user_profile.css
+static/stylesheets/user_profile.css.map
