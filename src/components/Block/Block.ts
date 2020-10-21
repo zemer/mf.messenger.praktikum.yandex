@@ -1,5 +1,4 @@
 import EventBus from "../../utils/event-bus.js";
-import { IBlockProps } from "./types.js";
 
 interface IMetaInfo<T> {
     tagName: string;
@@ -81,11 +80,12 @@ class Block<T extends object> {
     }
 
     _componentDidMount() {
-        this.componentDidMount(this.props);
+        this.componentDidMount();
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidMount(oldProps: T) { }
+    componentDidMount() {
+    }
 
     _componentDidUpdate(oldProps: T, newProps: T) {
         const response = this.componentDidUpdate(oldProps, newProps);
@@ -140,15 +140,10 @@ class Block<T extends object> {
 
     _render() {
         const block = this.render();
-        // Это небезопасный метод для упрощения логики
-        // Используйте шаблонизатор из npm или напишите свой безопасный
-        // Нужно компилировать не в строку (или делать это правильно),
-        // либо сразу в превращать DOM-элементы и возвращать из compile DOM-ноду
         if (this._element)
             this._element.innerHTML = block;
     }
 
-    // Переопределяется пользователем. Необходимо вернуть разметку
     render(): string { return ''; }
 
     renderToString() {
@@ -171,7 +166,6 @@ class Block<T extends object> {
     }
 
     _makePropsProxy(props: T) {
-        // Еще один способ передачи this, но он больше не применяется с приходом ES6+
         const self = this;
 
         return new Proxy<T>(props, {
@@ -181,9 +175,6 @@ class Block<T extends object> {
             set(target, prop, value) {
                 const oldTarget = new Object();
                 Object.assign(oldTarget, target);
-                //oldTarget[prop] = target[prop];
-
-                //target[prop] = value;
 
                 Reflect.set(target, prop, value);
 
@@ -194,14 +185,13 @@ class Block<T extends object> {
 
                 return true;
             },
-            deleteProperty(target, prop) {
+            deleteProperty() {
                 throw new Error("Нет доступа")
             }
         });
     }
 
     _createDocumentElement(tagName: string): HTMLElement {
-        // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
     }
 

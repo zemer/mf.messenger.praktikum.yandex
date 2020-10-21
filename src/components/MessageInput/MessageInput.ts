@@ -18,8 +18,8 @@ export default class MessageInput extends Block<IMessageInputProps> {
         this.handleInput = this.handleInput.bind(this);
     }
 
-    componentDidMount(oldProps: IMessageInputProps) {
-        super.componentDidMount(oldProps);
+    componentDidMount() {
+        super.componentDidMount();
 
         this.setProps({
             ...this.props,

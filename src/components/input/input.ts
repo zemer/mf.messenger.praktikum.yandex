@@ -25,9 +25,7 @@ export default class Input<T extends IInputProps> extends Block<T> {
         this.errorHelper = new ErrorHelper({});
     }
 
-    componentDidMount(oldProps: T) {
-        super.componentDidMount(oldProps);
-
+    componentDidMount() {
         this.setProps({
             ...this.props,
             errorHelper: this.errorHelper
@@ -70,6 +68,8 @@ export default class Input<T extends IInputProps> extends Block<T> {
     }
 
     checkValidation(value: string | null): string | null {
+        //value нужен в дочерних классах
+        value?.length;
         return null;
     }
 } 
