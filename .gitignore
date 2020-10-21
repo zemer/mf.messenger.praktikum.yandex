@@ -89,3 +89,5 @@ static/js/build/pages/user_profile/user_profile.js
 static/js/build/pages/user_profile/user_profile.js.map
 static/js/build/utils/logForm.js
 static/js/build/utils/logForm.js.map
+static/js/build/utils/event-bus.js
+static/js/build/utils/event-bus.js.map

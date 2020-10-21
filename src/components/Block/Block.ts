@@ -1,4 +1,4 @@
-import EventBus from "../event-bus/event-bus.js";
+import EventBus from "../../utils/event-bus.js";
 
 interface IMetaInfo {
     tagName: string;
