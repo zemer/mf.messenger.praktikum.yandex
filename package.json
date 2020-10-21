@@ -6,7 +6,7 @@
   "scripts": {
     "compileTS": "tsc --build",
     "compileSass": "sass src/stylesheets:static/stylesheets",
-    "publish": "npm run compileTS && npm run compileSass",
+    "build": "npm run compileTS && npm run compileSass",
     "start": "npm run compileTS && npm run compileSass && node server.js"
   },
   "repository": {
