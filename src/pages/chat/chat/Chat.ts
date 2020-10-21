@@ -1,6 +1,5 @@
 import Block from "../../../components/Block/index.js";
 import { template } from "./template.js";
-import { } from "handlebars";
 import { items, messages } from "../data.js";
 import SendMessage from "../../../components/SendMessage/index.js";
 import { IChatProps } from "./types.js";

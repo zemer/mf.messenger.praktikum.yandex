@@ -1,7 +1,6 @@
 import Block from "../../components/Block/index.js";
 import Button from "../../components/Button/index.js";
 import { template } from "./template.js";
-import { } from "handlebars";
 import LoginField from "../../components/LoginField/index.js";
 import PasswordField from "../../components/PasswordField/index.js";
 import NotEmptyField from "../../components/NotEmptyField/index.js";

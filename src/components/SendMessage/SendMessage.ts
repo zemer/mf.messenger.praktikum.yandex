@@ -1,6 +1,5 @@
 import { template } from "./template.js";
 import Block from "../Block/index.js";
-import { } from "handlebars";
 import Button from "../Button/index.js";
 import MessageInput from "../MessageInput/index.js";
 import { ISendMessagProps } from "./types.js";
