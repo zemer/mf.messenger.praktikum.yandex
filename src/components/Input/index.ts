@@ -1,3 +1,3 @@
-import Input from './Input.js';
+import Input from './xInput.js';
 
 export default Input;
