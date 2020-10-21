@@ -7,8 +7,9 @@ export default class LoginField extends Input<ILoginFieldProps> {
     }
 
     checkValidation(value: string | null): string | null {
-        if (!value)
+        if (!value) {
             return "Логин не может быть пустым";
+        }
 
         const nameRegex = /^[a-zA-Z]+$/;
         if (value.match(nameRegex) == null) {

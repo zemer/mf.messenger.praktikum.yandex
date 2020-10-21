@@ -7,8 +7,9 @@ export default class NotEmptyField extends Input<INotEmptyFieldProps> {
     }
 
     checkValidation(value: string | null): string | null {
-        if (!value)
+        if (!value) {
             return "Поле не может быть пустым";
+        }
 
         return null;
     }

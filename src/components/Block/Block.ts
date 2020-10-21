@@ -68,8 +68,9 @@ class Block<T extends object> {
         const tagName = this._meta?.tagName;
         this._element = this._createDocumentElement(tagName ?? 'div');
 
-        if (this._meta?.classes)
+        if (this._meta?.classes) {
             this._element.className = this._meta.classes;
+        }
 
         this._element.setAttribute('_key', this.getId());
     }
@@ -90,8 +91,9 @@ class Block<T extends object> {
     _componentDidUpdate(oldProps: T, newProps: T) {
         const response = this.componentDidUpdate(oldProps, newProps);
 
-        if (response)
+        if (response) {
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        }
     }
 
     componentDidUpdate(oldProps: T, newProps: T) {
@@ -100,8 +102,9 @@ class Block<T extends object> {
                 const oldValue = oldProps[key];
                 const newValue = newProps[key];
 
-                if (oldValue !== newValue)
+                if (oldValue !== newValue) {
                     return true;
+                }
             }
             else {
                 return true;
@@ -140,8 +143,9 @@ class Block<T extends object> {
 
     _render() {
         const block = this.render();
-        if (this._element)
+        if (this._element) {
             this._element.innerHTML = block;
+        }
     }
 
     render(): string { return ''; }
@@ -197,14 +201,16 @@ class Block<T extends object> {
 
     show() {
         const element = this.getContent();
-        if (element)
+        if (element) {
             element.style.display = "block";
+        }
     }
 
     hide() {
         const element = this.getContent();
-        if (element)
+        if (element) {
             element.style.display = "none";
+        }
     }
 }
 

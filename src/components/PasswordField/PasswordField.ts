@@ -7,8 +7,9 @@ export default class PasswordField extends Input<IPasswordFieldProps> {
     }
 
     checkValidation(value: string | null): string | null {
-        if (!value)
+        if (!value) {
             return "Пароль не может быть пустым";
+        }
 
         const nameRegex = /^[a-zA-Z\d]+$/;
         if (value.match(nameRegex) == null) {

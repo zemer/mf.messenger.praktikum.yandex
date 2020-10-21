@@ -9,8 +9,9 @@ export default class Input<T extends IInputProps> extends Block<T> {
     value: string | null;
 
     constructor(props: T) {
-        if (props && !props.type)
+        if (props && !props.type) {
             props.type = "text";
+        }
 
         super("div", {
             ...props

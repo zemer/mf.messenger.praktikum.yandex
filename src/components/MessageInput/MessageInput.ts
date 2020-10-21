@@ -28,8 +28,9 @@ export default class MessageInput extends Block<IMessageInputProps> {
     }
 
     checkValidation(value: string | null): string | null {
-        if (!value)
+        if (!value) {
             return "Поле не может быть пустым";
+        }
 
         return null;
     }

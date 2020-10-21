@@ -7,8 +7,9 @@ export default class PhoneField extends Input<IPhoneFieldProps> {
     }
 
     checkValidation(value: string | null): string | null {
-        if (!value)
+        if (!value) {
             return "Не указан телефон";
+        }
 
         const nameRegex = /^[\+]?[0-9]{1}[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/;
         if (value.match(nameRegex) == null) {
