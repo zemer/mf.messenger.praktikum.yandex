@@ -1,0 +1,144 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.button {
+  height: 50px;
+  background-color: #38b052;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-width: 0px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.body-font {
+  font-size: 16px;
+}
+
+.caption-font {
+  font-size: 14px;
+}
+
+.error-font {
+  font-size: 12px;
+  color: darkred;
+}
+
+input:focus {
+  outline: 0;
+}
+
+.title-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #38b052;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.white-title > nav > a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.white-title > nav > a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.white-title {
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.error-helper {
+  margin: 10px;
+}
+
+.field {
+  width: 200px;
+  margin-top: 15px;
+}
+
+.field > input[type=text], input[type=password] {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  border-style: solid;
+  border-color: #BDBDBD;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #4F4F4F;
+}
+
+.centered > a {
+  margin: 10px;
+}
+
+.caption {
+  font-size: 12px;
+  color: #4F4F4F;
+}
+
+.centered-container {
+  align-items: center;
+}
+
+.vertical-centered-container {
+  justify-content: center;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+}
+
+hr.devider {
+  border-top: 1px solid #BDBDBD;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.filler {
+  width: 100%;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.zero-margin {
+  margin: 0;
+}
+
+/*# sourceMappingURL=main.css.map */

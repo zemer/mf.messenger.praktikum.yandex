@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "compileTS": "tsc --build",
-    "start": "npm run compileTS && node server.js"
+    "compileSass": "sass src/stylesheets:static/stylesheets",
+    "start": "npm run compileTS && npm run compileSass && node server.js"
   },
   "repository": {
     "type": "git",
