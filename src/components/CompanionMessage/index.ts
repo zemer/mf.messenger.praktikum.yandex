@@ -1,3 +1,3 @@
-import CompanionMessage from './CompanionMessage.js';
+import CompanionMessage from './СompanionMessage.js';
 
 export default CompanionMessage;
