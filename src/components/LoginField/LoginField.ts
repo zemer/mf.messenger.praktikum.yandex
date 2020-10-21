@@ -1,7 +1,8 @@
 import Input from "../Input/index.js";
+import { ILoginFieldProps } from "./types.js";
 
-export default class LoginField extends Input {
-    constructor(props) {
+export default class LoginField extends Input<ILoginFieldProps> {
+    constructor(props: ILoginFieldProps) {
         super(props);
     }
 

@@ -1,7 +1,8 @@
 import Input from "../Input/index.js";
+import { INotEmptyFieldProps } from "./types.js";
 
-export default class NotEmptyField extends Input {
-    constructor(props) {
+export default class NotEmptyField extends Input<INotEmptyFieldProps> {
+    constructor(props: INotEmptyFieldProps) {
         super(props);
     }
 

@@ -2,8 +2,9 @@ import Block from "../../../components/Block/index.js";
 import { template } from "./template.js";
 import { } from "handlebars";
 import { items } from "../data.js";
+import { IChatListProps } from "./types.js";
 
-export default class ChatList extends Block {
+export default class ChatList extends Block<IChatListProps> {
     constructor() {
         super("main", {
             items

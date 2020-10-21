@@ -1,9 +1,10 @@
 import { template } from "./template.js";
 import Block from "../Block/index.js";
 import { } from "handlebars";
+import { IErrorHelperProps } from "./types.js";
 
-export default class ErrorHelper extends Block {
-    constructor(props) {
+export default class ErrorHelper extends Block<IErrorHelperProps> {
+    constructor(props: IErrorHelperProps) {
         super("div", props, "error-font error-helper");
 
         this.hide();

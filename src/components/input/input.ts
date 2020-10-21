@@ -2,18 +2,21 @@ import { template } from "./template.js";
 import Block from "../Block/index.js";
 import { } from "handlebars";
 import ErrorHelper from "../ErrorHelper/index.js";
+import { IInputProps } from "./types.js";
 
-export default class Input extends Block {
+export default class Input<T extends IInputProps> extends Block<T> {
     errorHelper: ErrorHelper;
     value: string | null;
 
-    constructor(props) {
-        if (props && !props.hasOwnProperty("type"))
+    constructor(props: T) {
+        if (props && !props.type)
             props.type = "text";
 
         super("div", {
             ...props
         });
+
+        this.value = null;
 
         this.handleFocus = this.handleFocus.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
@@ -22,7 +25,7 @@ export default class Input extends Block {
         this.errorHelper = new ErrorHelper({});
     }
 
-    componentDidMount(oldProps) {
+    componentDidMount(oldProps: T) {
         super.componentDidMount(oldProps);
 
         this.setProps({

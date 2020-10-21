@@ -7,8 +7,9 @@ import PasswordField from "../../components/PasswordField/index.js";
 import NotEmptyField from "../../components/NotEmptyField/index.js";
 import MailField from "../../components/MailField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
+import { IRegistrationProps } from "./types.js";
 
-export default class Registration extends Block {
+export default class Registration extends Block<IRegistrationProps> {
     constructor() {
         var firtName = new NotEmptyField({
             id: "first_name",

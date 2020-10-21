@@ -5,30 +5,32 @@ export default class EventBus {
         this.listeners = new Map();
     }
 
-    on(event, callback) {
-        if (!this.listeners[event]) {
-            this.listeners[event] = [];
+    on(event: string, callback: Function) {
+        if (!this.listeners.get(event)) {
+            this.listeners.set(event, []);
         }
 
-        this.listeners[event].push(callback);
+        this.listeners.get(event)?.push(callback);
     }
 
-    off(event, callback) {
-        if (!this.listeners[event]) {
+    off(event: string, callback: Function) {
+        if (!this.listeners.get(event)) {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners[event] = this.listeners[event].filter(
+        const newListeners = this.listeners.get(event)?.filter(
             listener => listener !== callback
         );
+
+        this.listeners.set(event, newListeners ?? []);
     }
 
-    emit(event, ...args) {
-        if (!this.listeners[event]) {
+    emit(event: string, ...args: Object[]) {
+        if (!this.listeners.get(event)) {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners[event].forEach(function (listener) {
+        this.listeners.get(event)?.forEach(function (listener: Function) {
             listener(...args);
         });
     }

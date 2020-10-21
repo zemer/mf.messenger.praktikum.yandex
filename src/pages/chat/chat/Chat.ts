@@ -3,11 +3,12 @@ import { template } from "./template.js";
 import { } from "handlebars";
 import { items, messages } from "../data.js";
 import SendMessage from "../../../components/SendMessage/index.js";
+import { IChatProps } from "./types.js";
+import { ISendMessagProps } from "../../../components/SendMessage/types.js";
 
-export default class Chat extends Block {
+export default class Chat extends Block<IChatProps> {
     constructor() {
-        const sendMessage = new SendMessage({
-        });
+        const sendMessage = new SendMessage({} as ISendMessagProps);
 
         super("main", {
             items,

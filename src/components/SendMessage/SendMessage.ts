@@ -3,9 +3,10 @@ import Block from "../Block/index.js";
 import { } from "handlebars";
 import Button from "../Button/index.js";
 import MessageInput from "../MessageInput/index.js";
+import { ISendMessagProps } from "./types.js";
 
-export default class SendMessage extends Block {
-    constructor(props) {
+export default class SendMessage extends Block<ISendMessagProps> {
+    constructor(props: ISendMessagProps) {
         const message = new MessageInput({});
 
         const button = new Button({

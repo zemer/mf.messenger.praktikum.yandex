@@ -1,7 +1,8 @@
 import Input from "../Input/index.js";
+import { IPhoneFieldProps } from "./types.js";
 
-export default class PhoneField extends Input {
-    constructor(props) {
+export default class PhoneField extends Input<IPhoneFieldProps> {
+    constructor(props: IPhoneFieldProps) {
         super({ ...props, placeholder: "+7(999)123-456-78-90" });
     }
 

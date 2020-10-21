@@ -1,8 +1,9 @@
 import Input from "../Input/index.js";
+import { IMailFieldProps } from "./types.js";
 
-export default class MailField extends Input {
-    constructor(props) {
-        super({ ...props, placeholder: "mail@yandex.ru" });
+export default class MailField extends Input<IMailFieldProps> {
+    constructor(props: IMailFieldProps) {
+        super({ ...props, placeholder: "mail@yandex.ru", type: "text" });
     }
 
     checkValidation(value: string | null): string | null {

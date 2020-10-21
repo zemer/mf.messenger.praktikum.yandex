@@ -1,13 +1,14 @@
 import EventBus from "../../utils/event-bus.js";
+import { IBlockProps } from "./types.js";
 
-interface IMetaInfo {
+interface IMetaInfo<T> {
     tagName: string;
     classes: string | null,
-    props: any;
+    props: T;
 }
 
 // Нельзя создавать экземпляр данного класса
-class Block {
+class Block<T extends object> {
     static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
@@ -15,22 +16,22 @@ class Block {
         FLOW_CDU: "flow:component-did-update",
     };
 
-    static _instances: any[] = [];
+    static _instances: Block<any>[] = [];
     static hydrate = function () {
-        for (const i of this._instances) {
+        for (const i of Block._instances) {
             const id = i.getId();
-            const elements = document.querySelectorAll(`[_key="${id}"]`)
+            const elements = document.querySelectorAll(`[_key="${id}"]`);
 
             if (elements && elements.length == 1) {
-                i.setElement(elements[0]);
+                i.setElement(elements[0] as HTMLElement);
             }
         }
     }
 
     _id = 'uniq' + (Math.random() * 1000000);
-    props: any;
+    props: T;
     _element: HTMLElement | null = null;
-    _meta: IMetaInfo | null = null;
+    _meta: IMetaInfo<T> | null = null;
     eventBus: () => EventBus;
 
     /** JSDoc
@@ -39,7 +40,7 @@ class Block {
      *
      * @returns {void}
      */
-    constructor(tagName = "div", props = {}, classes: string | null = null) {
+    constructor(tagName = "div", props: T, classes: string | null = null) {
         const eventBus = new EventBus();
 
         this._meta = {
@@ -57,7 +58,7 @@ class Block {
         Block._instances.push(this);
     }
 
-    _registerEvents(eventBus) {
+    _registerEvents(eventBus: EventBus) {
         eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
         eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
         eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
@@ -66,7 +67,7 @@ class Block {
 
     _createResources() {
         const tagName = this._meta?.tagName;
-        this._element = this._createDocumentElement(tagName);
+        this._element = this._createDocumentElement(tagName ?? 'div');
 
         if (this._meta?.classes)
             this._element.className = this._meta.classes;
@@ -84,16 +85,16 @@ class Block {
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidMount(oldProps) { }
+    componentDidMount(oldProps: T) { }
 
-    _componentDidUpdate(oldProps, newProps) {
+    _componentDidUpdate(oldProps: T, newProps: T) {
         const response = this.componentDidUpdate(oldProps, newProps);
 
         if (response)
             this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidUpdate(oldProps, newProps) {
+    componentDidUpdate(oldProps: T, newProps: T) {
         for (const key in oldProps) {
             if (newProps.hasOwnProperty(key)) {
                 const oldValue = oldProps[key];
@@ -114,7 +115,7 @@ class Block {
         return this.props;
     }
 
-    setProps = nextProps => {
+    setProps = (nextProps: T) => {
         if (!nextProps) {
             return;
         }
@@ -126,7 +127,7 @@ class Block {
         return this._element;
     }
 
-    setElement(element) {
+    setElement(element: HTMLElement) {
         this._element = element;
         this.setEvents();
     }
@@ -169,23 +170,25 @@ class Block {
         return this.element;
     }
 
-    _makePropsProxy(props) {
+    _makePropsProxy(props: T) {
         // Еще один способ передачи this, но он больше не применяется с приходом ES6+
         const self = this;
 
-        return new Proxy(props, {
+        return new Proxy<T>(props, {
             get(target, prop) {
-                return target[prop];
+                return Reflect.get(target, prop);
             },
             set(target, prop, value) {
+                const oldTarget = new Object();
+                Object.assign(oldTarget, target);
+                //oldTarget[prop] = target[prop];
 
-                const oldTarget = {};
-                oldTarget[prop] = target[prop];
+                //target[prop] = value;
 
-                target[prop] = value;
+                Reflect.set(target, prop, value);
 
-                const newTarget = {};
-                newTarget[prop] = target[prop];
+                const newTarget = new Object();
+                Object.assign(oldTarget, target);
 
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, newTarget);
 
@@ -197,7 +200,7 @@ class Block {
         });
     }
 
-    _createDocumentElement(tagName): HTMLElement {
+    _createDocumentElement(tagName: string): HTMLElement {
         // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
         return document.createElement(tagName);
     }

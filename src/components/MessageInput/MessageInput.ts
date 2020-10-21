@@ -1,22 +1,24 @@
 import Block from "../Block/index.js";
 import ErrorHelper from "../ErrorHelper/index.js";
 import { template } from "./template.js";
+import { IMessageInputProps } from "./types.js";
 
-export default class MessageInput extends Block {
+export default class MessageInput extends Block<IMessageInputProps> {
     errorHelper: ErrorHelper;
     value: string | null;
 
-    constructor(props) {
+    constructor(props: IMessageInputProps) {
         super("div", props);
 
         this.errorHelper = new ErrorHelper({});
+        this.value = null;
 
         this.handleFocus = this.handleFocus.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
         this.handleInput = this.handleInput.bind(this);
     }
 
-    componentDidMount(oldProps) {
+    componentDidMount(oldProps: IMessageInputProps) {
         super.componentDidMount(oldProps);
 
         this.setProps({
