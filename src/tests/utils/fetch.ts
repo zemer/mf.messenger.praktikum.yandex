@@ -1,10 +1,10 @@
-import { HTTPTransport } from "../../utils/fetch.js";
+import { HTTPTransport, queryStringify } from "../../utils/fetch.js";
 
 let expect = chai.expect;
 
-describe('fetch', function () {
-    describe('get', function () {
-        it('Должен придти ответ', function () {
+describe("fetch", function () {
+    describe("get", function () {
+        it("Должен придти ответ", function () {
             const fetch = new HTTPTransport();
             return fetch.get("https://reqres.in/api/users/2", {})
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
@@ -14,7 +14,7 @@ describe('fetch', function () {
                 })
         })
 
-        it('Запрос с параметрами', function () {
+        it("Запрос с параметрами", function () {
             const fetch = new HTTPTransport();
             const data = {
                 page: 2
@@ -27,7 +27,7 @@ describe('fetch', function () {
                 });
         })
 
-        it('Должна быть ошибка, если адрес не существует', function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
             const fetch = new HTTPTransport();
             fetch.get("https://reqfdsfsdfsres.in/api/users/23", { timeout: 1 })
                 .then(() => done("Должна быть ошибка"))
@@ -35,8 +35,8 @@ describe('fetch', function () {
         });
     });
 
-    describe('post', function () {
-        it('Должен придти ответ', function () {
+    describe("post", function () {
+        it("Должен придти ответ", function () {
             const fetch = new HTTPTransport();
             return fetch.post("https://reqres.in/api/users", {
                 data: {
@@ -52,7 +52,7 @@ describe('fetch', function () {
                 });
         })
 
-        it('Должна быть ошибка, если адрес не существует', function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
             const fetch = new HTTPTransport();
             fetch.post("https://reqrfdsfdsfsdgses.in/api/register", {
                 data: {
@@ -65,8 +65,8 @@ describe('fetch', function () {
         });
     });
 
-    describe('put', function () {
-        it('Должен придти ответ', function () {
+    describe("put", function () {
+        it("Должен придти ответ", function () {
             const fetch = new HTTPTransport();
             return fetch.put("https://reqres.in/api/users/2", {
                 data: {
@@ -81,7 +81,7 @@ describe('fetch', function () {
                 });
         })
 
-        it('Должна быть ошибка, если адрес не существует', function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
             const fetch = new HTTPTransport();
             fetch.put("https://reqrfdsfsdfsdes.in/api/register", {
                 data: {
@@ -94,8 +94,8 @@ describe('fetch', function () {
         });
     });
 
-    describe('delete', function () {
-        it('Должен придти ответ', function () {
+    describe("delete", function () {
+        it("Должен придти ответ", function () {
             const fetch = new HTTPTransport();
             return fetch.delete("https://reqres.in/api/users/2", {
                 data: {
@@ -106,7 +106,7 @@ describe('fetch', function () {
                 .then((res: XMLHttpRequest) => expect(res.status).equal(204))
         })
 
-        it('Должна быть ошибка, если адрес не существует', function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
             const fetch = new HTTPTransport();
             fetch.delete("https://reqrfdsfsdfsdes.in/api/register", {
                 data: {
@@ -118,4 +118,23 @@ describe('fetch', function () {
                 .catch(() => done());
         });
     });
+
+    describe("queryStringify", function () {
+        it("Конвертер данных в запрос", function () {
+            const result = queryStringify({
+                page: 2,
+                type: 'xxx'
+            });
+
+            expect(result).to.be.a("string");
+            expect(result).equals("page=2&type=xxx")
+        })
+
+        it("Конвертер пустого объекта", function () {
+            const result = queryStringify({});
+
+            expect(result).to.be.a("string");
+            expect(result).equals("")
+        })
+    })
 });

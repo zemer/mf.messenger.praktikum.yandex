@@ -7,7 +7,7 @@ const METHODS = {
     DELETE: 'DELETE'
 };
 
-function queryStringify(data: StringIndexed): string | never {
+export function queryStringify(data: StringIndexed): string | never {
     if (typeof (data) !== 'object')
         throw "Input must be an object";
 
