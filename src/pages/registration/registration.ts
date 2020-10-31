@@ -6,9 +6,10 @@ import PasswordField from "../../components/PasswordField/index.js";
 import NotEmptyField from "../../components/NotEmptyField/index.js";
 import MailField from "../../components/MailField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
-import { IRegistrationProps } from "./types.js";
+import { RegistrationProps as RegistrationProps } from "./types.js";
+import Link from "../../components/Link/index.js";
 
-export default class Registration extends Block<IRegistrationProps> {
+export default class Registration extends Block<RegistrationProps> {
         constructor() {
                 const firtName = new NotEmptyField({
                         id: "first_name",
@@ -53,6 +54,11 @@ export default class Registration extends Block<IRegistrationProps> {
                         }
                 }, "button button-register");
 
+                const toLogin = new Link({
+                        text: "Войти",
+                        path: "/login"
+                }, "caption");
+
                 super("div", {
                         firtName,
                         secondName,
@@ -60,7 +66,8 @@ export default class Registration extends Block<IRegistrationProps> {
                         email,
                         phone,
                         password,
-                        button
+                        button,
+                        toLogin
                 });
         }
 
@@ -74,6 +81,7 @@ export default class Registration extends Block<IRegistrationProps> {
                         phone: this.props.phone.renderToString(),
                         password: this.props.password.renderToString(),
                         button: this.props.button.renderToString(),
+                        toLogin: this.props.toLogin.renderToString()
                 });
 
                 return block;

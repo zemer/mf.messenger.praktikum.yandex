@@ -13,7 +13,7 @@ export const template = `
                 {{{button}}}
             </div>
             <div class="centered-container">
-                <a class="caption" href="/registration">Регистрация</a>
+                {{{registration}}}
             </div>
         </div>
     </form>

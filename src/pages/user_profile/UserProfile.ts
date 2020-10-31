@@ -7,6 +7,7 @@ import NotEmptyField from "../../components/NotEmptyField/index.js";
 import MailField from "../../components/MailField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
 import { IUserProfileProps } from "./types.js";
+import Link from "../../components/Link/index.js";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     constructor() {
@@ -60,6 +61,11 @@ export default class UserProfile extends Block<IUserProfileProps> {
             }
         }, "button button-save");
 
+        const toChats = new Link({
+            text: "< Назад",
+            path: "/chats"
+        });
+
         super("div", {
             firtName,
             secondName,
@@ -68,7 +74,8 @@ export default class UserProfile extends Block<IUserProfileProps> {
             phone,
             oldPassword,
             newPassword,
-            button
+            button,
+            toChats
         });
     }
 
@@ -83,6 +90,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
             oldPassword: this.props.oldPassword.renderToString(),
             newPassword: this.props.newPassword.renderToString(),
             button: this.props.button.renderToString(),
+            toChats: this.props.toChats.renderToString(),
         });
 
         return block;

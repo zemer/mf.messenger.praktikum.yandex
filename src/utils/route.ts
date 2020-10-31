@@ -1,5 +1,5 @@
 import Block from "../components/Block/Block";
-import { render } from './renderDOM.js';
+import { clear, render } from './renderDOM.js';
 
 export default class Route {
     private _pathname: string;
@@ -24,6 +24,8 @@ export default class Route {
     leave() {
         if (this._block) {
             this._block.hide();
+            clear(this._props.rootQuery, this._block);
+            this._block = null;
         }
     }
 

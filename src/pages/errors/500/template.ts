@@ -9,7 +9,7 @@ export const template = `
                 <span>{{description}}</span>
             </div>
             <div class="error-link-font">
-                <a href="/login">Войти в #ЧАТ</a>
+                {{{toLogin}}}
             </div>
         </div>
     </div>
