@@ -33,7 +33,7 @@ interface HttpOptions {
     timeout: number;
 }
 
-class HTTPTransport {
+export class HTTPTransport {
     get = (url: string, options: HttpOptions) => {
         if (options.data) {
             url += queryStringify(options.data);

@@ -12,10 +12,17 @@
         "alwaysStrict": true,
         "strict": true,
         "types": [
-            "handlebars"
+            "handlebars",
+            "mocha",
+            "node"
+        ],
+        "typeRoots": [
+            "./node_modules/@types",
+            "./typings"
         ]
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "tests"
     ],
 }
