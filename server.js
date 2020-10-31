@@ -6,6 +6,12 @@ const PORT = 4000;
 app.use(express.static('./static/'));
 app.use(express.static('./'));
 
+app.get('/tests/*', function (req, res) {
+    //var code = req.body.code;
+    //console.log(req);
+    res.sendFile(__dirname + '/static/tests/tests.html');
+});
+
 app.get('/*', function (req, res) {
     //var code = req.body.code;
     //console.log(req);
@@ -13,5 +19,5 @@ app.get('/*', function (req, res) {
 });
 
 app.listen(PORT, function () {
-    console.log(`Example app listening on port ${PORT}!`);
+    console.log(`App started on port ${PORT}!`);
 }); 

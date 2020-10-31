@@ -27,35 +27,34 @@ function queryStringify(data: StringIndexed): string | never {
 }
 
 interface HttpOptions {
-    method: string;
-    headers: string[];
-    data: StringIndexed;
-    timeout: number;
+    headers?: string[];
+    data?: StringIndexed;
+    timeout?: number;
 }
 
 export class HTTPTransport {
-    get = (url: string, options: HttpOptions) => {
+    get = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
         if (options.data) {
-            url += queryStringify(options.data);
+            url += '?' + queryStringify(options.data);
         }
 
-        return this.request(url, { ...options, method: METHODS.GET }, options.timeout);
+        return this.request(url, options, METHODS.GET, options.timeout);
     };
 
-    put = (url: string, options: HttpOptions) => {
-        return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
+    post = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+        return this.request(url, options, METHODS.POST, options.timeout);
     };
 
-    post = (url: string, options: HttpOptions) => {
-        return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
+    put = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+        return this.request(url, options, METHODS.PUT, options.timeout);
     };
 
-    delete = (url: string, options: HttpOptions) => {
-        return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
+    delete = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+        return this.request(url, options, METHODS.DELETE, options.timeout);
     };
 
-    request = (url: string, options: HttpOptions, timeout = 5000) => {
-        const { method, headers, data } = options;
+    request = (url: string, options: HttpOptions, method: string, timeout = 5000): Promise<XMLHttpRequest> => {
+        const { headers, data } = options;
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
@@ -73,8 +72,14 @@ export class HTTPTransport {
             };
 
             xhr.onabort = reject;
-            xhr.onerror = reject;
-            xhr.ontimeout = reject;
+            xhr.onerror = () => {
+                console.log("error");
+                reject();
+            };
+            xhr.ontimeout = () => {
+                console.log("timeout");
+                reject();
+            };
 
             if (method === METHODS.GET || !data) {
                 xhr.send();

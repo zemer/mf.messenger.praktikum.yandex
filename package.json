@@ -6,9 +6,8 @@
   "scripts": {
     "compileTS": "tsc --build",
     "compileSass": "sass src/stylesheets/global.scss static/stylesheets/global.css",
-    "build": "npm run test && npm run compileTS && npm run compileSass",
-    "start": "npm run build && node server.js",
-    "test": "mocha -r ts-node/register 'tests/**/*.ts'"
+    "build": "npm run compileTS && npm run compileSass",
+    "start": "npm run build && node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,9 +23,7 @@
   "dependencies": {
     "@types/chai": "^4.2.14",
     "@types/handlebars": "4.1.0",
-    "@types/jest": "^26.0.15",
     "@types/mocha": "^8.0.3",
-    "@types/node": "^14.14.6",
     "chai": "^4.2.0",
     "express": "4.17.1",
     "mocha": "^8.2.0",
