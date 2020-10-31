@@ -4,6 +4,7 @@ import { template } from "./template.js";
 import LoginField from "../../components/LoginField/index.js";
 import PasswordField from "../../components/PasswordField/index.js";
 import { ILoginProps } from "./types.js";
+import Router from "../../utils/router.js";
 
 export default class Login extends Block<ILoginProps> {
     constructor() {
@@ -21,8 +22,8 @@ export default class Login extends Block<ILoginProps> {
         const button = new Button({
             value: "Войти",
             handleClick: () => {
-                login.validate();
-                password.validate();
+                if (login.validate() && password.validate())
+                    Router.__instance.go("/chats");
             }
         }, "button button-login");
 

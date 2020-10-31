@@ -1,13 +1,10 @@
-{
-    const source = document.getElementById("entry-template")?.innerHTML;
-    const template = Handlebars.compile(source);
+import Block from "../../../components/Block/Block.js";
+import Error404 from "./Error404.js";
 
-    const context = {
-        title: "404",
-        description: `"Прицел 15, трубка 20! Бац! Бац... и мимо" (с)`,
-    };
+const temp = new Error404();
+const content = temp.getContent();
 
-    const block = template(context);
-
-    document.body.innerHTML = block;
+if (content) {
+    document.body.appendChild(content);
+    Block.hydrate();
 }

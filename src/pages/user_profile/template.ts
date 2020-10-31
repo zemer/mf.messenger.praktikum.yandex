@@ -4,7 +4,7 @@ export const template = `
         <div class="user-profile-title full-width row-container">
             <div class="white-title">
                 <nav>
-                    <a href="../chat/chat/chat.html">&lt; Назад</a>
+                    <a href="/chat">&lt; Назад</a>
                 </nav>
             </div>
         </div>

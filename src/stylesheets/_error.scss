@@ -1,7 +1,8 @@
 @import "_colors";
 
-.error-font {
+.error-code-font {
     font-size: 144px;
+    color: $error-color;
 }
 
 .error-description-font {

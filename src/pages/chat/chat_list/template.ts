@@ -6,7 +6,7 @@ export const template = `
                 <h1 class="title-font white-title">#ЧАТ</h1>
                 <div class="white-title">
                     <nav>
-                        <a href="../../user_profile/user_profile.html">Профиль ></a>
+                        <a href="/profile">Профиль ></a>
                     </nav>
                 </div>
             </header>

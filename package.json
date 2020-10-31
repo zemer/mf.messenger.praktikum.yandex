@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compileTS": "tsc --build",
-    "compileSass": "sass src/stylesheets:static/stylesheets",
+    "compileSass": "sass src/stylesheets/global.scss static/stylesheets/global.css",
     "build": "npm run compileTS && npm run compileSass",
     "start": "npm run build && node server.js"
   },

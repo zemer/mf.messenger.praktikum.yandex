@@ -18,7 +18,7 @@ export const template = `
                 {{{button}}}
             </div>
             <div class="centered-container">
-                <a class="caption" href="../login/login.html">Войти</a>
+                <a class="caption" href="/login">Войти</a>
             </div>
         </div>
     </form>

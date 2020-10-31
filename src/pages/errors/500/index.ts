@@ -1,13 +1,10 @@
-{
-    const source = document.getElementById("entry-template")?.innerHTML;
-    const template = Handlebars.compile(source);
+import Block from "../../../components/Block/Block.js";
+import Error500 from "./Error500.js";
 
-    const context = {
-        title: "500",
-        description: "Ведутся работы",
-    };
+const temp = new Error500();
+const content = temp.getContent();
 
-    const block = template(context);
-
-    document.body.innerHTML = block;
+if (content) {
+    document.body.appendChild(content);
+    Block.hydrate();
 }

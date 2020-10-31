@@ -61,9 +61,14 @@ export default class Input<T extends IInputProps> extends Block<T> {
         this.value = (ev.target as HTMLInputElement)?.value;
     }
 
-    validate() {
+    validate(): boolean {
         const message = this.checkValidation(this.value);
         this.errorHelper.showOnError(message);
+
+        if (message)
+            return false;
+
+        return true;
     }
 
     checkValidation(value: string | null): string | null {
