@@ -4,7 +4,7 @@ export const template = `
         <div class="user-profile-title full-width row-container">
             <div class="white-title">
                 <nav>
-                    {{{toChats}}}
+                    {{{backButton}}}
                 </nav>
             </div>
         </div>

@@ -1,5 +1,4 @@
 import Button from "../../components/Button/index.js";
-import Link from "../../components/Link/index.js";
 import LoginField from "../../components/LoginField/index.js";
 import MailField from "../../components/MailField/index.js";
 import NotEmptyField from "../../components/NotEmptyField/index.js";
@@ -15,5 +14,5 @@ export interface IUserProfileProps {
     oldPassword: PasswordField;
     newPassword: PasswordField;
     button: Button;
-    toChats: Link;
+    backButton: Button;
 }
