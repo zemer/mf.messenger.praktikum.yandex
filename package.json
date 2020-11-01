@@ -7,7 +7,8 @@
     "compileTS": "tsc --build",
     "compileSass": "sass src/stylesheets/global.scss static/stylesheets/global.css",
     "build": "npm run compileTS && npm run compileSass",
-    "start": "npm run build && node server.js"
+    "start": "npm run build && node server.js",
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -19,14 +20,19 @@
     "url": "https://github.com/zemer/mf.messenger.praktikum.yandex/issues"
   },
   "homepage": "https://github.com/zemer/mf.messenger.praktikum.yandex#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.1",
+    "ts-jest": "^26.4.3"
+  },
   "dependencies": {
+    "@jest/globals": "^26.6.1",
     "@types/chai": "^4.2.14",
     "@types/handlebars": "4.1.0",
     "@types/mocha": "^8.0.3",
-    "chai": "^4.2.0",
+    "@types/node": "^14.14.6",
     "express": "4.17.1",
-    "mocha": "^8.2.0",
-    "ts-node": "^9.0.0"
+    "ts-node": "^9.0.0",
+    "xmlhttprequest": "^1.8.0"
   }
 }

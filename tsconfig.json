@@ -14,7 +14,9 @@
         "types": [
             "handlebars",
             "mocha",
-            "chai"
+            "chai",
+            "node",
+            "@jest/globals"
         ],
         "typeRoots": [
             "./node_modules/@types",

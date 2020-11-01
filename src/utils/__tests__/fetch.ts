@@ -1,6 +1,5 @@
-import { HTTPTransport, queryStringify } from "../../utils/fetch.js";
-
-let expect = chai.expect;
+import { describe, expect } from '@jest/globals';
+import { HTTPTransport, queryStringify } from "../fetch";
 
 describe("fetch", function () {
     describe("get", function () {
@@ -9,8 +8,7 @@ describe("fetch", function () {
             return fetch.get("https://reqres.in/api/users/2", {})
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).to.be.a("object");
-                    expect(res).to.have.property("data");
+                    expect(res).toHaveProperty("data");
                 })
         })
 
@@ -22,8 +20,7 @@ describe("fetch", function () {
             return fetch.get("https://reqres.in/api/users", { data })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).to.be.a("object");
-                    expect(res).to.have.property("data");
+                    expect(res).toHaveProperty("data");
                 });
         })
 
@@ -46,9 +43,8 @@ describe("fetch", function () {
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).to.be.a("object");
-                    expect(res).to.have.property("id");
-                    expect(res).to.have.property("createdAt");
+                    expect(res).toHaveProperty("id");
+                    expect(res).toHaveProperty("createdAt");
                 });
         })
 
@@ -76,8 +72,7 @@ describe("fetch", function () {
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).to.be.a("object");
-                    expect(res).to.have.property("updatedAt");
+                    expect(res).toHaveProperty("updatedAt");
                 });
         })
 
@@ -103,7 +98,7 @@ describe("fetch", function () {
                     job: "zion resident"
                 }
             })
-                .then((res: XMLHttpRequest) => expect(res.status).equal(204))
+                .then((res: XMLHttpRequest) => expect(res.status).toEqual(204));
         })
 
         it("Должна быть ошибка, если адрес не существует", function (done: Function) {
@@ -126,15 +121,12 @@ describe("fetch", function () {
                 type: 'xxx'
             });
 
-            expect(result).to.be.a("string");
-            expect(result).equals("page=2&type=xxx")
+            expect(result).toEqual("page=2&type=xxx");
         })
 
         it("Конвертер пустого объекта", function () {
             const result = queryStringify({});
-
-            expect(result).to.be.a("string");
-            expect(result).equals("")
+            expect(result).toEqual("");
         })
     })
 });
