@@ -27,11 +27,14 @@
   },
   "dependencies": {
     "@jest/globals": "^26.6.1",
+    "@testing-library/dom": "^7.26.3",
+    "@testing-library/jest-dom": "^5.11.5",
     "@types/chai": "^4.2.14",
     "@types/handlebars": "4.1.0",
     "@types/mocha": "^8.0.3",
     "@types/node": "^14.14.6",
     "express": "4.17.1",
+    "handlebars": "^4.7.6",
     "ts-node": "^9.0.0",
     "xmlhttprequest": "^1.8.0"
   }

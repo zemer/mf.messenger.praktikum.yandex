@@ -1,7 +1,8 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { logForm } from "../../utils/logForm.js";
-import { IButtonProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { logForm } from "../../utils/logForm";
+import { IButtonProps } from "./types";
+import Handlebars from 'handlebars';
 
 export default class Button extends Block<IButtonProps> {
     constructor(props: IButtonProps, classes: string | null = null) {
