@@ -16,10 +16,10 @@ class Block<T extends object> {
     };
 
     static _instances: Block<any>[] = [];
-    static hydrate = function () {
+    static hydrate = function (root: HTMLElement | HTMLDocument = document) {
         for (const i of Block._instances) {
             const id = i.getId();
-            const elements = document.querySelectorAll(`[_key="${id}"]`);
+            const elements = root.querySelectorAll(`[_key="${id}"]`);
 
             if (elements && elements.length == 1) {
                 i.setElement(elements[0] as HTMLElement);
@@ -183,7 +183,7 @@ class Block<T extends object> {
                 Reflect.set(target, prop, value);
 
                 const newTarget = new Object();
-                Object.assign(oldTarget, target);
+                Object.assign(newTarget, target);
 
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, newTarget);
 

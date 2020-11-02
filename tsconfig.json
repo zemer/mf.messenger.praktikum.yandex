@@ -19,7 +19,8 @@
             "handlebars",
             "node",
             "mocha",
-            "chai"
+            "chai",
+            //"sinon",
             //"@jest/globals"
         ],
         "typeRoots": [
