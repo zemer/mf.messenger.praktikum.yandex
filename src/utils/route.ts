@@ -1,4 +1,4 @@
-import Block from "../components/Block/Block";
+import Block from "../components/Block/Block.js";
 import { clear, render } from './renderDOM.js';
 
 export default class Route {

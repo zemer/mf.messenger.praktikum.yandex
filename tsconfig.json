@@ -2,8 +2,11 @@
     "compilerOptions": {
         "outDir": "./static/js/build",
         "target": "es6",
+        "allowJs": true,
+        "esModuleInterop": true,
         "declaration": false,
         "module": "ES6",
+        "moduleResolution": "node",
         "noImplicitAny": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
@@ -11,12 +14,13 @@
         "sourceMap": true,
         "alwaysStrict": true,
         "strict": true,
+        "allowSyntheticDefaultImports": true,
         "types": [
-            //"handlebars",
-            "mocha",
-            "chai",
+            "handlebars",
             "node",
-            "@jest/globals"
+            "mocha",
+            "chai"
+            //"@jest/globals"
         ],
         "typeRoots": [
             "./node_modules/@types",

@@ -1,4 +1,4 @@
-declare const Handlebars: any;
+//declare const Handlebars: any;
 
 declare global {
     interface ProxyConstructor {

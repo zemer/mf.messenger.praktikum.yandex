@@ -1,5 +1,6 @@
-import { describe, expect } from '@jest/globals';
-import { HTTPTransport, queryStringify } from "../fetch";
+import { HTTPTransport, queryStringify } from "../fetch.js";
+
+let expect = chai.expect;
 
 describe("fetch", function () {
     describe("get", function () {
@@ -8,7 +9,7 @@ describe("fetch", function () {
             return fetch.get("https://reqres.in/api/users/2", {})
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).toHaveProperty("data");
+                    expect(res).to.haveOwnProperty("data");
                 })
         })
 
@@ -20,7 +21,7 @@ describe("fetch", function () {
             return fetch.get("https://reqres.in/api/users", { data })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).toHaveProperty("data");
+                    expect(res).to.haveOwnProperty("data");
                 });
         })
 
@@ -43,8 +44,8 @@ describe("fetch", function () {
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).toHaveProperty("id");
-                    expect(res).toHaveProperty("createdAt");
+                    expect(res).to.haveOwnProperty("id");
+                    expect(res).to.haveOwnProperty("createdAt");
                 });
         })
 
@@ -72,7 +73,7 @@ describe("fetch", function () {
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
-                    expect(res).toHaveProperty("updatedAt");
+                    expect(res).to.haveOwnProperty("updatedAt");
                 });
         })
 
@@ -98,7 +99,7 @@ describe("fetch", function () {
                     job: "zion resident"
                 }
             })
-                .then((res: XMLHttpRequest) => expect(res.status).toEqual(204));
+                .then((res: XMLHttpRequest) => expect(res.status).to.equal(204));
         })
 
         it("Должна быть ошибка, если адрес не существует", function (done: Function) {
@@ -121,12 +122,12 @@ describe("fetch", function () {
                 type: 'xxx'
             });
 
-            expect(result).toEqual("page=2&type=xxx");
+            expect(result).to.equal("page=2&type=xxx");
         })
 
         it("Конвертер пустого объекта", function () {
             const result = queryStringify({});
-            expect(result).toEqual("");
+            expect(result).to.equal("");
         })
     })
 });
