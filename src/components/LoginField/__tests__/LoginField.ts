@@ -33,7 +33,6 @@ describe("LoginField", () => {
         expect(domInput.getAttribute("id")).equals(id);
         expect(domInput.getAttribute("placeholder")).equals(placeholder);
 
-
         expect(domLabel.textContent).equals(label);
     })
 
@@ -50,6 +49,7 @@ describe("LoginField", () => {
 
         expect(login.checkValidation(null)).equals(emptyMessage);
         expect(login.checkValidation("")).equals(emptyMessage);
+
         expect(login.checkValidation("   ")).equals(notvalidMessage);
         expect(login.checkValidation("аваы")).equals(notvalidMessage);
         expect(login.checkValidation("443534")).equals(notvalidMessage);

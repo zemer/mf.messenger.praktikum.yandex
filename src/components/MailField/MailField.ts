@@ -3,7 +3,11 @@ import { IMailFieldProps } from "./types.js";
 
 export default class MailField extends Input<IMailFieldProps> {
     constructor(props: IMailFieldProps) {
-        super({ ...props, placeholder: "mail@yandex.ru", type: "text" });
+        super({
+            ...props,
+            placeholder: props.placeholder ?? "mail@yandex.ru",
+            type: "text"
+        });
     }
 
     checkValidation(value: string | null): string | null {
