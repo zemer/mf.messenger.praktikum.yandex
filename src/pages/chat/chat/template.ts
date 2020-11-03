@@ -21,7 +21,7 @@ export const template = `
                 <div>
                     <span class="chat-item-photo" />
                 </div>
-                <div class="chat-item-user">
+                <div class="chat-item-title">
                     <span>{{user}}</span>
                 </div>
             </header>

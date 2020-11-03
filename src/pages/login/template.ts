@@ -13,7 +13,8 @@ export const template = `
                 {{{button}}}
             </div>
             <div class="centered-container">
-                {{{registration}}}
+                {{{toRegistration}}}
+                {{{logout}}}
             </div>
         </div>
     </form>

@@ -1,4 +1,5 @@
 import EventBus from "../../utils/event-bus.js";
+import { isEqual } from "../../utils/isEqual.js";
 
 interface IMetaInfo<T> {
     tagName: string;
@@ -97,21 +98,7 @@ class Block<T extends object> {
     }
 
     componentDidUpdate(oldProps: T, newProps: T) {
-        for (const key in oldProps) {
-            if (newProps.hasOwnProperty(key)) {
-                const oldValue = oldProps[key];
-                const newValue = newProps[key];
-
-                if (oldValue !== newValue) {
-                    return true;
-                }
-            }
-            else {
-                return true;
-            }
-        }
-
-        return false;
+        return !isEqual(oldProps, newProps);
     }
 
     getProps() {

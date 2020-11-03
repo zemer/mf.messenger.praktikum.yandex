@@ -4,8 +4,8 @@ import { template } from "./template.js";
 import LoginField from "../../components/LoginField/index.js";
 import PasswordField from "../../components/PasswordField/index.js";
 import { ILoginProps as ILoginProps } from "./types.js";
-import Router from "../../utils/router.js";
 import Link from "../../components/Link/index.js";
+import { authController } from "../../controllers/AuthController.js";
 
 export default class Login extends Block<ILoginProps> {
     constructor() {
@@ -26,8 +26,16 @@ export default class Login extends Block<ILoginProps> {
                 const loginValidate = login.validate();
                 const passwordValidate = password.validate();
 
-                if (loginValidate && passwordValidate)
-                    Router.__instance.go("/chats");
+                if (loginValidate && passwordValidate) {
+                    authController.signIn(login.value ?? "", password.value ?? "");
+                }
+            }
+        }, "button button-login");
+
+        const logout = new Button({
+            value: "Выйти",
+            handleClick: () => {
+                authController.logout();
             }
         }, "button button-login");
 
@@ -40,18 +48,19 @@ export default class Login extends Block<ILoginProps> {
             login,
             password,
             button,
-            toRegistration
+            toRegistration,
+            logout
         });
     }
 
-    //temp
     render() {
         const compile = Handlebars.compile(template);
         const block = compile({
             login: this.props.login.renderToString(),
             password: this.props.password.renderToString(),
             button: this.props.button.renderToString(),
-            toRegistration: this.props.toRegistration.renderToString()
+            toRegistration: this.props.toRegistration.renderToString(),
+            logout: this.props.logout.renderToString(),
         });
 
         return block;

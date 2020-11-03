@@ -4,8 +4,8 @@ export const template = `
         <span class="chat-item-photo" />
     </div>
     <div>
-        <div class="chat-item-user">
-            <span>{{user}}</span>
+        <div class="chat-item-title">
+            <span>{{title}}</span>
         </div>
         <div class="chat-item-preview">
             <span>{{preview}}</span>

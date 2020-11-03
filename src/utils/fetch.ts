@@ -1,4 +1,4 @@
-type StringIndexed = Record<string, unknown>;
+export type StringIndexed = Record<string, unknown>;
 
 const METHODS = {
     GET: 'GET',
@@ -26,7 +26,7 @@ export function queryStringify(data: StringIndexed): string | never {
     return Object.keys(data).map(i => convertKey(i, data[i])).join('&');
 }
 
-interface HttpOptions {
+export interface HttpOptions {
     headers?: string[];
     data?: StringIndexed;
     timeout?: number;
@@ -60,12 +60,18 @@ export class HTTPTransport {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
 
+            xhr.open(method, url);
+            xhr.withCredentials = true;
+
             if (headers)
                 for (const header in headers) {
                     xhr.setRequestHeader(header, headers[header]);
                 }
+            else {
+                xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+            }
 
-            xhr.open(method, url);
+
 
             xhr.onload = function () {
                 resolve(xhr);

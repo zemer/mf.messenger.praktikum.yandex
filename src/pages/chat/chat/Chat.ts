@@ -1,6 +1,5 @@
 import Block from "../../../components/Block/index.js";
 import { template } from "./template.js";
-import { items, messages } from "../data.js";
 import SendMessage from "../../../components/SendMessage/index.js";
 import { IChatProps } from "./types.js";
 import { ISendMessagProps } from "../../../components/SendMessage/types.js";
@@ -16,12 +15,22 @@ export default class Chat extends Block<IChatProps> {
         });
 
         super("main", {
-            items,
+            items: [],
             user: "Илья",
-            messages,
+            messages: [],
             sendMessage,
             toProfile
         }, "full-height zero-margin");
+
+        // const globalStore1 = {
+        //     chats: {
+        //         items: [1, 2, 3],
+        //     },
+        // };
+    }
+
+    componentDidMount() {
+        super.componentDidMount();
     }
 
     render() {

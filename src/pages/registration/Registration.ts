@@ -8,6 +8,7 @@ import MailField from "../../components/MailField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
 import { RegistrationProps as RegistrationProps } from "./types.js";
 import Link from "../../components/Link/index.js";
+import { authController } from "../../controllers/AuthController.js";
 
 export default class Registration extends Block<RegistrationProps> {
     constructor() {
@@ -45,12 +46,25 @@ export default class Registration extends Block<RegistrationProps> {
         const button = new Button({
             value: "Зарегистрироваться",
             handleClick: () => {
-                firtName.validate();
-                secondName.validate();
-                login.validate();
-                email.validate();
-                phone.validate();
-                password.validate();
+                const validation: Boolean[] = [];
+
+                validation.push(firtName.validate());
+                validation.push(secondName.validate());
+                validation.push(login.validate());
+                validation.push(email.validate());
+                validation.push(phone.validate());
+                validation.push(password.validate());
+
+                if (validation.every(v => v)) {
+                    authController.signUp({
+                        first_name: firtName.value ?? "",
+                        second_name: secondName.value ?? "",
+                        email: email.value ?? "",
+                        login: login.value ?? "",
+                        password: password.value ?? "",
+                        phone: phone.value ?? ""
+                    });
+                }
             }
         }, "button button-register");
 
