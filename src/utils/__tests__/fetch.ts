@@ -6,7 +6,7 @@ describe("fetch", function () {
     describe("get", function () {
         it("Должен придти ответ", function () {
             const fetch = new HTTPTransport();
-            return fetch.get("https://reqres.in/api/users/2", {})
+            return fetch.get("https://reqres.in/api/users/2", { withCredentials: false })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
                     expect(res).to.haveOwnProperty("data");
@@ -18,7 +18,7 @@ describe("fetch", function () {
             const data = {
                 page: 2
             };
-            return fetch.get("https://reqres.in/api/users", { data })
+            return fetch.get("https://reqres.in/api/users", { data, withCredentials: false })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
                     expect(res).to.haveOwnProperty("data");
@@ -27,7 +27,7 @@ describe("fetch", function () {
 
         it("Должна быть ошибка, если адрес не существует", function (done: Function) {
             const fetch = new HTTPTransport();
-            fetch.get("https://reqfdsfsdfsres.in/api/users/23", { timeout: 1 })
+            fetch.get("https://reqfdsfsdfsres.in/api/users/23", { timeout: 1, withCredentials: false })
                 .then(() => done("Должна быть ошибка"))
                 .catch(() => done());
         });
@@ -40,7 +40,8 @@ describe("fetch", function () {
                 data: {
                     name: "morpheus",
                     job: "leader"
-                }
+                },
+                withCredentials: false
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
@@ -55,7 +56,8 @@ describe("fetch", function () {
                 data: {
                     email: "sydney@fife"
                 },
-                timeout: 1
+                timeout: 1,
+                withCredentials: false
             })
                 .then(() => done("Должна быть ошибка"))
                 .catch(() => done());
@@ -69,7 +71,8 @@ describe("fetch", function () {
                 data: {
                     name: "morpheus",
                     job: "zion resident"
-                }
+                },
+                withCredentials: false
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.response))
                 .then(res => {
@@ -83,7 +86,8 @@ describe("fetch", function () {
                 data: {
                     email: "sydney@fife"
                 },
-                timeout: 1
+                timeout: 1,
+                withCredentials: false
             })
                 .then(() => done("Должна быть ошибка"))
                 .catch(() => done());
@@ -97,7 +101,8 @@ describe("fetch", function () {
                 data: {
                     name: "morpheus",
                     job: "zion resident"
-                }
+                },
+                withCredentials: false
             })
                 .then((res: XMLHttpRequest) => expect(res.status).to.equal(204));
         })
@@ -108,7 +113,8 @@ describe("fetch", function () {
                 data: {
                     email: "sydney@fife"
                 },
-                timeout: 1
+                timeout: 1,
+                withCredentials: false
             })
                 .then(() => done("Должна быть ошибка"))
                 .catch(() => done());

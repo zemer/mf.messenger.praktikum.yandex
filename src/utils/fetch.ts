@@ -30,6 +30,7 @@ export interface HttpOptions {
     headers?: string[];
     data?: StringIndexed;
     timeout?: number;
+    withCredentials?: boolean;
 }
 
 export class HTTPTransport {
@@ -54,14 +55,14 @@ export class HTTPTransport {
     };
 
     request = (url: string, options: HttpOptions, method: string, timeout = 5000): Promise<XMLHttpRequest> => {
-        const { headers, data } = options;
+        const { headers, data, withCredentials } = options;
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
 
             xhr.open(method, url);
-            xhr.withCredentials = true;
+            xhr.withCredentials = withCredentials ?? true;
 
             if (headers)
                 for (const header in headers) {
