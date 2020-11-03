@@ -32,12 +32,12 @@ export default class Login extends Block<ILoginProps> {
             }
         }, "button button-login");
 
-        const logout = new Button({
-            value: "Выйти",
-            handleClick: () => {
-                authController.logout();
-            }
-        }, "button button-login");
+        // const logout = new Button({
+        //     value: "Выйти",
+        //     handleClick: () => {
+        //         authController.logout();
+        //     }
+        // }, "button button-login");
 
         const toRegistration = new Link({
             text: "Регистрация",
@@ -48,8 +48,7 @@ export default class Login extends Block<ILoginProps> {
             login,
             password,
             button,
-            toRegistration,
-            logout
+            toRegistration
         });
     }
 
@@ -66,7 +65,6 @@ export default class Login extends Block<ILoginProps> {
             password: this.props.password.renderToString(),
             button: this.props.button.renderToString(),
             toRegistration: this.props.toRegistration.renderToString(),
-            logout: this.props.logout.renderToString(),
         });
 
         return block;

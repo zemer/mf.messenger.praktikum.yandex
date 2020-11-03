@@ -14,7 +14,6 @@ export const template = `
             </div>
             <div class="centered-container">
                 {{{toRegistration}}}
-                {{{logout}}}
             </div>
         </div>
     </form>

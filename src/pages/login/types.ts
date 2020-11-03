@@ -8,5 +8,4 @@ export interface ILoginProps {
     password: PasswordField;
     button: Button;
     toRegistration: Link;
-    logout: Button;
 }
