@@ -15,4 +15,5 @@ export interface IUserProfileProps {
     newPassword: PasswordField;
     button: Button;
     backButton: Button;
+    logoutButton: Button;
 }

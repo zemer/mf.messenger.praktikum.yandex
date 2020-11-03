@@ -32,13 +32,6 @@ export default class Login extends Block<ILoginProps> {
             }
         }, "button button-login");
 
-        // const logout = new Button({
-        //     value: "Выйти",
-        //     handleClick: () => {
-        //         authController.logout();
-        //     }
-        // }, "button button-login");
-
         const toRegistration = new Link({
             text: "Регистрация",
             path: "/registration"

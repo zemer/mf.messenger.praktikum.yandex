@@ -85,6 +85,13 @@ export default class UserProfile extends Block<IUserProfileProps> {
             }
         }, "button");
 
+        const logoutButton = new Button({
+            value: "Выход",
+            handleClick: () => {
+                authController.logout();
+            }
+        }, "button");
+
         super("div", {
             firtName,
             secondName,
@@ -94,7 +101,8 @@ export default class UserProfile extends Block<IUserProfileProps> {
             oldPassword,
             newPassword,
             button,
-            backButton
+            backButton,
+            logoutButton
         });
 
         store.subscribe(Store.EVENTS.PROFILE_CHANGED, this.onChangeStore.bind(this));
@@ -132,6 +140,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
             newPassword: this.props.newPassword.renderToString(),
             button: this.props.button.renderToString(),
             backButton: this.props.backButton.renderToString(),
+            logoutButton: this.props.logoutButton.renderToString(),
         });
 
         return block;

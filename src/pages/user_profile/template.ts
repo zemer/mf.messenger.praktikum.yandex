@@ -1,11 +1,14 @@
 export const template = `
 <main>
     <div class="container">
-        <div class="user-profile-title full-width row-container">
+        <div class="user-profile-title full-width row-container space-between">
             <div class="white-title">
                 <nav>
                     {{{backButton}}}
                 </nav>
+            </div>
+            <div class="white-title">
+                {{{logoutButton}}}
             </div>
         </div>
         <div class="row-container user-profile">
