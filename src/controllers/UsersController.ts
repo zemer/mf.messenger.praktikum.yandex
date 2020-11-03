@@ -1,4 +1,4 @@
-import { ChnageUserProfileReques, UserAPI } from "../api/user-api.js";
+import { ChnageUserProfileReques as ChnageUserProfileRequest, UserAPI } from "../api/user-api.js";
 import Router from "../utils/router.js";
 
 export default class UsersController {
@@ -8,10 +8,18 @@ export default class UsersController {
         this._userAPI = new UserAPI();
     }
 
-    updateProfile(profile: ChnageUserProfileReques) {
+    updateProfile(profile: ChnageUserProfileRequest, oldPassword: string, newPassword: string) {
         this._userAPI.updateProfile(profile)
             .then(res => this.checkStatus(res))
-            .then(() => Router.__instance.back());
+            .then(() => {
+                this.updatePassword(oldPassword, newPassword)
+                    .then(res => this.checkStatus(res))
+                    .then(() => Router.__instance.back());
+            })
+    }
+
+    private updatePassword(oldPassword: string, newPassword: string) {
+        return this._userAPI.updatePassword(oldPassword, newPassword);
     }
 
     private checkStatus(res: XMLHttpRequest) {

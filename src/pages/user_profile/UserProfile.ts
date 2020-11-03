@@ -72,9 +72,8 @@ export default class UserProfile extends Block<IUserProfileProps> {
                         login: login.value ?? "",
                         display_name: firtName.value ?? "",
                         email: email.value ?? "",
-                        //password: password.value ?? "",
                         phone: phone.value ?? ""
-                    });
+                    }, oldPassword.value ?? "", newPassword.value ?? "");
                 }
             }
         }, "button button-save");

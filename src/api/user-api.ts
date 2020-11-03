@@ -15,6 +15,15 @@ export class UserAPI extends BaseAPI {
             data: profile,
         });
     }
+
+    updatePassword(oldPassword: string, newPassword: string): Promise<XMLHttpRequest> {
+        return userAPIInstance.put("/password", {
+            data: {
+                oldPassword,
+                newPassword
+            },
+        });
+    }
 }
 
 export interface ChnageUserProfileReques extends StringIndexed {
