@@ -11,63 +11,71 @@ import Router from "../../utils/router.js";
 import { AppState, ProfileState, Store, store } from "../../store/Store.js";
 import get from "../../utils/get.js";
 import { authController } from "../../controllers/AuthController.js";
+import { usersController } from "../../controllers/UsersController.js";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     constructor() {
         const firtName = new NotEmptyField({
             id: "first_name",
             label: "Имя",
-            value: ""
         });
 
         const secondName = new NotEmptyField({
             id: "second_name",
             label: "Фамилия",
-            value: ""
         });
 
         const login = new LoginField({
             id: "login",
             label: "Логин",
-            value: ""
         });
 
         const email = new MailField({
             id: "email",
             label: "Почта",
-            value: ""
         });
 
         const phone = new PhoneField({
             id: "phone",
             label: "Телефон",
-            value: ""
         });
 
         const oldPassword = new PasswordField({
             id: "oldPassword",
             label: "Старый пароль",
             type: "password",
-            value: ""
         });
 
         const newPassword = new PasswordField({
             id: "newPassword",
             label: "Новый пароль",
             type: "password",
-            value: ""
         });
 
         const button = new Button({
             value: "Сохранить",
             handleClick: () => {
-                firtName.validate();
-                secondName.validate();
-                login.validate();
-                email.validate();
-                phone.validate();
-                oldPassword.validate();
-                newPassword.validate();
+                const validation: Boolean[] = [];
+
+                validation.push(firtName.validate());
+                validation.push(secondName.validate());
+                validation.push(login.validate());
+                validation.push(email.validate());
+                validation.push(phone.validate());
+                validation.push(oldPassword.validate());
+                validation.push(newPassword.validate());
+
+                if (validation.every(v => v)) {
+                    usersController.updateProfile({
+                        first_name: firtName.value ?? "",
+                        second_name: secondName.value ?? "",
+                        login: login.value ?? "",
+                        display_name: firtName.value ?? "",
+                        email: email.value ?? "",
+                        //password: password.value ?? "",
+                        phone: phone.value ?? ""
+                    });
+                }
             }
         }, "button button-save");
 

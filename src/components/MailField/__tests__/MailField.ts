@@ -16,7 +16,6 @@ describe("MailField", () => {
             id: id,
             label: label,
             placeholder: placeholder,
-            value: ""
         });
 
         const dom = getExampleDOM(mail.renderToString());
@@ -44,7 +43,6 @@ describe("MailField", () => {
             id: id,
             label: label,
             placeholder: placeholder,
-            value: ""
         });
 
         const emptyMessage = "Почта не может быть пустой";

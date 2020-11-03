@@ -21,6 +21,12 @@ export default class AuthController {
             .then(() => Router.__instance.go("/chats"));
     }
 
+    checkSignUp() {
+        this._authAPI.profile()
+            .then(res => this.checkStatus(res))
+            .then(() => Router.__instance.go("/chats"));
+    }
+
     logout() {
         this._authAPI.logout()
             .then(res => this.checkStatus(res))

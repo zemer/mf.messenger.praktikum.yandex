@@ -15,7 +15,6 @@ describe("PhoneField", () => {
         const login = new PhoneField({
             id: id,
             label: label,
-            value: ""
         });
 
         const dom = getExampleDOM(login.renderToString());
@@ -41,7 +40,6 @@ describe("PhoneField", () => {
         const phone = new PhoneField({
             id: id,
             label: label,
-            value: ""
         });
 
         const emptyMessage = "Не указан телефон";

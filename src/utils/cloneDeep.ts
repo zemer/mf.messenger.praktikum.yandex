@@ -1,7 +1,10 @@
 import { StringIndexed } from "./fetch";
 
 export function cloneDeep(obj: object): object {
-    if (Array.isArray(obj)) {
+    if (obj === null || obj === undefined) {
+        return obj;
+    }
+    else if (Array.isArray(obj)) {
         const clone = Array<any>();
 
         for (let item of obj) {

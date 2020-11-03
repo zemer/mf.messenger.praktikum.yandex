@@ -1,6 +1,6 @@
 import { template } from "./template.js";
 import Block from "../Block/index.js";
-import { logForm } from "../../utils/logForm.js";
+//import { logForm } from "../../utils/logForm.js";
 import { IButtonProps } from "./types";
 
 export default class Button extends Block<IButtonProps> {
@@ -21,12 +21,12 @@ export default class Button extends Block<IButtonProps> {
 
     setEvents() {
         if (this._element) {
-            this._element.addEventListener('click', this.handleClick);
+            this._element.addEventListener('click', this.handleClick, true);
         }
     }
 
     handleClick() {
-        logForm();
+        //logForm();
         this.props.handleClick();
     }
 } 

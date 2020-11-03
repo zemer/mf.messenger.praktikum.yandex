@@ -34,6 +34,8 @@ class Block<T extends object> {
     _meta: IMetaInfo<T> | null = null;
     eventBus: () => EventBus;
 
+    //private _subscriptions: Map<any, any> = new Map();
+
     /** JSDoc
      * @param {string} tagName
      * @param {Object} props
@@ -132,6 +134,8 @@ class Block<T extends object> {
         const block = this.render();
         if (this._element) {
             this._element.innerHTML = block;
+            Block.hydrate();
+            this.setEvents();
         }
     }
 
@@ -143,6 +147,9 @@ class Block<T extends object> {
         if (this._element) {
             this._element.innerHTML = this.render();
             wrapper.appendChild(this._element);
+
+            Block.hydrate();
+            this.setEvents();
         }
 
         return wrapper.innerHTML;

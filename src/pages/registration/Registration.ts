@@ -15,38 +15,32 @@ export default class Registration extends Block<RegistrationProps> {
         const firtName = new NotEmptyField({
             id: "first_name",
             label: "Имя",
-            value: ""
         });
 
         const secondName = new NotEmptyField({
             id: "second_name",
             label: "Фамилия",
-            value: ""
         });
 
         const login = new LoginField({
             id: "login",
             label: "Логин",
-            value: ""
         });
 
         const email = new MailField({
             id: "email",
             label: "Почта",
-            value: ""
         });
 
         const phone = new PhoneField({
             id: "phone",
             label: "Телефон",
-            value: ""
         });
 
         const password = new PasswordField({
             id: "password",
             label: "Пароль",
             type: "password",
-            value: ""
         });
 
         const button = new Button({
@@ -63,12 +57,12 @@ export default class Registration extends Block<RegistrationProps> {
 
                 if (validation.every(v => v)) {
                     authController.signUp({
-                        first_name: firtName.props.value ?? "",
-                        second_name: secondName.props.value ?? "",
-                        email: email.props.value ?? "",
-                        login: login.props.value ?? "",
-                        password: password.props.value ?? "",
-                        phone: phone.props.value ?? ""
+                        first_name: firtName.value ?? "",
+                        second_name: secondName.value ?? "",
+                        email: email.value ?? "",
+                        login: login.value ?? "",
+                        password: password.value ?? "",
+                        phone: phone.value ?? ""
                     });
                 }
             }
@@ -91,7 +85,6 @@ export default class Registration extends Block<RegistrationProps> {
         });
     }
 
-    //temp
     render() {
         const compile = Handlebars.compile(template);
         const block = compile({

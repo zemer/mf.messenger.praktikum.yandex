@@ -12,14 +12,12 @@ export default class Login extends Block<ILoginProps> {
         const login = new LoginField({
             id: "login",
             label: "Логин",
-            value: ""
         });
 
         const password = new PasswordField({
             id: "password",
             label: "Пароль",
             type: "password",
-            value: ""
         })
 
         const button = new Button({
@@ -29,7 +27,7 @@ export default class Login extends Block<ILoginProps> {
                 const passwordValidate = password.validate();
 
                 if (loginValidate && passwordValidate) {
-                    authController.signIn(login.props.value, password.props.value);
+                    authController.signIn(login.value ?? "", password.value ?? "");
                 }
             }
         }, "button button-login");
@@ -53,6 +51,12 @@ export default class Login extends Block<ILoginProps> {
             toRegistration,
             logout
         });
+    }
+
+    componentDidMount() {
+        super.componentDidMount();
+
+        authController.checkSignUp();
     }
 
     render() {
