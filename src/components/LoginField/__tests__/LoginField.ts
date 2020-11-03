@@ -15,7 +15,8 @@ describe("LoginField", () => {
         const login = new LoginField({
             id: id,
             label: label,
-            placeholder: placeholder
+            placeholder: placeholder,
+            value: ""
         });
 
         const dom = getExampleDOM(login.renderToString());
@@ -41,7 +42,8 @@ describe("LoginField", () => {
         const login = new LoginField({
             id: id,
             label: label,
-            placeholder: placeholder
+            placeholder: placeholder,
+            value: ""
         });
 
         const emptyMessage = "Логин не может быть пустым";

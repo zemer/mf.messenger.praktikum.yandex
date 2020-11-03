@@ -14,33 +14,39 @@ export default class Registration extends Block<RegistrationProps> {
     constructor() {
         const firtName = new NotEmptyField({
             id: "first_name",
-            label: "Имя"
+            label: "Имя",
+            value: ""
         });
 
         const secondName = new NotEmptyField({
             id: "second_name",
-            label: "Фамилия"
+            label: "Фамилия",
+            value: ""
         });
 
         const login = new LoginField({
             id: "login",
-            label: "Логин"
+            label: "Логин",
+            value: ""
         });
 
         const email = new MailField({
             id: "email",
-            label: "Почта"
+            label: "Почта",
+            value: ""
         });
 
         const phone = new PhoneField({
             id: "phone",
-            label: "Телефон"
+            label: "Телефон",
+            value: ""
         });
 
         const password = new PasswordField({
             id: "password",
             label: "Пароль",
-            type: "password"
+            type: "password",
+            value: ""
         });
 
         const button = new Button({
@@ -57,12 +63,12 @@ export default class Registration extends Block<RegistrationProps> {
 
                 if (validation.every(v => v)) {
                     authController.signUp({
-                        first_name: firtName.value ?? "",
-                        second_name: secondName.value ?? "",
-                        email: email.value ?? "",
-                        login: login.value ?? "",
-                        password: password.value ?? "",
-                        phone: phone.value ?? ""
+                        first_name: firtName.props.value ?? "",
+                        second_name: secondName.props.value ?? "",
+                        email: email.props.value ?? "",
+                        login: login.props.value ?? "",
+                        password: password.props.value ?? "",
+                        phone: phone.props.value ?? ""
                     });
                 }
             }

@@ -1,31 +1,43 @@
 import { cloneDeep } from "../utils/cloneDeep.js";
 import EventBus from "../utils/event-bus.js";
 
-export interface IChatItemState {
+export interface ChatItemState {
     id: number;
     title: string;
     avatar?: string;
 }
 
-export interface IChatListState {
-    items: Array<IChatItemState>;
+export interface ChatListState {
+    items: Array<ChatItemState>;
 }
 
-export interface IChatState {
-    chats: IChatListState;
+export interface ProfileState {
+    id: number;
+    first_name: string;
+    second_name: string;
+    display_name: string;
+    login: string;
+    email: string;
+    phone: string;
+    avatar: string;
+}
+
+export interface AppState {
+    profile: ProfileState;
+    chats: ChatListState;
 }
 
 export class Store {
 
     static EVENTS = {
         CHATS_ITEMS_CHANGED: "CHATS_ITEMS_CHANGED",
+        PROFILE_CHANGED: "PROFILE_CHANGED",
     };
 
-    private state: IChatState;
-    //private reducers: { [key: string]: Function };
+    private state: AppState;
     eventBus: () => EventBus;
 
-    constructor(initialState: IChatState) {
+    constructor(initialState: AppState) {
         const eventBus = new EventBus();
         this.eventBus = () => eventBus;
         this.state = initialState;
@@ -35,28 +47,26 @@ export class Store {
         return this.state;
     }
 
-    // dispatch(action) {
-    //     this.state = {
-    //         chats: {
-    //             data: [...this.state.chats, action.payload],
-    //         },
-    //     };
-    // }
-
     subscribe(event: string, callback: Function) {
         this.eventBus().on(event, callback);
     }
 
-    getState(): IChatState {
+    getState(): AppState {
         return this.state;
     }
 
     dispatch(event: string, payload: any): any {
-        const clone = cloneDeep(this.state) as IChatState;
+        const clone = cloneDeep(this.state) as AppState;
 
         switch (event) {
             case Store.EVENTS.CHATS_ITEMS_CHANGED: {
                 clone.chats.items = payload.items;
+                break;
+            }
+
+            case Store.EVENTS.PROFILE_CHANGED: {
+                clone.profile = payload.profile;
+                break
             }
         }
 
@@ -66,7 +76,8 @@ export class Store {
     }
 }
 
-export const initialState: IChatState = {
+export const initialState: AppState = {
+    profile: {} as ProfileState,
     chats: {
         items: []
     }

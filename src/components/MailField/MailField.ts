@@ -10,7 +10,7 @@ export default class MailField extends Input<IMailFieldProps> {
         });
     }
 
-    checkValidation(value: string | null): string | null {
+    checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Почта не может быть пустой";
         }

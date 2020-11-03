@@ -30,7 +30,8 @@ const baseUrl = "https://ya-praktikum.tech/api/v2";
 
 export const apiInstance = new HTTP(baseUrl);
 export const chatAPIInstance = new HTTP(baseUrl + "/chats");
-export const chatMessagesAPIInstance = new HTTP('api/v1/chats');
+//export const chatMessagesAPIInstance = new HTTP('api/v1/chats');
 export const authAPIInstance = new HTTP(baseUrl + "/auth");
+export const userAPIInstance = new HTTP(baseUrl + "/user")
 
 export default HTTP; 

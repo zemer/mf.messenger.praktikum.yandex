@@ -15,7 +15,8 @@ describe("MailField", () => {
         const mail = new MailField({
             id: id,
             label: label,
-            placeholder: placeholder
+            placeholder: placeholder,
+            value: ""
         });
 
         const dom = getExampleDOM(mail.renderToString());
@@ -42,13 +43,14 @@ describe("MailField", () => {
         const mail = new MailField({
             id: id,
             label: label,
-            placeholder: placeholder
+            placeholder: placeholder,
+            value: ""
         });
 
         const emptyMessage = "Почта не может быть пустой";
         const notValidMessage = "Неверный формат";
 
-        expect(mail.checkValidation(null)).equals(emptyMessage);
+        expect(mail.checkValidation(undefined)).equals(emptyMessage);
         expect(mail.checkValidation("")).equals(emptyMessage);
 
         expect(mail.checkValidation("   ")).equals(notValidMessage);

@@ -6,7 +6,7 @@ export default class PasswordField extends Input<IPasswordFieldProps> {
         super(props);
     }
 
-    checkValidation(value: string | null): string | null {
+    checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Пароль не может быть пустым";
         }

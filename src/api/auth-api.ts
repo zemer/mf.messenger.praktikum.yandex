@@ -31,6 +31,10 @@ export default class AuthAPI extends BaseAPI {
         return authAPIInstance.post("/logout", {});
     }
 
+    profile(): Promise<XMLHttpRequest> {
+        return authAPIInstance.get("/user", {});
+    }
+
     // create() {
     //     // Здесь уже не нужно писать полный путь /api/v1/chats/
     //     return authAPIInstance.post('/', { title: 'string' });

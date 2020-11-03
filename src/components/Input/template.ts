@@ -5,8 +5,3 @@ export const template = `
     {{{errorHelper}}}
 </div>
 `;
-
-// {{#if showError}}
-// <div>{{errorText}}</div>
-// {{else}}
-// {{/if}}

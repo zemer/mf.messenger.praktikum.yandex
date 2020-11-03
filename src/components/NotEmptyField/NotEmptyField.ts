@@ -6,7 +6,7 @@ export default class NotEmptyField extends Input<INotEmptyFieldProps> {
         super(props);
     }
 
-    checkValidation(value: string | null): string | null {
+    checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Поле не может быть пустым";
         }

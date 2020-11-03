@@ -14,7 +14,8 @@ describe("PhoneField", () => {
         const [id, label] = ["phone", "Phone"]
         const login = new PhoneField({
             id: id,
-            label: label
+            label: label,
+            value: ""
         });
 
         const dom = getExampleDOM(login.renderToString());
@@ -39,13 +40,14 @@ describe("PhoneField", () => {
         const [id, label] = ["phone", "Phone"]
         const phone = new PhoneField({
             id: id,
-            label: label
+            label: label,
+            value: ""
         });
 
         const emptyMessage = "Не указан телефон";
         const notvalidMessage = "Неверный формат";
 
-        expect(phone.checkValidation(null)).equals(emptyMessage);
+        expect(phone.checkValidation(undefined)).equals(emptyMessage);
         expect(phone.checkValidation("")).equals(emptyMessage);
 
         expect(phone.checkValidation("   ")).equals(notvalidMessage);

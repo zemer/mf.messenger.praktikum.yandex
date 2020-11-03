@@ -10,22 +10,16 @@ export default class ChatsController {
 
     getChats() {
         this._chatAPI.request()
-            .then(res => {
-                this.checkStatus(res);
-                return res.response;
-            })
-            .then(res => JSON.parse(res))
-            .then(res => {
-
-                console.log(res);
-
-                store.dispatch(Store.EVENTS.CHATS_ITEMS_CHANGED, { items: res })
-            })
+            .then(res => this.checkStatus(res))
+            .then(res => JSON.parse(res.response))
+            .then(res => store.dispatch(Store.EVENTS.CHATS_ITEMS_CHANGED, { items: res }));
     }
 
     private checkStatus(res: XMLHttpRequest) {
         if (res.status != 200)
             throw res.status + " " + res.statusText;
+
+        return res;
     }
 }
 

@@ -11,13 +11,15 @@ export default class Login extends Block<ILoginProps> {
     constructor() {
         const login = new LoginField({
             id: "login",
-            label: "Логин"
+            label: "Логин",
+            value: ""
         });
 
         const password = new PasswordField({
             id: "password",
             label: "Пароль",
-            type: "password"
+            type: "password",
+            value: ""
         })
 
         const button = new Button({
@@ -27,7 +29,7 @@ export default class Login extends Block<ILoginProps> {
                 const passwordValidate = password.validate();
 
                 if (loginValidate && passwordValidate) {
-                    authController.signIn(login.value ?? "", password.value ?? "");
+                    authController.signIn(login.props.value, password.props.value);
                 }
             }
         }, "button button-login");

@@ -15,7 +15,8 @@ describe("PasswordField", () => {
         const login = new PasswordField({
             id: id,
             label: label,
-            placeholder: placeholder
+            placeholder: placeholder,
+            value: ""
         });
 
         const dom = getExampleDOM(login.renderToString());
@@ -41,13 +42,14 @@ describe("PasswordField", () => {
         const login = new PasswordField({
             id: id,
             label: label,
-            placeholder: placeholder
+            placeholder: placeholder,
+            value: ""
         });
 
         const emptyMessage = "Пароль не может быть пустым";
         const notvalidMessage = "Пароль может содержать латинские символы и цифры";
 
-        expect(login.checkValidation(null)).equals(emptyMessage);
+        expect(login.checkValidation(undefined)).equals(emptyMessage);
         expect(login.checkValidation("")).equals(emptyMessage);
 
         expect(login.checkValidation("   ")).equals(notvalidMessage);

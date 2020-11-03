@@ -9,7 +9,7 @@ export default class PhoneField extends Input<IPhoneFieldProps> {
         });
     }
 
-    checkValidation(value: string | null): string | null {
+    checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Не указан телефон";
         }
