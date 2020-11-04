@@ -13,6 +13,7 @@ import get from "../../utils/get.js";
 import { authController } from "../../controllers/AuthController.js";
 import { usersController } from "../../controllers/UsersController.js";
 import UploadAvatar from "../../components/UploadAvatar/index.js";
+import { baseAPIUrl } from "../../api/http.js";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;
@@ -80,7 +81,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
         });
 
         this.avatar = new UploadAvatar({
-            inputId: "profile-avatar",
+            imgId: "profile-avatar",
             source: "",
             handleClick: this.handleAvatarClick
         });
@@ -120,9 +121,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     componentDidMount() {
         super.componentDidMount();
 
-
-
-        authController.getChats();
+        authController.profile();
     }
 
     chatsSelector(state: AppState) {
@@ -137,6 +136,13 @@ export default class UserProfile extends Block<IUserProfileProps> {
         this.login?.setValue(profile.login);
         this.email?.setValue(profile.email);
         this.phone?.setValue(profile.phone);
+
+        if (this.avatar) {
+            this.avatar.setProps({
+                ...this.avatar.props,
+                source: baseAPIUrl + profile.avatar
+            });
+        }
     }
 
     render() {

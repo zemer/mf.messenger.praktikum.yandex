@@ -26,12 +26,12 @@ class HTTP {
     }
 }
 
-const baseUrl = "https://ya-praktikum.tech/api/v2";
+export const baseAPIUrl = "https://ya-praktikum.tech";
 
-export const apiInstance = new HTTP(baseUrl);
-export const chatAPIInstance = new HTTP(baseUrl + "/chats");
+export const apiInstance = new HTTP(baseAPIUrl);
+export const chatAPIInstance = new HTTP(baseAPIUrl + "/api/v2/chats");
 //export const chatMessagesAPIInstance = new HTTP('api/v1/chats');
-export const authAPIInstance = new HTTP(baseUrl + "/auth");
-export const userAPIInstance = new HTTP(baseUrl + "/user")
+export const authAPIInstance = new HTTP(baseAPIUrl + "/api/v2/auth");
+export const userAPIInstance = new HTTP(baseAPIUrl + "/api/v2/user")
 
 export default HTTP; 

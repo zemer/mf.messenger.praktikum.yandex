@@ -1,6 +1,5 @@
 import { template } from "./template.js";
 import Block from "../Block/index.js";
-//import { logForm } from "../../utils/logForm.js";
 import { IUploadAvatarProps } from "./types";
 
 export default class UploadAvatar extends Block<IUploadAvatarProps> {
@@ -15,17 +14,31 @@ export default class UploadAvatar extends Block<IUploadAvatarProps> {
         return compiled(this.props);
     }
 
-    setEvents() {
-        if (this._element) {
-            var fileEl = document.getElementById(this.props.inputId) as HTMLInputElement;
-            if (fileEl) {
-                fileEl.addEventListener('click', this.handleClick, false);
+    setElement(element: HTMLElement) {
+        super.setElement(element);
+
+        const img = document.getElementById(this.props.imgId) as HTMLImageElement;
+        const span = document.getElementById(this.props.imgId + "-span") as HTMLElement;
+
+        if (img && span) {
+            if (this.props.source) {
+                img.style.display = "block";
+                span.style.display = "none";
+            }
+            else {
+                img.style.display = "none";
+                span.style.display = "flex";
             }
         }
     }
 
+    setEvents() {
+        if (this._element) {
+            this._element.addEventListener('click', this.handleClick, false);
+        }
+    }
+
     handleClick() {
-        //logForm();
         this.props.handleClick();
     }
 } 

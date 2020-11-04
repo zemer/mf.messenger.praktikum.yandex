@@ -1,7 +1,7 @@
 import { PlainObject } from "../../utils/isEqual.js";
 
 export interface IUploadAvatarProps extends PlainObject {
-    inputId: string;
+    imgId: string;
     source: string;
     handleClick: () => void;
 }

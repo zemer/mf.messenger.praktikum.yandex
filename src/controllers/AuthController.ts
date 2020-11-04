@@ -34,12 +34,6 @@ export default class AuthController {
     }
 
     profile() {
-        this._authAPI.logout()
-            .then(res => this.checkStatus(res))
-            .then(() => Router.__instance.go("/login"));
-    }
-
-    getChats() {
         this._authAPI.profile()
             .then(res => this.checkStatus(res))
             .then(res => JSON.parse(res.response))
