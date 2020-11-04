@@ -12,9 +12,7 @@ export const template = `
             </div>
         </div>
         <div class="row-container user-profile">
-            <div>
-                <span class="user-profile-photo">Добавьте фото</span>
-            </div>
+            {{{avatar}}}
             <form onsubmit="return logForm()">
                 <div class="column-container">
                     <div class="column-container">
@@ -25,6 +23,7 @@ export const template = `
                         {{{phone}}}
                         {{{oldPassword}}}
                         {{{newPassword}}}
+                        <input type="file" id="file" required hidden />
                     </div>
 
                     <div class="column-container centered-container">

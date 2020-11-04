@@ -5,8 +5,9 @@ import MailField from "../../components/MailField/index.js";
 import NotEmptyField from "../../components/NotEmptyField/index.js";
 import PasswordField from "../../components/PasswordField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
+import { PlainObject } from "../../utils/isEqual.js";
 
-export interface RegistrationProps {
+export interface RegistrationProps extends PlainObject {
     firtName: NotEmptyField;
     secondName: NotEmptyField;
     login: LoginField;

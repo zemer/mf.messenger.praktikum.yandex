@@ -1,5 +1,5 @@
 import EventBus from "../../utils/event-bus.js";
-import { isEqual } from "../../utils/isEqual.js";
+import { isEqual, PlainObject } from "../../utils/isEqual.js";
 
 interface IMetaInfo<T> {
     tagName: string;
@@ -8,7 +8,7 @@ interface IMetaInfo<T> {
 }
 
 // Нельзя создавать экземпляр данного класса
-class Block<T extends object> {
+class Block<T extends PlainObject> {
     static EVENTS = {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",

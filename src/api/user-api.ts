@@ -3,6 +3,7 @@ import BaseAPI from "./base-api.js";
 import { userAPIInstance } from "./http.js";
 
 export class UserAPI extends BaseAPI {
+
     // create() {
     //     return userAPIInstance.post('/profile', {})
     //         // И то, только в случае, если уверены в результате,
@@ -22,6 +23,15 @@ export class UserAPI extends BaseAPI {
                 oldPassword,
                 newPassword
             },
+        });
+    }
+
+    updateAvatar(avatar: File | null) {
+        const formdata = new FormData();
+        formdata.append('file', avatar ?? {} as File);
+
+        return userAPIInstance.put("/profile/avatar", {
+            data: formdata
         });
     }
 }

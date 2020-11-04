@@ -28,7 +28,7 @@ export function queryStringify(data: StringIndexed): string | never {
 
 export interface HttpOptions {
     headers?: string[];
-    data?: StringIndexed;
+    data?: StringIndexed | FormData;
     timeout?: number;
     withCredentials?: boolean;
 }
@@ -36,7 +36,7 @@ export interface HttpOptions {
 export class HTTPTransport {
     get = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
         if (options.data) {
-            url += '?' + queryStringify(options.data);
+            url += '?' + queryStringify(options.data as StringIndexed);
         }
 
         return this.request(url, options, METHODS.GET, options.timeout);
@@ -72,8 +72,6 @@ export class HTTPTransport {
                 xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
             }
 
-
-
             xhr.onload = function () {
                 resolve(xhr);
             };
@@ -91,7 +89,12 @@ export class HTTPTransport {
             if (method === METHODS.GET || !data) {
                 xhr.send();
             } else {
-                xhr.send(JSON.stringify(data));
+                if (data instanceof FormData) {
+                    xhr.send(data);
+                }
+                else {
+                    xhr.send(JSON.stringify(data));
+                }
             }
         });
     };

@@ -1,40 +1,40 @@
-export function isEqual(a: object, b: object): boolean {
-    if (!a && !b)
-        return true;
+export type PlainObject<T = unknown> = {
+    [k in string]: T;
+};
 
-    if (!a)
+function isPlainObject(value: unknown): value is PlainObject {
+    return typeof value === 'object'
+        && value !== null
+        && value.constructor === Object
+        && Object.prototype.toString.call(value) === '[object Object]';
+}
+
+
+function isArrayOrObject(value: unknown): value is ([] | PlainObject) {
+    return isPlainObject(value) || Array.isArray(value);
+}
+
+export function isEqual(lhs: PlainObject | [], rhs: PlainObject | []) {
+    // Сравнение количества ключей объектов и массивов
+    if (Object.keys(lhs).length !== Object.keys(rhs).length) {
         return false;
+    }
 
-    if (!b)
-        return false;
-
-    const keysA = Object.keys(a);
-    const keysB = Object.keys(b);
-
-    if (keysA.length !== keysB.length)
-        return false;
-
-    const commonKeys = keysA.concat(keysB);
-
-    for (let key of commonKeys) {
-        if (!a.hasOwnProperty(key))
+    for (const [key, value] of Object.entries(lhs)) {
+        const rightValue = Reflect.get(rhs, key);
+        if (isArrayOrObject(value) && isArrayOrObject(rightValue)) {
+            // Здесь value и rightValue может быть только массивом или объектом
+            // И TypeScript это обрабатывает
+            if (isEqual(value, rightValue)) {
+                continue;
+            }
             return false;
-
-        if (!b.hasOwnProperty(key))
-            return false;
-
-        const valueA = Reflect.get(a, key);
-        const valueB = Reflect.get(b, key);
-
-        if (typeof valueA === 'object' && typeof valueB === 'object') {
-            if (!isEqual(valueA, valueB))
-                return false;
         }
-        else {
-            if (valueA !== valueB)
-                return false;
+
+        if (value !== rightValue) {
+            return false;
         }
     }
 
     return true;
-}
+} 
