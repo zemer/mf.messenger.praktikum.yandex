@@ -175,8 +175,6 @@ export default class UserProfile extends Block<IUserProfileProps> {
 
             const fr = new FileReader();
             fr.onload = () => {
-                console.log("fr", fr.result);
-
                 this.avatar?.setProps({
                     ...this.avatar.props,
                     source: (fr.result as string)
@@ -184,15 +182,6 @@ export default class UserProfile extends Block<IUserProfileProps> {
             }
 
             fr.readAsDataURL(file);
-
-            // avatar.setProps({
-            //     ...avatar.props,
-
-            // })
-
-            // var img = document.createElement("img");
-            // img.classList.add("obj");
-            // img.file = file;
 
             this.avatarFile = file;
         }

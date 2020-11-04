@@ -1,3 +1,5 @@
+import { PlainObject } from "./isEqual.js";
+
 export type StringIndexed = Record<string, unknown>;
 
 const METHODS = {
@@ -27,7 +29,7 @@ export function queryStringify(data: StringIndexed): string | never {
 }
 
 export interface HttpOptions {
-    headers?: string[];
+    headers?: PlainObject<string>;
     data?: StringIndexed | FormData;
     timeout?: number;
     withCredentials?: boolean;
@@ -65,11 +67,11 @@ export class HTTPTransport {
             xhr.withCredentials = withCredentials ?? true;
 
             if (headers)
-                for (const header in headers) {
-                    xhr.setRequestHeader(header, headers[header]);
+                for (const [key, value] of Object.entries(headers)) {
+                    xhr.setRequestHeader(key, value);
                 }
             else {
-                xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+                //xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
             }
 
             xhr.onload = function () {

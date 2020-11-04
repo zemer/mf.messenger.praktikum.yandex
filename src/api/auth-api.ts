@@ -18,12 +18,18 @@ export default class AuthAPI extends BaseAPI {
                 login,
                 password
             },
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
         });
     }
 
     signUp(data: SingUpData): Promise<XMLHttpRequest> {
         return authAPIInstance.post("/signup", {
-            data
+            data,
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
         });
     }
 

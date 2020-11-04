@@ -14,6 +14,9 @@ export class UserAPI extends BaseAPI {
     updateProfile(profile: ChnageUserProfileReques): Promise<XMLHttpRequest> {
         return userAPIInstance.put("/profile", {
             data: profile,
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
         });
     }
 
@@ -23,16 +26,27 @@ export class UserAPI extends BaseAPI {
                 oldPassword,
                 newPassword
             },
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
         });
     }
 
     updateAvatar(avatar: File | null) {
-        const formdata = new FormData();
-        formdata.append('file', avatar ?? {} as File);
+        if (avatar) {
+            const formdata = new FormData();
+            formdata.append('avatar', avatar);
 
-        return userAPIInstance.put("/profile/avatar", {
-            data: formdata
-        });
+            return userAPIInstance.put("/profile/avatar", {
+                data: formdata,
+                // headers: {
+                //     "Content-Type": "application/json; charset=utf-8"
+                // }
+            });
+        }
+        else {
+            return Promise.reject();
+        }
     }
 }
 
