@@ -1,9 +1,9 @@
-import Block from "../../../components/Block/index.js";
+import Block from "../../components/Block/index.js";
 import { template } from "./template.js";
-import SendMessage from "../../../components/SendMessage/index.js";
+import SendMessage from "../../components/SendMessage/index.js";
 import { IChatProps } from "./types.js";
-import { ISendMessagProps } from "../../../components/SendMessage/types.js";
-import Link from "../../../components/Link/index.js";
+import { ISendMessagProps } from "../../components/SendMessage/types.js";
+import Link from "../../components/Link/index.js";
 
 export default class Chat extends Block<IChatProps> {
     constructor() {

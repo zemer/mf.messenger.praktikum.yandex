@@ -1,5 +1,5 @@
-import Chat from "./pages/chat/chat/Chat.js";
-import ChatList from "./pages/chat/chat_list/ChatList.js";
+import Chat from "./pages/chat/Chat.js";
+import ChatList from "./pages/chat_list/ChatList.js";
 import Error404 from "./pages/errors/404/Error404.js";
 import Error500 from "./pages/errors/500/Error500.js";
 import Login from "./pages/login/Login.js";

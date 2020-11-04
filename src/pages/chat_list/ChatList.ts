@@ -1,12 +1,12 @@
-import Block from "../../../components/Block/index.js";
+import Block from "../../components/Block/index.js";
 import { template } from "./template.js";
 import { IChatListProps } from "./types.js";
-import { chatsController } from "../../../controllers/ChatsController.js";
-import { ChatItemState, AppState, Store, store } from "../../../store/Store.js";
-import ChatItem from "../../../components/ChatItem/index.js";
-import get from "../../../utils/get.js";
-import Button from "../../../components/Button/index.js";
-import Router from "../../../utils/router.js";
+import { chatsController } from "../../controllers/ChatsController.js";
+import { ChatItemState, AppState, Store, store } from "../../store/Store.js";
+import ChatItem from "../../components/ChatItem/index.js";
+import get from "../../utils/get.js";
+import Button from "../../components/Button/index.js";
+import Router from "../../utils/router.js";
 
 export default class ChatList extends Block<IChatListProps> {
     constructor() {

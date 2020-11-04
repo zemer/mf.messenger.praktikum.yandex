@@ -1,4 +1,4 @@
-import Block from "../../../components/Block/index.js";
+import Block from "../../components/Block/index.js";
 import ChatList from "./ChatList.js";
 
 const page = new ChatList();

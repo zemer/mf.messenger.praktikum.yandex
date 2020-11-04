@@ -1,4 +1,4 @@
-import ChatList from "../../pages/chat/chat_list/ChatList.js";
+import ChatList from "../../pages/chat_list/ChatList.js";
 import Router from "../router.js";
 
 let expect = chai.expect;
