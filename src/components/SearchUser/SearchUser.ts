@@ -8,6 +8,7 @@ import { AppState, UserState } from "../../store/types.js";
 import get from "../../utils/get.js";
 import { usersController } from "../../controllers/UsersController.js";
 import ChatUser from "../ChatUser/index.js";
+import { sanitize } from "../../utils/escape.js";
 
 export default class SearchUser extends Block<FindUserProps> {
     private searchField?: Input;
@@ -72,11 +73,7 @@ export default class SearchUser extends Block<FindUserProps> {
 
     handleRunSearch() {
         if (this.searchField?.value)
-            usersController.search(this.searchField.value);
-        // const name = this.searchField?.value;
-        // if (name) {
-        //     this.props.onSelectUser(name);
-        // }
+            usersController.search(sanitize(this.searchField.value));
     }
 
     handleUserClick(user: UserState) {

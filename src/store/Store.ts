@@ -1,6 +1,7 @@
 import { cloneDeep } from "../utils/cloneDeep.js";
+import { sanitize } from "../utils/escape.js";
 import EventBus from "../utils/event-bus.js";
-import { AppState, UserState } from "./types.js";
+import { AppState, ChatItemState, UserState } from "./types.js";
 
 export class Store {
 
@@ -37,27 +38,48 @@ export class Store {
 
         switch (event) {
             case Store.EVENTS.CHATS_ITEMS_CHANGED: {
-                clone.chats.items = payload.items;
+                clone.chats.items = payload.items?.map((chat: any) => {
+                    return {
+                        id: chat.id,
+                        title: sanitize(chat.title),
+                        avatar: chat.avatar
+                    } as ChatItemState;
+                });
                 break;
             }
 
             case Store.EVENTS.PROFILE_CHANGED: {
-                clone.profile = payload.profile;
+                clone.profile = this.createUserState(payload.profile);
                 break
             }
 
             case Store.EVENTS.CHAT_USERS_CHANGED: {
-                clone.activeChat.users = payload.items
+                clone.activeChat.users = payload.items?.map((user: any) => this.createUserState(user));
+                break;
             }
 
             case Store.EVENTS.SEARCH_USERS: {
-                clone.search.users = payload.items
+                clone.search.users = payload.items?.map((user: any) => this.createUserState(user));
+                break;
             }
         }
 
         this.state = clone;
 
         this.eventBus().emit(event);
+    }
+
+    createUserState(user: any) {
+        return {
+            id: user.id,
+            first_name: sanitize(user.first_name),
+            second_name: sanitize(user.second_name),
+            display_name: sanitize(user.display_name),
+            login: sanitize(user.login),
+            email: sanitize(user.email),
+            phone: sanitize(user.phone),
+            avatar: user.avatar
+        } as UserState;
     }
 }
 

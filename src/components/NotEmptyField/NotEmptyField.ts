@@ -1,3 +1,4 @@
+import { sanitize } from "../../utils/escape.js";
 import InputWithLabel from "../InputWithLabel/index.js";
 import { INotEmptyFieldProps } from "./types.js";
 
@@ -9,6 +10,10 @@ export default class NotEmptyField extends InputWithLabel<INotEmptyFieldProps> {
     checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Поле не может быть пустым";
+        }
+
+        if (sanitize(value) !== value) {
+            return "Поле содержит недопустимые символы";
         }
 
         return null;

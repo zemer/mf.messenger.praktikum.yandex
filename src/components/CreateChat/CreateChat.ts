@@ -3,6 +3,7 @@ import Block from "../Block/index.js";
 import { CreateChatProps } from "./types.js";
 import Button from "../Button/index.js";
 import Input from "../Input/index.js";
+import { sanitize } from "../../utils/escape.js";
 
 export default class CreateChat extends Block<CreateChatProps> {
     private newChatName?: Input;
@@ -40,7 +41,7 @@ export default class CreateChat extends Block<CreateChatProps> {
     handleCreateChat() {
         const name = this.newChatName?.value;
         if (name) {
-            this.props.onCreateChat(name);
+            this.props.onCreateChat(sanitize(name));
         }
     }
 } 
