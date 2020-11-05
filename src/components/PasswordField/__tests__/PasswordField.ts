@@ -46,14 +46,16 @@ describe("PasswordField", () => {
         });
 
         const emptyMessage = "Пароль не может быть пустым";
+        const minLengthMessage = "Пароль не может быть меньше 8 символов";
         const notvalidMessage = "Пароль может содержать латинские символы и цифры";
 
         expect(login.checkValidation(undefined)).toEqual(emptyMessage);
         expect(login.checkValidation("")).toEqual(emptyMessage);
 
-        expect(login.checkValidation("   ")).toEqual(notvalidMessage);
-        expect(login.checkValidation("аваы")).toEqual(notvalidMessage);
-        expect(login.checkValidation("(&*^^)")).toEqual(notvalidMessage);
+        expect(login.checkValidation("   ")).toEqual(minLengthMessage);
+        expect(login.checkValidation("аваы")).toEqual(minLengthMessage);
+
+        expect(login.checkValidation("(&*^^)fdsfsdf")).toEqual(notvalidMessage);
 
         expect(login.checkValidation("odhdu83682")).toEqual(null);
     })
