@@ -10,7 +10,7 @@ export const template = `
                     </nav>
                 </div>
             </header>
-            <div>
+            <div class="white-border">
                 {{{buttonPlusChat}}}
                 {{{createChat}}}
             </div>
