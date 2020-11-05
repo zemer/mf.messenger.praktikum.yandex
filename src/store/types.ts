@@ -1,3 +1,10 @@
+export interface AppState {
+    profile: UserState;
+    chats: ChatListState;
+    activeChat: ChatState;
+    search: SearchState;
+}
+
 export interface ChatItemState {
     id: number;
     title: string;
@@ -23,8 +30,6 @@ export interface ChatState {
     users: UserState[];
 }
 
-export interface AppState {
-    profile: UserState;
-    chats: ChatListState;
-    activeChat: ChatState;
+export interface SearchState {
+    users: UserState[];
 }

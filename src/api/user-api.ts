@@ -3,7 +3,6 @@ import BaseAPI from "./base-api.js";
 import { userAPIInstance } from "./http.js";
 
 export class UserAPI extends BaseAPI {
-
     // create() {
     //     return userAPIInstance.post('/profile', {})
     //         // И то, только в случае, если уверены в результате,
@@ -47,6 +46,17 @@ export class UserAPI extends BaseAPI {
         else {
             return Promise.reject();
         }
+    }
+
+    search(login: string) {
+        return userAPIInstance.post("/search", {
+            data: {
+                login,
+            },
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        });
     }
 }
 

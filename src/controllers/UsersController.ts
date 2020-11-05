@@ -1,4 +1,5 @@
 import { ChnageUserProfileReques as ChnageUserProfileRequest, UserAPI } from "../api/user-api.js";
+import { Store, store } from "../store/Store.js";
 import Router from "../utils/router.js";
 
 export default class UsersController {
@@ -28,6 +29,13 @@ export default class UsersController {
 
     private updateAvatar(avatar: File | null) {
         return this._userAPI.updateAvatar(avatar);
+    }
+
+    search(login: string) {
+        return this._userAPI.search(login)
+            .then(res => this.checkStatus(res))
+            .then(res => JSON.parse(res.response))
+            .then(res => store.dispatch(Store.EVENTS.SEARCH_USERS, { items: res }));
     }
 
     private checkStatus(res: XMLHttpRequest) {

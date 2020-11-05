@@ -8,6 +8,7 @@ export class Store {
         CHATS_ITEMS_CHANGED: "CHATS_ITEMS_CHANGED",
         CHAT_USERS_CHANGED: "CHAT_USERS_CHANGED",
         PROFILE_CHANGED: "PROFILE_CHANGED",
+        SEARCH_USERS: "SEARCH_USERS",
     };
 
     private state: AppState;
@@ -48,6 +49,10 @@ export class Store {
             case Store.EVENTS.CHAT_USERS_CHANGED: {
                 clone.activeChat.users = payload.items
             }
+
+            case Store.EVENTS.SEARCH_USERS: {
+                clone.search.users = payload.items
+            }
         }
 
         this.state = clone;
@@ -62,6 +67,9 @@ export const initialState: AppState = {
         items: []
     },
     activeChat: {
+        users: []
+    },
+    search: {
         users: []
     }
 };

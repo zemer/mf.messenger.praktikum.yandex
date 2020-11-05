@@ -17,7 +17,7 @@ export default class ChatUser extends Block<ChatUserProps> {
         const compiled = Handlebars.compile(template);
         return compiled({
             avatar: this.avatar?.renderToString(),
-            title: this.props.displayName
+            title: this.props.login
         });
     }
 
