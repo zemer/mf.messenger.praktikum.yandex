@@ -11,6 +11,11 @@ button:focus {
     outline: 0;
 }
 
+.app {
+    position: fixed;
+    width: 80%;
+}
+
 .button {
     height: 50px;
     background-color: $primary-color;
@@ -38,6 +43,10 @@ h1 {
 
 .full-height {
     height: 100%;
+}
+
+.full-screen {
+    height: 100vh;
 }
 
 .body-font {
@@ -147,6 +156,10 @@ hr.devider {
 
 .filler {
     width: 100%;
+}
+
+.overflow-auto {
+    overflow: auto;
 }
 
 .row-container {

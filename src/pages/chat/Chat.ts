@@ -23,7 +23,7 @@ export default class Chat extends Block<ChatProps> {
     private searchVisible: boolean = false;
 
     constructor(props: ChatProps) {
-        super("main", props, "full-height zero-margin");
+        super("main", props);
     }
 
     init() {

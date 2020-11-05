@@ -13,7 +13,7 @@ export default class SendMessage extends Block<ISendMessagProps> {
             handleClick: () => {
                 message.validate();
             }
-        }, "button send-button");
+        }, "button send-button full-height");
 
         super("div", {
             ...props,

@@ -14,7 +14,7 @@ export default class SearchUser extends Block<FindUserProps> {
     private buttonSearch?: Button;
 
     constructor(props: FindUserProps) {
-        super("div", props);
+        super("div", props, "full-screen");
     }
 
     init() {

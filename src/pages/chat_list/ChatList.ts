@@ -18,7 +18,7 @@ export default class ChatList extends Block<ChatListProps> {
     constructor() {
         super("main", {
             items: []
-        }, "full-height zero-margin");
+        });
     }
 
     init() {

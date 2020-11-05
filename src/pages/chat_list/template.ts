@@ -1,7 +1,7 @@
 export const template = `
-<div class="container full-height">
-    <div class="main full-width full-height row-container">
-        <div class="left-panel full-height column-container">
+<div class="container">
+    <div class="main full-width full-screen row-container">
+        <div class="left-panel column-container">
             <header class="chat-list-title full-width row-container">
                 <h1 class="title-font white-title">#ЧАТ</h1>
                 <div class="white-title">

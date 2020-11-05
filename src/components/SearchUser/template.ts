@@ -5,7 +5,7 @@ export const template = `
         {{{buttonCreateChat}}}
     </div>
 </div>
-<div class="chat-list full-width full-height">
+<div class="chat-list full-screen">
     {{#each items}}
         {{{this}}}
     {{/each}}
