@@ -12,7 +12,7 @@ app.get('/tests/*', function (req, res) {
     res.sendFile(__dirname + '/static/tests/tests.html');
 });
 
-app.get('/*', function (req, res) {
+app.get('*', function (req, res) {
     //var code = req.body.code;
     //console.log(req);
     res.sendFile(__dirname + '/static/index.html');

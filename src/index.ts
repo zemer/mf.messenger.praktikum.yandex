@@ -14,7 +14,7 @@ router
     .use('/login', Login)
     .use('/registration', Registration)
     .use('/chats', ChatList)
-    .use('/chat', Chat)
+    .use('/chats/:chatId', Chat)
     .use('/profile', UserProfile)
     .use('/404', Error404)
     .use('/500', Error500)

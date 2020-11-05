@@ -23,6 +23,7 @@ export default class ChatList extends Block<ChatListProps> {
     init() {
         this.handlePlusChat = this.handlePlusChat.bind(this);
         this.handleCreateChat = this.handleCreateChat.bind(this);
+        this.handleShowChat = this.handleShowChat.bind(this);
 
         store.subscribe(Store.EVENTS.CHATS_ITEMS_CHANGED, this.onChangeStore.bind(this));
 
@@ -71,7 +72,8 @@ export default class ChatList extends Block<ChatListProps> {
             items: this.props.items.map((i: ChatItemState) => new ChatItem({
                 id: i.id,
                 title: i.title,
-                avatar: i.avatar
+                avatar: i.avatar,
+                onClick: () => { this.handleShowChat(i.id) }
             })).map(i => i.renderToString()),
             toProfile: this.toProfile?.renderToString(),
             buttonPlusChat: this.buttonPlusChat?.renderToString(),
@@ -89,6 +91,10 @@ export default class ChatList extends Block<ChatListProps> {
         chatsController.create(name);
 
         this.showCreateChat(false);
+    }
+
+    handleShowChat(id: number) {
+        Router.__instance.go("/chats/" + id);
     }
 
     showCreateChat(visible: boolean) {
