@@ -1,8 +1,6 @@
 import ChatList from "../../pages/chat_list/ChatList.js";
 import Router from "../router.js";
 
-let expect = chai.expect;
-
 describe("Router", function () {
     describe("getRoute", function () {
         it("Поиск маршрута", function () {
@@ -10,8 +8,8 @@ describe("Router", function () {
             router.use("/test/chats", ChatList);
 
             const route = Router.__instance.getRoute("/test/chats");
-            expect(route).not.undefined;
-            expect(route).haveOwnProperty("_blockClass");
+            expect(route).not.toBeUndefined();
+            expect(route).toHaveProperty("_blockClass");
         });
 
         it("Не найденный маршрут", function () {
@@ -19,7 +17,7 @@ describe("Router", function () {
             router.use("/test/chats", ChatList);
 
             const route = Router.__instance.getRoute("/f7yds87fs7d");
-            expect(route).is.undefined;
+            expect(route).toBeUndefined();
         });
     });
 });

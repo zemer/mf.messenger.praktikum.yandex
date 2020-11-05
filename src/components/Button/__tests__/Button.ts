@@ -1,7 +1,9 @@
 import Block from "../../Block/Block.js";
 import Button from '../index.js';
+import '@testing-library/jest-dom/extend-expect';
+import Handlebars from "handlebars";
 
-let expect = chai.expect;
+global.Handlebars = Handlebars;
 
 function getExampleDOM(inner: string) {
     const div = document.createElement('div')
@@ -25,8 +27,8 @@ describe("Button", () => {
         if (!domButton)
             throw "Button is null";
 
-        expect(domButton.getAttribute("type")).equals(buttonType);
-        expect(domButton.textContent).equals(buttonText);
+        expect(domButton.getAttribute("type")).toEqual(buttonType);
+        expect(domButton.textContent).toEqual(buttonText);
     })
 
     it("Render пустых props", () => {
@@ -44,8 +46,8 @@ describe("Button", () => {
         if (!domButton)
             throw "Button is null";
 
-        expect(domButton.getAttribute("type")).equals(buttonType);
-        expect(domButton.textContent).equals(buttonText);
+        expect(domButton.getAttribute("type")).toEqual(buttonType);
+        expect(domButton.textContent).toEqual(buttonText);
     })
 
     it("Update props", () => {
@@ -63,14 +65,14 @@ describe("Button", () => {
         if (!domButton)
             throw "Button is null";
 
-        expect(domButton.getAttribute("type")).equals(buttonType);
-        expect(domButton.textContent).equals(buttonText);
+        expect(domButton.getAttribute("type")).toEqual(buttonType);
+        expect(domButton.textContent).toEqual(buttonText);
 
         button.setProps({
             ...button.props,
             value: "123"
         });
 
-        expect(domButton.textContent).equals("123");
+        expect(domButton.textContent).toEqual("123");
     })
 });

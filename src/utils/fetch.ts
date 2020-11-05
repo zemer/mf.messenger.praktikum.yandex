@@ -70,11 +70,9 @@ export class HTTPTransport {
                 for (const [key, value] of Object.entries(headers)) {
                     xhr.setRequestHeader(key, value);
                 }
-            else {
-                //xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-            }
 
             xhr.onload = function () {
+                console.log(xhr);
                 resolve(xhr);
             };
 

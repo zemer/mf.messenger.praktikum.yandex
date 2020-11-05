@@ -1,15 +1,15 @@
 import { HTTPTransport, queryStringify } from "../fetch.js";
 
-let expect = chai.expect;
+global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 describe("fetch", function () {
     describe("get", function () {
         it("Должен придти ответ", function () {
             const fetch = new HTTPTransport();
             return fetch.get("https://reqres.in/api/users/2", { withCredentials: false })
-                .then((res: XMLHttpRequest) => JSON.parse(res.response))
+                .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
                 .then(res => {
-                    expect(res).to.haveOwnProperty("data");
+                    expect(res).toHaveProperty("data");
                 })
         })
 
@@ -19,9 +19,9 @@ describe("fetch", function () {
                 page: 2
             };
             return fetch.get("https://reqres.in/api/users", { data, withCredentials: false })
-                .then((res: XMLHttpRequest) => JSON.parse(res.response))
+                .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
                 .then(res => {
-                    expect(res).to.haveOwnProperty("data");
+                    expect(res).toHaveProperty("data");
                 });
         })
 
@@ -43,10 +43,10 @@ describe("fetch", function () {
                 },
                 withCredentials: false
             })
-                .then((res: XMLHttpRequest) => JSON.parse(res.response))
+                .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
                 .then(res => {
-                    expect(res).to.haveOwnProperty("id");
-                    expect(res).to.haveOwnProperty("createdAt");
+                    expect(res).toHaveProperty("id");
+                    expect(res).toHaveProperty("createdAt");
                 });
         })
 
@@ -74,9 +74,9 @@ describe("fetch", function () {
                 },
                 withCredentials: false
             })
-                .then((res: XMLHttpRequest) => JSON.parse(res.response))
+                .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
                 .then(res => {
-                    expect(res).to.haveOwnProperty("updatedAt");
+                    expect(res).toHaveProperty("updatedAt");
                 });
         })
 
@@ -104,7 +104,7 @@ describe("fetch", function () {
                 },
                 withCredentials: false
             })
-                .then((res: XMLHttpRequest) => expect(res.status).to.equal(204));
+                .then((res: XMLHttpRequest) => expect(res.status).toEqual(204));
         })
 
         it("Должна быть ошибка, если адрес не существует", function (done: Function) {
@@ -128,12 +128,12 @@ describe("fetch", function () {
                 type: 'xxx'
             });
 
-            expect(result).to.equal("page=2&type=xxx");
+            expect(result).toEqual("page=2&type=xxx");
         })
 
         it("Конвертер пустого объекта", function () {
             const result = queryStringify({});
-            expect(result).to.equal("");
+            expect(result).toEqual("");
         })
     })
 });

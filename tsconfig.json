@@ -18,10 +18,7 @@
         "types": [
             "handlebars",
             "node",
-            "mocha",
-            "chai",
-            //"sinon",
-            //"@jest/globals"
+            "jest"
         ],
         "typeRoots": [
             "./node_modules/@types",

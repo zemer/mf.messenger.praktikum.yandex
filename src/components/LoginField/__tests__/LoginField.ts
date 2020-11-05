@@ -1,7 +1,8 @@
 import Block from "../../Block/Block.js";
 import LoginField from '../index.js';
+import Handlebars from "handlebars";
 
-let expect = chai.expect;
+global.Handlebars = Handlebars;
 
 function getExampleDOM(inner: string) {
     const div = document.createElement('div')
@@ -30,10 +31,10 @@ describe("LoginField", () => {
         if (!domLabel)
             throw "label is null";
 
-        expect(domInput.getAttribute("id")).equals(id);
-        expect(domInput.getAttribute("placeholder")).equals(placeholder);
+        expect(domInput.getAttribute("id")).toEqual(id);
+        expect(domInput.getAttribute("placeholder")).toEqual(placeholder);
 
-        expect(domLabel.textContent).equals(label);
+        expect(domLabel.textContent).toEqual(label);
     })
 
     it("Validation", () => {
@@ -47,13 +48,13 @@ describe("LoginField", () => {
         const emptyMessage = "Логин не может быть пустым";
         const notvalidMessage = "Логин может содержать только латинские символы";
 
-        expect(login.checkValidation(null)).equals(emptyMessage);
-        expect(login.checkValidation("")).equals(emptyMessage);
+        expect(login.checkValidation(null)).toEqual(emptyMessage);
+        expect(login.checkValidation("")).toEqual(emptyMessage);
 
-        expect(login.checkValidation("   ")).equals(notvalidMessage);
-        expect(login.checkValidation("аваы")).equals(notvalidMessage);
-        expect(login.checkValidation("443534")).equals(notvalidMessage);
+        expect(login.checkValidation("   ")).toEqual(notvalidMessage);
+        expect(login.checkValidation("аваы")).toEqual(notvalidMessage);
+        expect(login.checkValidation("443534")).toEqual(notvalidMessage);
 
-        expect(login.checkValidation("fdsfsdfs")).equals(null);
+        expect(login.checkValidation("fdsfsdfs")).toEqual(null);
     })
 });
