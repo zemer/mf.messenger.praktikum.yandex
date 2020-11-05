@@ -1,5 +1,5 @@
-import { IInputProps } from "../Input/types";
+import { InputWithLabelProps } from "../InputWithLabel/types";
 
-export interface IMailFieldProps extends IInputProps {
+export interface IMailFieldProps extends InputWithLabelProps {
 
 }

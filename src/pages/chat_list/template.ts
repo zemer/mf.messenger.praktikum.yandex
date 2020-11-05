@@ -10,6 +10,10 @@ export const template = `
                     </nav>
                 </div>
             </header>
+            <div>
+                {{{buttonPlusChat}}}
+                {{{createChat}}}
+            </div>
             <div class="chat-list full-width full-height">
                 {{#each items}}
                     {{{this}}}

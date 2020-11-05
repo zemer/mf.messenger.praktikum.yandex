@@ -122,6 +122,13 @@ class Block<T extends PlainObject> {
     setElement(element: HTMLElement) {
         this._element = element;
         this.setEvents();
+
+        if (this.props.visible === true) {
+            this.show()
+        }
+        else if (this.props.visible === false) {
+            this.hide();
+        }
     }
 
     setEvents() {
@@ -142,7 +149,7 @@ class Block<T extends PlainObject> {
     render(): string { return ''; }
 
     renderToString() {
-        const wrapper = document.createElement(this._meta?.tagName ?? 'div');
+        const wrapper = document.createElement('div');
 
         if (this._element) {
             this._element.innerHTML = this.render();

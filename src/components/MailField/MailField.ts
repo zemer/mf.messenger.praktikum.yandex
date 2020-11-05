@@ -1,7 +1,7 @@
-import Input from "../Input/index.js";
+import InputWithLabel from "../InputWithLabel/index.js";
 import { IMailFieldProps } from "./types.js";
 
-export default class MailField extends Input<IMailFieldProps> {
+export default class MailField extends InputWithLabel<IMailFieldProps> {
     constructor(props: IMailFieldProps) {
         super({
             ...props,

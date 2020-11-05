@@ -1,38 +1,34 @@
+import { template } from "./template.js";
 import Block from "../Block/index.js";
 import ErrorHelper from "../ErrorHelper/index.js";
-import { template } from "./template.js";
-import { IMessageInputProps } from "./types.js";
+import { InputWithLabelProps } from "./types.js";
 
-export default class MessageInput extends Block<IMessageInputProps> {
+export default class InputWithLabel<T extends InputWithLabelProps> extends Block<T> {
     errorHelper: ErrorHelper;
     value: string | null;
 
-    constructor(props: IMessageInputProps, classes?: string) {
-        super("div", props, classes);
+    constructor(props: T) {
+        if (props && !props.type)
+            props.type = "text";
 
-        this.errorHelper = new ErrorHelper({});
+        super("div", {
+            ...props
+        });
+
         this.value = null;
 
         this.handleFocus = this.handleFocus.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
         this.handleInput = this.handleInput.bind(this);
+
+        this.errorHelper = new ErrorHelper({});
     }
 
     componentDidMount() {
-        super.componentDidMount();
-
         this.setProps({
             ...this.props,
             errorHelper: this.errorHelper
         })
-    }
-
-    checkValidation(value: string | null): string | null {
-        if (!value) {
-            return "Поле не может быть пустым";
-        }
-
-        return null;
     }
 
     render() {
@@ -65,8 +61,29 @@ export default class MessageInput extends Block<IMessageInputProps> {
         this.value = (ev.target as HTMLInputElement)?.value;
     }
 
-    validate() {
+    setValue(value: string) {
+        this.value = value;
+
+        if (this._element) {
+            const input = this.element?.querySelector("#" + this.props.id);
+            if (input)
+                input.setAttribute("value", value);
+        }
+    }
+
+    validate(): boolean {
         const message = this.checkValidation(this.value);
         this.errorHelper.showOnError(message);
+
+        if (message)
+            return false;
+
+        return true;
     }
-}
+
+    checkValidation(value: string | null): string | null {
+        //value нужен в дочерних классах
+        value?.length;
+        return null;
+    }
+} 

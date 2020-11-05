@@ -1,5 +1,5 @@
-import { IInputProps } from "../Input/types";
+import { InputWithLabelProps } from "../InputWithLabel/types";
 
-export interface IPhoneFieldProps extends IInputProps {
+export interface IPhoneFieldProps extends InputWithLabelProps {
 
 }

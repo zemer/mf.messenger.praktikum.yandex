@@ -8,6 +8,17 @@ export default class ChatAPI extends BaseAPI {
     // }
 
     request() {
-        return chatAPIInstance.get('/', {});
+        return chatAPIInstance.get("/", {});
+    }
+
+    createChat(title: string) {
+        return chatAPIInstance.post("/", {
+            data: {
+                title
+            },
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        })
     }
 } 

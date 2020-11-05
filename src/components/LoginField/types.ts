@@ -1,5 +1,5 @@
-import { IInputProps } from "../Input/types";
+import { InputWithLabelProps } from "../InputWithLabel/types";
 
-export interface ILoginFieldProps extends IInputProps {
+export interface ILoginFieldProps extends InputWithLabelProps {
 
 }

@@ -1,19 +1,15 @@
-import { template } from "./template.js";
 import Block from "../Block/index.js";
 import ErrorHelper from "../ErrorHelper/index.js";
-import { IInputProps } from "./types.js";
+import { InputProps } from "./types.js";
 
-export default class Input<T extends IInputProps> extends Block<T> {
+export default class Input extends Block<InputProps> {
     errorHelper: ErrorHelper;
     value: string | null;
 
-    constructor(props: T) {
-        if (props && !props.type)
-            props.type = "text";
-
-        super("div", {
+    constructor(props: InputProps, classes?: string) {
+        super("input", {
             ...props
-        });
+        }, classes);
 
         this.value = null;
 
@@ -31,14 +27,18 @@ export default class Input<T extends IInputProps> extends Block<T> {
         })
     }
 
-    render() {
-        const compile = Handlebars.compile(template);
-        const block = compile({
-            ...this.props,
-            errorHelper: this.errorHelper?.renderToString()
-        });
+    setElement(element: HTMLElement) {
+        super.setElement(element);
 
-        return block;
+        if (element) {
+            element.setAttribute("id", this.props.id);
+            element.setAttribute("type", this.props.type ?? "text");
+            element.setAttribute("placeholder", this.props.placeholder ?? "");
+        }
+    }
+
+    render() {
+        return "";
     }
 
     setEvents() {

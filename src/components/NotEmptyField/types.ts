@@ -1,5 +1,5 @@
-import { IInputProps } from "../Input/types";
+import { InputWithLabelProps } from "../InputWithLabel/types";
 
-export interface INotEmptyFieldProps extends IInputProps {
+export interface INotEmptyFieldProps extends InputWithLabelProps {
 
 }
