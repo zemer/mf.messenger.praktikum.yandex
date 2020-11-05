@@ -25,6 +25,7 @@ export default class CreateChat extends Block<CreateChatProps> {
             id: "newChat",
             label: "Новый чат",
             value: "",
+            placeholder: "Название чата"
         }, "full-width");
 
         super.init();

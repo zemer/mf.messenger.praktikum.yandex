@@ -138,10 +138,16 @@ export default class UserProfile extends Block<IUserProfileProps> {
         this.email?.setValue(profile.email);
         this.phone?.setValue(profile.phone);
 
+        let avatarSource = "";
+
+        if (profile.avatar && profile.avatar.length > 0) {
+            avatarSource = baseAPIUrl + profile.avatar;
+        }
+
         if (this.avatar) {
             this.avatar.setProps({
                 ...this.avatar.props,
-                source: baseAPIUrl + profile.avatar
+                source: avatarSource
             });
         }
     }
