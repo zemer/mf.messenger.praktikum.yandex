@@ -8,12 +8,13 @@ import MailField from "../../components/MailField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
 import { IUserProfileProps } from "./types.js";
 import Router from "../../utils/router.js";
-import { AppState, ProfileState, Store, store } from "../../store/Store.js";
+import { Store, store } from "../../store/Store.js";
 import get from "../../utils/get.js";
 import { authController } from "../../controllers/AuthController.js";
 import { usersController } from "../../controllers/UsersController.js";
 import UploadAvatar from "../../components/UploadAvatar/index.js";
 import { baseAPIUrl } from "../../api/http.js";
+import { AppState, UserState } from "../../store/types.js";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;
@@ -125,7 +126,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     }
 
     chatsSelector(state: AppState) {
-        return get(state, "profile") as ProfileState;
+        return get(state, "profile") as UserState;
     }
 
     onChangeStore() {

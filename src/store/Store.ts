@@ -1,36 +1,12 @@
 import { cloneDeep } from "../utils/cloneDeep.js";
 import EventBus from "../utils/event-bus.js";
-
-export interface ChatItemState {
-    id: number;
-    title: string;
-    avatar?: string;
-}
-
-export interface ChatListState {
-    items: Array<ChatItemState>;
-}
-
-export interface ProfileState {
-    id: number;
-    first_name: string;
-    second_name: string;
-    display_name: string;
-    login: string;
-    email: string;
-    phone: string;
-    avatar: string;
-}
-
-export interface AppState {
-    profile: ProfileState;
-    chats: ChatListState;
-}
+import { AppState, UserState } from "./types.js";
 
 export class Store {
 
     static EVENTS = {
         CHATS_ITEMS_CHANGED: "CHATS_ITEMS_CHANGED",
+        CHAT_USERS_CHANGED: "CHAT_USERS_CHANGED",
         PROFILE_CHANGED: "PROFILE_CHANGED",
     };
 
@@ -68,6 +44,10 @@ export class Store {
                 clone.profile = payload.profile;
                 break
             }
+
+            case Store.EVENTS.CHAT_USERS_CHANGED: {
+                clone.activeChat.users = payload.items
+            }
         }
 
         this.state = clone;
@@ -77,63 +57,13 @@ export class Store {
 }
 
 export const initialState: AppState = {
-    profile: {} as ProfileState,
+    profile: {} as UserState,
     chats: {
         items: []
+    },
+    activeChat: {
+        users: []
     }
 };
 
-// export function chatsReducer(
-//     state = initialState,
-//     action: { type: string, payload: any }
-// ) {
-//     switch (action.type) {
-//         case 'PUT_CHATS': {
-//             const chats = action.payload;
-//             const data = [...state.chats, chats];
-//             return {
-//                 ...state,
-//                 data,
-//             };
-//         }
-//     }
-
-//     return state;
-// }
-
-// const reducers = {
-//     chats: chatsReducer,
-//   };
-
 export const store = new Store(initialState);
-
-// import EventBus from "../utils/event-bus.js";
-
-// export default class Store {
-//     static __instance: Store;
-
-//     eventBus: () => EventBus;
-
-//     constructor() {
-//         if (Store.__instance) {
-//             return Store.__instance;
-//         }
-
-//         const eventBus = new EventBus();
-//         this.eventBus = () => eventBus;
-//         this._registerEvents(eventBus);
-
-//         Store.__instance = this;
-//     }
-
-//     static getStore() {
-//         return Store.__instance;
-//     }
-
-//     _registerEvents(eventBus: EventBus) {
-//         eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
-//         eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-//         eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
-//         eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
-//     }
-// }

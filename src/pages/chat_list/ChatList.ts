@@ -2,12 +2,13 @@ import Block from "../../components/Block/index.js";
 import { template } from "./template.js";
 import { ChatListProps } from "./types.js";
 import { chatsController } from "../../controllers/ChatsController.js";
-import { ChatItemState, AppState, Store, store } from "../../store/Store.js";
+import { Store, store } from "../../store/Store.js";
 import ChatItem from "../../components/ChatItem/index.js";
 import get from "../../utils/get.js";
 import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";
 import CreateChat from "../../components/CreateChat/index.js";
+import { AppState, ChatItemState } from "../../store/types.js";
 
 export default class ChatList extends Block<ChatListProps> {
     private toProfile?: Button;

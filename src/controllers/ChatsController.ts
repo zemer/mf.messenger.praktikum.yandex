@@ -9,10 +9,17 @@ export default class ChatsController {
     }
 
     getChats() {
-        this._chatAPI.request()
+        this._chatAPI.getChats()
             .then(res => this.checkStatus(res))
             .then(res => JSON.parse(res.response))
             .then(res => store.dispatch(Store.EVENTS.CHATS_ITEMS_CHANGED, { items: res }));
+    }
+
+    getUsers(chatId: string) {
+        this._chatAPI.getUsers(chatId)
+            .then(res => this.checkStatus(res))
+            .then(res => JSON.parse(res.response))
+            .then(res => store.dispatch(Store.EVENTS.CHAT_USERS_CHANGED, { items: res }));
     }
 
     create(title: string) {

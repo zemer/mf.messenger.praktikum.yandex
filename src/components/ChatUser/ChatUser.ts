@@ -1,12 +1,13 @@
 import { template } from "./template.js";
 import Block from "../Block/index.js";
-import { IChatItemProps } from "./types.js";
+import { ChatUserProps } from "./types.js";
 import Avatar from "../Avatar/index.js";
+import { baseAPIUrl } from "../../api/http.js";
 
-export default class ChatItem extends Block<IChatItemProps> {
+export default class ChatUser extends Block<ChatUserProps> {
     private avatar?: Avatar;
 
-    constructor(props: IChatItemProps) {
+    constructor(props: ChatUserProps) {
         super("section", props);
 
         this.handleClick = this.handleClick.bind(this);
@@ -15,15 +16,21 @@ export default class ChatItem extends Block<IChatItemProps> {
     render() {
         const compiled = Handlebars.compile(template);
         return compiled({
-            ...this.props,
-            avatar: this.avatar?.renderToString()
+            avatar: this.avatar?.renderToString(),
+            title: this.props.displayName
         });
     }
 
     init() {
+        let avatarSource = "";
+
+        if (this.props.avatar) {
+            avatarSource = baseAPIUrl + this.props.avatar;
+        }
+
         this.avatar = new Avatar({
             imgId: this.props.id + "-avatar",
-            source: this.props.avatar ?? ""
+            source: avatarSource
         });
 
         super.init();
@@ -36,6 +43,6 @@ export default class ChatItem extends Block<IChatItemProps> {
     }
 
     handleClick() {
-        this.props.onClick();
+        //this.props.onClick();
     }
 } 

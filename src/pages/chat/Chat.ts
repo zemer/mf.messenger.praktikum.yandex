@@ -5,6 +5,11 @@ import { ChatProps } from "./types.js";
 import { ISendMessagProps } from "../../components/SendMessage/types.js";
 import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";
+import { chatsController } from "../../controllers/ChatsController.js";
+import { Store, store } from "../../store/Store.js";
+import { AppState, UserState } from "../../store/types.js";
+import get from "../../utils/get.js";
+import ChatUser from "../../components/ChatUser/index.js";
 
 export default class Chat extends Block<ChatProps> {
     private toProfile?: Button;
@@ -12,16 +17,10 @@ export default class Chat extends Block<ChatProps> {
 
     constructor(props: ChatProps) {
         super("main", props, "full-height zero-margin");
-
-        console.log(props);
     }
 
     init() {
-        // this.handlePlusChat = this.handlePlusChat.bind(this);
-        // this.handleCreateChat = this.handleCreateChat.bind(this);
-        // this.handleShowChat = this.handleShowChat.bind(this);
-
-        //store.subscribe(Store.EVENTS.CHATS_ITEMS_CHANGED, this.onChangeStore.bind(this));
+        store.subscribe(Store.EVENTS.CHAT_USERS_CHANGED, this.onChangeStore.bind(this));
 
         this.sendMessage = new SendMessage({} as ISendMessagProps);
 
@@ -37,12 +36,21 @@ export default class Chat extends Block<ChatProps> {
 
     componentDidMount() {
         super.componentDidMount();
+
+        chatsController.getUsers(this.props.chatId);
     }
 
     render() {
         const compile = Handlebars.compile(template);
+
+        const users = this.props.users?.map((i: UserState) => new ChatUser({
+            id: i.id,
+            displayName: i.display_name,
+            avatar: i.avatar,
+        }));
+
         const block = compile({
-            //items: this.props.items.map(i => i.renderToString()),
+            items: users?.map(i => i.renderToString()),
             user: this.props.user,
             //messages: this.messages.map(m => m.renderToString()),
             sendMessage: this.sendMessage?.renderToString(),
@@ -50,5 +58,18 @@ export default class Chat extends Block<ChatProps> {
         });
 
         return block;
+    }
+
+    onChangeStore() {
+        const users = this.usersSelector(store.getState());
+
+        this.setProps({
+            ...this.props,
+            users
+        });
+    }
+
+    usersSelector(state: AppState) {
+        return get(state, "activeChat.users");
     }
 } 
