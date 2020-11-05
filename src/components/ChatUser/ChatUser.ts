@@ -3,25 +3,29 @@ import Block from "../Block/index.js";
 import { ChatUserProps } from "./types.js";
 import Avatar from "../Avatar/index.js";
 import { baseAPIUrl } from "../../api/http.js";
+import Button from "../Button/index.js";
 
 export default class ChatUser extends Block<ChatUserProps> {
     private avatar?: Avatar;
+    private deleteButton?: Button;
 
     constructor(props: ChatUserProps) {
         super("section", props);
-
-        this.handleClick = this.handleClick.bind(this);
     }
 
     render() {
         const compiled = Handlebars.compile(template);
         return compiled({
             avatar: this.avatar?.renderToString(),
-            title: this.props.login
+            title: this.props.login,
+            deleteButton: this.deleteButton?.renderToString()
         });
     }
 
     init() {
+        this.handleClick = this.handleClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+
         let avatarSource = "";
 
         if (this.props.avatar) {
@@ -31,6 +35,12 @@ export default class ChatUser extends Block<ChatUserProps> {
         this.avatar = new Avatar({
             imgId: this.props.id + "-avatar",
             source: avatarSource
+        });
+
+        this.deleteButton = new Button({
+            value: "X",
+            handleClick: this.handleDelete,
+            visible: this.props.deleteVisible
         });
 
         super.init();
@@ -43,6 +53,12 @@ export default class ChatUser extends Block<ChatUserProps> {
     }
 
     handleClick() {
-        //this.props.onClick();
+        if (this.props.onClick)
+            this.props.onClick();
+    }
+
+    handleDelete() {
+        if (this.props.onDelete)
+            this.props.onDelete();
     }
 } 

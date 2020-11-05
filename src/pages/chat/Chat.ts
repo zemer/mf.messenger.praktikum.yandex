@@ -7,7 +7,7 @@ import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";
 import { chatsController } from "../../controllers/ChatsController.js";
 import { Store, store } from "../../store/Store.js";
-import { AppState } from "../../store/types.js";
+import { AppState, UserState } from "../../store/types.js";
 import get from "../../utils/get.js";
 import SearchUser from "../../components/SearchUser/index.js";
 import ChatUsersList from "../../components/ChatUsersList/index.js";
@@ -28,6 +28,7 @@ export default class Chat extends Block<ChatProps> {
     init() {
         this.handlePlusUser = this.handlePlusUser.bind(this);
         this.handleSelectUser = this.handleSelectUser.bind(this);
+        this.handleDeleteUser = this.handleDeleteUser.bind(this);
 
         store.subscribe(Store.EVENTS.CHAT_USERS_CHANGED, this.onChangeStore.bind(this));
 
@@ -51,7 +52,8 @@ export default class Chat extends Block<ChatProps> {
         });
 
         this.usersList = new ChatUsersList({
-            users: this.props.users
+            users: this.props.users,
+            onDeleteUser: this.handleDeleteUser
         });
 
         super.init();
@@ -103,10 +105,14 @@ export default class Chat extends Block<ChatProps> {
         this.showSearchUser(this.searchVisible);
     }
 
-    handleSelectUser(id: number) {
-        //chatsController.create(name);
-        console.log(id);
+    handleSelectUser(user: UserState) {
+        chatsController.addUser(user.id, this.props.chatId);
+
         this.showSearchUser(false);
+    }
+
+    handleDeleteUser(user: UserState) {
+        chatsController.deleteUser(user.id, this.props.chatId);
     }
 
     showSearchUser(visible: boolean) {

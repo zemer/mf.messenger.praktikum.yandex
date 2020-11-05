@@ -5,5 +5,7 @@ export interface ChatUserProps extends PlainObject {
     login: string;
     displayName: string;
     avatar?: string;
-    // onClick: () => void;
+    deleteVisible: boolean;
+    onClick?: () => void;
+    onDelete?: () => void;
 }

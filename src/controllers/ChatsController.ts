@@ -15,7 +15,7 @@ export default class ChatsController {
             .then(res => store.dispatch(Store.EVENTS.CHATS_ITEMS_CHANGED, { items: res }));
     }
 
-    getUsers(chatId: string) {
+    getUsers(chatId: number) {
         this._chatAPI.getUsers(chatId)
             .then(res => this.checkStatus(res))
             .then(res => JSON.parse(res.response))
@@ -26,6 +26,18 @@ export default class ChatsController {
         this._chatAPI.createChat(title)
             .then(res => this.checkStatus(res))
             .then(() => this.getChats())
+    }
+
+    addUser(userId: number, chatId: number) {
+        this._chatAPI.addUser(userId, chatId)
+            .then(res => this.checkStatus(res))
+            .then(() => this.getUsers(chatId));
+    }
+
+    deleteUser(userId: number, chatId: number) {
+        this._chatAPI.deleteUser(userId, chatId)
+            .then(res => this.checkStatus(res))
+            .then(() => this.getUsers(chatId));
     }
 
     private checkStatus(res: XMLHttpRequest) {

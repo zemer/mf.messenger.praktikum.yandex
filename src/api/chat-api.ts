@@ -6,7 +6,7 @@ export default class ChatAPI extends BaseAPI {
         return chatAPIInstance.get("/", {});
     }
 
-    getUsers(chatId: string) {
+    getUsers(chatId: number) {
         return chatAPIInstance.get(`/${chatId}/users`, {});
     }
 
@@ -18,6 +18,30 @@ export default class ChatAPI extends BaseAPI {
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
             }
-        })
+        });
+    }
+
+    addUser(userId: number, chatId: number) {
+        return chatAPIInstance.put("/users", {
+            data: {
+                users: [userId],
+                chatId
+            },
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        });
+    }
+
+    deleteUser(userId: number, chatId: number) {
+        return chatAPIInstance.delete("/users", {
+            data: {
+                users: [userId],
+                chatId
+            },
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        });
     }
 } 

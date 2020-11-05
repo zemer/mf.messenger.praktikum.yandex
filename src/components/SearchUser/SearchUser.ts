@@ -19,6 +19,7 @@ export default class SearchUser extends Block<FindUserProps> {
 
     init() {
         this.handleRunSearch = this.handleRunSearch.bind(this);
+        this.handleUserClick = this.handleUserClick.bind(this);
 
         store.subscribe(Store.EVENTS.SEARCH_USERS, this.onChangeStore.bind(this));
 
@@ -43,6 +44,8 @@ export default class SearchUser extends Block<FindUserProps> {
             displayName: i.display_name,
             login: i.login,
             avatar: i.avatar,
+            deleteVisible: false,
+            onClick: () => { this.handleUserClick(i) }
         }));
 
         const compiled = Handlebars.compile(template);
@@ -73,5 +76,11 @@ export default class SearchUser extends Block<FindUserProps> {
         // if (name) {
         //     this.props.onSelectUser(name);
         // }
+    }
+
+    handleUserClick(user: UserState) {
+        if (this.props.onSelectUser) {
+            this.props.onSelectUser(user);
+        }
     }
 } 

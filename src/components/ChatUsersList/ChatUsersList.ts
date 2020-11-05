@@ -9,6 +9,7 @@ export default class ChatUsersList extends Block<ChatUsersListProps> {
         super("section", props);
 
         this.handleClick = this.handleClick.bind(this);
+        this.handleDeleteUser = this.handleDeleteUser.bind(this);
     }
 
     render() {
@@ -17,6 +18,8 @@ export default class ChatUsersList extends Block<ChatUsersListProps> {
             displayName: i.display_name,
             login: i.login,
             avatar: i.avatar,
+            deleteVisible: true,
+            onDelete: () => { this.handleDeleteUser(i) }
         }));
 
         const compiled = Handlebars.compile(template);
@@ -33,5 +36,10 @@ export default class ChatUsersList extends Block<ChatUsersListProps> {
 
     handleClick() {
         //this.props.onClick();
+    }
+
+    handleDeleteUser(user: UserState) {
+        if (this.props.onDeleteUser)
+            this.props.onDeleteUser(user);
     }
 } 

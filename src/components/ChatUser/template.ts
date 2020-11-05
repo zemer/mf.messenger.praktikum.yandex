@@ -13,5 +13,6 @@ export const template = `
     <div class="chat-item-date">
         <span>{{date}}</span>
     </div>
+    {{{deleteButton}}}
 </section>
 `; 

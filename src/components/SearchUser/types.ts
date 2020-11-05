@@ -3,5 +3,5 @@ import { PlainObject } from "../../utils/isEqual.js";
 
 export interface FindUserProps extends PlainObject {
     users?: UserState[];
-    onSelectUser: (id: number) => void;
+    onSelectUser?: (user: UserState) => void;
 }

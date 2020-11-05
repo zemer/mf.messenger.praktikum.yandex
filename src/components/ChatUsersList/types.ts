@@ -3,4 +3,5 @@ import { PlainObject } from "../../utils/isEqual.js";
 
 export interface ChatUsersListProps extends PlainObject {
     users?: UserState[];
+    onDeleteUser: (user: UserState) => void;
 }
