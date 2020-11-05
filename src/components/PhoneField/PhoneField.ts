@@ -14,6 +14,10 @@ export default class PhoneField extends InputWithLabel<IPhoneFieldProps> {
             return "Не указан телефон";
         }
 
+        if (value.length > 15) {
+            return "Телефон не может быть больше 15 символов";
+        }
+
         const nameRegex = /^[\+]?[0-9]{1}[-\s\.]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/;
         if (value.match(nameRegex) == null) {
             return "Неверный формат";

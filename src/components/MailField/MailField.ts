@@ -15,6 +15,10 @@ export default class MailField extends InputWithLabel<IMailFieldProps> {
             return "Почта не может быть пустой";
         }
 
+        if (value.length > 50) {
+            return "Почта не может быть больше 50 символов";
+        }
+
         const nameRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
         if (value.match(nameRegex) == null) {
             return "Неверный формат";

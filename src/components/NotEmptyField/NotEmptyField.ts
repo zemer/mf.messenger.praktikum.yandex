@@ -16,6 +16,10 @@ export default class NotEmptyField extends InputWithLabel<INotEmptyFieldProps> {
             return "Поле содержит недопустимые символы";
         }
 
+        if (value.length > 50) {
+            return "Поле не может быть больше 50 символов";
+        }
+
         return null;
     }
 }

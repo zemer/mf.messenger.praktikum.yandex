@@ -29,7 +29,11 @@ export default class MessageInput extends Block<IMessageInputProps> {
 
     checkValidation(value: string | null): string | null {
         if (!value) {
-            return "Поле не может быть пустым";
+            return "Сообщение не может быть пустым";
+        }
+
+        if (value.length > 200) {
+            return "Сообщение не может быть больше 200 символов";
         }
 
         return null;
