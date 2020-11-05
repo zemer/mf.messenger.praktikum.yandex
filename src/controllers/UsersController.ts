@@ -10,17 +10,20 @@ export default class UsersController {
     }
 
     updateProfile(profile: ChnageUserProfileRequest, oldPassword: string, newPassword: string, avatar: File | null) {
-        this._userAPI.updateProfile(profile)
-            .then(res => this.checkStatus(res))
-            .then(() => {
-                this.updateAvatar(avatar)
-                    .then(res => this.checkStatus(res))
-                    .then(() => {
-                        this.updatePassword(oldPassword, newPassword)
-                            .then(res => this.checkStatus(res))
-                            .then(() => Router.__instance.back());
-                    })
-            })
+        const updatePorile = this._userAPI.updateProfile(profile)
+            .then(res => this.checkStatus(res));
+
+        let updateAvatar = null;
+        if (avatar) {
+            updateAvatar = this.updateAvatar(avatar)
+                .then(res => this.checkStatus(res));
+        }
+
+        const updatePassword = this.updatePassword(oldPassword, newPassword)
+            .then(res => this.checkStatus(res));
+
+        return Promise.all([updatePorile, updateAvatar, updatePassword])
+            .then(() => Router.__instance.back());
     }
 
     private updatePassword(oldPassword: string, newPassword: string) {
