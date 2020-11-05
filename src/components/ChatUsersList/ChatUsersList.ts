@@ -7,9 +7,13 @@ import ChatUser from "../ChatUser/index.js";
 export default class ChatUsersList extends Block<ChatUsersListProps> {
     constructor(props: ChatUsersListProps) {
         super("section", props);
+    }
 
+    init() {
         this.handleClick = this.handleClick.bind(this);
         this.handleDeleteUser = this.handleDeleteUser.bind(this);
+
+        super.init();
     }
 
     render() {

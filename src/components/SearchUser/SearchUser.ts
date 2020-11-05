@@ -31,6 +31,7 @@ export default class SearchUser extends Block<FindUserProps> {
         this.searchField = new Input({
             id: "searchUser",
             value: "",
+            placeholder: "Поиск по логину"
         }, "full-width");
 
         super.init();
