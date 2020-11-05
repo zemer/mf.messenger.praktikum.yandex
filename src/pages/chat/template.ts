@@ -6,6 +6,7 @@ export const template = `
                 <h1 class="white-title">#ЧАТ</h1>
                 <div class="white-title">
                     <nav>
+                        {{{toList}}}
                         {{{toProfile}}}
                     </nav>
                 </div>
