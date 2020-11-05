@@ -32,6 +32,7 @@ export default class Chat extends Block<ChatProps> {
         this.handleDeleteUser = this.handleDeleteUser.bind(this);
 
         store.subscribe(Store.EVENTS.CHAT_USERS_CHANGED, this.onChangeStore.bind(this));
+        store.subscribe(Store.EVENTS.CHATS_ITEMS_CHANGED, this.onChangeStore.bind(this));
 
         this.sendMessage = new SendMessage({} as ISendMessagProps);
 
@@ -70,12 +71,14 @@ export default class Chat extends Block<ChatProps> {
     componentDidMount() {
         super.componentDidMount();
 
+        chatsController.getChats();
         chatsController.getUsers(this.props.chatId);
     }
 
     render() {
         const compile = Handlebars.compile(template);
         const block = compile({
+            title: this.props.title,
             user: this.props.user,
             //messages: this.messages.map(m => m.renderToString()),
             sendMessage: this.sendMessage?.renderToString(),
@@ -83,7 +86,7 @@ export default class Chat extends Block<ChatProps> {
             toProfile: this.toProfile?.renderToString(),
             buttonPlusUser: this.buttonPlusUser?.renderToString(),
             createChat: this.searchUser?.renderToString(),
-            usersList: this.usersList?.renderToString()
+            usersList: this.usersList?.renderToString(),
         });
 
         return block;
@@ -91,10 +94,12 @@ export default class Chat extends Block<ChatProps> {
 
     onChangeStore() {
         const users = this.usersSelector(store.getState());
+        const chat = this.chatSelector(store.getState());
 
         this.setProps({
             ...this.props,
-            users
+            users,
+            title: chat?.title ?? ""
         });
 
         if (this.usersList) {
@@ -107,6 +112,10 @@ export default class Chat extends Block<ChatProps> {
 
     usersSelector(state: AppState) {
         return get(state, "activeChat.users");
+    }
+
+    chatSelector(state: AppState) {
+        return state.chats.items.find(c => c.id.toString() === this.props.chatId.toString());
     }
 
     handlePlusUser() {

@@ -25,7 +25,7 @@ export const template = `
                     <span class="chat-item-photo" />
                 </div>
                 <div class="chat-item-title">
-                    <span>{{user}}</span>
+                    <span>{{title}}</span>
                 </div>
             </header>
             <hr class="devider" />
