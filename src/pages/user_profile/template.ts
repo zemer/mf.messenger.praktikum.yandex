@@ -1,6 +1,6 @@
 export const template = `
 <main>
-    <div class="container">
+    <div class="container full-screen">
         <div class="user-profile-title full-width row-container space-between">
             <div class="white-title">
                 <nav>
@@ -11,7 +11,7 @@ export const template = `
                 {{{logoutButton}}}
             </div>
         </div>
-        <div class="row-container user-profile">
+        <div class="row-container user-profile full-width overflow-auto">
             {{{avatar}}}
             <form onsubmit="return logForm()">
                 <div class="column-container">
