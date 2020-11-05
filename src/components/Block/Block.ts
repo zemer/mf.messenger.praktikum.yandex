@@ -30,6 +30,7 @@ class Block<T extends PlainObject> {
 
     _id = 'uniq' + (Math.random() * 1000000);
     props: T;
+    visible: boolean | null;
     _element: HTMLElement | null = null;
     _meta: IMetaInfo<T> | null = null;
     eventBus: () => EventBus;
@@ -42,7 +43,7 @@ class Block<T extends PlainObject> {
      *
      * @returns {void}
      */
-    constructor(tagName = "div", props: T, classes: string | null = null) {
+    constructor(tagName = "div", props: T, classes: string | null = null, visible: boolean | null = null) {
         const eventBus = new EventBus();
 
         this._meta = {
@@ -52,6 +53,7 @@ class Block<T extends PlainObject> {
         };
 
         this.props = this._makePropsProxy(props);
+        this.visible = visible;
 
         this.eventBus = () => eventBus;
 
@@ -123,10 +125,10 @@ class Block<T extends PlainObject> {
         this._element = element;
         this.setEvents();
 
-        if (this.props.visible === true) {
+        if (this.visible === true) {
             this.show()
         }
-        else if (this.props.visible === false) {
+        else if (this.visible === false) {
             this.hide();
         }
     }
@@ -201,6 +203,8 @@ class Block<T extends PlainObject> {
     }
 
     show() {
+        this.visible = true;
+
         const element = this.getContent();
         if (element) {
             element.style.display = "block";
@@ -208,6 +212,8 @@ class Block<T extends PlainObject> {
     }
 
     hide() {
+        this.visible = false;
+
         const element = this.getContent();
         if (element) {
             element.style.display = "none";

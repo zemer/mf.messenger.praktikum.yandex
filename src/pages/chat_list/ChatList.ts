@@ -41,9 +41,8 @@ export default class ChatList extends Block<ChatListProps> {
         }, "button full-width");
 
         this.createChat = new CreateChat({
-            onCreateChat: this.handleCreateChat,
-            visible: false
-        });
+            onCreateChat: this.handleCreateChat
+        }, false);
 
         super.init();
     }
@@ -85,7 +84,7 @@ export default class ChatList extends Block<ChatListProps> {
     }
 
     handlePlusChat() {
-        this.showCreateChat(true);
+        this.showCreateChat(this.createChat?.visible !== true);
     }
 
     handleCreateChat(name: string) {
@@ -99,11 +98,11 @@ export default class ChatList extends Block<ChatListProps> {
     }
 
     showCreateChat(visible: boolean) {
-        if (this.createChat) {
-            this.createChat.setProps({
-                ...this.createChat.props,
-                visible
-            });
+        if (visible) {
+            this.createChat?.show();
+        }
+        else {
+            this.createChat?.hide();
         }
     }
 } 

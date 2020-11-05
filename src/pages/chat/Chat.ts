@@ -20,8 +20,6 @@ export default class Chat extends Block<ChatProps> {
     private searchUser?: SearchUser;
     private usersList?: ChatUsersList;
 
-    private searchVisible: boolean = false;
-
     constructor(props: ChatProps) {
         super("main", props);
     }
@@ -57,8 +55,7 @@ export default class Chat extends Block<ChatProps> {
 
         this.searchUser = new SearchUser({
             onSelectUser: this.handleSelectUser,
-            visible: false
-        });
+        }, false);
 
         this.usersList = new ChatUsersList({
             users: this.props.users,
@@ -119,8 +116,7 @@ export default class Chat extends Block<ChatProps> {
     }
 
     handlePlusUser() {
-        this.searchVisible = !this.searchVisible;
-        this.showSearchUser(this.searchVisible);
+        this.showSearchUser(this.usersList?.visible === true);
     }
 
     handleSelectUser(user: UserState) {
@@ -134,23 +130,18 @@ export default class Chat extends Block<ChatProps> {
     }
 
     showSearchUser(visible: boolean) {
-        if (this.searchUser) {
-            this.searchUser.setProps({
-                ...this.searchUser.props,
-                visible
-            });
-        }
-
-        if (this.usersList) {
-            this.usersList.setProps({
-                ...this.usersList.props,
-                visible: !visible
-            });
-        }
-
         this.buttonPlusUser?.setProps({
             ...this.buttonPlusUser.props,
             value: visible ? "Отменить" : "Добавить"
         })
+
+        if (visible) {
+            this.usersList?.hide();
+            this.searchUser?.show();
+        }
+        else {
+            this.usersList?.show();
+            this.searchUser?.hide();
+        }
     }
 } 

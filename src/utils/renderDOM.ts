@@ -30,6 +30,7 @@ export function clear(query: string, block: Block<any> | null) {
     }
 
     root.removeChild(content);
+    Block._instances = [];
 
     return root;
 }

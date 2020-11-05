@@ -9,8 +9,8 @@ export default class CreateChat extends Block<CreateChatProps> {
     private newChatName?: Input;
     private buttonCreateChat?: Button;
 
-    constructor(props: CreateChatProps) {
-        super("div", props);
+    constructor(props: CreateChatProps, visible: boolean) {
+        super("div", props, null, visible);
     }
 
     init() {

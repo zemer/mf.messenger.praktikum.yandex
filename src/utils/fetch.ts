@@ -72,19 +72,12 @@ export class HTTPTransport {
                 }
 
             xhr.onload = function () {
-                console.log(xhr);
                 resolve(xhr);
             };
 
             xhr.onabort = reject;
-            xhr.onerror = () => {
-                console.log("error");
-                reject();
-            };
-            xhr.ontimeout = () => {
-                console.log("timeout");
-                reject();
-            };
+            xhr.onerror = reject;
+            xhr.ontimeout = reject;
 
             if (method === METHODS.GET || !data) {
                 xhr.send();
