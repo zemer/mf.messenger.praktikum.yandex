@@ -9,6 +9,7 @@
 ## Примечания
 
 > точно нужен handlebars из cdn ? handlebars есть же в зависимостях, его можно импортировать в проект import Handlebars from "handlebars"; и использовать
+
 Пока handlebars из cdn нужен. Вероятно, после темы webpack можно будет использовать импорт.
 А до тех пор я получаю ошибку:
 ```
@@ -16,6 +17,7 @@ Uncaught TypeError: Failed to resolve module specifier "handlebars". Relative re
 ```
 
 > для чего сейчас в проекте babel ? кажется, что лишнее на данном этапе проекта, вся сборка же через tsc
+
 В проекте использую tsc. Однако для сборки тестов нужен babel. Я следовал этой инструкции: https://jestjs.io/docs/en/getting-started#using-typescript
 
 ## Запуск
