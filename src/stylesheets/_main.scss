@@ -19,7 +19,7 @@ button:focus {
 .button {
     height: 50px;
     background-color: $primary-color;
-    color: white;
+    color: $white-color;
     font-size: 14px;
     text-transform: uppercase;
     border-width: 0px;
@@ -79,18 +79,18 @@ input:focus {
 .white-title {
     nav {
         a:link {
-            color: white;
+            color: $white-color;
             text-decoration: none;
         }
         a:visited {
-            color: white;
+            color: $white-color;
             text-decoration: none;
         }
     }
 }
 
 .white-title {
-    color: white;
+    color: $white-color;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -114,7 +114,7 @@ input:focus {
         border-color: $border-color;
         padding-left: 10px;
         padding-right: 10px;
-        color: #4f4f4f;
+        color: $input-text-color;
     }
 }
 
@@ -126,7 +126,7 @@ input:focus {
 
 .caption {
     font-size: 12px;
-    color: #4f4f4f;
+    color: $input-text-color;
 }
 
 .centered-container {
