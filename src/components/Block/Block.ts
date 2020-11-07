@@ -1,5 +1,6 @@
 import EventBus from "../../utils/event-bus.js";
-import { isEqual, PlainObject } from "../../utils/isEqual.js";
+import { isEqual } from "../../utils/isEqual.js";
+import { PlainObject } from "../../commonTypes.js";
 
 interface IMetaInfo<T> {
     tagName: string;

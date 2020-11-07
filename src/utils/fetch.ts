@@ -1,4 +1,4 @@
-import { PlainObject } from "./isEqual.js";
+import { PlainObject } from "../commonTypes.js";
 
 export type StringIndexed = Record<string, unknown>;
 

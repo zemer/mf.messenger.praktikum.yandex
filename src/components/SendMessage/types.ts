@@ -1,4 +1,4 @@
-import { PlainObject } from "../../utils/isEqual.js";
+import { PlainObject } from "../../commonTypes.js";
 import Button from "../Button/index.js";
 import MessageInput from "../MessageInput/index.js";
 

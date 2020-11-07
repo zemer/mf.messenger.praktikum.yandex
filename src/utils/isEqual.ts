@@ -1,6 +1,4 @@
-export type PlainObject<T = unknown> = {
-    [k in string]: T;
-};
+import { PlainObject } from "../commonTypes.js";
 
 function isPlainObject(value: unknown): value is PlainObject {
     return typeof value === 'object'
@@ -8,7 +6,6 @@ function isPlainObject(value: unknown): value is PlainObject {
         && value.constructor === Object
         && Object.prototype.toString.call(value) === '[object Object]';
 }
-
 
 function isArrayOrObject(value: unknown): value is ([] | PlainObject) {
     return isPlainObject(value) || Array.isArray(value);

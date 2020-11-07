@@ -1,4 +1,4 @@
-import { PlainObject } from "../../utils/isEqual.js";
+import { PlainObject } from "../../commonTypes.js";
 
 export interface ChatUserProps extends PlainObject {
     id: number;

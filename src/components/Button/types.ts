@@ -1,4 +1,4 @@
-import { PlainObject } from "../../utils/isEqual.js";
+import { PlainObject } from "../../commonTypes.js";
 
 export interface IButtonProps extends PlainObject {
     value: string;

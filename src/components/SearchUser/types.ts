@@ -1,5 +1,5 @@
 import { UserState } from "../../store/types.js";
-import { PlainObject } from "../../utils/isEqual.js";
+import { PlainObject } from "../../commonTypes.js";
 
 export interface FindUserProps extends PlainObject {
     users?: UserState[];

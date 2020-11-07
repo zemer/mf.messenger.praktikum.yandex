@@ -1,4 +1,4 @@
-import { PlainObject } from "./isEqual";
+import { PlainObject } from "../commonTypes.js";
 
 const entityMap: PlainObject<string> = {
     '&': '&amp;',
