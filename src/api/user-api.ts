@@ -1,15 +1,18 @@
-import { StringIndexed } from "../utils/fetch.js";
-import { userAPIInstance } from "./http.js";
+import { HTTPTransport } from "../utils/fetch.js";
+import { baseAPIUrl } from "./api-url.js";
+import { ChnageUserProfileRequest } from "./interfaces.js";
 
 export class UserAPI {
-    updateProfile(profile: ChnageUserProfileReques): Promise<XMLHttpRequest> {
-        return userAPIInstance.put("/profile", {
+    private userAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/user");
+
+    updateProfile(profile: ChnageUserProfileRequest): Promise<XMLHttpRequest> {
+        return this.userAPIInstance.put("/profile", {
             data: profile
         });
     }
 
     updatePassword(oldPassword: string, newPassword: string): Promise<XMLHttpRequest> {
-        return userAPIInstance.put("/password", {
+        return this.userAPIInstance.put("/password", {
             data: {
                 oldPassword,
                 newPassword
@@ -22,7 +25,7 @@ export class UserAPI {
             const formdata = new FormData();
             formdata.append('avatar', avatar);
 
-            return userAPIInstance.put("/profile/avatar", {
+            return this.userAPIInstance.put("/profile/avatar", {
                 data: formdata,
                 headers: {}
             });
@@ -33,19 +36,10 @@ export class UserAPI {
     }
 
     search(login: string) {
-        return userAPIInstance.post("/search", {
+        return this.userAPIInstance.post("/search", {
             data: {
                 login,
             }
         });
     }
 }
-
-export interface ChnageUserProfileReques extends StringIndexed {
-    first_name: string;
-    second_name: string;
-    display_name: string;
-    login: string;
-    email: string;
-    phone: string;
-} 

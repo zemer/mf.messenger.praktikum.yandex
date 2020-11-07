@@ -1,4 +1,5 @@
-import { ChnageUserProfileReques as ChnageUserProfileRequest, UserAPI } from "../api/user-api.js";
+import { ChnageUserProfileRequest } from "../api/interfaces.js";
+import { UserAPI } from "../api/user-api.js";
 import { Store, store } from "../store/Store.js";
 import Router from "../utils/router.js";
 

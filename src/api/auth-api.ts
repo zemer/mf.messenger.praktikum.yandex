@@ -1,4 +1,5 @@
-import { authAPIInstance } from "./http.js";
+import { HTTPTransport } from "../utils/fetch.js";
+import { baseAPIUrl } from "./api-url.js";
 
 export interface SingUpData extends Record<string, unknown> {
     first_name: string;
@@ -10,8 +11,10 @@ export interface SingUpData extends Record<string, unknown> {
 }
 
 export default class AuthAPI {
+    private authAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/auth");
+
     signIn(login: string, password: string): Promise<XMLHttpRequest> {
-        return authAPIInstance.post("/signin", {
+        return this.authAPIInstance.post("/signin", {
             data: {
                 login,
                 password
@@ -20,16 +23,16 @@ export default class AuthAPI {
     }
 
     signUp(data: SingUpData): Promise<XMLHttpRequest> {
-        return authAPIInstance.post("/signup", {
+        return this.authAPIInstance.post("/signup", {
             data
         });
     }
 
     logout(): Promise<XMLHttpRequest> {
-        return authAPIInstance.post("/logout");
+        return this.authAPIInstance.post("/logout");
     }
 
     profile(): Promise<XMLHttpRequest> {
-        return authAPIInstance.get("/user");
+        return this.authAPIInstance.get("/user");
     }
-} 
+}

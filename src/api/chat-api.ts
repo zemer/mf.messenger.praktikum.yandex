@@ -1,16 +1,19 @@
-import { chatAPIInstance } from "./http.js";
+import { HTTPTransport } from "../utils/fetch.js";
+import { baseAPIUrl } from "./api-url.js";
 
 export default class ChatAPI {
+    private chatAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/chats");
+
     getChats() {
-        return chatAPIInstance.get("/");
+        return this.chatAPIInstance.get("/");
     }
 
     getUsers(chatId: number) {
-        return chatAPIInstance.get(`/${chatId}/users`);
+        return this.chatAPIInstance.get(`/${chatId}/users`);
     }
 
     createChat(title: string) {
-        return chatAPIInstance.post("/", {
+        return this.chatAPIInstance.post("/", {
             data: {
                 title
             }
@@ -18,7 +21,7 @@ export default class ChatAPI {
     }
 
     addUser(userId: number, chatId: number) {
-        return chatAPIInstance.put("/users", {
+        return this.chatAPIInstance.put("/users", {
             data: {
                 users: [userId],
                 chatId
@@ -27,7 +30,7 @@ export default class ChatAPI {
     }
 
     deleteUser(userId: number, chatId: number) {
-        return chatAPIInstance.delete("/users", {
+        return this.chatAPIInstance.delete("/users", {
             data: {
                 users: [userId],
                 chatId

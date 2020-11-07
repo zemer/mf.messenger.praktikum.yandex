@@ -36,7 +36,19 @@ export interface HttpOptions {
 }
 
 export class HTTPTransport {
-    get = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+    private readonly defaultOptions = {
+        headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        }
+    };
+
+    private baseUrl: string;
+
+    constructor(baseUrl: string) {
+        this.baseUrl = baseUrl;
+    }
+
+    get = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         if (options.data) {
             url += '?' + queryStringify(options.data as StringIndexed);
         }
@@ -44,15 +56,15 @@ export class HTTPTransport {
         return this.request(url, options, METHODS.GET, options.timeout);
     };
 
-    post = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+    post = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         return this.request(url, options, METHODS.POST, options.timeout);
     };
 
-    put = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+    put = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         return this.request(url, options, METHODS.PUT, options.timeout);
     };
 
-    delete = (url: string, options: HttpOptions): Promise<XMLHttpRequest> => {
+    delete = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         return this.request(url, options, METHODS.DELETE, options.timeout);
     };
 
@@ -63,7 +75,7 @@ export class HTTPTransport {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
 
-            xhr.open(method, url);
+            xhr.open(method, this.baseUrl + url);
             xhr.withCredentials = withCredentials ?? true;
 
             if (headers) {

@@ -2,7 +2,7 @@ import { template } from "./template.js";
 import Block from "../Block/index.js";
 import { ChatUserProps } from "./types.js";
 import Avatar from "../Avatar/index.js";
-import { baseAPIUrl } from "../../api/http.js";
+import { baseAPIUrl } from "../../api/api-url.js";
 import Button from "../Button/index.js";
 
 export default class ChatUser extends Block<ChatUserProps> {
