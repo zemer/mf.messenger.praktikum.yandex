@@ -13,9 +13,6 @@ export default class ChatAPI {
         return chatAPIInstance.post("/", {
             data: {
                 title
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
             }
         });
     }
@@ -25,9 +22,6 @@ export default class ChatAPI {
             data: {
                 users: [userId],
                 chatId
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
             }
         });
     }
@@ -37,9 +31,6 @@ export default class ChatAPI {
             data: {
                 users: [userId],
                 chatId
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
             }
         });
     }

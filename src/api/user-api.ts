@@ -4,10 +4,7 @@ import { userAPIInstance } from "./http.js";
 export class UserAPI {
     updateProfile(profile: ChnageUserProfileReques): Promise<XMLHttpRequest> {
         return userAPIInstance.put("/profile", {
-            data: profile,
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            }
+            data: profile
         });
     }
 
@@ -16,9 +13,6 @@ export class UserAPI {
             data: {
                 oldPassword,
                 newPassword
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
             }
         });
     }
@@ -30,6 +24,7 @@ export class UserAPI {
 
             return userAPIInstance.put("/profile/avatar", {
                 data: formdata,
+                headers: {}
             });
         }
         else {
@@ -41,9 +36,6 @@ export class UserAPI {
         return userAPIInstance.post("/search", {
             data: {
                 login,
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
             }
         });
     }

@@ -15,19 +15,13 @@ export default class AuthAPI {
             data: {
                 login,
                 password
-            },
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
             }
         });
     }
 
     signUp(data: SingUpData): Promise<XMLHttpRequest> {
         return authAPIInstance.post("/signup", {
-            data,
-            headers: {
-                "Content-Type": "application/json; charset=utf-8"
-            }
+            data
         });
     }
 

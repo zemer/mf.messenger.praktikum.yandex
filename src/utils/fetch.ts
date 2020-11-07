@@ -66,10 +66,14 @@ export class HTTPTransport {
             xhr.open(method, url);
             xhr.withCredentials = withCredentials ?? true;
 
-            if (headers)
+            if (headers) {
                 for (const [key, value] of Object.entries(headers)) {
                     xhr.setRequestHeader(key, value);
                 }
+            }
+            else {
+                xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+            }
 
             xhr.onload = function () {
                 resolve(xhr);
