@@ -32,10 +32,10 @@ export default class AuthAPI {
     }
 
     logout(): Promise<XMLHttpRequest> {
-        return authAPIInstance.post("/logout", {});
+        return authAPIInstance.post("/logout");
     }
 
     profile(): Promise<XMLHttpRequest> {
-        return authAPIInstance.get("/user", {});
+        return authAPIInstance.get("/user");
     }
 } 

@@ -2,11 +2,11 @@ import { chatAPIInstance } from "./http.js";
 
 export default class ChatAPI {
     getChats() {
-        return chatAPIInstance.get("/", {});
+        return chatAPIInstance.get("/");
     }
 
     getUsers(chatId: number) {
-        return chatAPIInstance.get(`/${chatId}/users`, {});
+        return chatAPIInstance.get(`/${chatId}/users`);
     }
 
     createChat(title: string) {
