@@ -11,17 +11,14 @@ export default class UsersController {
     }
 
     updateProfile(profile: ChnageUserProfileRequest, oldPassword: string, newPassword: string, avatar: File | null) {
-        const updatePorile = this._userAPI.updateProfile(profile)
-            .then(res => this.checkStatus(res));
+        const updatePorile = this._userAPI.updateProfile(profile);
 
         let updateAvatar = null;
         if (avatar) {
-            updateAvatar = this.updateAvatar(avatar)
-                .then(res => this.checkStatus(res));
+            updateAvatar = this.updateAvatar(avatar);
         }
 
-        const updatePassword = this.updatePassword(oldPassword, newPassword)
-            .then(res => this.checkStatus(res));
+        const updatePassword = this.updatePassword(oldPassword, newPassword);
 
         return Promise.all([updatePorile, updateAvatar, updatePassword])
             .then(() => Router.__instance.back());
@@ -37,16 +34,8 @@ export default class UsersController {
 
     search(login: string) {
         return this._userAPI.search(login)
-            .then(res => this.checkStatus(res))
             .then(res => JSON.parse(res.response))
             .then(res => store.dispatch(Store.EVENTS.SEARCH_USERS, { items: res }));
-    }
-
-    private checkStatus(res: XMLHttpRequest) {
-        if (res.status != 200)
-            throw res.status + " " + res.statusText;
-
-        return res;
     }
 }
 
