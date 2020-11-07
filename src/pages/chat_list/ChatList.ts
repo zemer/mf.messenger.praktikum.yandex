@@ -4,7 +4,7 @@ import { ChatListProps } from "./interfaces.js";
 import { chatsController } from "../../controllers/ChatsController.js";
 import { Store, store } from "../../store/Store.js";
 import ChatItem from "../../components/ChatItem/index.js";
-import get from "../../utils/get.js";
+import getFieldByPath from "../../utils/getFieldByPath.js";
 import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";
 import CreateChat from "../../components/CreateChat/index.js";
@@ -56,7 +56,7 @@ export default class ChatList extends Block<ChatListProps> {
     }
 
     chatsSelector(state: AppState) {
-        return get(state, "chats.items");
+        return getFieldByPath(state, "chats.items");
     }
 
     onChangeStore() {

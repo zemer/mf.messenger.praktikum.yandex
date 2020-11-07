@@ -9,7 +9,7 @@ import PhoneField from "../../components/PhoneField/index.js";
 import { IUserProfileProps } from "./interfaces.js";
 import Router from "../../utils/router.js";
 import { Store, store } from "../../store/Store.js";
-import get from "../../utils/get.js";
+import getFieldByPath from "../../utils/getFieldByPath.js";
 import { authController } from "../../controllers/AuthController.js";
 import { usersController } from "../../controllers/UsersController.js";
 import UploadAvatar from "../../components/UploadAvatar/index.js";
@@ -125,7 +125,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     }
 
     chatsSelector(state: AppState) {
-        return get(state, "profile") as UserState;
+        return getFieldByPath(state, "profile") as UserState;
     }
 
     onChangeStore() {

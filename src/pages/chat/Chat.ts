@@ -8,7 +8,7 @@ import Router from "../../utils/router.js";
 import { chatsController } from "../../controllers/ChatsController.js";
 import { Store, store } from "../../store/Store.js";
 import { AppState, UserState } from "../../store/types.js";
-import get from "../../utils/get.js";
+import getFieldByPath from "../../utils/getFieldByPath.js";
 import SearchUser from "../../components/SearchUser/index.js";
 import ChatUsersList from "../../components/ChatUsersList/index.js";
 
@@ -112,7 +112,7 @@ export default class Chat extends Block<ChatProps> {
     }
 
     usersSelector(state: AppState) {
-        return get(state, "activeChat.users");
+        return getFieldByPath(state, "activeChat.users");
     }
 
     chatSelector(state: AppState) {

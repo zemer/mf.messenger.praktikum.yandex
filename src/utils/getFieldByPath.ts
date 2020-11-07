@@ -1,4 +1,4 @@
-export default function get(obj: any, path: string): any {
+export default function getFieldByPath(obj: any, path: string): any {
     const keys = path.split('.');
 
     let result = obj;

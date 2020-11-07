@@ -5,7 +5,7 @@ import Button from "../Button/index.js";
 import Input from "../Input/index.js";
 import { Store, store } from "../../store/Store.js";
 import { AppState, UserState } from "../../store/types.js";
-import get from "../../utils/get.js";
+import getFieldByPath from "../../utils/getFieldByPath.js";
 import { usersController } from "../../controllers/UsersController.js";
 import ChatUser from "../ChatUser/index.js";
 import { sanitize } from "../../utils/escape.js";
@@ -68,7 +68,7 @@ export default class SearchUser extends Block<FindUserProps> {
     }
 
     usersSelector(state: AppState) {
-        return get(state, "search.users");
+        return getFieldByPath(state, "search.users");
     }
 
     handleRunSearch() {
