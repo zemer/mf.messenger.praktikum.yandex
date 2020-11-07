@@ -22,7 +22,7 @@ button:focus {
     color: $white-color;
     font-size: 14px;
     text-transform: uppercase;
-    border-width: 0px;
+    border-width: 0;
 }
 
 h1 {
@@ -150,8 +150,8 @@ hr.devider {
     border-top: 1px solid $border-color;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .filler {
