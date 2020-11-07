@@ -21,7 +21,7 @@ export default class UsersController {
         const updatePassword = this.updatePassword(oldPassword, newPassword);
 
         return Promise.all([updatePorile, updateAvatar, updatePassword])
-            .then(() => Router.__instance.back());
+            .then(() => Router.back());
     }
 
     private updatePassword(oldPassword: string, newPassword: string) {

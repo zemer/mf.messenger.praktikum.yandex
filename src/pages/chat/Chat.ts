@@ -37,14 +37,14 @@ export default class Chat extends Block<ChatProps> {
         this.toList = new Button({
             value: "< Чаты",
             handleClick: () => {
-                Router.__instance.go("/chats");
+                Router.go("/chats");
             }
         }, "button");
 
         this.toProfile = new Button({
             value: "Профиль >",
             handleClick: () => {
-                Router.__instance.go("/profile");
+                Router.go("/profile");
             }
         }, "button");
 

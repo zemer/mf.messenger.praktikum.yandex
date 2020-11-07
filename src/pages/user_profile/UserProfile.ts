@@ -95,7 +95,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
         this.backButton = new Button({
             value: "< Назад",
             handleClick: () => {
-                Router.__instance.back();
+                Router.back();
             }
         }, "button");
 

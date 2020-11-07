@@ -64,20 +64,20 @@ export default class Router {
         Block.hydrate();
     }
 
-    go(pathname: string) {
-        this._history.pushState({}, "", pathname);
-        this._onRoute(pathname);
-    }
-
-    back() {
-        this._history.back();
-    }
-
-    forward() {
-        this._history.forward();
-    }
-
     getRoute(pathname: string): Route | undefined {
         return this._routes.find(route => route.match(pathname));
+    }
+
+    static go(pathname: string) {
+        this.__instance._history.pushState({}, "", pathname);
+        this.__instance._onRoute(pathname);
+    }
+
+    static back() {
+        this.__instance._history.back();
+    }
+
+    static forward() {
+        this.__instance._history.forward();
     }
 }

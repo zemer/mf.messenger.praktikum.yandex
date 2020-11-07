@@ -31,7 +31,7 @@ export default class ChatList extends Block<ChatListProps> {
         this.toProfile = new Button({
             value: "Профиль >",
             handleClick: () => {
-                Router.__instance.go("/profile");
+                Router.go("/profile");
             }
         }, "button");
 
@@ -94,7 +94,7 @@ export default class ChatList extends Block<ChatListProps> {
     }
 
     handleShowChat(id: number) {
-        Router.__instance.go("/chats/" + id);
+        Router.go("/chats/" + id);
     }
 
     showCreateChat(visible: boolean) {

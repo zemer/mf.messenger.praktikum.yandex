@@ -24,6 +24,6 @@ export default class Link extends Block<LinkProps> {
 
     handleClick(ev: MouseEvent) {
         ev.preventDefault();
-        Router.__instance.go(this.props.path);
+        Router.go(this.props.path);
     }
 }

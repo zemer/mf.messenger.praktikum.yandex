@@ -11,22 +11,22 @@ export default class AuthController {
 
     signIn(login: string, password: string) {
         this._authAPI.signIn(login, password)
-            .then(() => Router.__instance.go("/chats"));
+            .then(() => Router.go("/chats"));
     }
 
     signUp(data: SingUpData) {
         this._authAPI.signUp(data)
-            .then(() => Router.__instance.go("/chats"));
+            .then(() => Router.go("/chats"));
     }
 
     checkSignUp() {
         this._authAPI.profile()
-            .then(() => Router.__instance.go("/chats"));
+            .then(() => Router.go("/chats"));
     }
 
     logout() {
         this._authAPI.logout()
-            .then(() => Router.__instance.go("/login"));
+            .then(() => Router.go("/login"));
     }
 
     profile() {
