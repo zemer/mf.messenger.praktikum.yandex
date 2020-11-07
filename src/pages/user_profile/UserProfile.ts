@@ -6,7 +6,7 @@ import PasswordField from "../../components/PasswordField/index.js";
 import NotEmptyField from "../../components/NotEmptyField/index.js";
 import MailField from "../../components/MailField/index.js";
 import PhoneField from "../../components/PhoneField/index.js";
-import { IUserProfileProps } from "./types.js";
+import { IUserProfileProps } from "./interfaces.js";
 import Router from "../../utils/router.js";
 import { Store, store } from "../../store/Store.js";
 import get from "../../utils/get.js";

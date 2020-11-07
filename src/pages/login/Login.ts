@@ -3,7 +3,7 @@ import Button from "../../components/Button/index.js";
 import { template } from "./template.js";
 import LoginField from "../../components/LoginField/index.js";
 import PasswordField from "../../components/PasswordField/index.js";
-import { ILoginProps as ILoginProps } from "./types.js";
+import { ILoginProps as ILoginProps } from "./interfaces.js";
 import Link from "../../components/Link/index.js";
 import { authController } from "../../controllers/AuthController.js";
 

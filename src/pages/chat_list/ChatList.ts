@@ -1,6 +1,6 @@
 import Block from "../../components/Block/index.js";
 import { template } from "./template.js";
-import { ChatListProps } from "./types.js";
+import { ChatListProps } from "./interfaces.js";
 import { chatsController } from "../../controllers/ChatsController.js";
 import { Store, store } from "../../store/Store.js";
 import ChatItem from "../../components/ChatItem/index.js";

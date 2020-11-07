@@ -1,7 +1,7 @@
 import Block from "../../components/Block/index.js";
 import { template } from "./template.js";
 import SendMessage from "../../components/SendMessage/index.js";
-import { ChatProps } from "./types.js";
+import { ChatProps } from "./interfaces.js";
 import { ISendMessagProps } from "../../components/SendMessage/types.js";
 import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";

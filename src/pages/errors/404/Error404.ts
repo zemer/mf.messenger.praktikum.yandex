@@ -1,5 +1,5 @@
 import Block from "../../../components/Block/Block.js";
-import { IError404Props } from "./types.js";
+import { IError404Props } from "./interfaces.js";
 import { template } from "./template.js";
 import Link from "../../../components/Link/index.js";
 
