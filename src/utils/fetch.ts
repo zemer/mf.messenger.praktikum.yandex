@@ -10,7 +10,7 @@ const METHODS = {
 };
 
 export function queryStringify(data: StringIndexed): string | never {
-    if (typeof (data) !== 'object')
+    if (typeof data !== 'object')
         throw "Input must be an object";
 
     const convertKey = (key: string, value: any): string => {
@@ -29,6 +29,7 @@ export function queryStringify(data: StringIndexed): string | never {
 }
 
 export interface HttpOptions {
+    baseUrl?: string;
     headers?: PlainObject<string>;
     data?: StringIndexed | FormData;
     timeout?: number;
@@ -82,7 +83,9 @@ export class HTTPTransport {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
 
-            xhr.open(method, this.baseUrl + url);
+            const resultUrl = (options.baseUrl || this.baseUrl) + url;
+
+            xhr.open(method, resultUrl);
             xhr.withCredentials = withCredentials ?? true;
 
             if (headers) {
