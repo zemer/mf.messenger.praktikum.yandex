@@ -1,7 +1,6 @@
-import BaseAPI from "./base-api.js";
 import { chatAPIInstance } from "./http.js";
 
-export default class ChatAPI extends BaseAPI {
+export default class ChatAPI {
     getChats() {
         return chatAPIInstance.get("/", {});
     }

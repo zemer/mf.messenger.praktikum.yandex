@@ -1,4 +1,3 @@
-import BaseAPI from "./base-api.js";
 import { authAPIInstance } from "./http.js";
 
 export interface SingUpData extends Record<string, unknown> {
@@ -10,7 +9,7 @@ export interface SingUpData extends Record<string, unknown> {
     phone: string;
 }
 
-export default class AuthAPI extends BaseAPI {
+export default class AuthAPI {
     signIn(login: string, password: string): Promise<XMLHttpRequest> {
         return authAPIInstance.post("/signin", {
             data: {

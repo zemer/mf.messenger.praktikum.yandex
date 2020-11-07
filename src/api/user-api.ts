@@ -1,8 +1,7 @@
 import { StringIndexed } from "../utils/fetch.js";
-import BaseAPI from "./base-api.js";
 import { userAPIInstance } from "./http.js";
 
-export class UserAPI extends BaseAPI {
+export class UserAPI {
     updateProfile(profile: ChnageUserProfileReques): Promise<XMLHttpRequest> {
         return userAPIInstance.put("/profile", {
             data: profile,
@@ -31,9 +30,6 @@ export class UserAPI extends BaseAPI {
 
             return userAPIInstance.put("/profile/avatar", {
                 data: formdata,
-                // headers: {
-                //     "Content-Type": "application/json; charset=utf-8"
-                // }
             });
         }
         else {
