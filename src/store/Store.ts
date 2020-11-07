@@ -4,7 +4,6 @@ import EventBus from "../utils/event-bus.js";
 import { AppState, ChatItemState, UserState } from "./types.js";
 
 export class Store {
-
     static EVENTS = {
         CHATS_ITEMS_CHANGED: "CHATS_ITEMS_CHANGED",
         CHAT_USERS_CHANGED: "CHAT_USERS_CHANGED",

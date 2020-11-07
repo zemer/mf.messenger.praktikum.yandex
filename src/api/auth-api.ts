@@ -11,7 +11,6 @@ export interface SingUpData extends Record<string, unknown> {
 }
 
 export default class AuthAPI extends BaseAPI {
-
     signIn(login: string, password: string): Promise<XMLHttpRequest> {
         return authAPIInstance.post("/signin", {
             data: {
@@ -40,14 +39,4 @@ export default class AuthAPI extends BaseAPI {
     profile(): Promise<XMLHttpRequest> {
         return authAPIInstance.get("/user", {});
     }
-
-    // create() {
-    //     // Здесь уже не нужно писать полный путь /api/v1/chats/
-    //     return authAPIInstance.post('/', { title: 'string' });
-    // }
-
-    // request() {
-    //     // Здесь уже не нужно писать полный путь /api/v1/chats/
-    //     return authAPIInstance.get('/full').then();
-    // }
 } 
