@@ -25,10 +25,6 @@ export default class Chat extends Block<ChatProps> {
     }
 
     init() {
-        this.handlePlusUser = this.handlePlusUser.bind(this);
-        this.handleSelectUser = this.handleSelectUser.bind(this);
-        this.handleDeleteUser = this.handleDeleteUser.bind(this);
-
         store.subscribe(Store.EVENTS.CHAT_USERS_CHANGED, this.onChangeStore.bind(this));
         store.subscribe(Store.EVENTS.CHATS_ITEMS_CHANGED, this.onChangeStore.bind(this));
 
@@ -50,16 +46,24 @@ export default class Chat extends Block<ChatProps> {
 
         this.buttonPlusUser = new Button({
             value: "Добавить",
-            handleClick: this.handlePlusUser
+            handleClick: () => {
+                this.showSearchUser(this.usersList?.visible !== false);
+            }
         }, "button full-width");
 
         this.searchUser = new SearchUser({
-            onSelectUser: this.handleSelectUser,
+            onSelectUser: (user: UserState) => {
+                chatsController.addUser(user.id, this.props.chatId);
+
+                this.showSearchUser(false);
+            }
         }, false);
 
         this.usersList = new ChatUsersList({
             users: this.props.users,
-            onDeleteUser: this.handleDeleteUser
+            onDeleteUser: (user: UserState) => {
+                chatsController.deleteUser(user.id, this.props.chatId);
+            }
         });
 
         super.init();
@@ -113,20 +117,6 @@ export default class Chat extends Block<ChatProps> {
 
     chatSelector(state: AppState) {
         return state.chats.items.find(c => c.id.toString() === this.props.chatId.toString());
-    }
-
-    handlePlusUser() {
-        this.showSearchUser(this.usersList?.visible === true);
-    }
-
-    handleSelectUser(user: UserState) {
-        chatsController.addUser(user.id, this.props.chatId);
-
-        this.showSearchUser(false);
-    }
-
-    handleDeleteUser(user: UserState) {
-        chatsController.deleteUser(user.id, this.props.chatId);
     }
 
     showSearchUser(visible: boolean) {

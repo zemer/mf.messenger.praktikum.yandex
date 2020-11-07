@@ -38,10 +38,6 @@ export default class UserProfile extends Block<IUserProfileProps> {
     }
 
     init() {
-        this.handleAvatarClick = this.handleAvatarClick.bind(this);
-        this.handleSaveClick = this.handleSaveClick.bind(this);
-        this.handleFileChange = this.handleFileChange.bind(this);
-
         store.subscribe(Store.EVENTS.PROFILE_CHANGED, this.onChangeStore.bind(this));
 
         this.firtName = new NotEmptyField({
@@ -84,12 +80,15 @@ export default class UserProfile extends Block<IUserProfileProps> {
         this.avatar = new UploadAvatar({
             imgId: "profile-avatar",
             source: "",
-            handleClick: this.handleAvatarClick
+            handleClick: () => {
+                var fileEl = document.getElementById("file") as HTMLInputElement;
+                fileEl?.click();
+            }
         });
 
         this.button = new Button({
             value: "Сохранить",
-            handleClick: this.handleSaveClick
+            handleClick: () => { this.handleSaveClick(); }
         }, "button button-save");
 
         this.backButton = new Button({
@@ -114,7 +113,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
         if (this._element) {
             var fileEl = document.getElementById("file") as HTMLInputElement;
             if (fileEl) {
-                fileEl.addEventListener('change', this.handleFileChange, false);
+                fileEl.addEventListener('change', (ev) => this.handleFileChange(ev), false);
             }
         }
     }
@@ -169,11 +168,6 @@ export default class UserProfile extends Block<IUserProfileProps> {
         });
 
         return block;
-    }
-
-    handleAvatarClick() {
-        var fileEl = document.getElementById("file") as HTMLInputElement;
-        fileEl?.click();
     }
 
     handleFileChange(ev: Event) {

@@ -22,10 +22,6 @@ export default class ChatList extends Block<ChatListProps> {
     }
 
     init() {
-        this.handlePlusChat = this.handlePlusChat.bind(this);
-        this.handleCreateChat = this.handleCreateChat.bind(this);
-        this.handleShowChat = this.handleShowChat.bind(this);
-
         store.subscribe(Store.EVENTS.CHATS_ITEMS_CHANGED, this.onChangeStore.bind(this));
 
         this.toProfile = new Button({
@@ -37,11 +33,17 @@ export default class ChatList extends Block<ChatListProps> {
 
         this.buttonPlusChat = new Button({
             value: "Добавить",
-            handleClick: this.handlePlusChat
+            handleClick: () => {
+                this.showCreateChat(this.createChat?.visible !== true);
+            }
         }, "button full-width");
 
         this.createChat = new CreateChat({
-            onCreateChat: this.handleCreateChat
+            onCreateChat: (name: string) => {
+                chatsController.create(name);
+
+                this.showCreateChat(false);
+            }
         }, false);
 
         super.init();
@@ -73,7 +75,9 @@ export default class ChatList extends Block<ChatListProps> {
                 id: i.id,
                 title: i.title,
                 avatar: i.avatar,
-                onClick: () => { this.handleShowChat(i.id) }
+                onClick: () => {
+                    Router.go("/chats/" + i.id);
+                }
             })).map(i => i.renderToString()),
             toProfile: this.toProfile?.renderToString(),
             buttonPlusChat: this.buttonPlusChat?.renderToString(),
@@ -81,20 +85,6 @@ export default class ChatList extends Block<ChatListProps> {
         });
 
         return block;
-    }
-
-    handlePlusChat() {
-        this.showCreateChat(this.createChat?.visible !== true);
-    }
-
-    handleCreateChat(name: string) {
-        chatsController.create(name);
-
-        this.showCreateChat(false);
-    }
-
-    handleShowChat(id: number) {
-        Router.go("/chats/" + id);
     }
 
     showCreateChat(visible: boolean) {
