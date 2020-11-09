@@ -6,6 +6,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/global.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!--
+        Пока handlebars из cdn нужен. Вероятно, после темы webpack можно будет использовать импорт. 
+        А до тех пор я получаю ошибку: 
+        ``` 
+        Uncaught TypeError: Failed to resolve module specifier "handlebars". Relative references must start with either "/", "./", or "../". 
+        ```
+    -->
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 
