@@ -7,7 +7,7 @@ import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";
 import { chatsController } from "../../controllers/ChatsController.js";
 import { Store, store } from "../../store/Store.js";
-import { AppState, UserState } from "../../store/types.js";
+import { AppState, UserState } from "../../store/interfaces.js";
 import getFieldByPath from "../../utils/getFieldByPath.js";
 import SearchUser from "../../components/SearchUser/index.js";
 import ChatUsersList from "../../components/ChatUsersList/index.js";

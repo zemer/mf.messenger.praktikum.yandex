@@ -1,21 +1,14 @@
-export interface AppState {
-    profile: UserState;
-    chats: ChatListState;
-    activeChat: ChatState;
-    search: SearchState;
+type TChatItems = {
+    items: TChatItem[];
 }
 
-export interface ChatItemState {
+type TChatItem = {
     id: number;
     title: string;
-    avatar?: string;
+    avatar: string;
 }
 
-export interface ChatListState {
-    items: Array<ChatItemState>;
-}
-
-export interface UserState {
+type TProfile = {
     id: number;
     first_name: string;
     second_name: string;
@@ -26,10 +19,6 @@ export interface UserState {
     avatar: string;
 }
 
-export interface ChatState {
-    users: UserState[];
-}
-
-export interface SearchState {
-    users: UserState[];
+type TChatUsers = {
+    items: TProfile[];
 }

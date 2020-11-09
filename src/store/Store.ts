@@ -1,7 +1,7 @@
 import { cloneDeep } from "../utils/cloneDeep.js";
 import { sanitize } from "../utils/escape.js";
 import EventBus from "../utils/event-bus.js";
-import { AppState, ChatItemState, UserState } from "./types.js";
+import { AppState, ChatItemState, UserState } from "./interfaces.js";
 
 export class Store {
     static EVENTS = {
@@ -32,12 +32,12 @@ export class Store {
         return this.state;
     }
 
-    dispatch(event: string, payload: any): any {
+    dispatch(event: string, payload: unknown): any {
         const clone = cloneDeep(this.state) as AppState;
 
         switch (event) {
             case Store.EVENTS.CHATS_ITEMS_CHANGED: {
-                clone.chats.items = payload.items?.map((chat: any) => {
+                clone.chats.items = (payload as TChatItems).items?.map((chat: any) => {
                     return {
                         id: chat.id,
                         title: sanitize(chat.title),
@@ -48,17 +48,17 @@ export class Store {
             }
 
             case Store.EVENTS.PROFILE_CHANGED: {
-                clone.profile = this.createUserState(payload.profile);
+                clone.profile = this.createUserState(payload as TProfile);
                 break
             }
 
             case Store.EVENTS.CHAT_USERS_CHANGED: {
-                clone.activeChat.users = payload.items?.map((user: any) => this.createUserState(user));
+                clone.activeChat.users = (payload as TChatUsers).items?.map((user) => this.createUserState(user));
                 break;
             }
 
             case Store.EVENTS.SEARCH_USERS: {
-                clone.search.users = payload.items?.map((user: any) => this.createUserState(user));
+                clone.search.users = (payload as TChatUsers).items?.map((user) => this.createUserState(user));
                 break;
             }
         }
@@ -68,7 +68,7 @@ export class Store {
         this.eventBus().emit(event);
     }
 
-    createUserState(user: any) {
+    createUserState(user: TProfile) {
         return {
             id: user.id,
             first_name: sanitize(user.first_name),

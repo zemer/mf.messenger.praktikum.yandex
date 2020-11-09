@@ -14,7 +14,7 @@ import { authController } from "../../controllers/AuthController.js";
 import { usersController } from "../../controllers/UsersController.js";
 import UploadAvatar from "../../components/UploadAvatar/index.js";
 import { baseAPIUrl } from "../../api/api-url.js";
-import { AppState, UserState } from "../../store/types.js";
+import { AppState, UserState } from "../../store/interfaces.js";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;

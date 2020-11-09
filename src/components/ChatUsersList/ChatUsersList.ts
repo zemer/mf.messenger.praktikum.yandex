@@ -1,7 +1,7 @@
 import { template } from "./template.js";
 import Block from "../Block/index.js";
 import { ChatUsersListProps } from "./types.js";
-import { UserState } from "../../store/types.js";
+import { UserState } from "../../store/interfaces.js";
 import ChatUser from "../ChatUser/index.js";
 
 export default class ChatUsersList extends Block<ChatUsersListProps> {

@@ -32,7 +32,7 @@ export default class AuthController {
     profile() {
         this._authAPI.profile()
             .then(res => JSON.parse(res.response))
-            .then(res => store.dispatch(Store.EVENTS.PROFILE_CHANGED, { profile: res }));
+            .then(res => store.dispatch(Store.EVENTS.PROFILE_CHANGED, { res }));
     }
 }
 

@@ -4,7 +4,7 @@ import { FindUserProps } from "./types.js";
 import Button from "../Button/index.js";
 import Input from "../Input/index.js";
 import { Store, store } from "../../store/Store.js";
-import { AppState, UserState } from "../../store/types.js";
+import { AppState, UserState } from "../../store/interfaces.js";
 import getFieldByPath from "../../utils/getFieldByPath.js";
 import { usersController } from "../../controllers/UsersController.js";
 import ChatUser from "../ChatUser/index.js";

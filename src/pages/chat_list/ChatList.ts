@@ -8,7 +8,7 @@ import getFieldByPath from "../../utils/getFieldByPath.js";
 import Button from "../../components/Button/index.js";
 import Router from "../../utils/router.js";
 import CreateChat from "../../components/CreateChat/index.js";
-import { AppState, ChatItemState } from "../../store/types.js";
+import { AppState, ChatItemState } from "../../store/interfaces.js";
 
 export default class ChatList extends Block<ChatListProps> {
     private toProfile?: Button;
