@@ -19,7 +19,7 @@ import { AppState, UserState } from "../../store/types.js";
 export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;
 
-    private firtName?: NotEmptyField;
+    private firstName?: NotEmptyField;
     private secondName?: NotEmptyField;
     private login?: LoginField;
     private email?: MailField;
@@ -40,7 +40,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     init() {
         store.subscribe(Store.EVENTS.PROFILE_CHANGED, this.onChangeStore.bind(this));
 
-        this.firtName = new NotEmptyField({
+        this.firstName = new NotEmptyField({
             id: "first_name",
             label: "Имя",
         });
@@ -131,7 +131,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     onChangeStore() {
         const profile = this.chatsSelector(store.getState());
 
-        this.firtName?.setValue(profile.first_name);
+        this.firstName?.setValue(profile.first_name);
         this.secondName?.setValue(profile.second_name);
         this.login?.setValue(profile.login);
         this.email?.setValue(profile.email);
@@ -139,7 +139,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
 
         let avatarSource = "";
 
-        if (profile.avatar && profile.avatar.length > 0) {
+        if (profile.avatar?.length > 0) {
             avatarSource = baseAPIUrl + profile.avatar;
         }
 
@@ -154,7 +154,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     render() {
         const compile = Handlebars.compile(template);
         const block = compile({
-            firtName: this.firtName?.renderToString(),
+            firtName: this.firstName?.renderToString(),
             secondName: this.secondName?.renderToString(),
             login: this.login?.renderToString(),
             email: this.email?.renderToString(),
@@ -195,22 +195,26 @@ export default class UserProfile extends Block<IUserProfileProps> {
     }
 
     handleSaveClick() {
-        const validation: Boolean[] = [];
+        const fieldsToValidate = [
+            "firstName", "secondName", "login",
+            "email", "phone", "oldPassword",
+            "newPassword"
+        ];
 
-        validation.push(this.firtName?.validate() ?? false);
-        validation.push(this.secondName?.validate() ?? false);
-        validation.push(this.login?.validate() ?? false);
-        validation.push(this.email?.validate() ?? false);
-        validation.push(this.phone?.validate() ?? false);
-        validation.push(this.oldPassword?.validate() ?? false);
-        validation.push(this.newPassword?.validate() ?? false);
+        let isInvalidForm = false;
 
-        if (validation.every(v => v)) {
+        fieldsToValidate.forEach((field) => {
+            if (!isInvalidForm && !Reflect.get(this, field)?.validate()) {
+                isInvalidForm = true;
+            }
+        });
+
+        if (!isInvalidForm) {
             usersController.updateProfile({
-                first_name: this.firtName?.value ?? "",
+                first_name: this.firstName?.value ?? "",
                 second_name: this.secondName?.value ?? "",
                 login: this.login?.value ?? "",
-                display_name: this.firtName?.value ?? "",
+                display_name: this.firstName?.value ?? "",
                 email: this.email?.value ?? "",
                 phone: this.phone?.value ?? ""
             }, this.oldPassword?.value ?? "", this.newPassword?.value ?? "", this.avatarFile);

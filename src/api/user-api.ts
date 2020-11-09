@@ -27,7 +27,7 @@ export class UserAPI {
 
             return this.userAPIInstance.put("/profile/avatar", {
                 data: formdata,
-                headers: {}
+                headers: {} //Заголовок multipart/form-data
             });
         }
         else {

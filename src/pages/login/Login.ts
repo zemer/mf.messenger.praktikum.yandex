@@ -11,13 +11,13 @@ export default class Login extends Block<ILoginProps> {
     constructor() {
         const login = new LoginField({
             id: "login",
-            label: "Логин",
+            label: "Логин"
         });
 
         const password = new PasswordField({
             id: "password",
             label: "Пароль",
-            type: "password",
+            type: "password"
         })
 
         const button = new Button({
@@ -57,7 +57,7 @@ export default class Login extends Block<ILoginProps> {
             login: this.props.login.renderToString(),
             password: this.props.password.renderToString(),
             button: this.props.button.renderToString(),
-            toRegistration: this.props.toRegistration.renderToString(),
+            toRegistration: this.props.toRegistration.renderToString()
         });
 
         return block;
