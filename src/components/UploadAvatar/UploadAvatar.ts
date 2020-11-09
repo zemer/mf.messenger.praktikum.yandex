@@ -24,7 +24,7 @@ export default class UploadAvatar extends Block<IUploadAvatarProps> {
 
     setEvents() {
         if (this._element) {
-            this._element.addEventListener('click', this.handleClick, false);
+            this._element.addEventListener("click", this.handleClick, false);
         }
     }
 

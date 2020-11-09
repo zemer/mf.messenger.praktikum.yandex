@@ -127,7 +127,7 @@ describe("fetch", function () {
         it("Конвертер данных в запрос", function () {
             const result = queryStringify({
                 page: 2,
-                type: 'xxx'
+                type: "xxx"
             });
 
             expect(result).toEqual("page=2&type=xxx");

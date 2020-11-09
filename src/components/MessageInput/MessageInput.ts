@@ -51,9 +51,9 @@ export default class MessageInput extends Block<IMessageInputProps> {
 
     setEvents() {
         if (this._element) {
-            this._element.addEventListener('focus', this.handleFocus, true);
-            this._element.addEventListener('blur', this.handleBlur, true);
-            this._element.addEventListener('input', this.handleInput);
+            this._element.addEventListener("focus", this.handleFocus, true);
+            this._element.addEventListener("blur", this.handleBlur, true);
+            this._element.addEventListener("input", this.handleInput);
         }
     }
 

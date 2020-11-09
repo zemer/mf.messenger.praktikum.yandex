@@ -29,7 +29,7 @@ class Block<T extends PlainObject> {
         }
     }
 
-    _id = 'uniq' + (Math.random() * 1000000);
+    _id = "uniq" + (Math.random() * 1000000);
     props: T;
     visible: boolean | null;
     _element: HTMLElement | null = null;
@@ -72,13 +72,13 @@ class Block<T extends PlainObject> {
 
     _createResources() {
         const tagName = this._meta?.tagName;
-        this._element = this._createDocumentElement(tagName ?? 'div');
+        this._element = this._createDocumentElement(tagName ?? "div");
 
         if (this._meta?.classes) {
             this._element.className = this._meta.classes;
         }
 
-        this._element.setAttribute('_key', this.getId());
+        this._element.setAttribute("_key", this.getId());
     }
 
     init() {
@@ -149,10 +149,10 @@ class Block<T extends PlainObject> {
         }
     }
 
-    render(): string { return ''; }
+    render(): string { return ""; }
 
     renderToString() {
-        const wrapper = document.createElement('div');
+        const wrapper = document.createElement("div");
 
         if (this._element) {
             this._element.innerHTML = this.render();

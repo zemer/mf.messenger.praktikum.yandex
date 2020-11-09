@@ -1,12 +1,12 @@
 import Block from "../../Block/Block.js";
-import Button from '../index.js';
-import '@testing-library/jest-dom/extend-expect';
+import Button from "../index.js";
+import "@testing-library/jest-dom/extend-expect";
 import Handlebars from "handlebars";
 
 global.Handlebars = Handlebars;
 
 function getExampleDOM(inner: string) {
-    const div = document.createElement('div')
+    const div = document.createElement("div")
     div.innerHTML = inner
     return div
 }
@@ -22,7 +22,7 @@ describe("Button", () => {
         const dom = getExampleDOM(button.renderToString());
         Block.hydrate(dom);
 
-        const domButton = dom.querySelector('button');
+        const domButton = dom.querySelector("button");
 
         if (!domButton)
             throw "Button is null";
@@ -41,7 +41,7 @@ describe("Button", () => {
         const dom = getExampleDOM(button.renderToString());
         Block.hydrate(dom);
 
-        const domButton = dom.querySelector('button');
+        const domButton = dom.querySelector("button");
 
         if (!domButton)
             throw "Button is null";
@@ -60,7 +60,7 @@ describe("Button", () => {
         const dom = getExampleDOM(button.renderToString());
         Block.hydrate(dom);
 
-        const domButton = dom.querySelector('button');
+        const domButton = dom.querySelector("button");
 
         if (!domButton)
             throw "Button is null";

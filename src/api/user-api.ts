@@ -23,7 +23,7 @@ export class UserAPI {
     updateAvatar(avatar: File | null) {
         if (avatar) {
             const formdata = new FormData();
-            formdata.append('avatar', avatar);
+            formdata.append("avatar", avatar);
 
             return this.userAPIInstance.put("/profile/avatar", {
                 data: formdata,

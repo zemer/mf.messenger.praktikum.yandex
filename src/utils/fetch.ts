@@ -3,29 +3,29 @@ import { PlainObject } from "../commonTypes.js";
 export type StringIndexed = Record<string, unknown>;
 
 const METHODS = {
-    GET: 'GET',
-    PUT: 'PUT',
-    POST: 'POST',
-    DELETE: 'DELETE'
+    GET: "GET",
+    PUT: "PUT",
+    POST: "POST",
+    DELETE: "DELETE"
 };
 
 export function queryStringify(data: StringIndexed): string | never {
-    if (typeof data !== 'object')
+    if (typeof data !== "object")
         throw "Input must be an object";
 
     const convertKey = (key: string, value: any): string => {
         if (Array.isArray(value)) {
-            return value.map((current, index) => convertKey(`${key}[${index}]`, current)).join('&');
+            return value.map((current, index) => convertKey(`${key}[${index}]`, current)).join("&");
         }
 
-        if (typeof (value) === 'object') {
-            return Object.keys(value).map(i => convertKey(`${key}[${i}]`, value[i])).join('&');
+        if (typeof (value) === "object") {
+            return Object.keys(value).map(i => convertKey(`${key}[${i}]`, value[i])).join("&");
         }
 
         return `${key}=${value}`
     }
 
-    return Object.keys(data).map(i => convertKey(i, data[i])).join('&');
+    return Object.keys(data).map(i => convertKey(i, data[i])).join("&");
 }
 
 export interface HttpOptions {
@@ -51,7 +51,7 @@ export class HTTPTransport {
 
     get = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         if (options.data) {
-            url += '?' + queryStringify(options.data as StringIndexed);
+            url += "?" + queryStringify(options.data as StringIndexed);
         }
 
         return this.request(url, options, METHODS.GET, options.timeout);

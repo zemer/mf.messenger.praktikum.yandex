@@ -1,12 +1,12 @@
-import Block from '../components/Block/Block.js';
-import Chat from '../pages/chat/Chat.js';
-import ChatList from '../pages/chat_list/ChatList.js';
-import Error404 from '../pages/errors/404/Error404.js';
+import Block from "../components/Block/Block.js";
+import Chat from "../pages/chat/Chat.js";
+import ChatList from "../pages/chat_list/ChatList.js";
+import Error404 from "../pages/errors/404/Error404.js";
 import Error500 from "../pages/errors/500/Error500.js";
-import Login from '../pages/login/Login.js';
-import Registration from '../pages/registration/Registration.js';
-import UserProfile from '../pages/user_profile/UserProfile.js';
-import Route from './route.js';
+import Login from "../pages/login/Login.js";
+import Registration from "../pages/registration/Registration.js";
+import UserProfile from "../pages/user_profile/UserProfile.js";
+import Route from "./route.js";
 
 export default class Router {
     static __instance: Router;
@@ -14,7 +14,7 @@ export default class Router {
     private _routes: Route[] = [];
     private _history: History = {} as History;
     private _currentRoute: Route | null = null;
-    private _rootQuery: string = '';
+    private _rootQuery: string = "";
 
     constructor(rootQuery: string) {
         if (Router.__instance) {

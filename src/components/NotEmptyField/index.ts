@@ -1,3 +1,3 @@
-import NotEmptyField from './NotEmptyField.js';
+import NotEmptyField from "./NotEmptyField.js";
 
 export default NotEmptyField;

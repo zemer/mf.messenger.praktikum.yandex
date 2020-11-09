@@ -13,7 +13,7 @@ export function cloneDeep(obj: object): object {
 
         return clone;
     }
-    else if (typeof obj === 'object') {
+    else if (typeof obj === "object") {
         const clone = {} as StringIndexed;
         const keys = Object.keys(obj);
         for (let key of keys) {

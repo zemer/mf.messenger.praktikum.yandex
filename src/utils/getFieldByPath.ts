@@ -1,5 +1,5 @@
 export default function getFieldByPath(obj: any, path: string): any {
-    const keys = path.split('.');
+    const keys = path.split(".");
 
     let result = obj;
     for (let key of keys) {

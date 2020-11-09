@@ -1,4 +1,4 @@
-import * as HandlebarsModule from 'handlebars';
+import * as HandlebarsModule from "handlebars";
 
 declare global {
     interface ProxyConstructor {

@@ -48,7 +48,7 @@ export default class ChatUser extends Block<ChatUserProps> {
 
     setEvents() {
         if (this._element) {
-            this._element.addEventListener('click', this.handleClick, true);
+            this._element.addEventListener("click", this.handleClick, true);
         }
     }
 

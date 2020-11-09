@@ -10,12 +10,12 @@ import Router from "./utils/router.js";
 const router = new Router(".app");
 
 router
-    .use('/', Login)
-    .use('/login', Login)
-    .use('/registration', Registration)
-    .use('/chats', ChatList)
-    .use('/chats/:chatId', Chat)
-    .use('/profile', UserProfile)
-    .use('/404', Error404)
-    .use('/500', Error500)
+    .use("/", Login)
+    .use("/login", Login)
+    .use("/registration", Registration)
+    .use("/chats", ChatList)
+    .use("/chats/:chatId", Chat)
+    .use("/profile", UserProfile)
+    .use("/404", Error404)
+    .use("/500", Error500)
     .start();

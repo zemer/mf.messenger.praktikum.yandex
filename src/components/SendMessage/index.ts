@@ -1,3 +1,3 @@
-import SendMessage from './SendMessage.js';
+import SendMessage from "./SendMessage.js";
 
 export default SendMessage;

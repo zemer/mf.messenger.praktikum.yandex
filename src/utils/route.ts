@@ -1,5 +1,5 @@
 import Block from "../components/Block/Block.js";
-import { clear, render } from './renderDOM.js';
+import { clear, render } from "./renderDOM.js";
 
 export default class Route {
     private _pathname: string;
@@ -16,7 +16,7 @@ export default class Route {
 
         pathname.match
 
-        this._pattern = new RegExp('^' + pathname.replace(/:(\w+)/g, '(?<$1>\\w+)') + '$');
+        this._pattern = new RegExp("^" + pathname.replace(/:(\w+)/g, "(?<$1>\\w+)") + "$");
     }
 
     // navigate(pathname: string) {

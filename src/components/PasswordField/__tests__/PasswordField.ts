@@ -5,7 +5,7 @@ import Handlebars from "handlebars";
 global.Handlebars = Handlebars;
 
 function getExampleDOM(inner: string) {
-    const div = document.createElement('div')
+    const div = document.createElement("div")
     div.innerHTML = inner
     return div
 }
@@ -22,8 +22,8 @@ describe("PasswordField", () => {
         const dom = getExampleDOM(login.renderToString());
         Block.hydrate(dom);
 
-        const domInput = dom.querySelector('input');
-        const domLabel = dom.querySelector('label');
+        const domInput = dom.querySelector("input");
+        const domLabel = dom.querySelector("label");
 
         if (!domInput)
             throw "input is null";

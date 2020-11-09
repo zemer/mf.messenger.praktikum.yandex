@@ -113,7 +113,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
         if (this._element) {
             var fileEl = document.getElementById("file") as HTMLInputElement;
             if (fileEl) {
-                fileEl.addEventListener('change', (ev) => this.handleFileChange(ev), false);
+                fileEl.addEventListener("change", (ev) => this.handleFileChange(ev), false);
             }
         }
     }
