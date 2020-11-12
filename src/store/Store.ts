@@ -1,7 +1,7 @@
 import { cloneDeep } from "../utils/cloneDeep.js";
 import { sanitize } from "../utils/escape.js";
 import EventBus from "../utils/event-bus.js";
-import { AppState, ChatItemState, UserState } from "./interfaces.js";
+import { AppState, ChatItemState, LoginState, UserState } from "./interfaces.js";
 
 export class Store {
     static EVENTS = {
@@ -9,6 +9,7 @@ export class Store {
         CHAT_USERS_CHANGED: "CHAT_USERS_CHANGED",
         PROFILE_CHANGED: "PROFILE_CHANGED",
         SEARCH_USERS: "SEARCH_USERS",
+        SIGN_IN_FAILED: "SIGN_IN_FAILED"
     };
 
     private state: AppState;
@@ -61,6 +62,11 @@ export class Store {
                 clone.search.users = (payload as TChatUsers).items?.map((user) => this.createUserState(user));
                 break;
             }
+
+            case Store.EVENTS.SIGN_IN_FAILED: {
+                clone.login.error = (payload as string);
+                break;
+            }
         }
 
         this.state = clone;
@@ -83,6 +89,7 @@ export class Store {
 }
 
 export const initialState: AppState = {
+    login: {} as LoginState,
     profile: {} as UserState,
     chats: {
         items: []

@@ -100,11 +100,8 @@ export default class UserProfile extends Block<IUserProfileProps> {
 
         this.logoutButton = new Button({
             value: "Выход",
-            handleClick: () => {
-                authController.logout();
-            }
+            handleClick: () => { authController.logout(); }
         }, "button");
-
 
         super.init();
     }

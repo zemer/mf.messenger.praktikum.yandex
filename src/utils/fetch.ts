@@ -72,13 +72,6 @@ export class HTTPTransport {
     request = (url: string, options: HttpOptions, method: string, timeout = 5000): Promise<XMLHttpRequest> => {
         const { headers, data, withCredentials } = options;
 
-        const checkStatus = (res: XMLHttpRequest) => {
-            if (res.status >= 400)
-                throw res.status + " " + res.statusText;
-
-            return res;
-        }
-
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
@@ -98,7 +91,10 @@ export class HTTPTransport {
             }
 
             xhr.onload = function () {
-                return resolve(checkStatus(xhr))
+                if (xhr.status >= 400)
+                    return reject(xhr);
+
+                return resolve(xhr);
             };
 
             xhr.onabort = reject;

@@ -22,3 +22,7 @@ type TProfile = {
 type TChatUsers = {
     items: TProfile[];
 }
+
+type TError = {
+    reason: string;
+}

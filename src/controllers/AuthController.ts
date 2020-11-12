@@ -11,7 +11,11 @@ export default class AuthController {
 
     signIn(login: string, password: string) {
         this._authAPI.signIn(login, password)
-            .then(() => Router.go("/chats"));
+            .then(() => Router.go("/chats"))
+            .catch((e: XMLHttpRequest) => {
+                const error = (JSON.parse(e.response) as TError);
+                store.dispatch(Store.EVENTS.SIGN_IN_FAILED, error.reason);
+            });
     }
 
     signUp(data: SingUpData) {

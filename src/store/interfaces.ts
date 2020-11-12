@@ -1,8 +1,13 @@
 export interface AppState {
+    login: LoginState;
     profile: UserState;
     chats: ChatListState;
     activeChat: ChatState;
     search: SearchState;
+}
+
+export interface LoginState {
+    error?: string;
 }
 
 export interface ChatItemState {
