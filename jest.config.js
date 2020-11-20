@@ -1,7 +1,4 @@
 module.exports = {
-  coverageProvider: "v8",
-  moduleFileExtensions: [
-    "js"
-  ],
-  testEnvironment: "jsdom",
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
 };
