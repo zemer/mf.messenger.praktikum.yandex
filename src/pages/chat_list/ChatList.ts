@@ -1,14 +1,14 @@
-import Block from "../../components/Block/index.js";
-import { template } from "./template.js";
-import { ChatListProps } from "./interfaces.js";
-import { chatsController } from "../../controllers/ChatsController.js";
-import { Store, store } from "../../store/Store.js";
-import ChatItem from "../../components/ChatItem/index.js";
-import getFieldByPath from "../../utils/getFieldByPath.js";
-import Button from "../../components/Button/index.js";
-import Router from "../../utils/router.js";
-import CreateChat from "../../components/CreateChat/index.js";
-import { AppState, ChatItemState } from "../../store/interfaces.js";
+import Block from "../../components/Block/index";
+import { template } from "./template";
+import { ChatListProps } from "./interfaces";
+import { chatsController } from "../../controllers/ChatsController";
+import { Store, store } from "../../store/Store";
+import ChatItem from "../../components/ChatItem/index";
+import getFieldByPath from "../../utils/getFieldByPath";
+import Button from "../../components/Button/index";
+import Router from "../../utils/router";
+import CreateChat from "../../components/CreateChat/index";
+import { AppState, ChatItemState } from "../../store/interfaces";
 
 export default class ChatList extends Block<ChatListProps> {
     private toProfile?: Button;

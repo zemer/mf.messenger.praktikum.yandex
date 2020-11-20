@@ -1,6 +1,6 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { IOwnMessageProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { IOwnMessageProps } from "./types";
 
 export default class OwnMessage extends Block<IOwnMessageProps> {
     constructor(props: IOwnMessageProps) {

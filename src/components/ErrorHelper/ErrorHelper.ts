@@ -1,6 +1,6 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { IErrorHelperProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { IErrorHelperProps } from "./types";
 
 export default class ErrorHelper extends Block<IErrorHelperProps> {
     constructor(props: IErrorHelperProps) {

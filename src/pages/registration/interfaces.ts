@@ -1,11 +1,11 @@
-import Button from "../../components/Button/index.js";
-import Link from "../../components/Link/index.js";
-import LoginField from "../../components/LoginField/index.js";
-import MailField from "../../components/MailField/index.js";
-import NotEmptyField from "../../components/NotEmptyField/index.js";
-import PasswordField from "../../components/PasswordField/index.js";
-import PhoneField from "../../components/PhoneField/index.js";
-import { PlainObject } from "../../commonTypes.js";
+import Button from "../../components/Button/index";
+import Link from "../../components/Link/index";
+import LoginField from "../../components/LoginField/index";
+import MailField from "../../components/MailField/index";
+import NotEmptyField from "../../components/NotEmptyField/index";
+import PasswordField from "../../components/PasswordField/index";
+import PhoneField from "../../components/PhoneField/index";
+import { PlainObject } from "../../commonTypes";
 
 export interface RegistrationProps extends PlainObject {
     firtName: NotEmptyField;

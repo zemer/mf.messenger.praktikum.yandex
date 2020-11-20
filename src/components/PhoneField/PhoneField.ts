@@ -1,5 +1,5 @@
-import InputWithLabel from "../InputWithLabel/index.js";
-import { IPhoneFieldProps } from "./types.js";
+import InputWithLabel from "../InputWithLabel/index";
+import { IPhoneFieldProps } from "./types";
 
 export default class PhoneField extends InputWithLabel<IPhoneFieldProps> {
     constructor(props: IPhoneFieldProps) {

@@ -1,5 +1,5 @@
-import Block from "../../components/Block/index.js";
-import ChatList from "./ChatList.js";
+import Block from "../../components/Block/index";
+import ChatList from "./ChatList";
 
 const page = new ChatList();
 const content = page.getContent();

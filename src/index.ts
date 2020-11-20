@@ -1,11 +1,12 @@
-import Chat from "./pages/chat/Chat.js";
-import ChatList from "./pages/chat_list/ChatList.js";
-import Error404 from "./pages/errors/404/Error404.js";
-import Error500 from "./pages/errors/500/Error500.js";
-import Login from "./pages/login/Login.js";
-import Registration from "./pages/registration/Registration.js";
-import UserProfile from "./pages/user_profile/UserProfile.js";
-import Router from "./utils/router.js";
+import Chat from "./pages/chat/Chat";
+import ChatList from "./pages/chat_list/ChatList";
+import Error404 from "./pages/errors/404/Error404";
+import Error500 from "./pages/errors/500/Error500";
+import Login from "./pages/login/Login";
+import Registration from "./pages/registration/Registration";
+import UserProfile from "./pages/user_profile/UserProfile";
+import Router from "./utils/router";
+import "./stylesheets/global.scss";
 
 const router = new Router(".app");
 

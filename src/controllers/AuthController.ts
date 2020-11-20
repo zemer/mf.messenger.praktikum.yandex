@@ -1,6 +1,6 @@
-import AuthAPI, { SingUpData } from "../api/auth-api.js";
-import { Store, store } from "../store/Store.js";
-import Router from "../utils/router.js";
+import AuthAPI, { SingUpData } from "../api/auth-api";
+import { Store, store } from "../store/Store";
+import Router from "../utils/router";
 
 export default class AuthController {
     private _authAPI: AuthAPI;

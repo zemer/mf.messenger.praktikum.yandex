@@ -1,7 +1,7 @@
-import { ChnageUserProfileRequest } from "../api/interfaces.js";
-import { UserAPI } from "../api/user-api.js";
-import { Store, store } from "../store/Store.js";
-import Router from "../utils/router.js";
+import { ChnageUserProfileRequest } from "../api/interfaces";
+import { UserAPI } from "../api/user-api";
+import { Store, store } from "../store/Store";
+import Router from "../utils/router";
 
 export default class UsersController {
     private _userAPI: UserAPI;

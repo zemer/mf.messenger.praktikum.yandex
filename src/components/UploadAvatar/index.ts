@@ -1,1 +1,1 @@
-export { default } from "./UploadAvatar.js";
+export { default } from "./UploadAvatar";

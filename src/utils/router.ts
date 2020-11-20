@@ -1,12 +1,12 @@
-import Block from "../components/Block/Block.js";
-import Chat from "../pages/chat/Chat.js";
-import ChatList from "../pages/chat_list/ChatList.js";
-import Error404 from "../pages/errors/404/Error404.js";
-import Error500 from "../pages/errors/500/Error500.js";
-import Login from "../pages/login/Login.js";
-import Registration from "../pages/registration/Registration.js";
-import UserProfile from "../pages/user_profile/UserProfile.js";
-import Route from "./route.js";
+import Block from "../components/Block/Block";
+import Chat from "../pages/chat/Chat";
+import ChatList from "../pages/chat_list/ChatList";
+import Error404 from "../pages/errors/404/Error404";
+import Error500 from "../pages/errors/500/Error500";
+import Login from "../pages/login/Login";
+import Registration from "../pages/registration/Registration";
+import UserProfile from "../pages/user_profile/UserProfile";
+import Route from "./route";
 
 export default class Router {
     static __instance: Router;

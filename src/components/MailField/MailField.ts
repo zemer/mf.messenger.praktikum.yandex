@@ -1,5 +1,5 @@
-import InputWithLabel from "../InputWithLabel/index.js";
-import { IMailFieldProps } from "./types.js";
+import InputWithLabel from "../InputWithLabel/index";
+import { IMailFieldProps } from "./types";
 
 export default class MailField extends InputWithLabel<IMailFieldProps> {
     constructor(props: IMailFieldProps) {

@@ -1,3 +1,3 @@
-import Button from "./Block.js";
+import Button from "./Block";
 
 export default Button;

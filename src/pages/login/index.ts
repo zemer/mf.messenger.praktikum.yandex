@@ -1,5 +1,5 @@
-import Block from "../../components/Block/index.js";
-import Login from "./Login.js";
+import Block from "../../components/Block/index";
+import Login from "./Login";
 
 const temp = new Login();
 const content = temp.getContent();

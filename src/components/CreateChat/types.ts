@@ -1,4 +1,4 @@
-import { PlainObject } from "../../commonTypes.js";
+import { PlainObject } from "../../commonTypes";
 
 export interface CreateChatProps extends PlainObject {
     onCreateChat: (title: string) => void;

@@ -1,5 +1,5 @@
-import ChatAPI from "../api/chat-api.js";
-import { Store, store } from "../store/Store.js";
+import ChatAPI from "../api/chat-api";
+import { Store, store } from "../store/Store";
 
 export default class ChatsController {
     private _chatAPI: ChatAPI;

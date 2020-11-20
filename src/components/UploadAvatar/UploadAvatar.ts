@@ -1,6 +1,6 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { IUploadAvatarProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { IUploadAvatarProps } from "./types";
 
 export default class UploadAvatar extends Block<IUploadAvatarProps> {
     constructor(props: IUploadAvatarProps, classes: string | null = null) {

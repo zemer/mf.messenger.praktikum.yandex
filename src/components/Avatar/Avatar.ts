@@ -1,5 +1,5 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
+import { template } from "./template";
+import Block from "../Block/index";
 import { AvatarProps } from "./types";
 
 export default class Avatar extends Block<AvatarProps> {

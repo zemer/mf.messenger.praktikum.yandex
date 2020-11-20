@@ -1,5 +1,5 @@
-import Block from "../../Block/index.js";
-import PhoneField from "../index.js";
+import Block from "../../Block/index";
+import PhoneField from "../index";
 import "@testing-library/jest-dom/extend-expect";
 import Handlebars from "handlebars";
 

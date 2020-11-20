@@ -1,5 +1,5 @@
-import ChatList from "../../pages/chat_list/ChatList.js";
-import Router from "../router.js";
+import ChatList from "../../pages/chat_list/ChatList";
+import Router from "../router";
 
 describe("Router", function () {
     describe("getRoute", function () {

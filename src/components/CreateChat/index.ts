@@ -1,1 +1,1 @@
-export { default } from "./CreateChat.js";
+export { default } from "./CreateChat";

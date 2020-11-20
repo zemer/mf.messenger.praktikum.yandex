@@ -1,20 +1,20 @@
-import Block from "../../components/Block/index.js";
-import Button from "../../components/Button/index.js";
-import { template } from "./template.js";
-import LoginField from "../../components/LoginField/index.js";
-import PasswordField from "../../components/PasswordField/index.js";
-import NotEmptyField from "../../components/NotEmptyField/index.js";
-import MailField from "../../components/MailField/index.js";
-import PhoneField from "../../components/PhoneField/index.js";
-import { IUserProfileProps } from "./interfaces.js";
-import Router from "../../utils/router.js";
-import { Store, store } from "../../store/Store.js";
-import getFieldByPath from "../../utils/getFieldByPath.js";
-import { authController } from "../../controllers/AuthController.js";
-import { usersController } from "../../controllers/UsersController.js";
-import UploadAvatar from "../../components/UploadAvatar/index.js";
-import { baseAPIUrl } from "../../api/api-url.js";
-import { AppState, UserState } from "../../store/interfaces.js";
+import Block from "../../components/Block/index";
+import Button from "../../components/Button/index";
+import { template } from "./template";
+import LoginField from "../../components/LoginField/index";
+import PasswordField from "../../components/PasswordField/index";
+import NotEmptyField from "../../components/NotEmptyField/index";
+import MailField from "../../components/MailField/index";
+import PhoneField from "../../components/PhoneField/index";
+import { IUserProfileProps } from "./interfaces";
+import Router from "../../utils/router";
+import { Store, store } from "../../store/Store";
+import getFieldByPath from "../../utils/getFieldByPath";
+import { authController } from "../../controllers/AuthController";
+import { usersController } from "../../controllers/UsersController";
+import UploadAvatar from "../../components/UploadAvatar/index";
+import { baseAPIUrl } from "../../api/api-url";
+import { AppState, UserState } from "../../store/interfaces";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;

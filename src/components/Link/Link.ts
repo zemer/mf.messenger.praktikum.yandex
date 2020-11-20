@@ -1,6 +1,6 @@
-import Router from "../../utils/router.js";
-import Block from "../Block/index.js";
-import { LinkProps } from "./types.js";
+import Router from "../../utils/router";
+import Block from "../Block/index";
+import { LinkProps } from "./types";
 
 export default class Link extends Block<LinkProps> {
     constructor(props: LinkProps, classes: string | null = null) {

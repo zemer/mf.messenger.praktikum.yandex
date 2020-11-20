@@ -1,3 +1,3 @@
-import MailField from "./MailField.js";
+import MailField from "./MailField";
 
 export default MailField;

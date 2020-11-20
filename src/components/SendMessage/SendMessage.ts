@@ -1,8 +1,8 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import Button from "../Button/index.js";
-import MessageInput from "../MessageInput/index.js";
-import { ISendMessagProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import Button from "../Button/index";
+import MessageInput from "../MessageInput/index";
+import { ISendMessagProps } from "./types";
 
 export default class SendMessage extends Block<ISendMessagProps> {
     constructor(props: ISendMessagProps) {

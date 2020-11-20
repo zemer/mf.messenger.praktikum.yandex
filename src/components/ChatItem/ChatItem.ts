@@ -1,7 +1,7 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { IChatItemProps } from "./types.js";
-import Avatar from "../Avatar/index.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { IChatItemProps } from "./types";
+import Avatar from "../Avatar/index";
 
 export default class ChatItem extends Block<IChatItemProps> {
     private avatar?: Avatar;

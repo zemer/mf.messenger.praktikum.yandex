@@ -1,3 +1,3 @@
-import LoginField from "./LoginField.js";
+import LoginField from "./LoginField";
 
 export default LoginField;

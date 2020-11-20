@@ -1,3 +1,3 @@
-import InputWithLabel from "./InputWithLabel.js";
+import InputWithLabel from "./InputWithLabel";
 
 export default InputWithLabel;

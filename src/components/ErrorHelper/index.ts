@@ -1,3 +1,3 @@
-import ErrorHelper from "./ErrorHelper.js";
+import ErrorHelper from "./ErrorHelper";
 
 export default ErrorHelper;

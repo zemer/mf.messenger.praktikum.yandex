@@ -1,5 +1,5 @@
-import Block from "../../components/Block/index.js";
-import UserProfile from "./UserProfile.js";
+import Block from "../../components/Block/index";
+import UserProfile from "./UserProfile";
 
 const page = new UserProfile();
 const content = page.getContent();

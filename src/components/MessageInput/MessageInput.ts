@@ -1,7 +1,7 @@
-import Block from "../Block/index.js";
-import ErrorHelper from "../ErrorHelper/index.js";
-import { template } from "./template.js";
-import { IMessageInputProps } from "./types.js";
+import Block from "../Block/index";
+import ErrorHelper from "../ErrorHelper/index";
+import { template } from "./template";
+import { IMessageInputProps } from "./types";
 
 export default class MessageInput extends Block<IMessageInputProps> {
     errorHelper: ErrorHelper;

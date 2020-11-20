@@ -1,7 +1,7 @@
-import { cloneDeep } from "../utils/cloneDeep.js";
-import { sanitize } from "../utils/escape.js";
-import EventBus from "../utils/event-bus.js";
-import { AppState, ChatItemState, LoginState, UserState } from "./interfaces.js";
+import { cloneDeep } from "../utils/cloneDeep";
+import { sanitize } from "../utils/escape";
+import EventBus from "../utils/event-bus";
+import { AppState, ChatItemState, LoginState, UserState } from "./interfaces";
 
 export class Store {
     static EVENTS = {

@@ -1,6 +1,6 @@
-import { HTTPTransport } from "../utils/fetch.js";
-import { baseAPIUrl } from "./api-url.js";
-import { ChnageUserProfileRequest } from "./interfaces.js";
+import { HTTPTransport } from "../utils/fetch";
+import { baseAPIUrl } from "./api-url";
+import { ChnageUserProfileRequest } from "./interfaces";
 
 export class UserAPI {
     private userAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/user");

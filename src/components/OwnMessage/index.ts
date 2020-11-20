@@ -1,3 +1,3 @@
-import OwnMessage from "./OwnMessage.js";
+import OwnMessage from "./OwnMessage";
 
 export default OwnMessage;

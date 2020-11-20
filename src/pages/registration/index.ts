@@ -1,5 +1,5 @@
-import Block from "../../components/Block/index.js";
-import Registration from "./Registration.js";
+import Block from "../../components/Block/index";
+import Registration from "./Registration";
 
 const page = new Registration();
 const content = page.getContent();

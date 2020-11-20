@@ -1,3 +1,3 @@
-import ChatItem from "./ChatItem.js";
+import ChatItem from "./ChatItem";
 
 export default ChatItem;

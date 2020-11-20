@@ -1,5 +1,5 @@
-import CompanionMessage from "../../components/CompanionMessage/index.js";
-import OwnMessage from "../../components/OwnMessage/index.js";
+import CompanionMessage from "../../components/CompanionMessage/index";
+import OwnMessage from "../../components/OwnMessage/index";
 
 export const messages = [
     new CompanionMessage({

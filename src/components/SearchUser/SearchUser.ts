@@ -1,14 +1,14 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { FindUserProps } from "./types.js";
-import Button from "../Button/index.js";
-import Input from "../Input/index.js";
-import { Store, store } from "../../store/Store.js";
-import { AppState, UserState } from "../../store/interfaces.js";
-import getFieldByPath from "../../utils/getFieldByPath.js";
-import { usersController } from "../../controllers/UsersController.js";
-import ChatUser from "../ChatUser/index.js";
-import { sanitize } from "../../utils/escape.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { FindUserProps } from "./types";
+import Button from "../Button/index";
+import Input from "../Input/index";
+import { Store, store } from "../../store/Store";
+import { AppState, UserState } from "../../store/interfaces";
+import getFieldByPath from "../../utils/getFieldByPath";
+import { usersController } from "../../controllers/UsersController";
+import ChatUser from "../ChatUser/index";
+import { sanitize } from "../../utils/escape";
 
 export default class SearchUser extends Block<FindUserProps> {
     private searchField?: Input;

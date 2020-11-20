@@ -1,5 +1,5 @@
-import { HTTPTransport } from "../utils/fetch.js";
-import { baseAPIUrl } from "./api-url.js";
+import { HTTPTransport } from "../utils/fetch";
+import { baseAPIUrl } from "./api-url";
 
 export default class ChatAPI {
     private chatAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/chats");

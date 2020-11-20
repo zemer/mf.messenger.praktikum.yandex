@@ -1,3 +1,3 @@
-import MessageInput from "./MessageInput.js";
+import MessageInput from "./MessageInput";
 
 export default MessageInput;

@@ -1,6 +1,6 @@
-import { sanitize } from "../../utils/escape.js";
-import InputWithLabel from "../InputWithLabel/index.js";
-import { INotEmptyFieldProps } from "./types.js";
+import { sanitize } from "../../utils/escape";
+import InputWithLabel from "../InputWithLabel/index";
+import { INotEmptyFieldProps } from "./types";
 
 export default class NotEmptyField extends InputWithLabel<INotEmptyFieldProps> {
     constructor(props: INotEmptyFieldProps) {

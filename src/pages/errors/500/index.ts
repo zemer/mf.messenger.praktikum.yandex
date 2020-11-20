@@ -1,5 +1,5 @@
-import Block from "../../../components/Block/Block.js";
-import Error500 from "./Error500.js";
+import Block from "../../../components/Block/Block";
+import Error500 from "./Error500";
 
 const temp = new Error500();
 const content = temp.getContent();

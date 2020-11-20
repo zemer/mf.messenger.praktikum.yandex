@@ -1,3 +1,3 @@
-import PhoneField from "./PhoneField.js";
+import PhoneField from "./PhoneField";
 
 export default PhoneField;

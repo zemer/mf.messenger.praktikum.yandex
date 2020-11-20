@@ -1,5 +1,5 @@
-import { UserState } from "../../store/interfaces.js";
-import { PlainObject } from "../../commonTypes.js";
+import { UserState } from "../../store/interfaces";
+import { PlainObject } from "../../commonTypes";
 
 export interface ChatProps extends PlainObject {
     chatId: number;

@@ -1,9 +1,9 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { CreateChatProps } from "./types.js";
-import Button from "../Button/index.js";
-import Input from "../Input/index.js";
-import { sanitize } from "../../utils/escape.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { CreateChatProps } from "./types";
+import Button from "../Button/index";
+import Input from "../Input/index";
+import { sanitize } from "../../utils/escape";
 
 export default class CreateChat extends Block<CreateChatProps> {
     private newChatName?: Input;

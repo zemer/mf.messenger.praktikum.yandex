@@ -1,6 +1,6 @@
-import Block from "../Block/index.js";
-import ErrorHelper from "../ErrorHelper/index.js";
-import { InputProps } from "./types.js";
+import Block from "../Block/index";
+import ErrorHelper from "../ErrorHelper/index";
+import { InputProps } from "./types";
 
 export default class Input extends Block<InputProps> {
     errorHelper: ErrorHelper;

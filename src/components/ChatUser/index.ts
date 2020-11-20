@@ -1,1 +1,1 @@
-export { default } from "./ChatUser.js";
+export { default } from "./ChatUser";

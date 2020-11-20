@@ -1,14 +1,14 @@
-import Block from "../../components/Block/index.js";
-import Button from "../../components/Button/index.js";
-import { template } from "./template.js";
-import LoginField from "../../components/LoginField/index.js";
-import PasswordField from "../../components/PasswordField/index.js";
-import NotEmptyField from "../../components/NotEmptyField/index.js";
-import MailField from "../../components/MailField/index.js";
-import PhoneField from "../../components/PhoneField/index.js";
-import { RegistrationProps as RegistrationProps } from "./interfaces.js";
-import Link from "../../components/Link/index.js";
-import { authController } from "../../controllers/AuthController.js";
+import Block from "../../components/Block/index";
+import Button from "../../components/Button/index";
+import { template } from "./template";
+import LoginField from "../../components/LoginField/index";
+import PasswordField from "../../components/PasswordField/index";
+import NotEmptyField from "../../components/NotEmptyField/index";
+import MailField from "../../components/MailField/index";
+import PhoneField from "../../components/PhoneField/index";
+import { RegistrationProps as RegistrationProps } from "./interfaces";
+import Link from "../../components/Link/index";
+import { authController } from "../../controllers/AuthController";
 
 export default class Registration extends Block<RegistrationProps> {
     constructor() {

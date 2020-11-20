@@ -1,16 +1,16 @@
-import Block from "../../components/Block/index.js";
-import { template } from "./template.js";
-import SendMessage from "../../components/SendMessage/index.js";
-import { ChatProps } from "./interfaces.js";
-import { ISendMessagProps } from "../../components/SendMessage/types.js";
-import Button from "../../components/Button/index.js";
-import Router from "../../utils/router.js";
-import { chatsController } from "../../controllers/ChatsController.js";
-import { Store, store } from "../../store/Store.js";
-import { AppState, UserState } from "../../store/interfaces.js";
-import getFieldByPath from "../../utils/getFieldByPath.js";
-import SearchUser from "../../components/SearchUser/index.js";
-import ChatUsersList from "../../components/ChatUsersList/index.js";
+import Block from "../../components/Block/index";
+import { template } from "./template";
+import SendMessage from "../../components/SendMessage/index";
+import { ChatProps } from "./interfaces";
+import { ISendMessagProps } from "../../components/SendMessage/types";
+import Button from "../../components/Button/index";
+import Router from "../../utils/router";
+import { chatsController } from "../../controllers/ChatsController";
+import { Store, store } from "../../store/Store";
+import { AppState, UserState } from "../../store/interfaces";
+import getFieldByPath from "../../utils/getFieldByPath";
+import SearchUser from "../../components/SearchUser/index";
+import ChatUsersList from "../../components/ChatUsersList/index";
 
 export default class Chat extends Block<ChatProps> {
     private toList?: Button;

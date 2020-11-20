@@ -1,5 +1,5 @@
-import InputWithLabel from "../InputWithLabel/index.js";
-import { ILoginFieldProps } from "./types.js";
+import InputWithLabel from "../InputWithLabel/index";
+import { ILoginFieldProps } from "./types";
 
 export default class LoginField extends InputWithLabel<ILoginFieldProps> {
     constructor(props: ILoginFieldProps) {

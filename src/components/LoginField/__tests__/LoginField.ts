@@ -1,5 +1,5 @@
-import Block from "../../Block/Block.js";
-import LoginField from "../index.js";
+import Block from "../../Block/Block";
+import LoginField from "../index";
 import Handlebars from "handlebars";
 
 global.Handlebars = Handlebars;

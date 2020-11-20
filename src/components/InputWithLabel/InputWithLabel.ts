@@ -1,7 +1,7 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import ErrorHelper from "../ErrorHelper/index.js";
-import { InputWithLabelProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import ErrorHelper from "../ErrorHelper/index";
+import { InputWithLabelProps } from "./types";
 
 export default class InputWithLabel<T extends InputWithLabelProps> extends Block<T> {
     errorHelper: ErrorHelper;

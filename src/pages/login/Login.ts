@@ -1,15 +1,15 @@
-import Block from "../../components/Block/index.js";
-import Button from "../../components/Button/index.js";
-import { template } from "./template.js";
-import LoginField from "../../components/LoginField/index.js";
-import PasswordField from "../../components/PasswordField/index.js";
-import { ILoginProps as ILoginProps } from "./interfaces.js";
-import Link from "../../components/Link/index.js";
-import { authController } from "../../controllers/AuthController.js";
-import ErrorHelper from "../../components/ErrorHelper/index.js";
-import { Store, store } from "../../store/Store.js";
-import { AppState, LoginState } from "../../store/interfaces.js";
-import getFieldByPath from "../../utils/getFieldByPath.js";
+import Block from "../../components/Block/index";
+import Button from "../../components/Button/index";
+import { template } from "./template";
+import LoginField from "../../components/LoginField/index";
+import PasswordField from "../../components/PasswordField/index";
+import { ILoginProps as ILoginProps } from "./interfaces";
+import Link from "../../components/Link/index";
+import { authController } from "../../controllers/AuthController";
+import ErrorHelper from "../../components/ErrorHelper/index";
+import { Store, store } from "../../store/Store";
+import { AppState, LoginState } from "../../store/interfaces";
+import getFieldByPath from "../../utils/getFieldByPath";
 
 export default class Login extends Block<ILoginProps> {
     private login?: LoginField;

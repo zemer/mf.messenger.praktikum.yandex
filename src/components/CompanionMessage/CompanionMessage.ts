@@ -1,6 +1,6 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { ICompanionMessageProps } from "./types.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { ICompanionMessageProps } from "./types";
 
 export default class CompanionMessage extends Block<ICompanionMessageProps> {
     constructor(props: ICompanionMessageProps) {

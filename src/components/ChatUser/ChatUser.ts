@@ -1,9 +1,9 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-import { ChatUserProps } from "./types.js";
-import Avatar from "../Avatar/index.js";
-import { baseAPIUrl } from "../../api/api-url.js";
-import Button from "../Button/index.js";
+import { template } from "./template";
+import Block from "../Block/index";
+import { ChatUserProps } from "./types";
+import Avatar from "../Avatar/index";
+import { baseAPIUrl } from "../../api/api-url";
+import Button from "../Button/index";
 
 export default class ChatUser extends Block<ChatUserProps> {
     private avatar?: Avatar;

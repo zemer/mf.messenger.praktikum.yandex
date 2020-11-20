@@ -1,5 +1,5 @@
-import Block from "../../../components/Block/Block.js";
-import Error404 from "./Error404.js";
+import Block from "../../../components/Block/Block";
+import Error404 from "./Error404";
 
 const temp = new Error404();
 const content = temp.getContent();

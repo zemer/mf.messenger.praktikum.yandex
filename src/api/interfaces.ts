@@ -1,4 +1,4 @@
-import { StringIndexed } from "../utils/fetch.js";
+import { StringIndexed } from "../utils/fetch";
 
 export interface ChnageUserProfileRequest extends StringIndexed {
     first_name: string;

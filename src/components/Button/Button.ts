@@ -1,6 +1,5 @@
-import { template } from "./template.js";
-import Block from "../Block/index.js";
-//import { logForm } from "../../utils/logForm.js";
+import { template } from "./template";
+import Block from "../Block/index";
 import { IButtonProps } from "./types";
 
 export default class Button extends Block<IButtonProps> {
