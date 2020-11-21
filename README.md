@@ -4,14 +4,15 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9930d43a-52de-4076-a5db-328eb15c058b/deploy-status)](https://app.netlify.com/sites/naughty-wescoff-127c17/deploys)
 
-[Проектная работа. 3-й спринт](https://naughty-wescoff-127c17.netlify.app)
+[Проектная работа. 4-й спринт](https://naughty-wescoff-127c17.netlify.app)
 
 ## Запуск
 
-1. Установка модулей: `npm install`
-2. Тесты: `npm test`
-3. Сборка приложения: `npm run build`
-4. Запуск приложения: `npm start`
+* Установка модулей: `npm install`
+* Тесты: `npm test`
+* Сборка приложения: `npm run build`
+* Запуск приложения: `npm start`
 
+## Выполнено в 4 спринте
 - [x] Настроен docker
 - [x] Настроен webpack
