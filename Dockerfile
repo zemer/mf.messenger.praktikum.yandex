@@ -6,6 +6,6 @@ COPY server.js ./
 
 RUN npm ci
 
-EXPOSE 4000
+EXPOSE 80
 
 CMD node server.js
