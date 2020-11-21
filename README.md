@@ -4,7 +4,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9930d43a-52de-4076-a5db-328eb15c058b/deploy-status)](https://app.netlify.com/sites/naughty-wescoff-127c17/deploys)
 
-[Проектная работа. 4-й спринт](https://naughty-wescoff-127c17.netlify.app)
+[Проектная работа (Heroku)](https://dmitry-sokun-messenger.herokuapp.com/)
 
 ## Запуск
 
@@ -16,3 +16,4 @@
 ## Выполнено в 4 спринте
 - [x] Настроен docker
 - [x] Настроен webpack
+- [x] Деплой проекта на Heroku
