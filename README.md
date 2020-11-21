@@ -10,4 +10,8 @@
 
 1. Установка модулей: `npm install`
 2. Тесты: `npm test`
-3. Запуск приложения: `npm start`
+3. Сборка приложения: `npm run build`
+4. Запуск приложения: `npm start`
+
+- [x] Настроен docker
+- [x] Настроен webpack
