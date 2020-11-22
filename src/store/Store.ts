@@ -1,7 +1,9 @@
 import { cloneDeep } from "../utils/cloneDeep";
 import { sanitize } from "../utils/escape";
 import EventBus from "../utils/event-bus";
-import { AppState, ChatItemState, LoginState, UserState } from "./interfaces";
+import {
+    AppState, ChatItemState, LoginState, UserState
+} from "./interfaces";
 
 export class Store {
     static EVENTS = {
@@ -13,6 +15,7 @@ export class Store {
     };
 
     private state: AppState;
+
     eventBus: () => EventBus;
 
     constructor(initialState: AppState) {
@@ -38,19 +41,17 @@ export class Store {
 
         switch (event) {
             case Store.EVENTS.CHATS_ITEMS_CHANGED: {
-                clone.chats.items = (payload as TChatItems).items?.map((chat: any) => {
-                    return {
-                        id: chat.id,
-                        title: sanitize(chat.title),
-                        avatar: chat.avatar
-                    } as ChatItemState;
-                });
+                clone.chats.items = (payload as TChatItems).items?.map((chat: any) => ({
+                    id: chat.id,
+                    title: sanitize(chat.title),
+                    avatar: chat.avatar
+                } as ChatItemState));
                 break;
             }
 
             case Store.EVENTS.PROFILE_CHANGED: {
                 clone.profile = this.createUserState(payload as TProfile);
-                break
+                break;
             }
 
             case Store.EVENTS.CHAT_USERS_CHANGED: {

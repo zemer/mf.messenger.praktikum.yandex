@@ -5,11 +5,11 @@ import { InputWithLabelProps } from "./types";
 
 export default class InputWithLabel<T extends InputWithLabelProps> extends Block<T> {
     errorHelper: ErrorHelper;
+
     value: string | null;
 
     constructor(props: T) {
-        if (props && !props.type)
-            props.type = "text";
+        if (props && !props.type) props.type = "text";
 
         super("div", {
             ...props
@@ -28,7 +28,7 @@ export default class InputWithLabel<T extends InputWithLabelProps> extends Block
         this.setProps({
             ...this.props,
             errorHelper: this.errorHelper
-        })
+        });
     }
 
     render() {
@@ -65,9 +65,8 @@ export default class InputWithLabel<T extends InputWithLabelProps> extends Block
         this.value = value;
 
         if (this._element) {
-            const input = this.element?.querySelector("#" + this.props.id);
-            if (input)
-                input.setAttribute("value", value);
+            const input = this.element?.querySelector(`#${this.props.id}`);
+            if (input) input.setAttribute("value", value);
         }
     }
 
@@ -75,15 +74,14 @@ export default class InputWithLabel<T extends InputWithLabelProps> extends Block
         const message = this.checkValidation(this.value);
         this.errorHelper.showOnError(message);
 
-        if (message)
-            return false;
+        if (message) return false;
 
         return true;
     }
 
     checkValidation(value: string | null): string | null {
-        //value нужен в дочерних классах
+        // value нужен в дочерних классах
         value?.length;
         return null;
     }
-} 
+}

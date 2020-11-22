@@ -34,8 +34,8 @@ export default class UsersController {
 
     search(login: string) {
         return this._userAPI.search(login)
-            .then(res => JSON.parse(res.response))
-            .then(res => store.dispatch(Store.EVENTS.SEARCH_USERS, { items: res }));
+            .then((res) => JSON.parse(res.response))
+            .then((res) => store.dispatch(Store.EVENTS.SEARCH_USERS, { items: res }));
     }
 }
 

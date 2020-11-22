@@ -25,4 +25,4 @@ export default class Error404 extends Block<IError500Props> {
 
         return block;
     }
-} 
+}

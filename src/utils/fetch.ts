@@ -10,8 +10,7 @@ const METHODS = {
 };
 
 export function queryStringify(data: StringIndexed): string | never {
-    if (typeof data !== "object")
-        throw "Input must be an object";
+    if (typeof data !== "object") throw "Input must be an object";
 
     const convertKey = (key: string, value: any): string => {
         if (Array.isArray(value)) {
@@ -19,13 +18,13 @@ export function queryStringify(data: StringIndexed): string | never {
         }
 
         if (typeof (value) === "object") {
-            return Object.keys(value).map(i => convertKey(`${key}[${i}]`, value[i])).join("&");
+            return Object.keys(value).map((i) => convertKey(`${key}[${i}]`, value[i])).join("&");
         }
 
-        return `${key}=${value}`
-    }
+        return `${key}=${value}`;
+    };
 
-    return Object.keys(data).map(i => convertKey(i, data[i])).join("&");
+    return Object.keys(data).map((i) => convertKey(i, data[i])).join("&");
 }
 
 export interface HttpOptions {
@@ -51,23 +50,17 @@ export class HTTPTransport {
 
     get = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         if (options.data) {
-            url += "?" + queryStringify(options.data as StringIndexed);
+            url += `?${queryStringify(options.data as StringIndexed)}`;
         }
 
         return this.request(url, options, METHODS.GET, options.timeout);
     };
 
-    post = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
-        return this.request(url, options, METHODS.POST, options.timeout);
-    };
+    post = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => this.request(url, options, METHODS.POST, options.timeout);
 
-    put = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
-        return this.request(url, options, METHODS.PUT, options.timeout);
-    };
+    put = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => this.request(url, options, METHODS.PUT, options.timeout);
 
-    delete = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
-        return this.request(url, options, METHODS.DELETE, options.timeout);
-    };
+    delete = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => this.request(url, options, METHODS.DELETE, options.timeout);
 
     request = (url: string, options: HttpOptions, method: string, timeout = 5000): Promise<XMLHttpRequest> => {
         const { headers, data, withCredentials } = options;
@@ -85,14 +78,12 @@ export class HTTPTransport {
                 for (const [key, value] of Object.entries(headers)) {
                     xhr.setRequestHeader(key, value);
                 }
-            }
-            else {
+            } else {
                 xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
             }
 
             xhr.onload = function () {
-                if (xhr.status >= 400)
-                    return reject(xhr);
+                if (xhr.status >= 400) return reject(xhr);
 
                 return resolve(xhr);
             };
@@ -103,13 +94,10 @@ export class HTTPTransport {
 
             if (method === METHODS.GET || !data) {
                 xhr.send();
+            } else if (data instanceof FormData) {
+                xhr.send(data);
             } else {
-                if (data instanceof FormData) {
-                    xhr.send(data);
-                }
-                else {
-                    xhr.send(JSON.stringify(data));
-                }
+                xhr.send(JSON.stringify(data));
             }
         });
     };

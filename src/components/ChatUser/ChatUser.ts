@@ -7,6 +7,7 @@ import Button from "../Button/index";
 
 export default class ChatUser extends Block<ChatUserProps> {
     private avatar?: Avatar;
+
     private deleteButton?: Button;
 
     constructor(props: ChatUserProps) {
@@ -33,7 +34,7 @@ export default class ChatUser extends Block<ChatUserProps> {
         }
 
         this.avatar = new Avatar({
-            imgId: this.props.id + "-avatar",
+            imgId: `${this.props.id}-avatar`,
             source: avatarSource
         });
 
@@ -53,12 +54,10 @@ export default class ChatUser extends Block<ChatUserProps> {
     }
 
     handleClick() {
-        if (this.props.onClick)
-            this.props.onClick();
+        if (this.props.onClick) this.props.onClick();
     }
 
     handleDelete() {
-        if (this.props.onDelete)
-            this.props.onDelete();
+        if (this.props.onDelete) this.props.onDelete();
     }
-} 
+}

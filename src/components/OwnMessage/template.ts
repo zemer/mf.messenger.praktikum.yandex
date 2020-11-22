@@ -5,4 +5,4 @@ export const template = `
 <div class="message-time">
     <span>{{date}}</span>
 </div>
-`; 
+`;

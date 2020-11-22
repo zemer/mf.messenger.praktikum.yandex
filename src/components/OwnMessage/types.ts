@@ -1,5 +1,3 @@
 import { PlainObject } from "../../commonTypes";
 
-export interface IOwnMessageProps extends PlainObject {
-
-}
+export type IOwnMessageProps = PlainObject;

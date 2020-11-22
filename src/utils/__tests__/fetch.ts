@@ -4,30 +4,30 @@ global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const testApiUrl = "https://reqres.in";
 
-describe("fetch", function () {
-    describe("get", function () {
-        it("Должен придти ответ", function () {
+describe("fetch", () => {
+    describe("get", () => {
+        it("Должен придти ответ", () => {
             const fetch = new HTTPTransport(testApiUrl);
             return fetch.get("/api/users/2", { withCredentials: false })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then(res => {
+                .then((res) => {
                     expect(res).toHaveProperty("data");
-                })
-        })
+                });
+        });
 
-        it("Запрос с параметрами", function () {
+        it("Запрос с параметрами", () => {
             const fetch = new HTTPTransport(testApiUrl);
             const data = {
                 page: 2
             };
             return fetch.get("/api/users", { data, withCredentials: false })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then(res => {
+                .then((res) => {
                     expect(res).toHaveProperty("data");
                 });
-        })
+        });
 
-        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
             const fetch = new HTTPTransport("https://reqfdsfsdfsres.in");
             fetch.get("/api/users/23", { timeout: 1, withCredentials: false })
                 .then(() => done("Должна быть ошибка"))
@@ -35,8 +35,8 @@ describe("fetch", function () {
         });
     });
 
-    describe("post", function () {
-        it("Должен придти ответ", function () {
+    describe("post", () => {
+        it("Должен придти ответ", () => {
             const fetch = new HTTPTransport(testApiUrl);
             return fetch.post("/api/users", {
                 data: {
@@ -46,13 +46,13 @@ describe("fetch", function () {
                 withCredentials: false
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then(res => {
+                .then((res) => {
                     expect(res).toHaveProperty("id");
                     expect(res).toHaveProperty("createdAt");
                 });
-        })
+        });
 
-        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
             const fetch = new HTTPTransport("https://reqrfdsfdsfsdgses.in");
             fetch.post("/api/register", {
                 data: {
@@ -66,8 +66,8 @@ describe("fetch", function () {
         });
     });
 
-    describe("put", function () {
-        it("Должен придти ответ", function () {
+    describe("put", () => {
+        it("Должен придти ответ", () => {
             const fetch = new HTTPTransport(testApiUrl);
             return fetch.put("/api/users/2", {
                 data: {
@@ -77,12 +77,12 @@ describe("fetch", function () {
                 withCredentials: false
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then(res => {
+                .then((res) => {
                     expect(res).toHaveProperty("updatedAt");
                 });
-        })
+        });
 
-        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
             const fetch = new HTTPTransport("https://reqrfdsfsdfsdes.in");
             fetch.put("/api/register", {
                 data: {
@@ -96,8 +96,8 @@ describe("fetch", function () {
         });
     });
 
-    describe("delete", function () {
-        it("Должен придти ответ", function () {
+    describe("delete", () => {
+        it("Должен придти ответ", () => {
             const fetch = new HTTPTransport(testApiUrl);
             return fetch.delete("/api/users/2", {
                 data: {
@@ -107,9 +107,9 @@ describe("fetch", function () {
                 withCredentials: false
             })
                 .then((res: XMLHttpRequest) => expect(res.status).toEqual(204));
-        })
+        });
 
-        it("Должна быть ошибка, если адрес не существует", function (done: Function) {
+        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
             const fetch = new HTTPTransport("https://reqrfdsfsdfsdes.in");
             fetch.delete("/api/register", {
                 data: {
@@ -123,19 +123,19 @@ describe("fetch", function () {
         });
     });
 
-    describe("queryStringify", function () {
-        it("Конвертер данных в запрос", function () {
+    describe("queryStringify", () => {
+        it("Конвертер данных в запрос", () => {
             const result = queryStringify({
                 page: 2,
                 type: "xxx"
             });
 
             expect(result).toEqual("page=2&type=xxx");
-        })
+        });
 
-        it("Конвертер пустого объекта", function () {
+        it("Конвертер пустого объекта", () => {
             const result = queryStringify({});
             expect(result).toEqual("");
-        })
-    })
+        });
+    });
 });

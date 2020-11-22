@@ -12,7 +12,9 @@ import { AppState, ChatItemState } from "../../store/interfaces";
 
 export default class ChatList extends Block<ChatListProps> {
     private toProfile?: Button;
+
     private buttonPlusChat?: Button;
+
     private createChat?: CreateChat;
 
     constructor() {
@@ -64,7 +66,7 @@ export default class ChatList extends Block<ChatListProps> {
 
         this.setProps({
             ...this.props,
-            items: items
+            items
         });
     }
 
@@ -76,12 +78,12 @@ export default class ChatList extends Block<ChatListProps> {
                 title: i.title,
                 avatar: i.avatar,
                 onClick: () => {
-                    Router.go("/chats/" + i.id);
+                    Router.go(`/chats/${i.id}`);
                 }
-            })).map(i => i.renderToString()),
+            })).map((i) => i.renderToString()),
             toProfile: this.toProfile?.renderToString(),
             buttonPlusChat: this.buttonPlusChat?.renderToString(),
-            createChat: this.createChat?.renderToString(),
+            createChat: this.createChat?.renderToString()
         });
 
         return block;
@@ -90,9 +92,8 @@ export default class ChatList extends Block<ChatListProps> {
     showCreateChat(visible: boolean) {
         if (visible) {
             this.createChat?.show();
-        }
-        else {
+        } else {
             this.createChat?.hide();
         }
     }
-} 
+}

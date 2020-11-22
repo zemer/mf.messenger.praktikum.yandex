@@ -7,4 +7,4 @@ export interface ChnageUserProfileRequest extends StringIndexed {
     login: string;
     email: string;
     phone: string;
-} 
+}

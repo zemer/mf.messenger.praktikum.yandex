@@ -1,9 +1,9 @@
 import ChatList from "../../pages/chat_list/ChatList";
 import Router from "../router";
 
-describe("Router", function () {
-    describe("getRoute", function () {
-        it("Поиск маршрута", function () {
+describe("Router", () => {
+    describe("getRoute", () => {
+        it("Поиск маршрута", () => {
             const router = new Router(".test");
             router.use("/test/chats", ChatList);
 
@@ -12,7 +12,7 @@ describe("Router", function () {
             expect(route).toHaveProperty("_blockClass");
         });
 
-        it("Не найденный маршрут", function () {
+        it("Не найденный маршрут", () => {
             const router = new Router(".mocha");
             router.use("/test/chats", ChatList);
 

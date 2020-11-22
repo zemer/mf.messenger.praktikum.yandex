@@ -3,7 +3,7 @@ import { baseAPIUrl } from "./api-url";
 import { ChnageUserProfileRequest } from "./interfaces";
 
 export class UserAPI {
-    private userAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/user");
+    private userAPIInstance = new HTTPTransport(`${baseAPIUrl}/api/v2/user`);
 
     updateProfile(profile: ChnageUserProfileRequest): Promise<XMLHttpRequest> {
         return this.userAPIInstance.put("/profile", {
@@ -27,18 +27,17 @@ export class UserAPI {
 
             return this.userAPIInstance.put("/profile/avatar", {
                 data: formdata,
-                headers: {} //Заголовок multipart/form-data
+                headers: {} // Заголовок multipart/form-data
             });
         }
-        else {
-            return Promise.reject();
-        }
+
+        return Promise.reject();
     }
 
     search(login: string) {
         return this.userAPIInstance.post("/search", {
             data: {
-                login,
+                login
             }
         });
     }

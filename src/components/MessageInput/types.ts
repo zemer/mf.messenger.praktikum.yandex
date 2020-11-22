@@ -1,4 +1,3 @@
 import { PlainObject } from "../../commonTypes";
 
-export interface IMessageInputProps extends PlainObject {
-}
+export type IMessageInputProps = PlainObject;

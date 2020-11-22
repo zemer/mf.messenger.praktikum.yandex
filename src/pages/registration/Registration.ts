@@ -6,7 +6,7 @@ import PasswordField from "../../components/PasswordField/index";
 import NotEmptyField from "../../components/NotEmptyField/index";
 import MailField from "../../components/MailField/index";
 import PhoneField from "../../components/PhoneField/index";
-import { RegistrationProps as RegistrationProps } from "./interfaces";
+import { RegistrationProps } from "./interfaces";
 import Link from "../../components/Link/index";
 import { authController } from "../../controllers/AuthController";
 
@@ -14,39 +14,39 @@ export default class Registration extends Block<RegistrationProps> {
     constructor() {
         const firtName = new NotEmptyField({
             id: "first_name",
-            label: "Имя",
+            label: "Имя"
         });
 
         const secondName = new NotEmptyField({
             id: "second_name",
-            label: "Фамилия",
+            label: "Фамилия"
         });
 
         const login = new LoginField({
             id: "login",
-            label: "Логин",
+            label: "Логин"
         });
 
         const email = new MailField({
             id: "email",
-            label: "Почта",
+            label: "Почта"
         });
 
         const phone = new PhoneField({
             id: "phone",
-            label: "Телефон",
+            label: "Телефон"
         });
 
         const password = new PasswordField({
             id: "password",
             label: "Пароль",
-            type: "password",
+            type: "password"
         });
 
         const button = new Button({
             value: "Зарегистрироваться",
             handleClick: () => {
-                const validation: Boolean[] = [];
+                const validation: boolean[] = [];
 
                 validation.push(firtName.validate());
                 validation.push(secondName.validate());
@@ -55,7 +55,7 @@ export default class Registration extends Block<RegistrationProps> {
                 validation.push(phone.validate());
                 validation.push(password.validate());
 
-                if (validation.every(v => v)) {
+                if (validation.every((v) => v)) {
                     authController.signUp({
                         first_name: firtName.value ?? "",
                         second_name: secondName.value ?? "",
@@ -100,4 +100,4 @@ export default class Registration extends Block<RegistrationProps> {
 
         return block;
     }
-} 
+}

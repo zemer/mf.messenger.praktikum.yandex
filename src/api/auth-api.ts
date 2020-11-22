@@ -11,7 +11,7 @@ export interface SingUpData extends Record<string, unknown> {
 }
 
 export default class AuthAPI {
-    private authAPIInstance = new HTTPTransport(baseAPIUrl + "/api/v2/auth");
+    private authAPIInstance = new HTTPTransport(`${baseAPIUrl}/api/v2/auth`);
 
     signIn(login: string, password: string): Promise<XMLHttpRequest> {
         return this.authAPIInstance.post("/signin", {

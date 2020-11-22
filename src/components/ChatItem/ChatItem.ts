@@ -22,7 +22,7 @@ export default class ChatItem extends Block<IChatItemProps> {
 
     init() {
         this.avatar = new Avatar({
-            imgId: this.props.id + "-avatar",
+            imgId: `${this.props.id}-avatar`,
             source: this.props.avatar ?? ""
         });
 
@@ -38,4 +38,4 @@ export default class ChatItem extends Block<IChatItemProps> {
     handleClick() {
         this.props.onClick();
     }
-} 
+}

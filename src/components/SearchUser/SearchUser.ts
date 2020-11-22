@@ -12,9 +12,10 @@ import { sanitize } from "../../utils/escape";
 
 export default class SearchUser extends Block<FindUserProps> {
     private searchField?: Input;
+
     private buttonSearch?: Button;
 
-    constructor(props: FindUserProps, visible: boolean = true) {
+    constructor(props: FindUserProps, visible = true) {
         super("div", props, "full-screen", visible);
     }
 
@@ -26,7 +27,7 @@ export default class SearchUser extends Block<FindUserProps> {
 
         this.buttonSearch = new Button({
             value: "OK",
-            handleClick: this.handleRunSearch,
+            handleClick: this.handleRunSearch
         }, "button full-height");
 
         this.searchField = new Input({
@@ -47,14 +48,14 @@ export default class SearchUser extends Block<FindUserProps> {
             login: i.login,
             avatar: i.avatar,
             deleteVisible: false,
-            onClick: () => { this.handleUserClick(i) }
+            onClick: () => { this.handleUserClick(i); }
         }));
 
         const compiled = Handlebars.compile(template);
         return compiled({
             newChatName: this.searchField?.renderToString(),
             buttonCreateChat: this.buttonSearch?.renderToString(),
-            items: items?.map(i => i.renderToString()),
+            items: items?.map((i) => i.renderToString())
         });
     }
 
@@ -72,8 +73,7 @@ export default class SearchUser extends Block<FindUserProps> {
     }
 
     handleRunSearch() {
-        if (this.searchField?.value)
-            usersController.search(sanitize(this.searchField.value));
+        if (this.searchField?.value) usersController.search(sanitize(this.searchField.value));
     }
 
     handleUserClick(user: UserState) {
@@ -81,4 +81,4 @@ export default class SearchUser extends Block<FindUserProps> {
             this.props.onSelectUser(user);
         }
     }
-} 
+}

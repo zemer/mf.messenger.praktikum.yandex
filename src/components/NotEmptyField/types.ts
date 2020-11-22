@@ -1,5 +1,3 @@
 import { InputWithLabelProps } from "../InputWithLabel/types";
 
-export interface INotEmptyFieldProps extends InputWithLabelProps {
-
-}
+export type INotEmptyFieldProps = InputWithLabelProps;

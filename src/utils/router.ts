@@ -12,9 +12,12 @@ export default class Router {
     static __instance: Router;
 
     private _routes: Route[] = [];
+
     private _history: History = {} as History;
+
     private _currentRoute: Route | null = null;
-    private _rootQuery: string = "";
+
+    private _rootQuery = "";
 
     constructor(rootQuery: string) {
         if (Router.__instance) {
@@ -39,7 +42,7 @@ export default class Router {
         // На смену роута вызываем перерисовку
         window.onpopstate = ((event: PopStateEvent) => {
             this._onRoute((event?.currentTarget as Window)?.location?.pathname);
-        }).bind(this);
+        });
 
         this._onRoute(window.location.pathname);
     }
@@ -65,7 +68,7 @@ export default class Router {
     }
 
     getRoute(pathname: string): Route | undefined {
-        return this._routes.find(route => route.match(pathname));
+        return this._routes.find((route) => route.match(pathname));
     }
 
     static go(pathname: string) {

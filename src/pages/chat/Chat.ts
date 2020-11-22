@@ -14,10 +14,15 @@ import ChatUsersList from "../../components/ChatUsersList/index";
 
 export default class Chat extends Block<ChatProps> {
     private toList?: Button;
+
     private toProfile?: Button;
+
     private sendMessage?: SendMessage;
+
     private buttonPlusUser?: Button;
+
     private searchUser?: SearchUser;
+
     private usersList?: ChatUsersList;
 
     constructor(props: ChatProps) {
@@ -81,13 +86,13 @@ export default class Chat extends Block<ChatProps> {
         const block = compile({
             title: this.props.title,
             user: this.props.user,
-            //messages: this.messages.map(m => m.renderToString()),
+            // messages: this.messages.map(m => m.renderToString()),
             sendMessage: this.sendMessage?.renderToString(),
             toList: this.toList?.renderToString(),
             toProfile: this.toProfile?.renderToString(),
             buttonPlusUser: this.buttonPlusUser?.renderToString(),
             createChat: this.searchUser?.renderToString(),
-            usersList: this.usersList?.renderToString(),
+            usersList: this.usersList?.renderToString()
         });
 
         return block;
@@ -116,22 +121,21 @@ export default class Chat extends Block<ChatProps> {
     }
 
     chatSelector(state: AppState) {
-        return state.chats.items.find(c => c.id.toString() === this.props.chatId.toString());
+        return state.chats.items.find((c) => c.id.toString() === this.props.chatId.toString());
     }
 
     showSearchUser(visible: boolean) {
         this.buttonPlusUser?.setProps({
             ...this.buttonPlusUser.props,
             value: visible ? "Отменить" : "Добавить"
-        })
+        });
 
         if (visible) {
             this.usersList?.hide();
             this.searchUser?.show();
-        }
-        else {
+        } else {
             this.usersList?.show();
             this.searchUser?.hide();
         }
     }
-} 
+}

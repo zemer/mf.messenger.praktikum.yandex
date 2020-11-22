@@ -10,19 +10,19 @@ export default class ChatsController {
 
     getChats() {
         this._chatAPI.getChats()
-            .then(res => JSON.parse(res.response))
-            .then(res => store.dispatch(Store.EVENTS.CHATS_ITEMS_CHANGED, { items: res }));
+            .then((res) => JSON.parse(res.response))
+            .then((res) => store.dispatch(Store.EVENTS.CHATS_ITEMS_CHANGED, { items: res }));
     }
 
     getUsers(chatId: number) {
         this._chatAPI.getUsers(chatId)
-            .then(res => JSON.parse(res.response))
-            .then(res => store.dispatch(Store.EVENTS.CHAT_USERS_CHANGED, { items: res }));
+            .then((res) => JSON.parse(res.response))
+            .then((res) => store.dispatch(Store.EVENTS.CHAT_USERS_CHANGED, { items: res }));
     }
 
     create(title: string) {
         this._chatAPI.createChat(title)
-            .then(() => this.getChats())
+            .then(() => this.getChats());
     }
 
     addUser(userId: number, chatId: number) {

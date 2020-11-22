@@ -4,6 +4,7 @@ import { InputProps } from "./types";
 
 export default class Input extends Block<InputProps> {
     errorHelper: ErrorHelper;
+
     value: string | null;
 
     constructor(props: InputProps, classes?: string) {
@@ -24,7 +25,7 @@ export default class Input extends Block<InputProps> {
         this.setProps({
             ...this.props,
             errorHelper: this.errorHelper
-        })
+        });
     }
 
     setElement(element: HTMLElement) {
@@ -65,9 +66,8 @@ export default class Input extends Block<InputProps> {
         this.value = value;
 
         if (this._element) {
-            const input = this.element?.querySelector("#" + this.props.id);
-            if (input)
-                input.setAttribute("value", value);
+            const input = this.element?.querySelector(`#${this.props.id}`);
+            if (input) input.setAttribute("value", value);
         }
     }
 
@@ -75,15 +75,14 @@ export default class Input extends Block<InputProps> {
         const message = this.checkValidation(this.value);
         this.errorHelper.showOnError(message);
 
-        if (message)
-            return false;
+        if (message) return false;
 
         return true;
     }
 
     checkValidation(value: string | null): string | null {
-        //value нужен в дочерних классах
+        // value нужен в дочерних классах
         value?.length;
         return null;
     }
-} 
+}

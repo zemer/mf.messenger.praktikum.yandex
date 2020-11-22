@@ -14,10 +14,11 @@ class Block<T extends PlainObject> {
         INIT: "init",
         FLOW_CDM: "flow:component-did-mount",
         FLOW_RENDER: "flow:render",
-        FLOW_CDU: "flow:component-did-update",
+        FLOW_CDU: "flow:component-did-update"
     };
 
     static _instances: Block<any>[] = [];
+
     static hydrate = function (root: HTMLElement | HTMLDocument = document) {
         for (const i of Block._instances) {
             const id = i.getId();
@@ -27,16 +28,21 @@ class Block<T extends PlainObject> {
                 i.setElement(elements[0] as HTMLElement);
             }
         }
-    }
+    };
 
-    _id = "uniq" + (Math.random() * 1000000);
+    _id = `uniq${Math.random() * 1000000}`;
+
     props: T;
+
     visible: boolean | null;
+
     _element: HTMLElement | null = null;
+
     _meta: IMetaInfo<T> | null = null;
+
     eventBus: () => EventBus;
 
-    //private _subscriptions: Map<any, any> = new Map();
+    // private _subscriptions: Map<any, any> = new Map();
 
     /** JSDoc
      * @param {string} tagName
@@ -127,9 +133,8 @@ class Block<T extends PlainObject> {
         this.setEvents();
 
         if (this.visible === true) {
-            this.show()
-        }
-        else if (this.visible === false) {
+            this.show();
+        } else if (this.visible === false) {
             this.hide();
         }
     }
@@ -194,7 +199,7 @@ class Block<T extends PlainObject> {
                 return true;
             },
             deleteProperty() {
-                throw new Error("Нет доступа")
+                throw new Error("Нет доступа");
             }
         });
     }

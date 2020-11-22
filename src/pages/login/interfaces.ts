@@ -1,4 +1,3 @@
 import { PlainObject } from "../../commonTypes";
 
-export interface ILoginProps extends PlainObject {
-}
+export type ILoginProps = PlainObject;

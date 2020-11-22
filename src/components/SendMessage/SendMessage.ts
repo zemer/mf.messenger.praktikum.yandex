@@ -27,9 +27,9 @@ export default class SendMessage extends Block<ISendMessagProps> {
         const block = compile({
             ...this.props,
             message: this.props.message.renderToString(),
-            button: this.props.button.renderToString(),
+            button: this.props.button.renderToString()
         });
 
         return block;
     }
-} 
+}

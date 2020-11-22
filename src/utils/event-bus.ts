@@ -19,7 +19,7 @@ export default class EventBus {
         }
 
         const newListeners = this.listeners.get(event)?.filter(
-            listener => listener !== callback
+            (listener) => listener !== callback
         );
 
         this.listeners.set(event, newListeners ?? []);
@@ -30,7 +30,7 @@ export default class EventBus {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners.get(event)?.forEach(function (listener: Function) {
+        this.listeners.get(event)?.forEach((listener: Function) => {
             listener(...args);
         });
     }

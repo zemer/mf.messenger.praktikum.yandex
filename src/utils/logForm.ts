@@ -1,11 +1,11 @@
 export function logForm() {
-    let form = document.forms[0];
+    const form = document.forms[0];
 
-    let log = {} as any;
+    const log = {} as any;
 
-    for (let e of form.elements) {
+    for (const e of form.elements) {
         if (e.getAttribute("type") === "text" || e.getAttribute("type") === "password") {
-            log[e["id"]] = (e as HTMLInputElement).value;
+            log[e.id] = (e as HTMLInputElement).value;
         }
     }
 

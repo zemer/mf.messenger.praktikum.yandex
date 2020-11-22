@@ -19,10 +19,10 @@ export default class Error404 extends Block<IError404Props> {
         const compile = Handlebars.compile(template);
         const block = compile({
             title: "404",
-            description: `"Прицел 15, трубка 20! Бац! Бац... и мимо" (с)`,
+            description: "\"Прицел 15, трубка 20! Бац! Бац... и мимо\" (с)",
             toLogin: this.props.toLogin.renderToString()
         });
 
         return block;
     }
-} 
+}

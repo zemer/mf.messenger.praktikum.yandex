@@ -20,15 +20,25 @@ export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;
 
     private firstName?: NotEmptyField;
+
     private secondName?: NotEmptyField;
+
     private login?: LoginField;
+
     private email?: MailField;
+
     private phone?: PhoneField;
+
     private oldPassword?: PasswordField;
+
     private newPassword?: PasswordField;
+
     private button?: Button;
+
     private backButton?: Button;
+
     private logoutButton?: Button;
+
     private avatar?: UploadAvatar;
 
     constructor() {
@@ -42,46 +52,46 @@ export default class UserProfile extends Block<IUserProfileProps> {
 
         this.firstName = new NotEmptyField({
             id: "first_name",
-            label: "Имя",
+            label: "Имя"
         });
 
         this.secondName = new NotEmptyField({
             id: "second_name",
-            label: "Фамилия",
+            label: "Фамилия"
         });
 
         this.login = new LoginField({
             id: "login",
-            label: "Логин",
+            label: "Логин"
         });
 
         this.email = new MailField({
             id: "email",
-            label: "Почта",
+            label: "Почта"
         });
 
         this.phone = new PhoneField({
             id: "phone",
-            label: "Телефон",
+            label: "Телефон"
         });
 
         this.oldPassword = new PasswordField({
             id: "oldPassword",
             label: "Старый пароль",
-            type: "password",
+            type: "password"
         });
 
         this.newPassword = new PasswordField({
             id: "newPassword",
             label: "Новый пароль",
-            type: "password",
+            type: "password"
         });
 
         this.avatar = new UploadAvatar({
             imgId: "profile-avatar",
             source: "",
             handleClick: () => {
-                var fileEl = document.getElementById("file") as HTMLInputElement;
+                const fileEl = document.getElementById("file") as HTMLInputElement;
                 fileEl?.click();
             }
         });
@@ -108,7 +118,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
 
     setEvents() {
         if (this._element) {
-            var fileEl = document.getElementById("file") as HTMLInputElement;
+            const fileEl = document.getElementById("file") as HTMLInputElement;
             if (fileEl) {
                 fileEl.addEventListener("change", (ev) => this.handleFileChange(ev), false);
             }
@@ -182,8 +192,8 @@ export default class UserProfile extends Block<IUserProfileProps> {
                 this.avatar?.setProps({
                     ...this.avatar.props,
                     source: (fr.result as string)
-                })
-            }
+                });
+            };
 
             fr.readAsDataURL(file);
 
@@ -217,4 +227,4 @@ export default class UserProfile extends Block<IUserProfileProps> {
             }, this.oldPassword?.value ?? "", this.newPassword?.value ?? "", this.avatarFile);
         }
     }
-} 
+}

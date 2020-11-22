@@ -11,4 +11,4 @@ export default class OwnMessage extends Block<IOwnMessageProps> {
         const compiled = Handlebars.compile(template);
         return compiled(this.props);
     }
-} 
+}

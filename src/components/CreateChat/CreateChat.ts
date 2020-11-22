@@ -7,6 +7,7 @@ import { sanitize } from "../../utils/escape";
 
 export default class CreateChat extends Block<CreateChatProps> {
     private newChatName?: Input;
+
     private buttonCreateChat?: Button;
 
     constructor(props: CreateChatProps, visible: boolean) {
@@ -18,7 +19,7 @@ export default class CreateChat extends Block<CreateChatProps> {
 
         this.buttonCreateChat = new Button({
             value: "OK",
-            handleClick: this.handleCreateChat,
+            handleClick: this.handleCreateChat
         }, "button full-height");
 
         this.newChatName = new Input({
@@ -45,4 +46,4 @@ export default class CreateChat extends Block<CreateChatProps> {
             this.props.onCreateChat(sanitize(name));
         }
     }
-} 
+}

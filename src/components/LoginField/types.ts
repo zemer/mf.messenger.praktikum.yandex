@@ -1,5 +1,3 @@
 import { InputWithLabelProps } from "../InputWithLabel/types";
 
-export interface ILoginFieldProps extends InputWithLabelProps {
-
-}
+export type ILoginFieldProps = InputWithLabelProps;

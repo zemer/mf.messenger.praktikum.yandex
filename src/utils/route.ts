@@ -3,9 +3,13 @@ import { clear, render } from "./renderDOM";
 
 export default class Route {
     private _pathname: string;
+
     private _blockClass: any;
+
     private _block: Block<any> | null;
+
     private _props: any;
+
     private _pattern: RegExp;
 
     constructor(pathname: string, view: any, props: any) {
@@ -14,9 +18,9 @@ export default class Route {
         this._block = null;
         this._props = props;
 
-        pathname.match
+        pathname.match;
 
-        this._pattern = new RegExp("^" + pathname.replace(/:(\w+)/g, "(?<$1>\\w+)") + "$");
+        this._pattern = new RegExp(`^${pathname.replace(/:(\w+)/g, "(?<$1>\\w+)")}$`);
     }
 
     // navigate(pathname: string) {
@@ -39,12 +43,10 @@ export default class Route {
     }
 
     match(pathname: string): boolean {
-        if (this.isEqual(pathname, this._pathname))
-            return true;
+        if (this.isEqual(pathname, this._pathname)) return true;
 
         const args = pathname.match(this._pattern);
-        if (args)
-            return true;
+        if (args) return true;
 
         return false;
     }

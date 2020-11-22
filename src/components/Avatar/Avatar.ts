@@ -8,10 +8,9 @@ export default class Avatar extends Block<AvatarProps> {
     }
 
     render() {
-        let source = this.props.source;
+        let { source } = this.props;
 
-        if (!this.props.source || this.props.source === "")
-            source = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+        if (!this.props.source || this.props.source === "") source = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
         const compiled = Handlebars.compile(template);
         return compiled({
@@ -19,4 +18,4 @@ export default class Avatar extends Block<AvatarProps> {
             source
         });
     }
-} 
+}

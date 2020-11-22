@@ -3,7 +3,7 @@ import Button from "../../components/Button/index";
 import { template } from "./template";
 import LoginField from "../../components/LoginField/index";
 import PasswordField from "../../components/PasswordField/index";
-import { ILoginProps as ILoginProps } from "./interfaces";
+import { ILoginProps } from "./interfaces";
 import Link from "../../components/Link/index";
 import { authController } from "../../controllers/AuthController";
 import ErrorHelper from "../../components/ErrorHelper/index";
@@ -13,9 +13,13 @@ import getFieldByPath from "../../utils/getFieldByPath";
 
 export default class Login extends Block<ILoginProps> {
     private login?: LoginField;
+
     private password?: PasswordField;
+
     private button?: Button;
+
     private loginError?: ErrorHelper;
+
     private toRegistration?: Link;
 
     constructor() {
@@ -34,7 +38,7 @@ export default class Login extends Block<ILoginProps> {
             id: "password",
             label: "Пароль",
             type: "password"
-        })
+        });
 
         this.button = new Button({
             value: "Войти",
@@ -93,10 +97,9 @@ export default class Login extends Block<ILoginProps> {
                 });
 
                 this.loginError.show();
-            }
-            else {
+            } else {
                 this.loginError.hide();
             }
         }
     }
-} 
+}

@@ -5,4 +5,4 @@ export const template = `
         {{{buttonCreateChat}}}
     </div>
 </div>
-`; 
+`;

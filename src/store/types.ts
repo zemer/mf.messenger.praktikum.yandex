@@ -1,12 +1,12 @@
 type TChatItems = {
     items: TChatItem[];
-}
+};
 
 type TChatItem = {
     id: number;
     title: string;
     avatar: string;
-}
+};
 
 type TProfile = {
     id: number;
@@ -17,12 +17,12 @@ type TProfile = {
     email: string;
     phone: string;
     avatar: string;
-}
+};
 
 type TChatUsers = {
     items: TProfile[];
-}
+};
 
 type TError = {
     reason: string;
-}
+};

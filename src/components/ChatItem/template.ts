@@ -14,4 +14,4 @@ export const template = `
         <span>{{date}}</span>
     </div>
 </section>
-`; 
+`;

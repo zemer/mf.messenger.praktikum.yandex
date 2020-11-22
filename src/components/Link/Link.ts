@@ -10,8 +10,7 @@ export default class Link extends Block<LinkProps> {
     }
 
     render(): string {
-        if (this._element)
-            this._element.setAttribute("href", this.props.path);
+        if (this._element) this._element.setAttribute("href", this.props.path);
 
         return this.props.text;
     }

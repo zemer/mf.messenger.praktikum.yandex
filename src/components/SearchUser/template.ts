@@ -10,4 +10,4 @@ export const template = `
         {{{this}}}
     {{/each}}
 </div>
-`; 
+`;

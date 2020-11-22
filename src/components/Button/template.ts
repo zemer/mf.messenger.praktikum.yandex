@@ -1,1 +1,1 @@
-export const template = `{{value}}`; 
+export const template = "{{value}}";

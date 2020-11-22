@@ -22,9 +22,8 @@ export default class ErrorHelper extends Block<IErrorHelperProps> {
             });
 
             this.show();
-        }
-        else {
+        } else {
             this.hide();
         }
     }
-} 
+}

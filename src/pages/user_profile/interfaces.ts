@@ -1,4 +1,3 @@
 import { PlainObject } from "../../commonTypes";
 
-export interface IUserProfileProps extends PlainObject {
-}
+export type IUserProfileProps = PlainObject;

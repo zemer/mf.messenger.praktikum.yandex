@@ -4,7 +4,7 @@ const entityMap: PlainObject<string> = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
-    '"': "&quot;",
+    "\"": "&quot;",
     "'": "&#39;",
     "/": "&#x2F;",
     "`": "&#x60;",
@@ -12,7 +12,5 @@ const entityMap: PlainObject<string> = {
 };
 
 export function sanitize(value: string) {
-    return String(value).replace(/[&<>"'`=\/]/g, (s: string) => {
-        return entityMap[s];
-    });
+    return String(value).replace(/[&<>"'`=\/]/g, (s: string) => entityMap[s]);
 }

@@ -11,4 +11,4 @@ export default class CompanionMessage extends Block<ICompanionMessageProps> {
         const compiled = Handlebars.compile(template);
         return compiled(this.props);
     }
-} 
+}

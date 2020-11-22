@@ -27,4 +27,4 @@ export const template = `
         </div>
     </div>
 </div>
-`; 
+`;

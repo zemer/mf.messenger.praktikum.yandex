@@ -3,4 +3,4 @@ export const template = `
     <input id="message" class="edit-message-field full-width" type="text" aria-multiline="true" placeholder="Ваше сообщение" />
 </div>
 {{{errorHelper}}}
-`; 
+`;

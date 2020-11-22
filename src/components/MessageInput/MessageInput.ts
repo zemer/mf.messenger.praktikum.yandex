@@ -5,6 +5,7 @@ import { IMessageInputProps } from "./types";
 
 export default class MessageInput extends Block<IMessageInputProps> {
     errorHelper: ErrorHelper;
+
     value: string | null;
 
     constructor(props: IMessageInputProps, classes?: string) {
@@ -24,7 +25,7 @@ export default class MessageInput extends Block<IMessageInputProps> {
         this.setProps({
             ...this.props,
             errorHelper: this.errorHelper
-        })
+        });
     }
 
     checkValidation(value: string | null): string | null {
