@@ -1,8 +1,8 @@
 @import "_colors";
 
 .error-code-font {
-    font-size: 144px;
     color: $error-color;
+    font-size: 144px;
 }
 
 .error-description-font {
@@ -15,12 +15,12 @@
 
 .error-link-font {
     a:link {
-        text-decoration: none;
         color: $primary-color;
+        text-decoration: none;
     }
 
     a:visited {
-        text-decoration: none;
         color: $primary-color;
+        text-decoration: none;
     }
 }

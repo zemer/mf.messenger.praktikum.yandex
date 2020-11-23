@@ -9,15 +9,15 @@
 
 .chat-list-title {
     align-items: center;
-    justify-content: space-between;
     background-color: $primary-color;
     height: 75px;
+    justify-content: space-between;
 }
 
 .chat-item {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
     height: 100px;
     padding: 5px;
 }
@@ -31,13 +31,13 @@
 }
 
 .chat-item-photo {
-    height: 60px;
-    width: 60px;
     background-color: $border-color;
     border-radius: 50%;
     display: inline-block;
+    height: 60px;
     margin-left: 5px;
     margin-right: 5px;
+    width: 60px;
 }
 
 .chat-item-title {
@@ -48,15 +48,15 @@
 }
 
 .chat-item-preview {
-    font-size: 14px;
     color: $input-text-color;
+    font-size: 14px;
     margin-left: 5px;
     margin-right: 5px;
 }
 
 .chat-item-date {
-    font-size: 14px;
     color: $input-text-color;
+    font-size: 14px;
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -66,17 +66,17 @@
 }
 
 .edit-message-field {
-    width: 100%;
-    height: 50px;
-    font-size: 14px;
     border: 1px solid $border-color;
     border-left: 0;
     color: $input-text-color;
+    font-size: 14px;
+    height: 50px;
+    width: 100%;
 }
 
 .left-panel {
-    width: 500px;
     border: 1px solid $border-color;
+    width: 500px;
 }
 
 .messages {
@@ -85,9 +85,9 @@
 
 .message {
     border-radius: 20px;
-    width: 300px;
-    padding: 10px;
     margin: 10px;
+    padding: 10px;
+    width: 300px;
 }
 
 .message-companion {
@@ -110,21 +110,21 @@
 }
 
 .messages-title {
-    height: 75px;
     align-items: center;
+    height: 75px;
 }
 
 .right-panel {
-    display: flex;
-    flex-direction: column;
     border-right: 1px solid $border-color;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .select-chat {
+    align-items: center;
     background-color: $white-color;
     justify-content: center;
-    align-items: center;
 }
 
 .send-button {
