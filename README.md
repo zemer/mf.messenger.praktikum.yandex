@@ -19,3 +19,4 @@
 - [x] Настроен webpack
 - [x] Деплой проекта на Heroku
 - [x] Подключен ESLint с правилами airbnb (часть выключена)
+- [x] Подключен Stylelint и editorconfig
