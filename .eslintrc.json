@@ -42,10 +42,10 @@
             "off"
         ],
         "no-restricted-syntax": [
-            "off"
+            "warn"
         ],
         "no-useless-escape": [
-            "off"
+            "warn"
         ],
         "class-methods-use-this": [
             "off"

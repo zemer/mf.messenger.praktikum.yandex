@@ -1,5 +1,6 @@
 import AuthAPI, { SingUpData } from "../api/auth-api";
 import { Store, store } from "../store/Store";
+import { TError } from "../store/types";
 import Router from "../utils/router";
 
 export default class AuthController {

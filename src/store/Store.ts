@@ -4,6 +4,7 @@ import EventBus from "../utils/event-bus";
 import {
     AppState, ChatItemState, LoginState, UserState
 } from "./interfaces";
+import { TChatItems, TChatUsers, TProfile } from "./types";
 
 export class Store {
     static EVENTS = {

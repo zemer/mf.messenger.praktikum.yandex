@@ -1,6 +1,7 @@
 import { ChnageUserProfileRequest } from "../api/interfaces";
 import UserAPI from "../api/user-api";
 import { Store, store } from "../store/Store";
+import { TChatUsers } from "../store/types";
 import Router from "../utils/router";
 
 export default class UsersController {
