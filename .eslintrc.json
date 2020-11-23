@@ -1,8 +1,7 @@
 {
     "env": {
         "browser": true,
-        "es6": true,
-        "jest": true
+        "es6": true
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -10,13 +9,10 @@
         "project": "./tsconfig.json"
     },
     "plugins": [
-        "@typescript-eslint",
-        "jest"
+        "@typescript-eslint"
     ],
     "extends": [
-        "airbnb-typescript",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:jest/recommended"
+        "airbnb-typescript"
     ],
     "rules": {
         "@typescript-eslint/quotes": [
@@ -34,6 +30,25 @@
         "linebreak-style": [
             "error",
             "windows"
+        ],
+        "react/static-property-placement": [
+            "off"
+        ],
+        "max-len": [
+            "warn",
+            300
+        ],
+        "no-continue": [
+            "off"
+        ],
+        "no-restricted-syntax": [
+            "off"
+        ],
+        "no-useless-escape": [
+            "off"
+        ],
+        "class-methods-use-this": [
+            "off"
         ]
     }
 }

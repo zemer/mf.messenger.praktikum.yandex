@@ -1,7 +1,7 @@
+import Handlebars from "handlebars";
 import Block from "../../Block/index";
 import PhoneField from "../index";
 import "@testing-library/jest-dom/extend-expect";
-import Handlebars from "handlebars";
 
 global.Handlebars = Handlebars;
 
@@ -25,9 +25,9 @@ describe("PhoneField", () => {
         const domInput = dom.querySelector("input");
         const domLabel = dom.querySelector("label");
 
-        if (!domInput) throw "input is null";
+        if (!domInput) throw Error("input is null");
 
-        if (!domLabel) throw "label is null";
+        if (!domLabel) throw Error("label is null");
 
         expect(domInput.getAttribute("id")).toEqual(id);
         expect(domInput.getAttribute("placeholder")).toEqual("+7(999)456-78-90");

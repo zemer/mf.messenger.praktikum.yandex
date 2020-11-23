@@ -1,6 +1,6 @@
 import Block from "../../components/Block/index";
 import Button from "../../components/Button/index";
-import { template } from "./template";
+import template from "./template";
 import LoginField from "../../components/LoginField/index";
 import PasswordField from "../../components/PasswordField/index";
 import { ILoginProps } from "./interfaces";

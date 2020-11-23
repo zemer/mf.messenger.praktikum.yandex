@@ -25,9 +25,9 @@ describe("LoginField", () => {
         const domInput = dom.querySelector("input");
         const domLabel = dom.querySelector("label");
 
-        if (!domInput) throw "login is null";
+        if (!domInput) throw Error("login is null");
 
-        if (!domLabel) throw "label is null";
+        if (!domLabel) throw Error("label is null");
 
         expect(domInput.getAttribute("id")).toEqual(id);
         expect(domInput.getAttribute("placeholder")).toEqual(placeholder);

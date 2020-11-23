@@ -2,10 +2,6 @@ import InputWithLabel from "../InputWithLabel/index";
 import { IPasswordFieldProps } from "./types";
 
 export default class PasswordField extends InputWithLabel<IPasswordFieldProps> {
-    constructor(props: IPasswordFieldProps) {
-        super(props);
-    }
-
     checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Пароль не может быть пустым";

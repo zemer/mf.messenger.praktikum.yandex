@@ -43,10 +43,10 @@ export default class Input extends Block<InputProps> {
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("focus", this.handleFocus, true);
-            this._element.addEventListener("blur", this.handleBlur, true);
-            this._element.addEventListener("input", this.handleInput);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("focus", this.handleFocus, true);
+            this.blockElement.addEventListener("blur", this.handleBlur, true);
+            this.blockElement.addEventListener("input", this.handleInput);
         }
     }
 
@@ -65,7 +65,7 @@ export default class Input extends Block<InputProps> {
     setValue(value: string) {
         this.value = value;
 
-        if (this._element) {
+        if (this.blockElement) {
             const input = this.element?.querySelector(`#${this.props.id}`);
             if (input) input.setAttribute("value", value);
         }
@@ -82,6 +82,7 @@ export default class Input extends Block<InputProps> {
 
     checkValidation(value: string | null): string | null {
         // value нужен в дочерних классах
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         value?.length;
         return null;
     }

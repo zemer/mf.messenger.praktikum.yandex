@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { IButtonProps } from "./types";
 
@@ -19,8 +19,8 @@ export default class Button extends Block<IButtonProps> {
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("click", this.handleClick, true);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("click", this.handleClick, true);
         }
     }
 

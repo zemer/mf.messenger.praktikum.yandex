@@ -2,64 +2,56 @@ import Block from "../components/Block/Block";
 import { clear, render } from "./renderDOM";
 
 export default class Route {
-    private _pathname: string;
+    private pathname: string;
 
-    private _blockClass: any;
+    private blockClass: any;
 
-    private _block: Block<any> | null;
+    private block: Block<any> | null;
 
-    private _props: any;
+    private props: any;
 
-    private _pattern: RegExp;
+    private pattern: RegExp;
 
-    constructor(pathname: string, view: any, props: any) {
-        this._pathname = pathname;
-        this._blockClass = view;
-        this._block = null;
-        this._props = props;
+    constructor(pathname: string, view: unknown, props: unknown) {
+        this.pathname = pathname;
+        this.blockClass = view;
+        this.block = null;
+        this.props = props;
 
-        pathname.match;
-
-        this._pattern = new RegExp(`^${pathname.replace(/:(\w+)/g, "(?<$1>\\w+)")}$`);
+        this.pattern = new RegExp(`^${pathname.replace(/:(\w+)/g, "(?<$1>\\w+)")}$`);
     }
 
-    // navigate(pathname: string) {
-    //     if (this.match(pathname)) {
-    //         this._pathname = pathname;
-    //         this.render();
-    //     }
-    // }
-
     leave() {
-        if (this._block) {
-            this._block.hide();
-            clear(this._props.rootQuery, this._block);
-            this._block = null;
+        if (this.block) {
+            this.block.hide();
+            clear(this.props.rootQuery, this.block);
+            this.block = null;
         }
     }
 
-    isEqual(lhs: string, rhs: string) {
+    isEqualPaths(lhs: string, rhs: string) {
         return lhs === rhs;
     }
 
     match(pathname: string): boolean {
-        if (this.isEqual(pathname, this._pathname)) return true;
+        if (this.isEqualPaths(pathname, this.pathname)) return true;
 
-        const args = pathname.match(this._pattern);
+        const args = pathname.match(this.pattern);
         if (args) return true;
 
         return false;
     }
 
     render(pathname: string) {
-        if (!this._block) {
-            const args = pathname.match(this._pattern);
+        if (!this.block) {
+            const args = pathname.match(this.pattern);
 
-            this._block = new this._blockClass(args?.groups);
-            render(this._props.rootQuery, this._block);
+            // eslint-disable-next-line new-cap
+            this.block = new this.blockClass(args?.groups);
+            render(this.props.rootQuery, this.block);
             return;
         }
 
-        this._block.show();
+        this.block.show();
     }
 }

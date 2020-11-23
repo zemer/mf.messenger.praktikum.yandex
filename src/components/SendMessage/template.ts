@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <div class="full-width">
     {{{message}}}
 </div>
@@ -6,3 +6,5 @@ export const template = `
     {{{button}}}
 </div>
 `;
+
+export default template;

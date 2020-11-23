@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { IUploadAvatarProps } from "./types";
 
@@ -9,7 +9,7 @@ export default class UploadAvatar extends Block<IUploadAvatarProps> {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    render() {
+    render(): string {
         let { source } = this.props;
 
         if (!this.props.source || this.props.source === "") source = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
@@ -21,13 +21,13 @@ export default class UploadAvatar extends Block<IUploadAvatarProps> {
         });
     }
 
-    setEvents() {
-        if (this._element) {
-            this._element.addEventListener("click", this.handleClick, false);
+    setEvents(): void {
+        if (this.blockElement) {
+            this.blockElement.addEventListener("click", this.handleClick, false);
         }
     }
 
-    handleClick() {
+    handleClick(): void {
         this.props.handleClick();
     }
 }

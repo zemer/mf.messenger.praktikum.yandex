@@ -1,5 +1,5 @@
 import Block from "../../components/Block/index";
-import { template } from "./template";
+import template from "./template";
 import { ChatListProps } from "./interfaces";
 import { chatsController } from "../../controllers/ChatsController";
 import { Store, store } from "../../store/Store";

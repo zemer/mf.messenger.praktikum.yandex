@@ -11,6 +11,6 @@ const entityMap: PlainObject<string> = {
     "=": "&#x3D;"
 };
 
-export function sanitize(value: string) {
-    return String(value).replace(/[&<>"'`=\/]/g, (s: string) => entityMap[s]);
+export default function sanitize(value: string) {
+    return String(value).replace(/[&<>"'`=/]/g, (s: string) => entityMap[s]);
 }

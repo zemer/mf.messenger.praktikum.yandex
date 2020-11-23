@@ -1,7 +1,7 @@
+import Handlebars from "handlebars";
 import Block from "../../Block/Block";
 import Button from "../index";
 import "@testing-library/jest-dom/extend-expect";
-import Handlebars from "handlebars";
 
 global.Handlebars = Handlebars;
 
@@ -24,7 +24,7 @@ describe("Button", () => {
 
         const domButton = dom.querySelector("button");
 
-        if (!domButton) throw "Button is null";
+        if (!domButton) throw Error("Button is null");
 
         expect(domButton.getAttribute("type")).toEqual(buttonType);
         expect(domButton.textContent).toEqual(buttonText);
@@ -42,7 +42,7 @@ describe("Button", () => {
 
         const domButton = dom.querySelector("button");
 
-        if (!domButton) throw "Button is null";
+        if (!domButton) throw Error("Button is null");
 
         expect(domButton.getAttribute("type")).toEqual(buttonType);
         expect(domButton.textContent).toEqual(buttonText);
@@ -60,7 +60,7 @@ describe("Button", () => {
 
         const domButton = dom.querySelector("button");
 
-        if (!domButton) throw "Button is null";
+        if (!domButton) throw Error("Button is null");
 
         expect(domButton.getAttribute("type")).toEqual(buttonType);
         expect(domButton.textContent).toEqual(buttonText);

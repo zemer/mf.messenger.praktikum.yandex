@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <div class="edit-message full-width row-container">
     {{{newChatName}}}
     <div>
@@ -11,3 +11,5 @@ export const template = `
     {{/each}}
 </div>
 `;
+
+export default template;

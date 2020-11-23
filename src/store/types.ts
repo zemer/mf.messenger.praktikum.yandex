@@ -1,14 +1,14 @@
-type TChatItems = {
+export type TChatItems = {
     items: TChatItem[];
 };
 
-type TChatItem = {
+export type TChatItem = {
     id: number;
     title: string;
     avatar: string;
 };
 
-type TProfile = {
+export type TProfile = {
     id: number;
     first_name: string;
     second_name: string;
@@ -19,10 +19,10 @@ type TProfile = {
     avatar: string;
 };
 
-type TChatUsers = {
+export type TChatUsers = {
     items: TProfile[];
 };
 
-type TError = {
+export type TError = {
     reason: string;
 };

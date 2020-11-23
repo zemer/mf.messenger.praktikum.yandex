@@ -1,6 +1,6 @@
 import Block from "../components/Block/index";
 
-export function render(query: string, block: Block<any> | null) {
+export function render(query: string, block: Block<any> | null): Element | null {
     const root = document.querySelector(query);
 
     if (!root || !block) {
@@ -17,7 +17,7 @@ export function render(query: string, block: Block<any> | null) {
     return root;
 }
 
-export function clear(query: string, block: Block<any> | null) {
+export function clear(query: string, block: Block<any> | null): Element | null {
     const root = document.querySelector(query);
 
     if (!root || !block) {
@@ -30,7 +30,7 @@ export function clear(query: string, block: Block<any> | null) {
     }
 
     root.removeChild(content);
-    Block._instances = [];
+    Block.instances = [];
 
     return root;
 }

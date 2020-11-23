@@ -1,5 +1,5 @@
 import { HTTPTransport } from "../utils/fetch";
-import { baseAPIUrl } from "./api-url";
+import baseAPIUrl from "./api-url";
 
 export interface SingUpData extends Record<string, unknown> {
     first_name: string;

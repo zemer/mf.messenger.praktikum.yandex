@@ -1,6 +1,6 @@
 import Block from "../Block/index";
 import ErrorHelper from "../ErrorHelper/index";
-import { template } from "./template";
+import template from "./template";
 import { IMessageInputProps } from "./types";
 
 export default class MessageInput extends Block<IMessageInputProps> {
@@ -51,10 +51,10 @@ export default class MessageInput extends Block<IMessageInputProps> {
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("focus", this.handleFocus, true);
-            this._element.addEventListener("blur", this.handleBlur, true);
-            this._element.addEventListener("input", this.handleInput);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("focus", this.handleFocus, true);
+            this.blockElement.addEventListener("blur", this.handleBlur, true);
+            this.blockElement.addEventListener("input", this.handleInput);
         }
     }
 

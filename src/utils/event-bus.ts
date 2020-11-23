@@ -1,11 +1,11 @@
 export default class EventBus {
-    private listeners: Map<string, Array<Function>>;
+    private listeners: Map<string, Array<() => void>>;
 
     constructor() {
         this.listeners = new Map();
     }
 
-    on(event: string, callback: Function) {
+    on(event: string, callback: any): void {
         if (!this.listeners.get(event)) {
             this.listeners.set(event, []);
         }
@@ -13,7 +13,7 @@ export default class EventBus {
         this.listeners.get(event)?.push(callback);
     }
 
-    off(event: string, callback: Function) {
+    off(event: string, callback: () => void): void {
         if (!this.listeners.get(event)) {
             throw new Error(`Нет события: ${event}`);
         }
@@ -25,12 +25,12 @@ export default class EventBus {
         this.listeners.set(event, newListeners ?? []);
     }
 
-    emit(event: string, ...args: Object[]) {
+    emit(event: string, ...args: unknown[]): void {
         if (!this.listeners.get(event)) {
             throw new Error(`Нет события: ${event}`);
         }
 
-        this.listeners.get(event)?.forEach((listener: Function) => {
+        this.listeners.get(event)?.forEach((listener: any) => {
             listener(...args);
         });
     }

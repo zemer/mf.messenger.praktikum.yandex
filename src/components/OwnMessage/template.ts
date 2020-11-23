@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <div class="message-text">
     <span>{{text}}</span>
 </div>
@@ -6,3 +6,5 @@ export const template = `
     <span>{{date}}</span>
 </div>
 `;
+
+export default template;

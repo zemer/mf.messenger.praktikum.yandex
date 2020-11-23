@@ -1,6 +1,6 @@
 import Block from "../../components/Block/index";
 import Button from "../../components/Button/index";
-import { template } from "./template";
+import template from "./template";
 import LoginField from "../../components/LoginField/index";
 import PasswordField from "../../components/PasswordField/index";
 import NotEmptyField from "../../components/NotEmptyField/index";
@@ -13,7 +13,7 @@ import getFieldByPath from "../../utils/getFieldByPath";
 import { authController } from "../../controllers/AuthController";
 import { usersController } from "../../controllers/UsersController";
 import UploadAvatar from "../../components/UploadAvatar/index";
-import { baseAPIUrl } from "../../api/api-url";
+import baseAPIUrl from "../../api/api-url";
 import { AppState, UserState } from "../../store/interfaces";
 
 export default class UserProfile extends Block<IUserProfileProps> {
@@ -117,7 +117,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     }
 
     setEvents() {
-        if (this._element) {
+        if (this.blockElement) {
             const fileEl = document.getElementById("file") as HTMLInputElement;
             if (fileEl) {
                 fileEl.addEventListener("change", (ev) => this.handleFileChange(ev), false);

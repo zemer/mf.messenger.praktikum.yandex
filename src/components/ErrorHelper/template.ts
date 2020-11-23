@@ -1,3 +1,5 @@
-export const template = `
+const template = `
 {{errorText}}
 `;
+
+export default template;

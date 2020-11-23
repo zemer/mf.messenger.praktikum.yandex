@@ -1,5 +1,5 @@
 import Block from "../../components/Block/index";
-import { template } from "./template";
+import template from "./template";
 import SendMessage from "../../components/SendMessage/index";
 import { ChatProps } from "./interfaces";
 import { ISendMessagProps } from "../../components/SendMessage/types";
@@ -116,7 +116,7 @@ export default class Chat extends Block<ChatProps> {
         }
     }
 
-    usersSelector(state: AppState) {
+    usersSelector(state: AppState): any {
         return getFieldByPath(state, "activeChat.users");
     }
 

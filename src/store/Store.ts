@@ -1,5 +1,5 @@
-import { cloneDeep } from "../utils/cloneDeep";
-import { sanitize } from "../utils/escape";
+import cloneDeep from "../utils/cloneDeep";
+import sanitize from "../utils/escape";
 import EventBus from "../utils/event-bus";
 import {
     AppState, ChatItemState, LoginState, UserState
@@ -28,7 +28,7 @@ export class Store {
         return this.state;
     }
 
-    subscribe(event: string, callback: Function) {
+    subscribe(event: string, callback: any) {
         this.eventBus().on(event, callback);
     }
 
@@ -66,6 +66,10 @@ export class Store {
 
             case Store.EVENTS.SIGN_IN_FAILED: {
                 clone.login.error = (payload as string);
+                break;
+            }
+
+            default: {
                 break;
             }
         }

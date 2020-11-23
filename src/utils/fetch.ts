@@ -10,7 +10,7 @@ const METHODS = {
 };
 
 export function queryStringify(data: StringIndexed): string | never {
-    if (typeof data !== "object") throw "Input must be an object";
+    if (typeof data !== "object") throw Error("Input must be an object");
 
     const convertKey = (key: string, value: any): string => {
         if (Array.isArray(value)) {
@@ -50,7 +50,9 @@ export class HTTPTransport {
 
     get = (url: string, options: HttpOptions = this.defaultOptions): Promise<XMLHttpRequest> => {
         if (options.data) {
-            url += `?${queryStringify(options.data as StringIndexed)}`;
+            const getUrl = `${url}?${queryStringify(options.data as StringIndexed)}`;
+
+            return this.request(getUrl, options, METHODS.GET, options.timeout);
         }
 
         return this.request(url, options, METHODS.GET, options.timeout);
@@ -75,14 +77,12 @@ export class HTTPTransport {
             xhr.withCredentials = withCredentials ?? true;
 
             if (headers) {
-                for (const [key, value] of Object.entries(headers)) {
-                    xhr.setRequestHeader(key, value);
-                }
+                Object.entries(headers).forEach((pair) => xhr.setRequestHeader(pair[0], pair[1]));
             } else {
                 xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
             }
 
-            xhr.onload = function () {
+            xhr.onload = () => {
                 if (xhr.status >= 400) return reject(xhr);
 
                 return resolve(xhr);

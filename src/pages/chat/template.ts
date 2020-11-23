@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <div class="container">
     <div class="main full-width full-screen row-container">
         <div class="left-panel column-container">
@@ -41,3 +41,5 @@ export const template = `
     </div>
 </div>
 `;
+
+export default template;

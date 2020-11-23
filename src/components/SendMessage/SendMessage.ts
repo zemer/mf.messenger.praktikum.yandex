@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import Button from "../Button/index";
 import MessageInput from "../MessageInput/index";
@@ -22,7 +22,7 @@ export default class SendMessage extends Block<ISendMessagProps> {
         }, "edit-message full-width row-container");
     }
 
-    render() {
+    render(): string {
         const compile = Handlebars.compile(template);
         const block = compile({
             ...this.props,

@@ -1,1 +1,2 @@
-export const baseAPIUrl = "https://ya-praktikum.tech";
+const baseAPIUrl = "https://ya-praktikum.tech";
+export default baseAPIUrl;

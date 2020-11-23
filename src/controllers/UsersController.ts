@@ -1,17 +1,17 @@
 import { ChnageUserProfileRequest } from "../api/interfaces";
-import { UserAPI } from "../api/user-api";
+import UserAPI from "../api/user-api";
 import { Store, store } from "../store/Store";
 import Router from "../utils/router";
 
 export default class UsersController {
-    private _userAPI: UserAPI;
+    private userAPI: UserAPI;
 
     constructor() {
-        this._userAPI = new UserAPI();
+        this.userAPI = new UserAPI();
     }
 
     updateProfile(profile: ChnageUserProfileRequest, oldPassword: string, newPassword: string, avatar: File | null) {
-        const updatePorile = this._userAPI.updateProfile(profile);
+        const updatePorile = this.userAPI.updateProfile(profile);
 
         let updateAvatar = null;
         if (avatar) {
@@ -24,18 +24,18 @@ export default class UsersController {
             .then(() => Router.back());
     }
 
-    private updatePassword(oldPassword: string, newPassword: string) {
-        return this._userAPI.updatePassword(oldPassword, newPassword);
+    private updatePassword(oldPassword: string, newPassword: string): Promise<XMLHttpRequest> {
+        return this.userAPI.updatePassword(oldPassword, newPassword);
     }
 
-    private updateAvatar(avatar: File | null) {
-        return this._userAPI.updateAvatar(avatar);
+    private updateAvatar(avatar: File | null): Promise<XMLHttpRequest> {
+        return this.userAPI.updateAvatar(avatar);
     }
 
-    search(login: string) {
-        return this._userAPI.search(login)
-            .then((res) => JSON.parse(res.response))
-            .then((res) => store.dispatch(Store.EVENTS.SEARCH_USERS, { items: res }));
+    search(login: string): Promise<XMLHttpRequest> {
+        return this.userAPI.search(login)
+            .then((res: { response: string; }) => JSON.parse(res.response) as TChatUsers)
+            .then((res: TChatUsers) => store.dispatch(Store.EVENTS.SEARCH_USERS, { items: res }));
     }
 }
 

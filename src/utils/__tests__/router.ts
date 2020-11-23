@@ -7,16 +7,16 @@ describe("Router", () => {
             const router = new Router(".test");
             router.use("/test/chats", ChatList);
 
-            const route = Router.__instance.getRoute("/test/chats");
+            const route = Router.instance.getRoute("/test/chats");
             expect(route).not.toBeUndefined();
-            expect(route).toHaveProperty("_blockClass");
+            expect(route).toHaveProperty("blockClass");
         });
 
         it("Не найденный маршрут", () => {
             const router = new Router(".mocha");
             router.use("/test/chats", ChatList);
 
-            const route = Router.__instance.getRoute("/f7yds87fs7d");
+            const route = Router.instance.getRoute("/f7yds87fs7d");
             expect(route).toBeUndefined();
         });
     });

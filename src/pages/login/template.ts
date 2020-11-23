@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <main>
     <form name="login" >
         <div class="container">
@@ -20,3 +20,5 @@ export const template = `
     </form>
 </main>
 `;
+
+export default template;

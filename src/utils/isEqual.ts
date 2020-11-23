@@ -11,7 +11,7 @@ function isArrayOrObject(value: unknown): value is ([] | PlainObject) {
     return isPlainObject(value) || Array.isArray(value);
 }
 
-export function isEqual(lhs: PlainObject | [], rhs: PlainObject | []) {
+export default function isEqual(lhs: PlainObject | [], rhs: PlainObject | []): boolean {
     // Сравнение количества ключей объектов и массивов
     if (Object.keys(lhs).length !== Object.keys(rhs).length) {
         return false;

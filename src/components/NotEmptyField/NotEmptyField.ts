@@ -1,12 +1,8 @@
-import { sanitize } from "../../utils/escape";
+import sanitize from "../../utils/escape";
 import InputWithLabel from "../InputWithLabel/index";
 import { INotEmptyFieldProps } from "./types";
 
 export default class NotEmptyField extends InputWithLabel<INotEmptyFieldProps> {
-    constructor(props: INotEmptyFieldProps) {
-        super(props);
-    }
-
     checkValidation(value?: string | null): string | null {
         if (!value) {
             return "Поле не может быть пустым";

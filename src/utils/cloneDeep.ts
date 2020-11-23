@@ -1,6 +1,6 @@
 import { StringIndexed } from "./fetch";
 
-export function cloneDeep(obj: object): object {
+export default function cloneDeep(obj: any): any {
     if (obj === null || obj === undefined) {
         return obj;
     }

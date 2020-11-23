@@ -1,18 +1,18 @@
 import { HTTPTransport } from "../utils/fetch";
-import { baseAPIUrl } from "./api-url";
+import baseAPIUrl from "./api-url";
 
 export default class ChatAPI {
     private chatAPIInstance = new HTTPTransport(`${baseAPIUrl}/api/v2/chats`);
 
-    getChats() {
+    getChats(): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.get("/");
     }
 
-    getUsers(chatId: number) {
+    getUsers(chatId: number): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.get(`/${chatId}/users`);
     }
 
-    createChat(title: string) {
+    createChat(title: string): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.post("/", {
             data: {
                 title
@@ -20,7 +20,7 @@ export default class ChatAPI {
         });
     }
 
-    addUser(userId: number, chatId: number) {
+    addUser(userId: number, chatId: number): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.put("/users", {
             data: {
                 users: [userId],
@@ -29,7 +29,7 @@ export default class ChatAPI {
         });
     }
 
-    deleteUser(userId: number, chatId: number) {
+    deleteUser(userId: number, chatId: number): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.delete("/users", {
             data: {
                 users: [userId],

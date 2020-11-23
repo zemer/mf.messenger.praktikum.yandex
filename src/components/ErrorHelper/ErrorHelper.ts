@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { IErrorHelperProps } from "./types";
 
@@ -9,12 +9,12 @@ export default class ErrorHelper extends Block<IErrorHelperProps> {
         this.hide();
     }
 
-    render() {
+    render(): string {
         const compiled = Handlebars.compile(template);
         return compiled(this.props);
     }
 
-    showOnError(message: string | null) {
+    showOnError(message: string | null): void {
         if (message) {
             this.setProps({
                 ...this.props,

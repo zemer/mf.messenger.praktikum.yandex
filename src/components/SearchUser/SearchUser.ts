@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { FindUserProps } from "./types";
 import Button from "../Button/index";
@@ -8,7 +8,7 @@ import { AppState, UserState } from "../../store/interfaces";
 import getFieldByPath from "../../utils/getFieldByPath";
 import { usersController } from "../../controllers/UsersController";
 import ChatUser from "../ChatUser/index";
-import { sanitize } from "../../utils/escape";
+import sanitize from "../../utils/escape";
 
 export default class SearchUser extends Block<FindUserProps> {
     private searchField?: Input;

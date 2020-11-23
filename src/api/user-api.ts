@@ -1,8 +1,8 @@
 import { HTTPTransport } from "../utils/fetch";
-import { baseAPIUrl } from "./api-url";
+import baseAPIUrl from "./api-url";
 import { ChnageUserProfileRequest } from "./interfaces";
 
-export class UserAPI {
+export default class UserAPI {
     private userAPIInstance = new HTTPTransport(`${baseAPIUrl}/api/v2/user`);
 
     updateProfile(profile: ChnageUserProfileRequest): Promise<XMLHttpRequest> {
@@ -20,7 +20,7 @@ export class UserAPI {
         });
     }
 
-    updateAvatar(avatar: File | null) {
+    updateAvatar(avatar: File | null): Promise<XMLHttpRequest> {
         if (avatar) {
             const formdata = new FormData();
             formdata.append("avatar", avatar);
@@ -34,7 +34,7 @@ export class UserAPI {
         return Promise.reject();
     }
 
-    search(login: string) {
+    search(login: string): Promise<XMLHttpRequest> {
         return this.userAPIInstance.post("/search", {
             data: {
                 login

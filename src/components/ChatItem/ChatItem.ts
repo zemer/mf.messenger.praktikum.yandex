@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { IChatItemProps } from "./types";
 import Avatar from "../Avatar/index";
@@ -30,8 +30,8 @@ export default class ChatItem extends Block<IChatItemProps> {
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("click", this.handleClick, true);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("click", this.handleClick, true);
         }
     }
 

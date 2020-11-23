@@ -1,8 +1,8 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { ChatUserProps } from "./types";
 import Avatar from "../Avatar/index";
-import { baseAPIUrl } from "../../api/api-url";
+import baseAPIUrl from "../../api/api-url";
 import Button from "../Button/index";
 
 export default class ChatUser extends Block<ChatUserProps> {
@@ -48,8 +48,8 @@ export default class ChatUser extends Block<ChatUserProps> {
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("click", this.handleClick, true);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("click", this.handleClick, true);
         }
     }
 

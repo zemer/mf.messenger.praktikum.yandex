@@ -3,14 +3,14 @@ import { Store, store } from "../store/Store";
 import Router from "../utils/router";
 
 export default class AuthController {
-    private _authAPI: AuthAPI;
+    private authAPI: AuthAPI;
 
     constructor() {
-        this._authAPI = new AuthAPI();
+        this.authAPI = new AuthAPI();
     }
 
-    signIn(login: string, password: string) {
-        this._authAPI.signIn(login, password)
+    signIn(login: string, password: string): void {
+        this.authAPI.signIn(login, password)
             .then(() => Router.go("/chats"))
             .catch((e: XMLHttpRequest) => {
                 const error = (JSON.parse(e.response) as TError);
@@ -18,23 +18,23 @@ export default class AuthController {
             });
     }
 
-    signUp(data: SingUpData) {
-        this._authAPI.signUp(data)
+    signUp(data: SingUpData): void {
+        this.authAPI.signUp(data)
             .then(() => Router.go("/chats"));
     }
 
-    checkSignUp() {
-        this._authAPI.profile()
+    checkSignUp(): void {
+        this.authAPI.profile()
             .then(() => Router.go("/chats"));
     }
 
-    logout() {
-        this._authAPI.logout()
+    logout(): void {
+        this.authAPI.logout()
             .then(() => Router.go("/login"));
     }
 
-    profile() {
-        this._authAPI.profile()
+    profile(): void {
+        this.authAPI.profile()
             .then((res) => JSON.parse(res.response))
             .then((res) => store.dispatch(Store.EVENTS.PROFILE_CHANGED, { res }));
     }

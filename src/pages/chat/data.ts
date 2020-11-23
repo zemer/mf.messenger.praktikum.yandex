@@ -1,7 +1,7 @@
 import CompanionMessage from "../../components/CompanionMessage/index";
 import OwnMessage from "../../components/OwnMessage/index";
 
-export const messages = [
+const messages = [
     new CompanionMessage({
         text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
         incididunt
@@ -20,3 +20,5 @@ export const messages = [
         date: "15:16"
     })
 ];
+
+export default messages;

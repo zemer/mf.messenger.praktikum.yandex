@@ -10,9 +10,7 @@ describe("fetch", () => {
             const fetch = new HTTPTransport(testApiUrl);
             return fetch.get("/api/users/2", { withCredentials: false })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then((res) => {
-                    expect(res).toHaveProperty("data");
-                });
+                .then((res) => expect(res).toHaveProperty("data"));
         });
 
         it("Запрос с параметрами", () => {
@@ -22,14 +20,12 @@ describe("fetch", () => {
             };
             return fetch.get("/api/users", { data, withCredentials: false })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then((res) => {
-                    expect(res).toHaveProperty("data");
-                });
+                .then((res) => expect(res).toHaveProperty("data"));
         });
 
-        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
+        it("Должна быть ошибка, если адрес не существует", (done: jest.DoneCallback) => {
             const fetch = new HTTPTransport("https://reqfdsfsdfsres.in");
-            fetch.get("/api/users/23", { timeout: 1, withCredentials: false })
+            return fetch.get("/api/users/23", { timeout: 1, withCredentials: false })
                 .then(() => done("Должна быть ошибка"))
                 .catch(() => done());
         });
@@ -52,7 +48,7 @@ describe("fetch", () => {
                 });
         });
 
-        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
+        it("Должна быть ошибка, если адрес не существует", (done: jest.DoneCallback) => {
             const fetch = new HTTPTransport("https://reqrfdsfdsfsdgses.in");
             fetch.post("/api/register", {
                 data: {
@@ -77,12 +73,10 @@ describe("fetch", () => {
                 withCredentials: false
             })
                 .then((res: XMLHttpRequest) => JSON.parse(res.responseText))
-                .then((res) => {
-                    expect(res).toHaveProperty("updatedAt");
-                });
+                .then((res) => expect(res).toHaveProperty("updatedAt"));
         });
 
-        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
+        it("Должна быть ошибка, если адрес не существует", (done: jest.DoneCallback) => {
             const fetch = new HTTPTransport("https://reqrfdsfsdfsdes.in");
             fetch.put("/api/register", {
                 data: {
@@ -109,7 +103,7 @@ describe("fetch", () => {
                 .then((res: XMLHttpRequest) => expect(res.status).toEqual(204));
         });
 
-        it("Должна быть ошибка, если адрес не существует", (done: Function) => {
+        it("Должна быть ошибка, если адрес не существует", (done: jest.DoneCallback) => {
             const fetch = new HTTPTransport("https://reqrfdsfsdfsdes.in");
             fetch.delete("/api/register", {
                 data: {

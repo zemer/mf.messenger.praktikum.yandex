@@ -25,9 +25,9 @@ describe("MailField", () => {
         const domInput = dom.querySelector("input");
         const domLabel = dom.querySelector("label");
 
-        if (!domInput) throw "mail is null";
+        if (!domInput) throw Error("mail is null");
 
-        if (!domLabel) throw "label is null";
+        if (!domLabel) throw Error("label is null");
 
         expect(domInput.getAttribute("id")).toEqual(id);
         expect(domInput.getAttribute("placeholder")).toEqual(placeholder);

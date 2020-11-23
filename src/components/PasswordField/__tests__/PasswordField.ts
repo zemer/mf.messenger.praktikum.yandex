@@ -25,9 +25,9 @@ describe("PasswordField", () => {
         const domInput = dom.querySelector("input");
         const domLabel = dom.querySelector("label");
 
-        if (!domInput) throw "input is null";
+        if (!domInput) throw Error("input is null");
 
-        if (!domLabel) throw "label is null";
+        if (!domLabel) throw Error("label is null");
 
         expect(domInput.getAttribute("id")).toEqual(id);
         expect(domInput.getAttribute("placeholder")).toEqual(placeholder);

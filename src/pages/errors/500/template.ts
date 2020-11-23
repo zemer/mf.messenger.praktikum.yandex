@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <main class="full-height zero-margin">
     <div class="container full-height">
         <div class="full-width full-height column-container centered-container vertical-centered-container">
@@ -15,3 +15,5 @@ export const template = `
     </div>
 </main>
 `;
+
+export default template;

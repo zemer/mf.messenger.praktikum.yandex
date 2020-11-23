@@ -1,4 +1,4 @@
-export const template = `
+const template = `
 <main>
     <div class="container full-screen">
         <div class="user-profile-title full-width row-container space-between">
@@ -35,3 +35,5 @@ export const template = `
     </div>
 </main>
 `;
+
+export default template;

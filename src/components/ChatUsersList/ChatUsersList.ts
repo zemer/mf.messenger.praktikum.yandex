@@ -1,4 +1,4 @@
-import { template } from "./template";
+import template from "./template";
 import Block from "../Block/index";
 import { ChatUsersListProps } from "./types";
 import { UserState } from "../../store/interfaces";
@@ -33,8 +33,8 @@ export default class ChatUsersList extends Block<ChatUsersListProps> {
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("click", this.handleClick, true);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("click", this.handleClick, true);
         }
     }
 

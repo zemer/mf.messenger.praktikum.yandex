@@ -10,14 +10,14 @@ export default class Link extends Block<LinkProps> {
     }
 
     render(): string {
-        if (this._element) this._element.setAttribute("href", this.props.path);
+        if (this.blockElement) this.blockElement.setAttribute("href", this.props.path);
 
         return this.props.text;
     }
 
     setEvents() {
-        if (this._element) {
-            this._element.addEventListener("click", this.handleClick, true);
+        if (this.blockElement) {
+            this.blockElement.addEventListener("click", this.handleClick, true);
         }
     }
 

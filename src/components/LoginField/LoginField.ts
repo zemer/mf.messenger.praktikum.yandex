@@ -2,10 +2,6 @@ import InputWithLabel from "../InputWithLabel/index";
 import { ILoginFieldProps } from "./types";
 
 export default class LoginField extends InputWithLabel<ILoginFieldProps> {
-    constructor(props: ILoginFieldProps) {
-        super(props);
-    }
-
     checkValidation(value: string | null): string | null {
         if (!value) {
             return "Логин не может быть пустым";

@@ -1,1 +1,2 @@
-export const template = "{{value}}";
+const template = "{{value}}";
+export default template;

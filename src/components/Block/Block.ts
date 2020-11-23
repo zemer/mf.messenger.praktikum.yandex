@@ -1,5 +1,5 @@
 import EventBus from "../../utils/event-bus";
-import { isEqual } from "../../utils/isEqual";
+import isEqual from "../../utils/isEqual";
 import { PlainObject } from "../../commonTypes";
 
 interface IMetaInfo<T> {
@@ -17,28 +17,28 @@ class Block<T extends PlainObject> {
         FLOW_CDU: "flow:component-did-update"
     };
 
-    static _instances: Block<any>[] = [];
+    static instances: Block<any>[] = [];
 
-    static hydrate = function (root: HTMLElement | HTMLDocument = document) {
-        for (const i of Block._instances) {
+    static hydrate = (root: HTMLElement | HTMLDocument = document) => {
+        for (const i of Block.instances) {
             const id = i.getId();
             const elements = root.querySelectorAll(`[_key="${id}"]`);
 
-            if (elements && elements.length == 1) {
+            if (elements && elements.length === 1) {
                 i.setElement(elements[0] as HTMLElement);
             }
         }
     };
 
-    _id = `uniq${Math.random() * 1000000}`;
+    id = `uniq${Math.random() * 1000000}`;
 
     props: T;
 
     visible: boolean | null;
 
-    _element: HTMLElement | null = null;
+    blockElement: HTMLElement | null = null;
 
-    _meta: IMetaInfo<T> | null = null;
+    blockMeta: IMetaInfo<T> | null = null;
 
     eventBus: () => EventBus;
 
@@ -53,46 +53,46 @@ class Block<T extends PlainObject> {
     constructor(tagName = "div", props: T, classes: string | null = null, visible: boolean | null = null) {
         const eventBus = new EventBus();
 
-        this._meta = {
+        this.blockMeta = {
             tagName,
             classes,
             props
         };
 
-        this.props = this._makePropsProxy(props);
+        this.props = this.makePropsProxy(props);
         this.visible = visible;
 
         this.eventBus = () => eventBus;
 
-        this._registerEvents(eventBus);
+        this.registerEvents(eventBus);
         eventBus.emit(Block.EVENTS.INIT);
-        Block._instances.push(this);
+        Block.instances.push(this);
     }
 
-    _registerEvents(eventBus: EventBus) {
+    registerEvents(eventBus: EventBus) {
         eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
-        eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
-        eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
-        eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
+        eventBus.on(Block.EVENTS.FLOW_CDM, this.blockComponentDidMount.bind(this));
+        eventBus.on(Block.EVENTS.FLOW_RENDER, this.blockRender.bind(this));
+        eventBus.on(Block.EVENTS.FLOW_CDU, this.blockComponentDidUpdate.bind(this));
     }
 
-    _createResources() {
-        const tagName = this._meta?.tagName;
-        this._element = this._createDocumentElement(tagName ?? "div");
+    createResources() {
+        const tagName = this.blockMeta?.tagName;
+        this.blockElement = this.createDocumentElement(tagName ?? "div");
 
-        if (this._meta?.classes) {
-            this._element.className = this._meta.classes;
+        if (this.blockMeta?.classes) {
+            this.blockElement.className = this.blockMeta.classes;
         }
 
-        this._element.setAttribute("_key", this.getId());
+        this.blockElement.setAttribute("_key", this.getId());
     }
 
     init() {
-        this._createResources();
+        this.createResources();
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
     }
 
-    _componentDidMount() {
+    blockComponentDidMount() {
         this.componentDidMount();
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
@@ -100,7 +100,7 @@ class Block<T extends PlainObject> {
     componentDidMount() {
     }
 
-    _componentDidUpdate(oldProps: T, newProps: T) {
+    blockComponentDidUpdate(oldProps: T, newProps: T): void {
         const response = this.componentDidUpdate(oldProps, newProps);
 
         if (response) {
@@ -125,11 +125,11 @@ class Block<T extends PlainObject> {
     };
 
     get element() {
-        return this._element;
+        return this.blockElement;
     }
 
     setElement(element: HTMLElement) {
-        this._element = element;
+        this.blockElement = element;
         this.setEvents();
 
         if (this.visible === true) {
@@ -139,16 +139,16 @@ class Block<T extends PlainObject> {
         }
     }
 
-    setEvents() {
+    setEvents(): void {
     }
 
-    handleFocus() {
+    handleFocus(): void {
     }
 
-    _render() {
+    blockRender(): void {
         const block = this.render();
-        if (this._element) {
-            this._element.innerHTML = block;
+        if (this.blockElement) {
+            this.blockElement.innerHTML = block;
             Block.hydrate();
             this.setEvents();
         }
@@ -156,12 +156,12 @@ class Block<T extends PlainObject> {
 
     render(): string { return ""; }
 
-    renderToString() {
+    renderToString(): string {
         const wrapper = document.createElement("div");
 
-        if (this._element) {
-            this._element.innerHTML = this.render();
-            wrapper.appendChild(this._element);
+        if (this.blockElement) {
+            this.blockElement.innerHTML = this.render();
+            wrapper.appendChild(this.blockElement);
 
             Block.hydrate();
             this.setEvents();
@@ -170,15 +170,15 @@ class Block<T extends PlainObject> {
         return wrapper.innerHTML;
     }
 
-    getId() {
-        return this._id;
+    getId(): string {
+        return this.id;
     }
 
-    getContent() {
+    getContent(): HTMLElement | null {
         return this.element;
     }
 
-    _makePropsProxy(props: T) {
+    makePropsProxy(props: T): T {
         const self = this;
 
         return new Proxy<T>(props, {
@@ -186,12 +186,12 @@ class Block<T extends PlainObject> {
                 return Reflect.get(target, prop);
             },
             set(target, prop, value) {
-                const oldTarget = new Object();
+                const oldTarget = {};
                 Object.assign(oldTarget, target);
 
                 Reflect.set(target, prop, value);
 
-                const newTarget = new Object();
+                const newTarget = {};
                 Object.assign(newTarget, target);
 
                 self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, newTarget);
@@ -204,11 +204,11 @@ class Block<T extends PlainObject> {
         });
     }
 
-    _createDocumentElement(tagName: string): HTMLElement {
+    createDocumentElement(tagName: string): HTMLElement {
         return document.createElement(tagName);
     }
 
-    show() {
+    show(): void {
         this.visible = true;
 
         const element = this.getContent();
@@ -217,7 +217,7 @@ class Block<T extends PlainObject> {
         }
     }
 
-    hide() {
+    hide(): void {
         this.visible = false;
 
         const element = this.getContent();
