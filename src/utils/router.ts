@@ -44,7 +44,7 @@ export default class Router {
             return;
         }
 
-        const route = this.getRoute(pathname);
+        const route = this.getRoute(pathname) ?? this.getRoute("/404");
         if (!route) {
             return;
         }
