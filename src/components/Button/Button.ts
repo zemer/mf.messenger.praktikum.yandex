@@ -25,7 +25,6 @@ export default class Button extends Block<IButtonProps> {
     }
 
     handleClick() {
-        // logForm();
         this.props.handleClick();
     }
 }
