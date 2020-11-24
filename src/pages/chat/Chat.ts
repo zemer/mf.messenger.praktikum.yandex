@@ -37,7 +37,8 @@ export default class Chat extends Block<ChatProps> {
     init() {
         store.subscribe(Store.EVENTS.CHAT_USERS_CHANGED, this.onUsersChanged.bind(this));
         store.subscribe(Store.EVENTS.CHATS_ITEMS_CHANGED, this.onPropsChanged.bind(this));
-        store.subscribe(Store.EVENTS.NEW_MESSAGE, this.onNewMessage.bind(this));
+        store.subscribe(Store.EVENTS.NEW_MESSAGE, this.handleNewMessage.bind(this));
+        store.subscribe(Store.EVENTS.OLD_MESSAGES, this.handleOldMessages.bind(this));
         store.subscribe(Store.EVENTS.PROFILE_CHANGED, this.onProfileChanged.bind(this));
 
         this.sendMessage = new SendMessage({
@@ -164,7 +165,23 @@ export default class Chat extends Block<ChatProps> {
         });
     }
 
-    onNewMessage() {
+    handleNewMessage() {
+        const messages = this.messagesSelector(store.getState());
+
+        this.setProps({
+            ...this.props,
+            messages
+        });
+
+        if (this.messagesList) {
+            this.messagesList.setProps({
+                ...this.messagesList.props,
+                messages
+            });
+        }
+    }
+
+    handleOldMessages() {
         const messages = this.messagesSelector(store.getState());
 
         this.setProps({

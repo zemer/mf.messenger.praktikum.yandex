@@ -18,6 +18,7 @@ export class Store {
         SIGN_IN_FAILED: "SIGN_IN_FAILED",
         REGISTRATION_FAILED: "REGISTRATION_FAILED",
         NEW_MESSAGE: "NEW_MESSAGE",
+        OLD_MESSAGES: "OLD_MESSAGES",
         USER_ENTER: "USER_ENTER"
     };
 
@@ -88,6 +89,11 @@ export class Store {
 
             case Store.EVENTS.NEW_MESSAGE: {
                 clone.activeChat.messages.push(payload as TMessage);
+                break;
+            }
+
+            case Store.EVENTS.OLD_MESSAGES: {
+                clone.activeChat.messages = payload as TMessage[];
                 break;
             }
 

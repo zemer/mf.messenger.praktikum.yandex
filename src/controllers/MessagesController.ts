@@ -45,12 +45,14 @@ export class MessagesController {
             const data = JSON.parse(event.data);
 
             if (Array.isArray(data)) {
-                data.reverse().forEach((m: TMessage) => {
+                const messages = data.reverse().map((m: TMessage) => {
                     const newMessage = m;
                     // eslint-disable-next-line @typescript-eslint/dot-notation
                     newMessage.userId = (m as any)["user_id"]; // Косяк в API (поля разные)
-                    store.dispatch(Store.EVENTS.NEW_MESSAGE, newMessage);
+                    return newMessage;
                 });
+
+                store.dispatch(Store.EVENTS.OLD_MESSAGES, messages);
             } else {
                 const { type } = data;
 
