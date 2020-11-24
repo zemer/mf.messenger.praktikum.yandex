@@ -15,7 +15,7 @@ export default class Link extends Block<LinkProps> {
         return this.props.text;
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             this.blockElement.addEventListener("click", this.handleClick, true);
         }

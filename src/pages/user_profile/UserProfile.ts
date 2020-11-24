@@ -116,7 +116,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
         super.init();
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             const fileEl = document.getElementById("file") as HTMLInputElement;
             if (fileEl) {

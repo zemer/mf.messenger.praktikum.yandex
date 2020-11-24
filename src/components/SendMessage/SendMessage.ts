@@ -21,6 +21,7 @@ export default class SendMessage extends Block<ISendMessageProps> {
             handleClick: () => {
                 if (this.message?.validate() === null) {
                     this.props.onSend(this.message?.value ?? "");
+                    this.message.value = "";
                 }
             }
         }, "button send-button full-height");

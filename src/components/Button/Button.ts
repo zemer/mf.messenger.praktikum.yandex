@@ -18,7 +18,7 @@ export default class Button extends Block<IButtonProps> {
         return compiled(this.props);
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             this.blockElement.addEventListener("click", this.handleClick, true);
         }

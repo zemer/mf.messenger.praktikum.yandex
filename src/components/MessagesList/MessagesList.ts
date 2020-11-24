@@ -30,4 +30,12 @@ export default class MessagesList extends Block<MessagesListProps> {
             items: messages?.map((i) => i.renderToString())
         });
     }
+
+    doAfterRender() {
+        super.doAfterRender();
+
+        if (this.element) {
+            this.element.scrollTop = this.element?.scrollHeight;
+        }
+    }
 }

@@ -42,7 +42,7 @@ export default class Input extends Block<InputProps> {
         return "";
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             this.blockElement.addEventListener("focus", this.handleFocus, true);
             this.blockElement.addEventListener("blur", this.handleBlur, true);

@@ -47,7 +47,7 @@ export default class InputWithLabel<T extends InputWithLabelProps> extends Block
         return block;
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             this.blockElement.addEventListener("focus", this.handleFocus, true);
             this.blockElement.addEventListener("blur", this.handleBlur, true);

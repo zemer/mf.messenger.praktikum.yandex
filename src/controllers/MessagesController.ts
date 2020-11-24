@@ -23,9 +23,9 @@ export class MessagesController {
                 type: "get old"
             }));
 
-            // this.keepTimer = setInterval(() => {
-            //     this.socket?.send("");
-            // }, 7000);
+            this.keepTimer = setInterval(() => {
+                this.socket?.send("connection");
+            }, 7000);
         });
 
         this.socket.addEventListener("close", (event) => {
@@ -40,8 +40,6 @@ export class MessagesController {
         });
 
         this.socket.addEventListener("message", (event) => {
-            console.log("Новое сообщение", event);
-
             const data = JSON.parse(event.data);
 
             if (Array.isArray(data)) {
@@ -60,6 +58,10 @@ export class MessagesController {
                     case "user connected": {
                         store.dispatch(Store.EVENTS.USER_ENTER, JSON.parse(data.content) as number);
                         break;
+                    }
+
+                    case "error": {
+                        return;
                     }
 
                     default: {

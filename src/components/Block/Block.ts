@@ -130,7 +130,7 @@ class Block<T extends PlainObject> {
 
     setElement(element: HTMLElement) {
         this.blockElement = element;
-        this.setEvents();
+        this.doAfterRender();
 
         if (this.visible === true) {
             this.show();
@@ -139,7 +139,7 @@ class Block<T extends PlainObject> {
         }
     }
 
-    setEvents(): void {
+    doAfterRender(): void {
     }
 
     handleFocus(): void {
@@ -150,7 +150,7 @@ class Block<T extends PlainObject> {
         if (this.blockElement) {
             this.blockElement.innerHTML = block;
             Block.hydrate();
-            this.setEvents();
+            this.doAfterRender();
         }
     }
 
@@ -164,7 +164,7 @@ class Block<T extends PlainObject> {
             wrapper.appendChild(this.blockElement);
 
             Block.hydrate();
-            this.setEvents();
+            this.doAfterRender();
         }
 
         return wrapper.innerHTML;

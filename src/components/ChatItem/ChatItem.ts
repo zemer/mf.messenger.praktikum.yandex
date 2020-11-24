@@ -29,7 +29,7 @@ export default class ChatItem extends Block<IChatItemProps> {
         super.init();
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             this.blockElement.addEventListener("click", this.handleClick, true);
         }

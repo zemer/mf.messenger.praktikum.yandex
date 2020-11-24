@@ -32,7 +32,7 @@ export default class ChatUsersList extends Block<ChatUsersListProps> {
         });
     }
 
-    setEvents() {
+    doAfterRender() {
         if (this.blockElement) {
             this.blockElement.addEventListener("click", this.handleClick, true);
         }
