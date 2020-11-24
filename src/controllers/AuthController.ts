@@ -1,6 +1,6 @@
 import AuthAPI, { SingUpData } from "../api/auth-api";
 import { Store, store } from "../store/Store";
-import { TError } from "../store/types";
+import { TError, TProfile } from "../store/types";
 import Router from "../utils/router";
 
 export default class AuthController {
@@ -21,7 +21,11 @@ export default class AuthController {
 
     signUp(data: SingUpData): void {
         this.authAPI.signUp(data)
-            .then(() => Router.go("/chats"));
+            .then(() => Router.go("/chats"))
+            .catch((e: XMLHttpRequest) => {
+                const error = (JSON.parse(e.response) as TError);
+                store.dispatch(Store.EVENTS.REGISTRATION_FAILED, error.reason);
+            });
     }
 
     checkSignUp(): void {
@@ -34,10 +38,13 @@ export default class AuthController {
             .then(() => Router.go("/login"));
     }
 
-    profile(): void {
-        this.authAPI.profile()
-            .then((res) => JSON.parse(res.response))
-            .then((res) => store.dispatch(Store.EVENTS.PROFILE_CHANGED, { res }));
+    getProfile(): Promise<TProfile> {
+        return this.authAPI.profile()
+            .then((res) => JSON.parse(res.response) as TProfile)
+            .then((profile) => {
+                store.dispatch(Store.EVENTS.PROFILE_CHANGED, profile);
+                return profile;
+            });
     }
 }
 
