@@ -80,7 +80,8 @@ export default class Chat extends Block<ChatProps> {
         });
 
         this.messagesList = new MessagesList({
-            userId: this.props.profile?.id ?? 0,
+            profile: this.profileSelector(store.getState()),
+            users: this.usersSelector(store.getState()),
             messages: this.props.messages
         });
 
@@ -135,6 +136,13 @@ export default class Chat extends Block<ChatProps> {
                 users
             });
         }
+
+        if (this.messagesList) {
+            this.messagesList.setProps({
+                ...this.messagesList.props,
+                users
+            });
+        }
     }
 
     onPropsChanged() {
@@ -156,7 +164,7 @@ export default class Chat extends Block<ChatProps> {
 
         this.messagesList?.setProps({
             ...this.messagesList.props,
-            userId: profile.id
+            profile
         });
     }
 
@@ -180,7 +188,7 @@ export default class Chat extends Block<ChatProps> {
         return getFieldByPath(state, "profile");
     }
 
-    usersSelector(state: AppState): any {
+    usersSelector(state: AppState): TProfile[] {
         return getFieldByPath(state, "activeChat.users");
     }
 

@@ -1,7 +1,8 @@
 import { PlainObject } from "../../commonTypes";
-import { TMessage } from "../../store/types";
+import { TMessage, TProfile } from "../../store/types";
 
 export interface MessagesListProps extends PlainObject {
-    userId: number;
+    profile: TProfile,
+    users: TProfile[],
     messages?: TMessage[];
 }

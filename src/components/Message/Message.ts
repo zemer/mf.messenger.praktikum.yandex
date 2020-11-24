@@ -11,6 +11,7 @@ export default class Message extends Block<IMessageProps> {
         const compiled = Handlebars.compile(template);
         const time = new Date(this.props.content.time);
         return compiled({
+            name: this.props.username,
             content: this.props.content.content,
             time: `${time.getDay()}.${time.getMonth()}.${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}`
         });
