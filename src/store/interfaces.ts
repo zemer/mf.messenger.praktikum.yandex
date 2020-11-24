@@ -1,5 +1,6 @@
 export interface AppState {
     login: LoginState;
+    registration: RegistrationState;
     profile: UserState;
     chats: ChatListState;
     activeChat: ChatState;
@@ -7,6 +8,10 @@ export interface AppState {
 }
 
 export interface LoginState {
+    error?: string;
+}
+
+export interface RegistrationState {
     error?: string;
 }
 
@@ -32,6 +37,7 @@ export interface UserState {
 }
 
 export interface ChatState {
+    token: string;
     users: UserState[];
 }
 

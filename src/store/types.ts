@@ -26,3 +26,7 @@ export type TChatUsers = {
 export type TError = {
     reason: string;
 };
+
+export type TToken = {
+    token: string;
+};

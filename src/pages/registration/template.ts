@@ -16,6 +16,7 @@ const template = `
 
             <div class="centered-container">
                 {{{button}}}
+                {{{registrationError}}}
             </div>
             <div class="centered-container">
                 {{{toLogin}}}

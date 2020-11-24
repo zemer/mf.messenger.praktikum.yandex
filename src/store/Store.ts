@@ -2,17 +2,21 @@ import cloneDeep from "../utils/cloneDeep";
 import sanitize from "../utils/escape";
 import EventBus from "../utils/event-bus";
 import {
-    AppState, ChatItemState, LoginState, UserState
+    AppState, ChatItemState, LoginState, RegistrationState, UserState
 } from "./interfaces";
-import { TChatItems, TChatUsers, TProfile } from "./types";
+import {
+    TChatItems, TChatUsers, TProfile, TToken
+} from "./types";
 
 export class Store {
     static EVENTS = {
         CHATS_ITEMS_CHANGED: "CHATS_ITEMS_CHANGED",
+        CHATS_TOKEN_CHANGED: "CHATS_TOKEN_CHANGED",
         CHAT_USERS_CHANGED: "CHAT_USERS_CHANGED",
         PROFILE_CHANGED: "PROFILE_CHANGED",
         SEARCH_USERS: "SEARCH_USERS",
-        SIGN_IN_FAILED: "SIGN_IN_FAILED"
+        SIGN_IN_FAILED: "SIGN_IN_FAILED",
+        REGISTRATION_FAILED: "REGISTRATION_FAILED"
     };
 
     private state: AppState;
@@ -50,6 +54,11 @@ export class Store {
                 break;
             }
 
+            case Store.EVENTS.CHATS_TOKEN_CHANGED: {
+                clone.activeChat.token = (payload as TToken).token;
+                break;
+            }
+
             case Store.EVENTS.PROFILE_CHANGED: {
                 clone.profile = this.createUserState(payload as TProfile);
                 break;
@@ -67,6 +76,11 @@ export class Store {
 
             case Store.EVENTS.SIGN_IN_FAILED: {
                 clone.login.error = (payload as string);
+                break;
+            }
+
+            case Store.EVENTS.REGISTRATION_FAILED: {
+                clone.registration.error = (payload as string);
                 break;
             }
 
@@ -96,11 +110,13 @@ export class Store {
 
 export const initialState: AppState = {
     login: {} as LoginState,
+    registration: {} as RegistrationState,
     profile: {} as UserState,
     chats: {
         items: []
     },
     activeChat: {
+        token: "",
         users: []
     },
     search: {
