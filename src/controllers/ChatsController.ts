@@ -1,5 +1,6 @@
 import ChatAPI from "../api/chat-api";
 import { Store, store } from "../store/Store";
+import { TToken } from "../store/types";
 
 export default class ChatsController {
     private chatAPI: ChatAPI;
@@ -33,6 +34,13 @@ export default class ChatsController {
     deleteUser(userId: number, chatId: number): void {
         this.chatAPI.deleteUser(userId, chatId)
             .then(() => this.getUsers(chatId));
+    }
+
+    getToken(chatId: number): Promise<TToken> {
+        console.log(chatId);
+
+        return this.chatAPI.getToken(chatId)
+            .then((res) => JSON.parse(res.response) as TToken);
     }
 }
 

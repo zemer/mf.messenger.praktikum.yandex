@@ -1,3 +1,5 @@
+import { TMessage } from "./types";
+
 export interface AppState {
     login: LoginState;
     registration: RegistrationState;
@@ -39,6 +41,7 @@ export interface UserState {
 export interface ChatState {
     token: string;
     users: UserState[];
+    messages: TMessage[];
 }
 
 export interface SearchState {

@@ -5,7 +5,7 @@ import {
     AppState, ChatItemState, LoginState, RegistrationState, UserState
 } from "./interfaces";
 import {
-    TChatItems, TChatUsers, TProfile, TToken
+    TChatItems, TChatUsers, TMessage, TProfile, TToken
 } from "./types";
 
 export class Store {
@@ -16,7 +16,8 @@ export class Store {
         PROFILE_CHANGED: "PROFILE_CHANGED",
         SEARCH_USERS: "SEARCH_USERS",
         SIGN_IN_FAILED: "SIGN_IN_FAILED",
-        REGISTRATION_FAILED: "REGISTRATION_FAILED"
+        REGISTRATION_FAILED: "REGISTRATION_FAILED",
+        NEW_MESSAGE: "NEW_MESSAGE"
     };
 
     private state: AppState;
@@ -84,6 +85,11 @@ export class Store {
                 break;
             }
 
+            case Store.EVENTS.NEW_MESSAGE: {
+                clone.activeChat.messages.push(payload as TMessage);
+                break;
+            }
+
             default: {
                 break;
             }
@@ -117,7 +123,8 @@ export const initialState: AppState = {
     },
     activeChat: {
         token: "",
-        users: []
+        users: [],
+        messages: []
     },
     search: {
         users: []

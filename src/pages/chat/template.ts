@@ -30,9 +30,7 @@ const template = `
             </header>
             <hr class="devider" />
             <div class="messages full-width full-height column-container">
-                {{#each messages}}
-                    {{{this}}}
-                {{/each}}
+                {{{messages}}}
             </div>
             <form onsubmit="return logForm()">
                 {{{sendMessage}}}

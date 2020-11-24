@@ -1,9 +1,9 @@
 import { HTTPTransport } from "../utils/fetch";
-import baseAPIUrl from "./api-url";
+import { httpAPIUrl } from "./api-url";
 import { ChnageUserProfileRequest } from "./interfaces";
 
 export default class UserAPI {
-    private userAPIInstance = new HTTPTransport(`${baseAPIUrl}/api/v2/user`);
+    private userAPIInstance = new HTTPTransport(`${httpAPIUrl}/api/v2/user`);
 
     updateProfile(profile: ChnageUserProfileRequest): Promise<XMLHttpRequest> {
         return this.userAPIInstance.put("/profile", {

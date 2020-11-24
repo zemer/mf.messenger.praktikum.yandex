@@ -31,24 +31,15 @@
             "error",
             "windows"
         ],
-        "react/static-property-placement": [
-            "off"
-        ],
+        "react/static-property-placement": "off",
         "max-len": [
             "warn",
             300
         ],
-        "no-continue": [
-            "off"
-        ],
-        "no-restricted-syntax": [
-            "warn"
-        ],
-        "no-useless-escape": [
-            "warn"
-        ],
-        "class-methods-use-this": [
-            "off"
-        ]
+        "no-continue": "off",
+        "no-restricted-syntax": "warn",
+        "no-useless-escape": "warn",
+        "class-methods-use-this": "off",
+        "no-console": "off"
     }
 }

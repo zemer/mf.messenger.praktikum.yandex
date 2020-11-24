@@ -13,7 +13,7 @@ import getFieldByPath from "../../utils/getFieldByPath";
 import { authController } from "../../controllers/AuthController";
 import { usersController } from "../../controllers/UsersController";
 import UploadAvatar from "../../components/UploadAvatar/index";
-import baseAPIUrl from "../../api/api-url";
+import { httpAPIUrl } from "../../api/api-url";
 import { AppState, UserState } from "../../store/interfaces";
 
 export default class UserProfile extends Block<IUserProfileProps> {
@@ -128,7 +128,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
     componentDidMount() {
         super.componentDidMount();
 
-        authController.profile();
+        authController.getProfile();
     }
 
     chatsSelector(state: AppState) {
@@ -147,7 +147,7 @@ export default class UserProfile extends Block<IUserProfileProps> {
         let avatarSource = "";
 
         if (profile.avatar?.length > 0) {
-            avatarSource = baseAPIUrl + profile.avatar;
+            avatarSource = httpAPIUrl + profile.avatar;
         }
 
         if (this.avatar) {

@@ -70,8 +70,9 @@ export default class MessageInput extends Block<IMessageInputProps> {
         this.value = (ev.target as HTMLInputElement)?.value;
     }
 
-    validate() {
+    validate(): string | null {
         const message = this.checkValidation(this.value);
         this.errorHelper.showOnError(message);
+        return message;
     }
 }

@@ -1,8 +1,8 @@
 import { HTTPTransport } from "../utils/fetch";
-import baseAPIUrl from "./api-url";
+import { httpAPIUrl } from "./api-url";
 
 export default class ChatAPI {
-    private chatAPIInstance = new HTTPTransport(`${baseAPIUrl}/api/v2/chats`);
+    private chatAPIInstance = new HTTPTransport(`${httpAPIUrl}/api/v2/chats`);
 
     getChats(): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.get("/");
@@ -36,5 +36,9 @@ export default class ChatAPI {
                 chatId
             }
         });
+    }
+
+    getToken(chatId: number): Promise<XMLHttpRequest> {
+        return this.chatAPIInstance.post(`/token/${chatId}`);
     }
 }

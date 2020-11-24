@@ -30,3 +30,11 @@ export type TError = {
 export type TToken = {
     token: string;
 };
+
+export type TMessage = {
+    id: number;
+    userId: number;
+    time: string;
+    type: string;
+    content: string;
+};

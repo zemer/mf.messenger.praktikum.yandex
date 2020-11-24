@@ -2,7 +2,7 @@ import template from "./template";
 import Block from "../Block/index";
 import { ChatUserProps } from "./types";
 import Avatar from "../Avatar/index";
-import baseAPIUrl from "../../api/api-url";
+import { httpAPIUrl } from "../../api/api-url";
 import Button from "../Button/index";
 
 export default class ChatUser extends Block<ChatUserProps> {
@@ -30,7 +30,7 @@ export default class ChatUser extends Block<ChatUserProps> {
         let avatarSource = "";
 
         if (this.props.avatar) {
-            avatarSource = baseAPIUrl + this.props.avatar;
+            avatarSource = httpAPIUrl + this.props.avatar;
         }
 
         this.avatar = new Avatar({
