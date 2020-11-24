@@ -17,7 +17,8 @@ export class Store {
         SEARCH_USERS: "SEARCH_USERS",
         SIGN_IN_FAILED: "SIGN_IN_FAILED",
         REGISTRATION_FAILED: "REGISTRATION_FAILED",
-        NEW_MESSAGE: "NEW_MESSAGE"
+        NEW_MESSAGE: "NEW_MESSAGE",
+        USER_ENTER: "USER_ENTER"
     };
 
     private state: AppState;

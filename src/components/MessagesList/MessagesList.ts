@@ -8,7 +8,7 @@ import CompanionMessage from "../CompanionMessage";
 
 export default class MessagesList extends Block<MessagesListProps> {
     constructor(props: MessagesListProps) {
-        super("section", props, "column-container");
+        super("section", props, "column-container overflow-auto");
     }
 
     render() {

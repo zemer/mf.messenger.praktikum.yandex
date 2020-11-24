@@ -1,6 +1,7 @@
 import template from "./template";
 import Block from "../Block/index";
 import IMessageProps from "./types";
+import { formatDateTime } from "../../utils/dateHelper";
 
 export default class Message extends Block<IMessageProps> {
     constructor(props: IMessageProps, classes: string) {
@@ -13,7 +14,7 @@ export default class Message extends Block<IMessageProps> {
         return compiled({
             name: this.props.username,
             content: this.props.content.content,
-            time: `${time.getDay()}.${time.getMonth()}.${time.getFullYear()} ${time.getHours()}:${time.getMinutes()}`
+            time: formatDateTime(time)
         });
     }
 }

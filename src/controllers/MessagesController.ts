@@ -18,6 +18,11 @@ export class MessagesController {
         this.socket.addEventListener("open", () => {
             console.log("Соединение установлено");
 
+            this.socket?.send(JSON.stringify({
+                content: "0",
+                type: "get old"
+            }));
+
             // this.keepTimer = setInterval(() => {
             //     this.socket?.send("");
             // }, 7000);
@@ -35,7 +40,31 @@ export class MessagesController {
         });
 
         this.socket.addEventListener("message", (event) => {
-            store.dispatch(Store.EVENTS.NEW_MESSAGE, JSON.parse(event.data) as TMessage);
+            console.log("Новое сообщение", event);
+
+            const data = JSON.parse(event.data);
+
+            if (Array.isArray(data)) {
+                data.reverse().forEach((m: TMessage) => {
+                    const newMessage = m;
+                    // eslint-disable-next-line @typescript-eslint/dot-notation
+                    newMessage.userId = (m as any)["user_id"]; // Косяк в API (поля разные)
+                    store.dispatch(Store.EVENTS.NEW_MESSAGE, newMessage);
+                });
+            } else {
+                const { type } = data;
+
+                switch (type) {
+                    case "user connected": {
+                        store.dispatch(Store.EVENTS.USER_ENTER, JSON.parse(data.content) as number);
+                        break;
+                    }
+
+                    default: {
+                        store.dispatch(Store.EVENTS.NEW_MESSAGE, data as TMessage);
+                    }
+                }
+            }
         });
 
         this.socket.addEventListener("error", (event) => {

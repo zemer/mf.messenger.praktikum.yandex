@@ -29,7 +29,7 @@ const template = `
                 </div>
             </header>
             <hr class="devider" />
-            <div class="messages full-width full-height column-container">
+            <div class="messages full-width full-height column-container overflow-auto">
                 {{{messages}}}
             </div>
             <form onsubmit="return logForm()">

@@ -92,17 +92,13 @@ export default class Chat extends Block<ChatProps> {
         super.componentDidMount();
 
         chatsController.getChats();
-        chatsController.getUsers(this.props.chatId);
 
+        const usersPromise = chatsController.getUsers(this.props.chatId);
         const profilePromise = authController.getProfile();
         const tokenPromise = chatsController.getToken(this.props.chatId);
 
-        Promise.all([profilePromise, tokenPromise])
-            .then(([profile, token]) => {
-                console.log(profile, token);
-
-                messagesController.startConversation(profile.id, this.props.chatId, token.token);
-            });
+        Promise.all([usersPromise, profilePromise, tokenPromise])
+            .then(([, profile, token]) => messagesController.startConversation(profile.id, this.props.chatId, token.token));
     }
 
     render() {
