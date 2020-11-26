@@ -1,7 +1,7 @@
-import AuthAPI, { SingUpData } from "../api/auth-api";
-import { Store, store } from "../store/Store";
-import { TError, TProfile } from "../store/types";
-import Router from "../utils/router";
+import AuthAPI, { SingUpData } from "Api/auth-api";
+import { Store, store } from "Store/Store";
+import { TError, TProfile } from "Store/types";
+import Router from "Utils/router";
 
 export default class AuthController {
     private authAPI: AuthAPI;

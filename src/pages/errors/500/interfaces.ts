@@ -1,5 +1,5 @@
-import Link from "../../../components/Link/index";
-import { PlainObject } from "../../../commonTypes";
+import Link from "Components/Link";
+import { PlainObject } from "Common/commonTypes";
 
 export interface IError500Props extends PlainObject {
     toLogin: Link

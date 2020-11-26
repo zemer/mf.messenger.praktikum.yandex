@@ -1,19 +1,19 @@
-import Block from "../../components/Block/index";
-import template from "./template";
-import SendMessage from "../../components/SendMessage/index";
+import Block from "Components/Block";
+import SendMessage from "Components/SendMessage";
+import Button from "Components/Button";
+import Router from "Utils/router";
+import { chatsController } from "Controllers/ChatsController";
+import { Store, store } from "Store/Store";
+import { AppState, UserState } from "Store/interfaces";
+import getFieldByPath from "Utils/getFieldByPath";
+import SearchUser from "Components/SearchUser";
+import ChatUsersList from "Components/ChatUsersList";
+import { messagesController } from "Controllers/MessagesController";
+import { TProfile } from "Store/types";
+import { authController } from "Controllers/AuthController";
+import MessagesList from "Components/MessagesList";
 import { ChatProps } from "./interfaces";
-import Button from "../../components/Button/index";
-import Router from "../../utils/router";
-import { chatsController } from "../../controllers/ChatsController";
-import { Store, store } from "../../store/Store";
-import { AppState, UserState } from "../../store/interfaces";
-import getFieldByPath from "../../utils/getFieldByPath";
-import SearchUser from "../../components/SearchUser/index";
-import ChatUsersList from "../../components/ChatUsersList/index";
-import { messagesController } from "../../controllers/MessagesController";
-import { TProfile } from "../../store/types";
-import { authController } from "../../controllers/AuthController";
-import MessagesList from "../../components/MessagesList/MessagesList";
+import template from "./template";
 
 export default class Chat extends Block<ChatProps> {
     private toList?: Button;

@@ -1,5 +1,5 @@
-import Block from "../components/Block/Block";
-import { clear, render } from "./renderDOM";
+import Block from "Components/Block";
+import { clear, render } from "Utils/renderDOM";
 
 export default class Route {
     private pathname: string;

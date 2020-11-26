@@ -1,5 +1,5 @@
-import Message from "../Message";
-import IMessageProps from "../Message/types";
+import Message from "Components/Message";
+import IMessageProps from "Components/Message/types";
 
 export default class OwnMessage extends Message {
     constructor(props: IMessageProps) {

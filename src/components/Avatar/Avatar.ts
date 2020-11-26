@@ -1,5 +1,5 @@
+import Block from "Components/Block";
 import template from "./template";
-import Block from "../Block/index";
 import { AvatarProps } from "./types";
 
 export default class Avatar extends Block<AvatarProps> {

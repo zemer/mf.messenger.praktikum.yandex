@@ -11,6 +11,15 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".js", ".json"],
+    alias: {
+        Utils: path.resolve(__dirname, "src/utils/"),
+        Common: path.resolve(__dirname, "src/"),
+        Components: path.resolve(__dirname, "src/components"),
+        Pages: path.resolve(__dirname, "src/pages"),
+        Api: path.resolve(__dirname, "src/api"),
+        Store: path.resolve(__dirname, "src/store"),
+        Controllers: path.resolve(__dirname, "src/controllers"),
+    }
   },
   devServer: {
     contentBase: "dist",

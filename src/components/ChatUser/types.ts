@@ -1,4 +1,4 @@
-import { PlainObject } from "../../commonTypes";
+import { PlainObject } from "Common/commonTypes";
 
 export interface ChatUserProps extends PlainObject {
     id: number;

@@ -1,6 +1,6 @@
-import ChatAPI from "../api/chat-api";
-import { Store, store } from "../store/Store";
-import { TToken } from "../store/types";
+import ChatAPI from "Api/chat-api";
+import { Store, store } from "Store/Store";
+import { TToken } from "Store/types";
 
 export default class ChatsController {
     private chatAPI: ChatAPI;

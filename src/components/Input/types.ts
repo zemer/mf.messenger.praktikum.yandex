@@ -1,4 +1,4 @@
-import { PlainObject } from "../../commonTypes";
+import { PlainObject } from "Common/commonTypes";
 
 export interface InputProps extends PlainObject {
     id: string;

@@ -1,8 +1,8 @@
-import { ChnageUserProfileRequest } from "../api/interfaces";
-import UserAPI from "../api/user-api";
-import { Store, store } from "../store/Store";
-import { TChatUsers } from "../store/types";
-import Router from "../utils/router";
+import { ChnageUserProfileRequest } from "Api/interfaces";
+import UserAPI from "Api/user-api";
+import { Store, store } from "Store/Store";
+import { TChatUsers } from "Store/types";
+import Router from "Utils/router";
 
 export default class UsersController {
     private userAPI: UserAPI;

@@ -1,9 +1,9 @@
+import Button from "Components/Button";
+import Avatar from "Components/Avatar";
+import Block from "Components/Block";
+import { httpAPIUrl } from "Api/api-Url";
 import template from "./template";
-import Block from "../Block/index";
 import { ChatUserProps } from "./types";
-import Avatar from "../Avatar/index";
-import { httpAPIUrl } from "../../api/api-url";
-import Button from "../Button/index";
 
 export default class ChatUser extends Block<ChatUserProps> {
     private avatar?: Avatar;

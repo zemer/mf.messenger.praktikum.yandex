@@ -1,7 +1,7 @@
+import Block from "Components/Block";
+import Button from "Components/Button";
+import MessageInput from "Components/MessageInput";
 import template from "./template";
-import Block from "../Block/index";
-import Button from "../Button/index";
-import MessageInput from "../MessageInput/index";
 import { ISendMessageProps } from "./types";
 
 export default class SendMessage extends Block<ISendMessageProps> {

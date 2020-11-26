@@ -1,4 +1,4 @@
-import { StringIndexed } from "../utils/fetch";
+import { StringIndexed } from "Common/commonTypes";
 
 export interface ChnageUserProfileRequest extends StringIndexed {
     first_name: string;

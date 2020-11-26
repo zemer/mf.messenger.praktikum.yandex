@@ -1,4 +1,4 @@
-import Block from "../../components/Block/index";
+import Block from "Components/Block";
 import Registration from "./Registration";
 
 const page = new Registration();

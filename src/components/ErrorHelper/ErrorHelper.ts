@@ -1,5 +1,5 @@
+import Block from "Components/Block";
 import template from "./template";
-import Block from "../Block/index";
 import { IErrorHelperProps } from "./types";
 
 export default class ErrorHelper extends Block<IErrorHelperProps> {

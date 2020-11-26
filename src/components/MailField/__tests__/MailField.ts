@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
-import Block from "../../Block/Block";
-import MailField from "../index";
+import Block from "Components/Block";
+import MailField from "Components/MailField";
 
 global.Handlebars = Handlebars;
 

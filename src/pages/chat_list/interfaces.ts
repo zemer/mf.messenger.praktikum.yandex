@@ -1,6 +1,6 @@
-import { InputWithLabelProps } from "../../components/InputWithLabel/types";
-import { ChatItemState } from "../../store/interfaces";
-import { PlainObject } from "../../commonTypes";
+import { InputWithLabelProps } from "Components/InputWithLabel/types";
+import { ChatItemState } from "Store/interfaces";
+import { PlainObject } from "Common/commonTypes";
 
 export interface ChatListProps extends PlainObject {
     items: ChatItemState[];

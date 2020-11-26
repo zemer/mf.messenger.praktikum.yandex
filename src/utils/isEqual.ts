@@ -1,4 +1,4 @@
-import { PlainObject } from "../commonTypes";
+import { PlainObject } from "Common/commonTypes";
 
 function isPlainObject(value: unknown): value is PlainObject {
     return typeof value === "object"

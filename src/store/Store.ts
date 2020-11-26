@@ -1,6 +1,6 @@
-import cloneDeep from "../utils/cloneDeep";
-import sanitize from "../utils/escape";
-import EventBus from "../utils/event-bus";
+import cloneDeep from "Utils/cloneDeep";
+import sanitize from "Utils/escape";
+import EventBus from "Utils/event-bus";
 import {
     AppState, ChatItemState, LoginState, RegistrationState, UserState
 } from "./interfaces";

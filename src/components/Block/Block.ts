@@ -1,6 +1,6 @@
-import EventBus from "../../utils/event-bus";
-import isEqual from "../../utils/isEqual";
-import { PlainObject } from "../../commonTypes";
+import EventBus from "Utils/event-bus";
+import isEqual from "Utils/isEqual";
+import { PlainObject } from "Common/commonTypes";
 
 interface IMetaInfo<T> {
     tagName: string;

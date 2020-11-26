@@ -1,5 +1,5 @@
-import Block from "../Block/index";
-import ErrorHelper from "../ErrorHelper/index";
+import Block from "Components/Block";
+import ErrorHelper from "Components/ErrorHelper";
 import { InputProps } from "./types";
 
 export default class Input extends Block<InputProps> {

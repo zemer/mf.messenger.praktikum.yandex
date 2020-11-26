@@ -1,5 +1,5 @@
-import { PlainObject } from "../../commonTypes";
-import { TMessage, TProfile } from "../../store/types";
+import { PlainObject } from "Common/commonTypes";
+import { TMessage, TProfile } from "Store/types";
 
 export interface MessagesListProps extends PlainObject {
     profile: TProfile,

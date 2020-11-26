@@ -1,9 +1,9 @@
+import Block from "Components/Block";
+import Button from "Components/Button";
+import Input from "Components/Input";
+import sanitize from "Utils/escape";
 import template from "./template";
-import Block from "../Block/index";
 import { CreateChatProps } from "./types";
-import Button from "../Button/index";
-import Input from "../Input/index";
-import sanitize from "../../utils/escape";
 
 export default class CreateChat extends Block<CreateChatProps> {
     private newChatName?: Input;

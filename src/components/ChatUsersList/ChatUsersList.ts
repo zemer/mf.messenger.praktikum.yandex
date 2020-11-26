@@ -1,8 +1,8 @@
+import Block from "Components/Block";
+import { UserState } from "Store/interfaces";
+import ChatUser from "Components/ChatUser";
 import template from "./template";
-import Block from "../Block/index";
 import { ChatUsersListProps } from "./types";
-import { UserState } from "../../store/interfaces";
-import ChatUser from "../ChatUser/index";
 
 export default class ChatUsersList extends Block<ChatUsersListProps> {
     constructor(props: ChatUsersListProps) {

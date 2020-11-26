@@ -1,4 +1,4 @@
-import Block from "../../../components/Block/Block";
+import Block from "Components/Block";
 import Error500 from "./Error500";
 
 const temp = new Error500();

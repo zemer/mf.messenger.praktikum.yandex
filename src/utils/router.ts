@@ -1,5 +1,5 @@
-import Block from "../components/Block/Block";
-import Route from "./route";
+import Block from "Components/Block";
+import Route from "Utils/route";
 
 export default class Router {
     static instance: Router;

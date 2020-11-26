@@ -1,5 +1,5 @@
 import Handlebars from "handlebars";
-import Block from "../../Block/Block";
+import Block from "Components/Block";
 import Button from "../index";
 import "@testing-library/jest-dom/extend-expect";
 

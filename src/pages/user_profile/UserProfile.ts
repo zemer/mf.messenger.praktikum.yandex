@@ -1,20 +1,20 @@
-import Block from "../../components/Block/index";
-import Button from "../../components/Button/index";
-import template from "./template";
-import LoginField from "../../components/LoginField/index";
-import PasswordField from "../../components/PasswordField/index";
-import NotEmptyField from "../../components/NotEmptyField/index";
-import MailField from "../../components/MailField/index";
-import PhoneField from "../../components/PhoneField/index";
+import Block from "Components/Block";
+import Button from "Components/Button";
+import LoginField from "Components/LoginField";
+import PasswordField from "Components/PasswordField";
+import NotEmptyField from "Components/NotEmptyField";
+import MailField from "Components/MailField";
+import PhoneField from "Components/PhoneField";
+import Router from "Utils/router";
+import { Store, store } from "Store/Store";
+import getFieldByPath from "Utils/getFieldByPath";
+import { authController } from "Controllers/AuthController";
+import { usersController } from "Controllers/UsersController";
+import UploadAvatar from "Components/UploadAvatar";
+import { httpAPIUrl } from "Api/api-Url";
+import { AppState, UserState } from "Store/interfaces";
 import { IUserProfileProps } from "./interfaces";
-import Router from "../../utils/router";
-import { Store, store } from "../../store/Store";
-import getFieldByPath from "../../utils/getFieldByPath";
-import { authController } from "../../controllers/AuthController";
-import { usersController } from "../../controllers/UsersController";
-import UploadAvatar from "../../components/UploadAvatar/index";
-import { httpAPIUrl } from "../../api/api-url";
-import { AppState, UserState } from "../../store/interfaces";
+import template from "./template";
 
 export default class UserProfile extends Block<IUserProfileProps> {
     private avatarFile: File | null;

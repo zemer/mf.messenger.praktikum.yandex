@@ -1,3 +1,3 @@
-import { InputWithLabelProps } from "../InputWithLabel/types";
+import { InputWithLabelProps } from "Components/InputWithLabel/types";
 
 export type INotEmptyFieldProps = InputWithLabelProps;

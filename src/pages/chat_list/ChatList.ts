@@ -1,14 +1,14 @@
-import Block from "../../components/Block/index";
-import template from "./template";
+import Block from "Components/Block";
+import { chatsController } from "Controllers/ChatsController";
+import { Store, store } from "Store/Store";
+import ChatItem from "Components/ChatItem";
+import getFieldByPath from "Utils/getFieldByPath";
+import Button from "Components/Button";
+import Router from "Utils/router";
+import CreateChat from "Components/CreateChat";
+import { AppState, ChatItemState } from "Store/interfaces";
 import { ChatListProps } from "./interfaces";
-import { chatsController } from "../../controllers/ChatsController";
-import { Store, store } from "../../store/Store";
-import ChatItem from "../../components/ChatItem/index";
-import getFieldByPath from "../../utils/getFieldByPath";
-import Button from "../../components/Button/index";
-import Router from "../../utils/router";
-import CreateChat from "../../components/CreateChat/index";
-import { AppState, ChatItemState } from "../../store/interfaces";
+import template from "./template";
 
 export default class ChatList extends Block<ChatListProps> {
     private toProfile?: Button;

@@ -1,14 +1,14 @@
+import Block from "Components/Block";
+import Button from "Components/Button";
+import Input from "Components/Input";
+import { Store, store } from "Store/Store";
+import { AppState, UserState } from "Store/interfaces";
+import getFieldByPath from "Utils/getFieldByPath";
+import { usersController } from "Controllers/UsersController";
+import ChatUser from "Components/ChatUser";
+import sanitize from "Utils/escape";
 import template from "./template";
-import Block from "../Block/index";
 import { FindUserProps } from "./types";
-import Button from "../Button/index";
-import Input from "../Input/index";
-import { Store, store } from "../../store/Store";
-import { AppState, UserState } from "../../store/interfaces";
-import getFieldByPath from "../../utils/getFieldByPath";
-import { usersController } from "../../controllers/UsersController";
-import ChatUser from "../ChatUser/index";
-import sanitize from "../../utils/escape";
 
 export default class SearchUser extends Block<FindUserProps> {
     private searchField?: Input;

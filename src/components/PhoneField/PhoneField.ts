@@ -1,4 +1,4 @@
-import InputWithLabel from "../InputWithLabel/index";
+import InputWithLabel from "Components/InputWithLabel/index";
 import { IPhoneFieldProps } from "./types";
 
 export default class PhoneField extends InputWithLabel<IPhoneFieldProps> {

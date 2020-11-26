@@ -1,7 +1,7 @@
+import Avatar from "Components/Avatar";
+import Block from "Components/Block";
 import template from "./template";
-import Block from "../Block/index";
 import { IChatItemProps } from "./types";
-import Avatar from "../Avatar/index";
 
 export default class ChatItem extends Block<IChatItemProps> {
     private avatar?: Avatar;

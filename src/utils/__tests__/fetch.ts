@@ -1,4 +1,4 @@
-import { HTTPTransport, queryStringify } from "../fetch";
+import { HTTPTransport, queryStringify } from "Utils/fetch";
 
 global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 

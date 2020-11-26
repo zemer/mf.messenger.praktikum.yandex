@@ -1,18 +1,18 @@
-import Block from "../../components/Block/index";
-import Button from "../../components/Button/index";
-import template from "./template";
-import LoginField from "../../components/LoginField/index";
-import PasswordField from "../../components/PasswordField/index";
-import NotEmptyField from "../../components/NotEmptyField/index";
-import MailField from "../../components/MailField/index";
-import PhoneField from "../../components/PhoneField/index";
+import Block from "Components/Block";
+import Button from "Components/Button";
+import LoginField from "Components/LoginField";
+import PasswordField from "Components/PasswordField";
+import NotEmptyField from "Components/NotEmptyField";
+import MailField from "Components/MailField";
+import PhoneField from "Components/PhoneField";
+import Link from "Components/Link";
+import { authController } from "Controllers/AuthController";
+import { AppState, RegistrationState } from "Store/interfaces";
+import getFieldByPath from "Utils/getFieldByPath";
+import { Store, store } from "Store/Store";
+import ErrorHelper from "Components/ErrorHelper";
 import { RegistrationProps } from "./interfaces";
-import Link from "../../components/Link/index";
-import { authController } from "../../controllers/AuthController";
-import { AppState, RegistrationState } from "../../store/interfaces";
-import getFieldByPath from "../../utils/getFieldByPath";
-import { Store, store } from "../../store/Store";
-import ErrorHelper from "../../components/ErrorHelper";
+import template from "./template";
 
 export default class Registration extends Block<RegistrationProps> {
     private firtName?: NotEmptyField;

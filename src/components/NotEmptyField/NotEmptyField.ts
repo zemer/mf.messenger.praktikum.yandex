@@ -1,5 +1,5 @@
-import sanitize from "../../utils/escape";
-import InputWithLabel from "../InputWithLabel/index";
+import sanitize from "Utils/escape";
+import InputWithLabel from "Components/InputWithLabel";
 import { INotEmptyFieldProps } from "./types";
 
 export default class NotEmptyField extends InputWithLabel<INotEmptyFieldProps> {

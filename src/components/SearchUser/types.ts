@@ -1,5 +1,5 @@
-import { UserState } from "../../store/interfaces";
-import { PlainObject } from "../../commonTypes";
+import { UserState } from "Store/interfaces";
+import { PlainObject } from "Common/commonTypes";
 
 export interface FindUserProps extends PlainObject {
     users?: UserState[];

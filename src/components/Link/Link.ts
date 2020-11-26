@@ -1,5 +1,5 @@
-import Router from "../../utils/router";
-import Block from "../Block/index";
+import Block from "Components/Block";
+import Router from "Utils/router";
 import { LinkProps } from "./types";
 
 export default class Link extends Block<LinkProps> {

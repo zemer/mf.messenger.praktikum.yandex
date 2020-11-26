@@ -1,6 +1,4 @@
-import { PlainObject } from "../commonTypes";
-
-export type StringIndexed = Record<string, unknown>;
+import { PlainObject, StringIndexed } from "Common/commonTypes";
 
 const METHODS = {
     GET: "GET",

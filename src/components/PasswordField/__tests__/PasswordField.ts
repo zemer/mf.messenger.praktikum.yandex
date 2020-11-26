@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
-import Block from "../../Block/Block";
-import PasswordField from "../index";
+import Block from "Components/Block";
+import PasswordField from "Components/PasswordField";
 
 global.Handlebars = Handlebars;
 

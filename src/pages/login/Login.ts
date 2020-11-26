@@ -1,15 +1,15 @@
-import Block from "../../components/Block/index";
-import Button from "../../components/Button/index";
+import Block from "Components/Block";
+import Button from "Components/Button";
+import LoginField from "Components/LoginField";
+import PasswordField from "Components/PasswordField";
+import Link from "Components/Link";
+import { authController } from "Controllers/AuthController";
+import ErrorHelper from "Components/ErrorHelper/index";
+import { Store, store } from "Store/Store";
+import { AppState, LoginState } from "Store/interfaces";
+import getFieldByPath from "Utils/getFieldByPath";
 import template from "./template";
-import LoginField from "../../components/LoginField/index";
-import PasswordField from "../../components/PasswordField/index";
 import { ILoginProps } from "./interfaces";
-import Link from "../../components/Link/index";
-import { authController } from "../../controllers/AuthController";
-import ErrorHelper from "../../components/ErrorHelper/index";
-import { Store, store } from "../../store/Store";
-import { AppState, LoginState } from "../../store/interfaces";
-import getFieldByPath from "../../utils/getFieldByPath";
 
 export default class Login extends Block<ILoginProps> {
     private login?: LoginField;

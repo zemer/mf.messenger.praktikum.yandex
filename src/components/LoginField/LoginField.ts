@@ -1,4 +1,4 @@
-import InputWithLabel from "../InputWithLabel/index";
+import InputWithLabel from "Components/InputWithLabel";
 import { ILoginFieldProps } from "./types";
 
 export default class LoginField extends InputWithLabel<ILoginFieldProps> {

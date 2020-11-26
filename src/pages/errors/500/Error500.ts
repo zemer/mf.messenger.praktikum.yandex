@@ -1,7 +1,7 @@
-import Block from "../../../components/Block/Block";
+import Block from "Components/Block";
+import Link from "Components/Link";
 import { IError500Props } from "./interfaces";
 import template from "./template";
-import Link from "../../../components/Link/index";
 
 export default class Error404 extends Block<IError500Props> {
     constructor() {

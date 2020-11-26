@@ -1,4 +1,4 @@
-import { StringIndexed } from "./fetch";
+import { StringIndexed } from "Common/commonTypes";
 
 export default function cloneDeep(obj: any): any {
     if (obj === null || obj === undefined) {

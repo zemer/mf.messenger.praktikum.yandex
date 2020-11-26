@@ -1,5 +1,5 @@
-import Block from "../Block/index";
-import ErrorHelper from "../ErrorHelper/index";
+import Block from "Components/Block";
+import ErrorHelper from "Components/ErrorHelper";
 import template from "./template";
 import { IMessageInputProps } from "./types";
 

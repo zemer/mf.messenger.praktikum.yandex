@@ -1,5 +1,5 @@
-import { UserState } from "../../store/interfaces";
-import { PlainObject } from "../../commonTypes";
+import { UserState } from "Store/interfaces";
+import { PlainObject } from "Common/commonTypes";
 
 export interface ChatUsersListProps extends PlainObject {
     users?: UserState[];

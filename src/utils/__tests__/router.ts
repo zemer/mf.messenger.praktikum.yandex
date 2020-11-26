@@ -1,5 +1,5 @@
-import ChatList from "../../pages/chat_list/ChatList";
-import Router from "../router";
+import Router from "Utils/router";
+import ChatList from "Pages/chat_list/ChatList";
 
 describe("Router", () => {
     describe("getRoute", () => {

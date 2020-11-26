@@ -1,6 +1,6 @@
 import Handlebars from "handlebars";
-import Block from "../../Block/index";
-import PhoneField from "../index";
+import Block from "Components/Block";
+import PhoneField from "Components/PhoneField";
 import "@testing-library/jest-dom/extend-expect";
 
 global.Handlebars = Handlebars;

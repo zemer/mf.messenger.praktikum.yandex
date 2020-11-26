@@ -1,5 +1,5 @@
-import { HTTPTransport } from "../utils/fetch";
-import { httpAPIUrl } from "./api-url";
+import { HTTPTransport } from "Utils/fetch";
+import { httpAPIUrl } from "Api/api-Url";
 
 export default class ChatAPI {
     private chatAPIInstance = new HTTPTransport(`${httpAPIUrl}/api/v2/chats`);

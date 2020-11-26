@@ -1,4 +1,4 @@
-import InputWithLabel from "../InputWithLabel/index";
+import InputWithLabel from "Components/InputWithLabel";
 import { IMailFieldProps } from "./types";
 
 export default class MailField extends InputWithLabel<IMailFieldProps> {

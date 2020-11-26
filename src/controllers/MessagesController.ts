@@ -1,6 +1,6 @@
-import { socketAPIUrl } from "../api/api-url";
-import { Store, store } from "../store/Store";
-import { TMessage } from "../store/types";
+import { socketAPIUrl } from "Api/api-Url";
+import { Store, store } from "Store/Store";
+import { TMessage } from "Store/types";
 
 export class MessagesController {
     private socket: WebSocket | null = null;

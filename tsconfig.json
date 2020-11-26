@@ -23,7 +23,31 @@
         "typeRoots": [
             "./node_modules/@types",
             "./typings"
-        ]
+        ],
+        "baseUrl": "./",
+        "paths": {
+            "Utils/*": [
+                "./src/utils/*"
+            ],
+            "Common/*": [
+                "./src/*"
+            ],
+            "Components/*": [
+                "./src/Components/*"
+            ],
+            "Pages/*": [
+                "./src/pages/*"
+            ],
+            "Api/*": [
+                "./src/api/*"
+            ],
+            "Store/*": [
+                "./src/store/*"
+            ],
+            "Controllers/*": [
+                "./src/controllers/*"
+            ]
+        }
     },
     "include": [
         "src/**/*"

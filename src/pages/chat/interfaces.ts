@@ -1,6 +1,6 @@
-import { UserState } from "../../store/interfaces";
-import { PlainObject } from "../../commonTypes";
-import { TMessage } from "../../store/types";
+import { UserState } from "Store/interfaces";
+import { PlainObject } from "Common/commonTypes";
+import { TMessage } from "Store/types";
 
 export interface ChatProps extends PlainObject {
     chatId: number;

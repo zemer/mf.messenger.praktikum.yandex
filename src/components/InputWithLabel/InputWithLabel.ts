@@ -1,6 +1,6 @@
+import Block from "Components/Block";
+import ErrorHelper from "Components/ErrorHelper";
 import template from "./template";
-import Block from "../Block/index";
-import ErrorHelper from "../ErrorHelper/index";
 import { InputWithLabelProps } from "./types";
 
 export default class InputWithLabel<T extends InputWithLabelProps> extends Block<T> {

@@ -1,10 +1,10 @@
+import Block from "Components/Block";
+import { TMessage, TProfile } from "Store/types";
+import OwnMessage from "Components/OwnMessage";
+import IMessageProps from "Components/Message/types";
+import CompanionMessage from "Components/CompanionMessage";
 import template from "./template";
-import Block from "../Block/index";
 import { MessagesListProps } from "./types";
-import { TMessage, TProfile } from "../../store/types";
-import OwnMessage from "../OwnMessage";
-import IMessageProps from "../Message/types";
-import CompanionMessage from "../CompanionMessage";
 
 export default class MessagesList extends Block<MessagesListProps> {
     constructor(props: MessagesListProps) {
