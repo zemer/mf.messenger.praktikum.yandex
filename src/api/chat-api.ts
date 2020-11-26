@@ -14,9 +14,7 @@ export default class ChatAPI {
 
     createChat(title: string): Promise<XMLHttpRequest> {
         return this.chatAPIInstance.post("/", {
-            data: {
-                title
-            }
+            data: { title }
         });
     }
 

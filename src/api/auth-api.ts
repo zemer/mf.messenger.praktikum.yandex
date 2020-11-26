@@ -23,9 +23,7 @@ export default class AuthAPI {
     }
 
     signUp(data: SingUpData): Promise<XMLHttpRequest> {
-        return this.authAPIInstance.post("/signup", {
-            data
-        });
+        return this.authAPIInstance.post("/signup", { data });
     }
 
     logout(): Promise<XMLHttpRequest> {

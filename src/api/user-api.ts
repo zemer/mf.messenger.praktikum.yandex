@@ -6,9 +6,7 @@ export default class UserAPI {
     private userAPIInstance = new HTTPTransport(`${httpAPIUrl}/api/v2/user`);
 
     updateProfile(profile: ChnageUserProfileRequest): Promise<XMLHttpRequest> {
-        return this.userAPIInstance.put("/profile", {
-            data: profile
-        });
+        return this.userAPIInstance.put("/profile", { data: profile });
     }
 
     updatePassword(oldPassword: string, newPassword: string): Promise<XMLHttpRequest> {
@@ -36,9 +34,7 @@ export default class UserAPI {
 
     search(login: string): Promise<XMLHttpRequest> {
         return this.userAPIInstance.post("/search", {
-            data: {
-                login
-            }
+            data: { login }
         });
     }
 }
