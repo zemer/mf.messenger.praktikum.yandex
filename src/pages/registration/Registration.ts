@@ -85,12 +85,12 @@ export default class Registration extends Block<RegistrationProps> {
 
                 if (validation.every((v) => v)) {
                     authController.signUp({
-                        first_name: this.firtName?.value ?? "",
-                        second_name: this.secondName?.value ?? "",
-                        email: this.email?.value ?? "",
-                        login: this.login?.value ?? "",
-                        password: this.password?.value ?? "",
-                        phone: this.phone?.value ?? ""
+                        first_name: this.firtName?.value || "",
+                        second_name: this.secondName?.value || "",
+                        email: this.email?.value || "",
+                        login: this.login?.value || "",
+                        password: this.password?.value || "",
+                        phone: this.phone?.value || ""
                     });
                 }
             }

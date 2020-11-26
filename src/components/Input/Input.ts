@@ -33,8 +33,8 @@ export default class Input extends Block<InputProps> {
 
         if (element) {
             element.setAttribute("id", this.props.id);
-            element.setAttribute("type", this.props.type ?? "text");
-            element.setAttribute("placeholder", this.props.placeholder ?? "");
+            element.setAttribute("type", this.props.type || "text");
+            element.setAttribute("placeholder", this.props.placeholder || "");
         }
     }
 

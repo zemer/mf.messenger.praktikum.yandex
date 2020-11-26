@@ -5,7 +5,7 @@ export default class PhoneField extends InputWithLabel<IPhoneFieldProps> {
     constructor(props: IPhoneFieldProps) {
         super({
             ...props,
-            placeholder: props.placeholder ?? "+7(999)456-78-90"
+            placeholder: props.placeholder || "+7(999)456-78-90"
         });
     }
 

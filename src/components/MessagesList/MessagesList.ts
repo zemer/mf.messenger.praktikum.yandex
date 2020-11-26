@@ -20,7 +20,7 @@ export default class MessagesList extends Block<MessagesListProps> {
                 } as IMessageProps);
             }
             return new CompanionMessage({
-                username: this.props.users.find((u: TProfile) => u.id === i.userId)?.login ?? "?",
+                username: this.props.users.find((u: TProfile) => u.id === i.userId)?.login || "?",
                 content: i
             } as IMessageProps);
         });

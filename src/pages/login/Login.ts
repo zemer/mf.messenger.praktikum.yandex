@@ -47,7 +47,7 @@ export default class Login extends Block<ILoginProps> {
                 const passwordValidate = this.password?.validate();
 
                 if (loginValidate && passwordValidate) {
-                    authController.signIn(this.login?.value ?? "", this.password?.value ?? "");
+                    authController.signIn(this.login?.value || "", this.password?.value || "");
                 }
             }
         }, "button button-login");

@@ -147,7 +147,7 @@ export default class Chat extends Block<ChatProps> {
 
         this.setProps({
             ...this.props,
-            title: chat?.title ?? ""
+            title: chat?.title || ""
         });
     }
 

@@ -218,13 +218,13 @@ export default class UserProfile extends Block<IUserProfileProps> {
 
         if (!isInvalidForm) {
             usersController.updateProfile({
-                first_name: this.firstName?.value ?? "",
-                second_name: this.secondName?.value ?? "",
-                login: this.login?.value ?? "",
-                display_name: this.firstName?.value ?? "",
-                email: this.email?.value ?? "",
-                phone: this.phone?.value ?? ""
-            }, this.oldPassword?.value ?? "", this.newPassword?.value ?? "", this.avatarFile);
+                first_name: this.firstName?.value || "",
+                second_name: this.secondName?.value || "",
+                login: this.login?.value || "",
+                display_name: this.firstName?.value || "",
+                email: this.email?.value || "",
+                phone: this.phone?.value || ""
+            }, this.oldPassword?.value || "", this.newPassword?.value || "", this.avatarFile);
         }
     }
 }

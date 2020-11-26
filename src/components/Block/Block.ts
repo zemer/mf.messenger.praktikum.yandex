@@ -42,8 +42,6 @@ class Block<T extends PlainObject> {
 
     eventBus: () => EventBus;
 
-    // private _subscriptions: Map<any, any> = new Map();
-
     /** JSDoc
      * @param {string} tagName
      * @param {Object} props
@@ -78,7 +76,7 @@ class Block<T extends PlainObject> {
 
     createResources() {
         const tagName = this.blockMeta?.tagName;
-        this.blockElement = this.createDocumentElement(tagName ?? "div");
+        this.blockElement = this.createDocumentElement(tagName || "div");
 
         if (this.blockMeta?.classes) {
             this.blockElement.className = this.blockMeta.classes;

@@ -5,7 +5,7 @@ export default class MailField extends InputWithLabel<IMailFieldProps> {
     constructor(props: IMailFieldProps) {
         super({
             ...props,
-            placeholder: props.placeholder ?? "mail@yandex.ru",
+            placeholder: props.placeholder || "mail@yandex.ru",
             type: "text"
         });
     }

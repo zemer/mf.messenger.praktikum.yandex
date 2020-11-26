@@ -20,7 +20,7 @@ export default class SendMessage extends Block<ISendMessageProps> {
             value: "GO",
             handleClick: () => {
                 if (this.message?.validate() === null) {
-                    this.props.onSend(this.message?.value ?? "");
+                    this.props.onSend(this.message?.value || "");
                     this.message.value = "";
                 }
             }
