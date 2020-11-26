@@ -1,5 +1,4 @@
 node_modules
 static/js/*
 static/stylesheets/*
-dist/global.css
-dist/main.js
+dist

@@ -1,10 +1,9 @@
 const express = require("express");
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
-app.use(express.static("./dist/"));
-app.use(express.static("./"));
+app.use(express.static("dist"));
 
 app.get("*", function(req, res) {
   res.sendFile(__dirname + "/dist/index.html");

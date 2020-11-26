@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -15,9 +16,8 @@ module.exports = {
     contentBase: "dist",
     compress: true,
     port: 3000,
-    historyApiFallback: {
-      index: "index.html",
-    },
+    publicPath: '/',
+    historyApiFallback: true,
   },
   devtool: "inline-source-map",
   module: {
@@ -50,5 +50,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "global.css",
     }),
+    new HtmlWebpackPlugin({
+        template: "./static/index.html"
+    })
   ],
 };
