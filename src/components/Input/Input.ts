@@ -80,10 +80,8 @@ export default class Input extends Block<InputProps> {
         return true;
     }
 
-    checkValidation(value: string | null): string | null {
-        // value нужен в дочерних классах
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        value?.length;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    checkValidation(_value: string | null): string | null {
         return null;
     }
 }

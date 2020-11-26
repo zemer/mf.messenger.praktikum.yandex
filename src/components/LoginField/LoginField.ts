@@ -12,7 +12,7 @@ export default class LoginField extends InputWithLabel<ILoginFieldProps> {
         }
 
         const nameRegex = /^[a-zA-Z]+$/;
-        if (value.match(nameRegex) == null) {
+        if (!value.match(nameRegex)) {
             return "Логин может содержать только латинские символы";
         }
 

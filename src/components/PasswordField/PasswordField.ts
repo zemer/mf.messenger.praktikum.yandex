@@ -16,7 +16,7 @@ export default class PasswordField extends InputWithLabel<IPasswordFieldProps> {
         }
 
         const nameRegex = /^[a-zA-Z\d]+$/;
-        if (value.match(nameRegex) == null) {
+        if (!value.match(nameRegex)) {
             return "Пароль может содержать латинские символы и цифры";
         }
 

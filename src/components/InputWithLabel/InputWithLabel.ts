@@ -12,7 +12,7 @@ export default class InputWithLabel<T extends InputWithLabelProps> extends Block
         super("div",
             {
                 ...props,
-                type: props && !props.type ? "text" : props.type
+                type: props?.type || "text"
             });
 
         this.value = null;
@@ -85,10 +85,8 @@ export default class InputWithLabel<T extends InputWithLabelProps> extends Block
         return true;
     }
 
-    checkValidation(value: string | null): string | null {
-        // value нужен в дочерних классах
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        value?.length;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    checkValidation(_value: string | null): string | null {
         return null;
     }
 }

@@ -20,7 +20,7 @@ export default class MailField extends InputWithLabel<IMailFieldProps> {
         }
 
         const nameRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
-        if (value.match(nameRegex) == null) {
+        if (!value.match(nameRegex)) {
             return "Неверный формат";
         }
 
