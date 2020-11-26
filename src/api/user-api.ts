@@ -24,8 +24,7 @@ export default class UserAPI {
             formdata.append("avatar", avatar);
 
             return this.userAPIInstance.put("/profile/avatar", {
-                data: formdata,
-                headers: {} // Заголовок multipart/form-data
+                data: formdata
             });
         }
 

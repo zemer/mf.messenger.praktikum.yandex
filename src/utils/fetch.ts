@@ -65,6 +65,14 @@ export class HTTPTransport {
     request = (url: string, options: HttpOptions, method: string, timeout = 5000): Promise<XMLHttpRequest> => {
         const { headers, data, withCredentials } = options;
 
+        // Для FormData не нужно указывать ContentType
+        const mergedHeaders = data instanceof FormData
+            ? { ...headers }
+            : {
+                ...this.defaultOptions.headers,
+                ...headers
+            };
+
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.timeout = timeout;
@@ -74,10 +82,8 @@ export class HTTPTransport {
             xhr.open(method, resultUrl);
             xhr.withCredentials = withCredentials ?? true;
 
-            if (headers) {
-                Object.entries(headers).forEach((pair) => xhr.setRequestHeader(pair[0], pair[1]));
-            } else {
-                xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+            if (mergedHeaders) {
+                Object.entries(mergedHeaders).forEach((pair) => xhr.setRequestHeader(pair[0], pair[1]));
             }
 
             xhr.onload = () => {
