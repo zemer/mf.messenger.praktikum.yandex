@@ -11,7 +11,7 @@ import getFieldByPath from "Utils/getFieldByPath";
 import { authController } from "Controllers/AuthController";
 import { usersController } from "Controllers/UsersController";
 import UploadAvatar from "Components/UploadAvatar";
-import { httpAPIUrl } from "Api/api-Url";
+import { httpAPIUrl } from "Api/api-url";
 import { AppState, UserState } from "Store/interfaces";
 import { IUserProfileProps } from "./interfaces";
 import template from "./template";

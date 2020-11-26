@@ -1,5 +1,5 @@
 import { HTTPTransport } from "Utils/fetch";
-import { httpAPIUrl } from "Api/api-Url";
+import { httpAPIUrl } from "Api/api-url";
 import { ChnageUserProfileRequest } from "./interfaces";
 
 export default class UserAPI {

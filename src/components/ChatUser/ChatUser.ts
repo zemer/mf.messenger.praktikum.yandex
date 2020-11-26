@@ -1,7 +1,7 @@
 import Button from "Components/Button";
 import Avatar from "Components/Avatar";
 import Block from "Components/Block";
-import { httpAPIUrl } from "Api/api-Url";
+import { httpAPIUrl } from "Api/api-url";
 import template from "./template";
 import { ChatUserProps } from "./types";
 

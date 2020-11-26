@@ -1,4 +1,4 @@
-import { socketAPIUrl } from "Api/api-Url";
+import { socketAPIUrl } from "Api/api-url";
 import { Store, store } from "Store/Store";
 import { TMessage } from "Store/types";
 
